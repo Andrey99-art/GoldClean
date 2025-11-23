@@ -1,0 +1,50 @@
+manifest_version: "2.5"
+project_metadata:
+  project_name: "cleaning_service"
+  django_version: "4.2.25"
+  last_updated: "2025-11-23"
+  current_focus: "Ready for Deployment / Content"
+
+dependencies:
+  - django==4.2.25
+  - stripe==13.2.0
+  - django-modeltranslation
+  - django-solo
+  - pillow
+  # Dev tools removed (debug-toolbar)
+
+file_tree:
+  cleaning_service/
+    config/
+      settings.py: [Clean configuration, No debug middleware]
+      urls.py: [Standard routing + Media serving]
+    core/
+      views.py: [Logic: Calculate Price -> Save to Session]
+    orders/
+      views.py: [Logic: Read Session -> Create Order]
+      tests/
+        test_integration.py: [PASSED: Full E2E Flow]
+
+schema_summary:
+  models:
+    orders.Order:
+      fields: [additional_services_details (JSON), total_price, status]
+      note: "Secure Snapshot pattern implemented."
+
+architectural_decisions:
+  - decision: "Cleanup Dev Tools"
+    rationale: "Removed Django Debug Toolbar to keep the codebase clean and production-ready."
+    date: "2025-11-23"
+  - decision: "Snapshot Pattern"
+    rationale: "Orders are created strictly from backend-calculated Session Data."
+    status: "Active"
+
+session_context:
+  status: "Clean & Stable"
+  recent_actions:
+    - "Removed debug_toolbar from settings and urls."
+    - "Verified system stability."
+  next_steps_suggestions:
+    - "Content: Add real Polish/English translations for services."
+    - "Deployment: Prepare 'gunicorn' and 'nginx' configs."
+    - "UI: Final visual polish (if needed)."

@@ -1,0 +1,3215 @@
+# Ukrainian translation for PACKAGE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-14 19:14+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: .\accounts\apps.py:8
+msgid "Accounts Management"
+msgstr "Управління акаунтами"
+
+#: .\accounts\forms.py:10
+msgid "Email"
+msgstr "Електронна пошта"
+
+#: .\accounts\models.py:7 .\orders\models.py:20
+msgid "User"
+msgstr "Користувач"
+
+#: .\accounts\models.py:9
+msgid "Penalty Balance"
+msgstr "Штрафний баланс"
+
+#: .\accounts\models.py:19
+msgid "Profile"
+msgstr "Профіль"
+
+#: .\accounts\models.py:20
+msgid "Profiles"
+msgstr "Професіоналізм"
+
+#: .\accounts\views.py:58
+#, python-brace-format
+msgid "You have registered successfully. Welcome, {username}!"
+msgstr "Ви успішно зареєструвалися. Ласкаво просимо, {username}!"
+
+#: .\accounts\views.py:89
+msgid "This order can no longer be edited."
+msgstr "Це замовлення більше не можна редагувати."
+
+#: .\accounts\views.py:112
+msgid "Order has been updated successfully."
+msgstr "Замовлення було успішно оновлено."
+
+#: .\accounts\views.py:131
+msgid "This order can no longer be canceled."
+msgstr "Це замовлення більше не можна скасувати."
+
+#: .\accounts\views.py:156
+#, fuzzy, python-brace-format
+#| msgid "[System] Canceled with a penalty of {fee} zł."
+msgid ""
+"\n"
+"\n"
+"[System] Canceled with a penalty of {fee} zł."
+msgstr "[Система] Скасовано зі штрафом у розмірі {fee} zł."
+
+#: .\accounts\views.py:158
+#, python-brace-format
+msgid "A penalty of {fee} zł has been added to your account balance."
+msgstr "До балансу вашого рахунку було додано штраф у розмірі {fee} злотих."
+
+#: .\accounts\views.py:162
+#, python-brace-format
+msgid "Order #{id} has been successfully canceled."
+msgstr "Замовлення №{id} було успішно скасовано."
+
+#: .\config\settings.py:101
+msgid "Polish"
+msgstr "Польська"
+
+#: .\config\settings.py:102
+msgid "English"
+msgstr "Англійська"
+
+#: .\config\settings.py:103
+msgid "Russian"
+msgstr "Російська"
+
+#: .\config\settings.py:104
+msgid "Ukrainian"
+msgstr "Українська"
+
+#: .\core\apps.py:8
+msgid "Website Content"
+msgstr "Вміст сайту"
+
+#: .\core\models.py:8 .\products\models.py:53
+msgid "Title"
+msgstr "Назва"
+
+#: .\core\models.py:8
+msgid "e.g., 'Bathroom', 'Kitchen'"
+msgstr "наприклад, 'Ванна', 'Кухня'"
+
+#: .\core\models.py:9
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:393
+msgid "Image"
+msgstr "Зображення"
+
+#: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:18
+#: .\products\models.py:40 .\products\models.py:56 .\reviews\models.py:24
+msgid "Display Order"
+msgstr "Порядок відображення"
+
+#: .\core\models.py:10
+msgid "Lower numbers are displayed first."
+msgstr "Менші номери відображаються першими."
+
+#: .\core\models.py:16 .\core\models.py:25
+msgid "Cleaning Area"
+msgstr "Зона прибирання"
+
+#: .\core\models.py:17
+msgid "Cleaning Areas"
+msgstr "Зони прибирання"
+
+#: .\core\models.py:27 .\products\models.py:66
+msgid "Description"
+msgstr "Опис"
+
+#: .\core\models.py:29
+msgid "Position X (%)"
+msgstr "Позиція X (%)"
+
+#: .\core\models.py:31
+msgid "Horizontal position from left to right, in percent (e.g., 25.5)"
+msgstr "Горизонтальне положення зліва направо, у відсотках (наприклад, 25.5)"
+
+#: .\core\models.py:34
+msgid "Position Y (%)"
+msgstr "Позиція Y (%)"
+
+#: .\core\models.py:36
+msgid "Vertical position from top to bottom, in percent (e.g., 70)"
+msgstr "Вертикальне положення зверху вниз, у відсотках (наприклад, 70)"
+
+#: .\core\models.py:44
+msgid "Cancellation Fee (zł)"
+msgstr "Плата за скасування (zł)"
+
+#: .\core\models.py:48
+msgid "The fee charged for cancellations made less than 24 hours in advance."
+msgstr ""
+"Плата, що стягується за скасування менш ніж за 24 години до призначеного "
+"часу."
+
+#: .\core\models.py:51
+msgid "Показывать страницу 'Услуги'"
+msgstr ""
+
+#: .\core\models.py:53
+msgid ""
+"Если флаг выключен, ссылка на страницу 'Услуги' исчезнет из навигации сайта."
+msgstr ""
+
+#: .\core\models.py:56
+msgid "Telegram Link"
+msgstr "Посилання на Telegram"
+
+#: .\core\models.py:60
+msgid "Full URL to the Telegram account, e.g., https://t.me/your_account"
+msgstr ""
+"Повна URL-адреса Telegram-акаунта, наприклад, https://t.me/your_account"
+
+#: .\core\models.py:66 .\core\models.py:69
+msgid "Site Configuration"
+msgstr "Конфігурація сайту"
+
+#: .\core\utils.py:20
+#| msgid "No month specified"
+msgid "Not specified"
+msgstr "Місяць не вказано"
+
+#: .\core\utils.py:29
+#| msgid "hours"
+msgid "hour"
+msgstr "година"
+
+#: .\core\utils.py:31
+#| msgid "hours"
+msgid "hours_2_4"
+msgstr "години"
+
+#: .\core\utils.py:33
+msgid "hours_5_plus"
+msgstr "годин"
+
+#: .\core\utils.py:36
+msgid "min"
+msgstr "хв."
+
+#: .\core\views.py:189 .\core\views.py:228
+msgid "Произошла непредвиденная ошибка."
+msgstr ""
+
+#: .\core\views.py:200
+#, fuzzy
+#| msgid "Kitchen Cleaning service is not available at the moment."
+msgid "Window cleaning service is currently unavailable."
+msgstr "Послуга 'Прибирання кухні' на даний момент недоступна."
+
+#: .\core\views.py:268
+msgid "Please select a main cleaning service."
+msgstr "Будь ласка, оберіть основну послугу прибирання."
+
+#: .\core\views.py:296
+msgid "An unexpected error occurred while starting your order."
+msgstr "Під час оформлення замовлення виникла непередбачувана помилка."
+
+#: .\gallery\apps.py:8
+msgid "Gallery"
+msgstr "Галерея"
+
+#: .\gallery\models.py:5
+msgid "Title / Description"
+msgstr "Назва / Опис"
+
+#: .\gallery\models.py:6
+msgid "'Before' Image"
+msgstr "Фото «до»"
+
+#: .\gallery\models.py:7
+msgid "'After' Image"
+msgstr "Фото «після»"
+
+#: .\gallery\models.py:14
+msgid "Gallery Image"
+msgstr "Зображення галереї"
+
+#: .\gallery\models.py:15
+msgid "Gallery Images"
+msgstr "Зображення галереї"
+
+#: .\orders\forms.py:13 .\orders\models.py:12 .\orders\models.py:44
+msgid "City"
+msgstr "Місто"
+
+#: .\orders\forms.py:27
+msgid "Your full name"
+msgstr "Ваше повне ім'я"
+
+#: .\orders\forms.py:30 .\orders\models.py:45
+msgid "Street"
+msgstr "Вулиця"
+
+#: .\orders\forms.py:31 .\orders\models.py:46
+msgid "Postal code"
+msgstr "Поштовий індекс"
+
+#: .\orders\forms.py:32
+msgid "Building No."
+msgstr "Номер будинку"
+
+#: .\orders\forms.py:33
+msgid "Apartment No."
+msgstr "Номер квартири"
+
+#: .\orders\forms.py:34 .\orders\models.py:49
+msgid "Entrance"
+msgstr "Під'їзд"
+
+#: .\orders\forms.py:35 .\orders\models.py:50
+msgid "Floor"
+msgstr "Поверх"
+
+#: .\orders\forms.py:36 .\orders\models.py:51
+msgid "Intercom code"
+msgstr "Код домофону"
+
+#: .\orders\forms.py:37
+msgid "Select date"
+msgstr "Виберіть дату"
+
+#: .\orders\forms.py:38
+msgid "Select time"
+msgstr "Виберіть час"
+
+#: .\orders\forms.py:39
+msgid "e.g., parking details, how to find the entrance..."
+msgstr "наприклад, деталі паркування, як знайти вхід..."
+
+#: .\orders\forms.py:59
+msgid "Cleaning Type"
+msgstr "Тип прибирання"
+
+#: .\orders\forms.py:64 .\orders\models.py:77 .\templates\core\pricing.html:45
+#: .\templates\core\services.html:38
+msgid "Additional Services"
+msgstr "Додаткові послуги"
+
+#: .\orders\models.py:9
+msgid "City name"
+msgstr "Назва міста"
+
+#: .\orders\models.py:10 .\orders\models.py:36
+msgid "Delivery charge"
+msgstr "Плата за виїзд"
+
+#: .\orders\models.py:13
+msgid "Cities"
+msgstr ""
+
+#: .\orders\models.py:26 .\products\models.py:65
+#: .\templates\accounts\order_detail.html:29
+msgid "Service"
+msgstr "Послуга"
+
+#: .\orders\models.py:30 .\templates\core\index.html:165
+msgid "Number of rooms"
+msgstr "Кількість кімнат"
+
+#: .\orders\models.py:31 .\templates\core\index.html:169
+msgid "Number of bathrooms"
+msgstr "Кількість ванних кімнат"
+
+#: .\orders\models.py:32
+msgid "Area (sqm)"
+msgstr "Площа (м²)"
+
+#: .\orders\models.py:33
+msgid "Number of windows"
+msgstr "Кількість вікон"
+
+#: .\orders\models.py:34
+#, fuzzy
+#| msgid "Additional Services"
+msgid "Additional Services Details"
+msgstr "Додаткові послуги"
+
+#: .\orders\models.py:35
+msgid "Total price"
+msgstr "Загальна вартість"
+
+#: .\orders\models.py:37
+msgid "Frequency"
+msgstr "Частота"
+
+#: .\orders\models.py:38
+msgid "Bring vacuum cleaner"
+msgstr "Привезти пилосос"
+
+#: .\orders\models.py:39 .\templates\accounts\order_edit.html:51
+#: .\templates\core\index.html:143
+msgid "Private house"
+msgstr "Приватний будинок"
+
+#: .\orders\models.py:40
+msgid "Estimated duration (minutes)"
+msgstr "Орієнтовна тривалість (хвилини)"
+
+#: .\orders\models.py:41
+msgid "Full name"
+msgstr "Повне ім'я"
+
+#: .\orders\models.py:42
+msgid "Phone number"
+msgstr "Номер телефону"
+
+#: .\orders\models.py:43
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1845
+msgid "Email address"
+msgstr "Адреса електронної пошти"
+
+#: .\orders\models.py:47
+msgid "Building number"
+msgstr "Номер будинку"
+
+#: .\orders\models.py:48
+msgid "Apartment number"
+msgstr "Номер квартири"
+
+#: .\orders\models.py:52
+msgid "Additional comments"
+msgstr "Додаткові коментарі"
+
+#: .\orders\models.py:53
+msgid "Desired cleaning date"
+msgstr "Бажана дата прибирання"
+
+#: .\orders\models.py:54
+msgid "Desired time"
+msgstr "Бажаний час"
+
+#: .\orders\models.py:55
+msgid "New"
+msgstr "Нове"
+
+#: .\orders\models.py:55
+msgid "In Progress"
+msgstr "В процесі"
+
+#: .\orders\models.py:55
+msgid "Completed"
+msgstr "Завершено"
+
+#: .\orders\models.py:55
+msgid "Canceled"
+msgstr "Скасовано"
+
+#: .\orders\models.py:56
+#, fuzzy
+#| msgid "Order Details"
+msgid "Order Status"
+msgstr "Деталі замовлення"
+
+#: .\orders\models.py:57
+msgid "Cash"
+msgstr "Готівка"
+
+#: .\orders\models.py:57
+msgid "Card Online"
+msgstr "Оплата карткою"
+
+#: .\orders\models.py:58 .\templates\orders\create_order.html:142
+msgid "Payment method"
+msgstr "Спосіб оплати"
+
+#: .\orders\models.py:59
+msgid "Pending"
+msgstr ""
+
+#: .\orders\models.py:59
+msgid "Paid"
+msgstr ""
+
+#: .\orders\models.py:59
+msgid "Failed"
+msgstr ""
+
+#: .\orders\models.py:60
+#, fuzzy
+#| msgid "Payment method"
+msgid "Payment Status"
+msgstr "Спосіб оплати"
+
+#: .\orders\models.py:61
+msgid "Stripe Session ID"
+msgstr ""
+
+#: .\orders\models.py:62
+msgid "Creation date"
+msgstr "Дата створення"
+
+#: .\orders\models.py:63
+msgid "Update date"
+msgstr "Дата оновлення"
+
+#: .\orders\models.py:83 .\products\models.py:67
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr "Замовлення"
+
+#: .\orders\models.py:84
+msgid "Orders"
+msgstr "Замовлення"
+
+#: .\orders\views.py:99
+msgid "Your session has expired. Please calculate the cost again."
+msgstr "Ваша сесія закінчилася. Будь ласка, розрахуйте вартість знову."
+
+#: .\orders\views.py:106
+msgid "Invalid order summary data. Please calculate the cost again."
+msgstr "Ваша сесія закінчилася. Будь ласка, розрахуйте вартість знову."
+
+#: .\orders\views.py:125
+#, python-brace-format
+msgid ""
+"\n"
+"[System Note] Added outstanding penalty of {fee} zł."
+msgstr ""
+"\n"
+"[Система] Додано непогашений штраф у розмірі {fee} zł."
+
+#: .\orders\views.py:185
+msgid "Kitchen Cleaning service is not available at the moment."
+msgstr "Послуга 'Прибирання кухні' на даний момент недоступна."
+
+#: .\orders\views.py:189 .\orders\views.py:266 .\orders\views.py:326
+msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: .\orders\views.py:196
+#, fuzzy
+#| msgid "This order can no longer be edited."
+msgid "This order has already been paid for."
+msgstr "Це замовлення більше не можна редагувати."
+
+#: .\orders\views.py:222
+msgid ""
+"An error occurred while creating the payment session. Please try again later."
+msgstr ""
+
+#: .\orders\views.py:240
+#, fuzzy
+#| msgid "Please select a main cleaning service."
+msgid "Please select a service."
+msgstr "Будь ласка, оберіть основну послугу прибирання."
+
+#: .\orders\views.py:285
+#, fuzzy
+#| msgid "Please select a main cleaning service."
+msgid "Please select a main service to proceed."
+msgstr "Будь ласка, оберіть основну послугу прибирання."
+
+#: .\products\apps.py:8
+msgid "Services and Products"
+msgstr "Послуги та продукти"
+
+#: .\products\models.py:8 .\products\models.py:29
+msgid "Service Name"
+msgstr "Назва послуги"
+
+#: .\products\models.py:9
+#, fuzzy
+#| msgid "Description"
+msgid "Short Description"
+msgstr "Опис"
+
+#: .\products\models.py:9
+msgid "A brief description for service cards, max 200 characters."
+msgstr ""
+
+#: .\products\models.py:10
+msgid "Slug"
+msgstr "Слаг"
+
+#: .\products\models.py:10
+msgid "A unique slug for the service URL, e.g., 'kitchen-cleaning'"
+msgstr ""
+"Унікальний ідентифікатор для URL послуги, наприклад, 'prybyrannya-kukhni'"
+
+#: .\products\models.py:11
+msgid "Base Price"
+msgstr "Базова ціна"
+
+#: .\products\models.py:12
+msgid "Price per extra room"
+msgstr "Ціна за додаткову кімнату"
+
+#: .\products\models.py:13
+msgid "Price per extra bathroom"
+msgstr "Ціна за додаткову ванну"
+
+#: .\products\models.py:14
+msgid "Base duration (minutes)"
+msgstr "Базова тривалість (хвилини)"
+
+#: .\products\models.py:15
+msgid "Is Sqm Based?"
+msgstr "Чи залежить від м²?"
+
+#: .\products\models.py:16
+msgid "Price Per Sqm / Per Window"
+msgstr "Ціна за м² / за вікно"
+
+#: .\products\models.py:17
+msgid "Is Window Cleaning Service?"
+msgstr "Це послуга миття вікон?"
+
+#: .\products\models.py:19 .\products\models.py:41 .\reviews\models.py:23
+msgid "Is Active"
+msgstr "Активно"
+
+#: .\products\models.py:23
+msgid "Основная услуга"
+msgstr "Основна послуга"
+
+#: .\products\models.py:24
+msgid "Основные услуги"
+msgstr "Основні послуги"
+
+#: .\products\models.py:30
+msgid "Price"
+msgstr "Ціна"
+
+#: .\products\models.py:35
+msgid "Is quantity-based?"
+msgstr ""
+
+#: .\products\models.py:36
+msgid "If checked, a quantity selector will be shown instead of a checkbox."
+msgstr ""
+
+#: .\products\models.py:39
+msgid "For Kitchen Cleaning Page"
+msgstr "Прибирання кухні"
+
+#: .\products\models.py:39
+msgid ""
+"Check this if the service should be displayed on the Kitchen Cleaning page."
+msgstr ""
+
+#: .\products\models.py:40
+msgid "Services with a lower number will be displayed first."
+msgstr "Менші номери відображаються першими."
+
+#: .\products\models.py:42
+msgid "Duration (minutes)"
+msgstr "Тривалість (хвилини)"
+
+#: .\products\models.py:42
+msgid "How many minutes does this service add to the total cleaning time?"
+msgstr "Скільки хвилин ця послуга додає до загального часу прибирання?"
+
+#: .\products\models.py:43 .\products\models.py:54
+msgid "Icon"
+msgstr "Іконка"
+
+#: .\products\models.py:46
+msgid "Дополнительная услуга"
+msgstr "Додаткова послуга"
+
+#: .\products\models.py:47
+msgid "Дополнительные услуги"
+msgstr "Додаткові послуги"
+
+#: .\products\models.py:52
+msgid "Wash inside and out"
+msgstr "Миття всередині та зовні"
+
+#: .\products\models.py:52
+msgid "Wipe and clean"
+msgstr "Протерти та очистити"
+
+#: .\products\models.py:55
+msgid "Category"
+msgstr "Категорія"
+
+#: .\products\models.py:59
+msgid "Kitchen Cleaning Feature"
+msgstr "Особливість прибирання кухні"
+
+#: .\products\models.py:60
+msgid "Kitchen Cleaning Features"
+msgstr "Особливості прибирання кухні"
+
+#: .\products\models.py:70
+#, fuzzy
+#| msgid "Service Name"
+msgid "Service Feature"
+msgstr "Назва послуги"
+
+#: .\products\models.py:71
+#, fuzzy
+#| msgid "Service Name"
+msgid "Service Features"
+msgstr "Назва послуги"
+
+#: .\reviews\apps.py:8
+msgid "Reviews Management"
+msgstr "Управління відгуками"
+
+#: .\reviews\forms.py:12
+msgid "Your Name (optional)"
+msgstr "Ваше ім'я (необов'язково)"
+
+#: .\reviews\forms.py:13
+msgid "Your Review"
+msgstr "Ваш відгук"
+
+#: .\reviews\forms.py:14
+msgid "Your Rating"
+msgstr "Ваша оцінка"
+
+#: .\reviews\forms.py:20
+msgid "Enter your name"
+msgstr "Введіть ваше ім'я"
+
+#: .\reviews\forms.py:25
+msgid "Share your experience with us..."
+msgstr "Поділіться з нами своїм досвідом..."
+
+#: .\reviews\leave_review.html:4 .\reviews\leave_review.html:11
+#: .\templates\reviews\leave_review.html:4
+#: .\templates\reviews\leave_review.html:11
+msgid "Leave a Review"
+msgstr "Залишити відгук"
+
+#: .\reviews\leave_review.html:12 .\templates\reviews\leave_review.html:12
+msgid "Your feedback helps us improve. Please share your experience with us."
+msgstr ""
+"Ваш відгук допомагає нам стати кращими. Будь ласка, поділіться з нами своїм "
+"досвідом."
+
+#: .\reviews\leave_review.html:30 .\templates\reviews\leave_review.html:30
+msgid "Submit Review"
+msgstr "Надіслати відгук"
+
+#: .\reviews\models.py:9
+msgid "Author's Name"
+msgstr "Ім'я автора"
+
+#: .\reviews\models.py:13
+msgid "Review Text"
+msgstr "Текст відгуку"
+
+#: .\reviews\models.py:17
+msgid "Rating (1-5)"
+msgstr "Оцінка (1-5)"
+
+#: .\reviews\models.py:21
+msgid "Date Created"
+msgstr "Дата створення"
+
+#: .\reviews\models.py:34
+msgid "Review"
+msgstr "Відгук"
+
+#: .\reviews\models.py:35
+msgid "Reviews"
+msgstr "Відгуки"
+
+#: .\reviews\review_success.html:4 .\reviews\review_success.html:8
+#: .\templates\reviews\review_success.html:4
+#: .\templates\reviews\review_success.html:8
+msgid "Thank You!"
+msgstr "Дякуємо!"
+
+#: .\reviews\review_success.html:9 .\templates\reviews\review_success.html:9
+msgid "Your review has been submitted and is awaiting moderation."
+msgstr "Ваш відгук було надіслано і він очікує на модерацію."
+
+#: .\reviews\review_success.html:10 .\templates\reviews\review_success.html:10
+msgid "We appreciate you taking the time to share your feedback."
+msgstr "Ми цінуємо, що ви знайшли час, щоб поділитися своїм відгуком."
+
+#: .\reviews\review_success.html:13 .\templates\orders\order_success.html:14
+#: .\templates\reviews\review_success.html:13
+msgid "Back to main page"
+msgstr "Повернутися на головну сторінку"
+
+#: .\templates\accounts\cancel_order_confirm.html:4
+#: .\templates\accounts\cancel_order_confirm.html:10
+msgid "Confirm Cancellation"
+msgstr "Підтвердити скасування"
+
+#: .\templates\accounts\cancel_order_confirm.html:11
+msgid "You are about to cancel your order"
+msgstr "Ви збираєтеся скасувати своє замовлення"
+
+#: .\templates\accounts\cancel_order_confirm.html:11
+msgid "scheduled for"
+msgstr "заплановане на"
+
+#: .\templates\accounts\cancel_order_confirm.html:15
+#: .\templates\accounts\order_list.html:12
+msgid "Attention!"
+msgstr "Увага!"
+
+#: .\templates\accounts\cancel_order_confirm.html:16
+#, python-format
+msgid ""
+"Since you are canceling less than 24 hours before the scheduled time, \n"
+"                    a penalty of <strong>%(penalty_fee|floatformat:2)s zł</"
+"strong> will be added to your account balance.\n"
+"                     This amount will be automatically included in the cost "
+"of your next order."
+msgstr ""
+"Оскільки ви скасовуєте замовлення менш ніж за 24 години до призначеного "
+"часу, штраф у розмірі <strong>%(penalty_fee|floatformat:2)s zł</strong> буде "
+"додано на баланс вашого акаунта. Ця сума буде автоматично включена у "
+"вартість вашого наступного замовлення."
+
+#: .\templates\accounts\cancel_order_confirm.html:22
+msgid "No penalty will be applied for this cancellation."
+msgstr "За це скасування штраф не стягуватиметься."
+
+#: .\templates\accounts\cancel_order_confirm.html:26
+msgid "Are you sure you want to proceed?"
+msgstr "Ви впевнені, що хочете продовжити?"
+
+#: .\templates\accounts\cancel_order_confirm.html:31
+msgid "Yes, Cancel This Order"
+msgstr "Так, скасувати це замовлення"
+
+#: .\templates\accounts\cancel_order_confirm.html:32
+msgid "No, Go Back"
+msgstr "Ні, повернутися"
+
+#: .\templates\accounts\login.html:4 .\templates\accounts\login.html:10
+#: .\templates\accounts\login.html:30 .\templates\base.html:113
+msgid "Login"
+msgstr "Увійти"
+
+#: .\templates\accounts\login.html:35
+msgid "Forgot password?"
+msgstr "Забули пароль?"
+
+#: .\templates\accounts\order_detail.html:4
+#: .\templates\accounts\order_detail.html:9
+msgid "Order Details"
+msgstr "Деталі замовлення"
+
+#: .\templates\accounts\order_detail.html:10
+msgid "Back to Orders"
+msgstr "Повернутися до замовлень"
+
+#: .\templates\accounts\order_detail.html:15
+#: .\templates\accounts\order_edit.html:4
+#: .\templates\accounts\order_edit.html:8
+msgid "Edit Order"
+msgstr "Редагувати замовлення"
+
+#: .\templates\accounts\order_detail.html:16
+msgid "Cancel Order"
+msgstr "Скасувати замовлення"
+
+#: .\templates\accounts\order_detail.html:25
+msgid "Service Information"
+msgstr "Інформація про послугу"
+
+#: .\templates\accounts\order_detail.html:28
+#: .\templates\accounts\order_list.html:24
+#: .\venv\Lib\site-packages\django_apscheduler\admin.py:159
+msgid "Status"
+msgstr "Статус"
+
+#: .\templates\accounts\order_detail.html:31
+msgid "Cleaning Date"
+msgstr "Дата прибирання"
+
+#: .\templates\accounts\order_detail.html:32
+msgid "Address"
+msgstr "Адреса"
+
+#: .\templates\accounts\order_detail.html:32
+msgid "apt."
+msgstr "кв."
+
+#: .\templates\accounts\order_detail.html:33
+msgid "Comments"
+msgstr "Коментарі"
+
+#: .\templates\accounts\order_detail.html:40 .\templates\core\index.html:26
+msgid "Total Cost"
+msgstr "Загальна вартість"
+
+#: .\templates\accounts\order_edit.html:44
+msgid "Options"
+msgstr "Опції"
+
+#: .\templates\accounts\order_edit.html:47
+#: .\templates\accounts\order_edit.html:124 .\templates\core\index.html:69
+msgid "Bring a vacuum cleaner"
+msgstr "Привезти пилосос"
+
+#: .\templates\accounts\order_edit.html:54
+#: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:88
+#: .\templates\core\index.html:196
+msgid "Additional services"
+msgstr "Додаткові послуги"
+
+#: .\templates\accounts\order_edit.html:77
+msgid "Date and Comments"
+msgstr "Дата та коментарі"
+
+#: .\templates\accounts\order_edit.html:94
+msgid "Save Changes"
+msgstr "Зберегти зміни"
+
+#: .\templates\accounts\order_edit.html:95
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: .\templates\accounts\order_edit.html:103
+msgid "New Cost"
+msgstr "Нова вартість"
+
+#: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:54
+msgid "Base cost"
+msgstr "Базова вартість"
+
+#: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:68
+#: .\templates\core\index.html:180
+msgid "Equipment"
+msgstr "Обладнання"
+
+#: .\templates\accounts\order_edit.html:130 .\templates\core\index.html:81
+#: .\templates\core\index.html:136
+msgid "Object Type"
+msgstr "Тип об'єкта"
+
+#: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:82
+msgid "Private House"
+msgstr "Приватний будинок"
+
+#: .\templates\accounts\order_edit.html:143
+msgid "The final price will be recalculated upon saving."
+msgstr "Остаточна ціна буде перерахована після збереження."
+
+#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:502
+msgid "Area"
+msgstr "Площа"
+
+#: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:61
+#: .\templates\core\index.html:506
+msgid "Rooms and bathrooms"
+msgstr "Кімнати та ванні"
+
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:507
+msgid "room(s)"
+msgstr "кімната(и)"
+
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:507
+msgid "bathroom(s)"
+msgstr "ванна(і)"
+
+#: .\templates\accounts\order_list.html:4
+#: .\templates\accounts\order_list.html:8 .\templates\base.html:107
+msgid "My Orders"
+msgstr "Мої замовлення"
+
+#: .\templates\accounts\order_list.html:12
+#, python-format
+msgid ""
+"You have an outstanding penalty of <strong>%(penalty_balance|floatformat:2)s "
+"zł</strong>. This amount will be automatically added to your next order."
+msgstr ""
+
+#: .\templates\accounts\order_list.html:21
+msgid "Order #"
+msgstr "Замовлення №"
+
+#: .\templates\accounts\order_list.html:22
+msgid "Date"
+msgstr "Дата"
+
+#: .\templates\accounts\order_list.html:23
+msgid "Total Price"
+msgstr "Загальна ціна"
+
+#: .\templates\accounts\order_list.html:36
+msgid "View Details"
+msgstr "Переглянути деталі"
+
+#: .\templates\accounts\order_list.html:44
+msgid "You don't have any orders yet."
+msgstr "У вас ще немає замовлень."
+
+#: .\templates\accounts\register.html:4 .\templates\accounts\register.html:50
+#: .\templates\base.html:114
+msgid "Register"
+msgstr "Зареєструватися"
+
+#: .\templates\accounts\register.html:10
+msgid "Create an Account"
+msgstr "Створити акаунт"
+
+#: .\templates\admin\autotranslate_change_form.html:7
+msgid "Auto-translate and Save"
+msgstr ""
+
+#: .\templates\base.html:54 .\templates\core\index.html:233
+msgid "An individual approach to the cleanliness of your space."
+msgstr "Індивідуальний підхід до чистоти вашого простору."
+
+#: .\templates\base.html:60 .\templates\base.html:142
+#: .\templates\core\index.html:6
+msgid "Home"
+msgstr "Головна"
+
+#: .\templates\base.html:62 .\templates\base.html:144
+msgid "Services"
+msgstr "Послуги"
+
+#: .\templates\base.html:64 .\templates\base.html:146
+#: .\templates\core\windows.html:7 .\templates\core\windows.html:20
+msgid "Window Cleaning"
+msgstr "Миття вікон"
+
+#: .\templates\base.html:65 .\templates\base.html:147
+#: .\templates\core\kitchen_cleaning.html:6
+msgid "Kitchen Cleaning"
+msgstr "Прибирання кухні"
+
+#: .\templates\base.html:66 .\templates\base.html:148
+#: .\templates\core\pricing.html:5 .\templates\core\pricing.html:13
+msgid "Pricing"
+msgstr "Ціни"
+
+#: .\templates\base.html:67 .\templates\base.html:149
+#: .\templates\core\about.html:4
+msgid "About us"
+msgstr "Про нас"
+
+#: .\templates\base.html:100 .\templates\base.html:154
+msgid "Write to us on Telegram"
+msgstr "Напишіть нам у Telegram"
+
+#: .\templates\base.html:106
+msgid "Welcome"
+msgstr "Ласкаво просимо"
+
+#: .\templates\base.html:110
+msgid "Logout"
+msgstr "Вийти"
+
+#: .\templates\base.html:159
+msgid "© "
+msgstr "© "
+
+#: .\templates\base.html:159
+msgid "Gold Clean, Inc"
+msgstr "Gold Clean, Inc"
+
+#: .\templates\core\about.html:10
+msgid "Our values and approach"
+msgstr "Наші цінності та підхід"
+
+#: .\templates\core\about.html:11
+msgid ""
+"We understand that in today's fast-paced world, every minute counts. We have "
+"an individual approach to the cleanliness of your space."
+msgstr ""
+"Ми розуміємо, що в сучасному швидкому світі кожна хвилина на рахунку. У нас "
+"індивідуальний підхід до чистоти вашого простору."
+
+#: .\templates\core\about.html:18
+msgid "Personal Approach"
+msgstr "Індивідуальний підхід"
+
+#: .\templates\core\about.html:19
+msgid ""
+"We know that every home and office is unique, just like the people who live "
+"and work in them. Before we start cleaning, we carefully listen to your "
+"wishes and habits. Our goal is to create a space where you will feel most "
+"comfortable."
+msgstr ""
+"Ми знаємо, що кожен дім та офіс унікальні, як і люди, що в них живуть і "
+"працюють. Перед початком прибирання ми уважно вислуховуємо ваші побажання та "
+"звички. Наша мета — створити простір, у якому ви почуватиметеся "
+"найкомфортніше."
+
+#: .\templates\core\about.html:24
+msgid "Professionalism"
+msgstr "Професіоналізм"
+
+#: .\templates\core\about.html:25
+msgid ""
+"We work only with proven methods and safe products, paying attention to "
+"every detail. Our team consists of specialists who know how to find "
+"individual solutions for any task—from maintenance cleaning to complex "
+"general cleanups."
+msgstr ""
+"Ми працюємо тільки з перевіреними методами та безпечними засобами, "
+"приділяючи увагу кожній деталі. Наша команда складається з фахівців, які "
+"вміють знаходити індивідуальні рішення для будь-якого завдання — від "
+"підтримуючого прибирання до складних генеральних."
+
+#: .\templates\core\about.html:30
+msgid "Time Saving"
+msgstr "Економія часу"
+
+#: .\templates\core\about.html:31
+msgid ""
+"We value your schedule. The cleaning is built around your timetable—quickly, "
+"precisely, without unnecessary calls or waiting. You can be sure: on the "
+"appointed day and time, our specialists will be there and do everything as "
+"agreed."
+msgstr ""
+"Ми цінуємо ваш розклад. Прибирання будується навколо вашого графіка — "
+"швидко, точно, без зайвих дзвінків та очікувань. Ви можете бути впевнені: у "
+"призначений день і час наші фахівці будуть на місці та зроблять все, як "
+"домовлено."
+
+#: .\templates\core\about.html:36
+msgid "Reliability"
+msgstr "Надійність"
+
+#: .\templates\core\about.html:37
+msgid ""
+"We understand how important trust is when it comes to your home or office. "
+"We handle your property with care, guarantee confidentiality, and honestly "
+"fulfill our obligations."
+msgstr ""
+"Ми розуміємо, наскільки важлива довіра, коли йдеться про ваш дім чи офіс. Ми "
+"дбайливо ставимося до вашого майна, гарантуємо конфіденційність та чесно "
+"виконуємо свої зобов'язання."
+
+#: .\templates\core\about.html:42
+msgid "Health Care"
+msgstr "Турбота про здоров'я"
+
+#: .\templates\core\about.html:43
+msgid ""
+"We use hypoallergenic and safe products so that your space is always clean, "
+"fresh, and safe for the whole family, employees, and pets. Cleanliness is "
+"not just about order; it's about health and easy breathing."
+msgstr ""
+"Ми використовуємо гіпоалергенні та безпечні засоби, щоб ваш простір завжди "
+"був чистим, свіжим та безпечним для всієї родини, співробітників та домашніх "
+"тварин. Чистота — це не просто порядок; це здоров'я та легкість дихання."
+
+#: .\templates\core\about.html:49
+msgid "Our philosophy is simple:"
+msgstr "Наша філософія проста:"
+
+#: .\templates\core\about.html:51
+msgid ""
+"“When it’s clean around you—thoughts are clearer, energy is greater, and "
+"there is enough time for what’s important.”"
+msgstr ""
+"«Коли навколо чисто — думки ясніші, енергії більше, і на важливе вистачає "
+"часу»."
+
+#: .\templates\core\index.html:14
+#, fuzzy
+#| msgid "Total Cost"
+msgid "Show Total Cost"
+msgstr "Загальна вартість"
+
+#: .\templates\core\index.html:30
+msgid "Based on the options selected on the page"
+msgstr ""
+
+#: .\templates\core\index.html:34
+msgid "Close"
+msgstr ""
+
+#: .\templates\core\index.html:35
+msgid "Go to calculator"
+msgstr "Перейти до калькулятора"
+
+#: .\templates\core\index.html:48
+msgid "Cost"
+msgstr "Вартість"
+
+#: .\templates\core\index.html:55 .\templates\core\index.html:105
+msgid "Select cleaning type"
+msgstr "Виберіть тип прибирання"
+
+#: .\templates\core\index.html:62
+msgid "1 room, 1 bathroom"
+msgstr "1 кімната, 1 ванна"
+
+#: .\templates\core\index.html:75
+msgid "Approximate operating time"
+msgstr "Приблизний час роботи"
+
+#: .\templates\core\index.html:95
+msgid "Subscription Discount"
+msgstr "Знижка за підпискою"
+
+#: .\templates\core\index.html:101 .\templates\core\kitchen_cleaning.html:82
+#: .\templates\core\pricing.html:86 .\templates\core\services.html:55
+msgid "Proceed to order"
+msgstr "Перейти до замовлення"
+
+#: .\templates\core\index.html:104
+msgid "Calculate cleaning cost"
+msgstr "Розрахувати вартість прибирання"
+
+#: .\templates\core\index.html:108
+msgid "Cleaning Frequency"
+msgstr "Частота прибирання"
+
+#: .\templates\core\index.html:112
+msgid "One-time cleaning"
+msgstr "Разове прибирання"
+
+#: .\templates\core\index.html:117
+msgid "Once a month"
+msgstr "Раз на місяць"
+
+#: .\templates\core\index.html:121
+msgid "Every 2 weeks"
+msgstr "Кожні 2 тижні"
+
+#: .\templates\core\index.html:125
+msgid "Once a week"
+msgstr "Раз на тиждень"
+
+#: .\templates\core\index.html:130
+#: .\templates\registration\password_reset_complete.html:8
+msgid "Log in"
+msgstr "Увійти"
+
+#: .\templates\core\index.html:130
+#: .\venv\Lib\site-packages\django\utils\text.py:323
+msgid "or"
+msgstr "або"
+
+#: .\templates\core\index.html:130
+msgid "register"
+msgstr "зареєструйтеся"
+
+#: .\templates\core\index.html:130
+msgid "to access subscription discounts!"
+msgstr "щоб отримати доступ до знижок за підпискою!"
+
+#: .\templates\core\index.html:141
+msgid "House icon"
+msgstr "Іконка будинку"
+
+#: .\templates\core\index.html:150 .\templates\orders\create_order.html:23
+msgid "Cleaning type"
+msgstr "Тип прибирання"
+
+#: .\templates\core\index.html:153
+msgid "Select..."
+msgstr "Виберіть..."
+
+#: .\templates\core\index.html:162
+msgid "Cleaning Parameters"
+msgstr "Параметри приміщення"
+
+#: .\templates\core\index.html:175
+msgid "Area in m²"
+msgstr "Площа в м²"
+
+#: .\templates\core\index.html:185
+msgid "Vacuum cleaner icon"
+msgstr "Іконка пилососа"
+
+#: .\templates\core\index.html:187
+msgid "You need a vacuum cleaner on the order"
+msgstr "Вам потрібен пилосос для замовлення"
+
+#: .\templates\core\index.html:188
+msgid "We will bring a small vacuum cleaner"
+msgstr "Ми привеземо маленький пилосос"
+
+#: .\templates\core\index.html:238
+msgid "Our services"
+msgstr "Наші послуги"
+
+#: .\templates\core\index.html:241
+msgid "Standard cleaning"
+msgstr "Стандартне прибирання"
+
+#: .\templates\core\index.html:242
+msgid "Ideal for regular maintenance of cleanliness in your home. From 120 zł."
+msgstr ""
+"Ідеально підходить для регулярного підтримання чистоти у вашому домі. Від "
+"120 zł."
+
+#: .\templates\core\index.html:247
+msgid "General cleaning"
+msgstr "Генеральне прибирання"
+
+#: .\templates\core\index.html:248
+msgid ""
+"Comprehensive cleaning of all surfaces, including hard-to-reach places. From "
+"250 zł."
+msgstr ""
+"Комплексне очищення всіх поверхонь, включаючи важкодоступні місця. Від 250 "
+"zł."
+
+#: .\templates\core\index.html:253
+msgid "Post-renovation cleaning"
+msgstr "Прибирання після ремонту"
+
+#: .\templates\core\index.html:254
+msgid ""
+"We will remove all construction dust, paint stains, and prepare the premises "
+"for moving in. From 400 zł."
+msgstr ""
+"Ми видалимо весь будівельний пил, плями фарби та підготуємо приміщення до "
+"заселення. Від 400 zł."
+
+#: .\templates\core\index.html:260
+msgid "How we work"
+msgstr "Як ми працюємо"
+
+#: .\templates\core\index.html:263
+msgid "1. Make a request"
+msgstr "1. Залиште заявку"
+
+#: .\templates\core\index.html:264
+msgid ""
+"Fill out the form on the website or give us a call. We will clarify the "
+"details and calculate the cost."
+msgstr ""
+"Заповніть форму на сайті або зателефонуйте нам. Ми уточнимо деталі та "
+"розрахуємо вартість."
+
+#: .\templates\core\index.html:267
+msgid "2. We arrive on time"
+msgstr "2. Ми приїжджаємо вчасно"
+
+#: .\templates\core\index.html:268
+msgid ""
+"Our cleaners will arrive at the appointed time with all the necessary "
+"equipment and supplies."
+msgstr ""
+"Наші прибиральники приїдуть у призначений час з усім необхідним обладнанням "
+"та засобами."
+
+#: .\templates\core\index.html:271
+msgid "3. Enjoy the cleanliness"
+msgstr "3. Насолоджуйтесь чистотою"
+
+#: .\templates\core\index.html:272
+msgid ""
+"You accept the work and pay for the result. Your home shines with "
+"cleanliness!"
+msgstr "Ви приймаєте роботу та платите за результат. Ваш дім сяє чистотою!"
+
+#: .\templates\core\index.html:279
+msgid "What's included in apartment cleaning"
+msgstr "Що входить у вартість прибирання квартири"
+
+#: .\templates\core\index.html:300
+msgid "Our Work in Action"
+msgstr "Наша робота в дії"
+
+#: .\templates\core\index.html:301
+msgid "See the difference we make with your own eyes."
+msgstr "Побачте різницю, яку ми робимо, на власні очі."
+
+#: .\templates\core\index.html:314 .\templates\core\index.html:315
+#: .\templates\core\index.html:317
+msgid "Before"
+msgstr "До"
+
+#: .\templates\core\index.html:322 .\templates\core\index.html:323
+#: .\templates\core\index.html:325
+msgid "After"
+msgstr "Після"
+
+#: .\templates\core\index.html:334
+msgid "Previous"
+msgstr "Попередній"
+
+#: .\templates\core\index.html:337
+msgid "Next"
+msgstr "Наступний"
+
+#: .\templates\core\index.html:345
+msgid "What Our Clients Say"
+msgstr "Що кажуть наші клієнти"
+
+#: .\templates\core\index.html:360
+msgid "Posted on"
+msgstr "Опубліковано"
+
+#: .\templates\core\index.html:373
+msgid "Leave your own review"
+msgstr "Залишити свій відгук"
+
+#: .\templates\core\kitchen_cleaning.html:16
+msgid "Complete Kitchen Cleaning"
+msgstr "Прибирання кухні"
+
+#: .\templates\core\kitchen_cleaning.html:17
+msgid ""
+"Choose additional services to make your kitchen perfectly clean. Base price "
+"includes all the points listed below."
+msgstr ""
+"Обирайте додаткові послуги, щоб зробити вашу кухню ідеально чистою. Базова "
+"ціна включає всі пункти, перераховані нижче."
+
+#: .\templates\core\kitchen_cleaning.html:19
+msgid "Beautifully cleaned kitchen"
+msgstr "Іконка пилососа"
+
+#: .\templates\core\kitchen_cleaning.html:26
+msgid "What's included in the base price"
+msgstr "Що входить до базової ціни"
+
+#: .\templates\core\kitchen_cleaning.html:50
+msgid "Strengthen the effect with additional services"
+msgstr ""
+
+#: .\templates\core\kitchen_cleaning.html:80
+msgid "Total:"
+msgstr "Загальна вартість"
+
+#: .\templates\core\pricing.html:14
+msgid ""
+"Choose the perfect cleaning plan for your home. All prices are starting "
+"points and can be customized with additional services."
+msgstr ""
+"Виберіть ідеальний план прибирання для вашого дому. Всі ціни є початковими і "
+"можуть бути змінені за допомогою додаткових послуг."
+
+#: .\templates\core\pricing.html:17 .\templates\core\services.html:17
+msgid "Main Services"
+msgstr "Основні послуги"
+
+#: .\templates\core\pricing.html:29
+msgid "start"
+msgstr "старт"
+
+#: .\templates\core\pricing.html:35
+#, fuzzy
+#| msgid "Description"
+msgid "Description coming soon."
+msgstr "Опис"
+
+#: .\templates\core\pricing.html:83 .\templates\core\services.html:53
+msgid "Total"
+msgstr "Загальна вартість"
+
+#: .\templates\core\services.html:5 .\templates\core\services.html:14
+msgid "Our Services"
+msgstr "Наші послуги"
+
+#: .\templates\core\services.html:15
+msgid ""
+"We offer a wide range of cleaning services to make your home shine. Below "
+"you can find our main packages and additional options."
+msgstr ""
+"Ми пропонуємо широкий спектр послуг з прибирання, щоб ваш дім сяяв. Нижче ви "
+"можете знайти наші основні пакети та додаткові опції."
+
+#: .\templates\core\services.html:17
+msgid "select one"
+msgstr "Виберіть дату"
+
+#: .\templates\core\services.html:27
+msgid ""
+"A comprehensive package designed for this type of cleaning. We pay attention "
+"to every detail."
+msgstr ""
+"Комплексний пакет, розроблений для цього типу прибирання. Ми приділяємо "
+"увагу кожній деталі."
+
+#: .\templates\core\services.html:30
+msgid "from"
+msgstr "від"
+
+#: .\templates\core\services.html:39
+msgid "You can add any of these options to your main cleaning package."
+msgstr ""
+"Ви можете додати будь-яку з цих опцій до вашого основного пакету прибирання."
+
+#: .\templates\core\windows.html:21
+msgid ""
+"Choose the number of windows you want to clean. We wash from both sides. The "
+"minimum order is 5 windows."
+msgstr ""
+"Виберіть кількість вікон, які ви хочете помити. Ми миємо з обох сторін. "
+"Мінімальне замовлення — 5 вікон."
+
+#: .\templates\core\windows.html:25
+msgid "Choose the number of windows"
+msgstr "Виберіть кількість вікон"
+
+#: .\templates\core\windows.html:32
+msgid "Cost of washing one window (on both sides)"
+msgstr "Вартість миття одного вікна (з обох сторін)"
+
+#: .\templates\core\windows.html:42
+msgid "How do we count the number of windows?"
+msgstr "Як ми рахуємо кількість вікон?"
+
+#: .\templates\core\windows.html:47
+msgid ""
+"We count the windows by leaves. They may vary in size, the main thing is "
+"their number."
+msgstr ""
+"Ми рахуємо вікна за стулками. Вони можуть відрізнятися за розміром, головне "
+"— їхня кількість."
+
+#: .\templates\core\windows.html:51
+msgid "This is a double-leaf window - it counts as one window."
+msgstr "Це двостулкове вікно — рахується як одне вікно."
+
+#: .\templates\core\windows.html:55
+msgid "Single-leaf narrow window is half window."
+msgstr "Вузьке одностулкове вікно — це половина вікна."
+
+#: .\templates\core\windows.html:59
+msgid "If you have three leaves, it's 1.5 windows."
+msgstr "Якщо у вас три стулки, це 1.5 вікна."
+
+#: .\templates\core\windows.html:66
+msgid "Balcony door and window - it's 2 windows."
+msgstr "Балконні двері та вікно — це 2 вікна."
+
+#: .\templates\core\windows.html:70
+msgid ""
+"One section to the floor counts as one window. There are 5 windows in the "
+"picture."
+msgstr "Одна секція до підлоги рахується як одне вікно. На картинці 5 вікон."
+
+#: .\templates\core\windows.html:74
+msgid ""
+"If the windows are not to the floor, they are counted by leafs. In the "
+"picture there are 2 windows (4 leafs)."
+msgstr ""
+"Якщо вікна не до підлоги, вони рахуються за стулками. На картинці 2 вікна (4 "
+"стулки)."
+
+#: .\templates\core\windows.html:78
+msgid "If you get 9.5 windows in your order, round down to 9."
+msgstr "Якщо у вашому замовленні виходить 9.5 вікон, округліть до 9."
+
+#: .\templates\core\windows.html:90
+msgid "Your Order"
+msgstr "Ваше замовлення"
+
+#: .\templates\core\windows.html:96 .\templates\core\windows.html:159
+msgid "windows"
+msgstr "вікна"
+
+#: .\templates\core\windows.html:99
+msgid "To pay"
+msgstr "До сплати"
+
+#: .\templates\core\windows.html:103
+msgid "Order cleaning"
+msgstr "Замовити прибирання"
+
+#: .\templates\orders\create_order.html:6
+#: .\templates\orders\create_order.html:11
+msgid "Order placement"
+msgstr "Оформлення замовлення"
+
+#: .\templates\orders\create_order.html:12
+msgid ""
+"Please fill in the fields below to finalize your order. Check your order "
+"details on the right."
+msgstr ""
+"Будь ласка, заповніть поля нижче, щоб завершити оформлення замовлення. "
+"Перевірте деталі вашого замовлення праворуч."
+
+#: .\templates\orders\create_order.html:18
+msgid "Your order"
+msgstr "Ваше замовлення"
+
+#: .\templates\orders\create_order.html:27
+msgid "Rooms / Bathrooms"
+msgstr "Кімнати / Ванні"
+
+#: .\templates\orders\create_order.html:32
+msgid "Travel costs"
+msgstr "Вартість виїзду"
+
+#: .\templates\orders\create_order.html:38
+msgid "Outstanding penalty"
+msgstr ""
+
+#: .\templates\orders\create_order.html:45
+msgid "Total cost"
+msgstr "Загальна вартість"
+
+#: .\templates\orders\create_order.html:55
+msgid "Contact details"
+msgstr "Контактні дані"
+
+#: .\templates\orders\create_order.html:73
+msgid "Cleaning address"
+msgstr "Адреса прибирання"
+
+#: .\templates\orders\create_order.html:102
+#: .\templates\orders\create_order.html:106
+#: .\templates\orders\create_order.html:110
+#: .\templates\orders\create_order.html:114
+msgid "Optional"
+msgstr "Необов'язково"
+
+#: .\templates\orders\create_order.html:121
+msgid "Date and additional info"
+msgstr "Дата та додаткова інформація"
+
+#: .\templates\orders\create_order.html:159
+msgid "Confirm and order"
+msgstr "Підтвердити та замовити"
+
+#: .\templates\orders\order_success.html:4
+msgid "Order accepted"
+msgstr "Замовлення прийнято"
+
+#: .\templates\orders\order_success.html:9
+msgid "Thank you!"
+msgstr "Дякуємо!"
+
+#: .\templates\orders\order_success.html:10
+msgid "Your order has been successfully accepted."
+msgstr "Ваше замовлення було успішно прийнято."
+
+#: .\templates\orders\order_success.html:11
+msgid "Our manager will contact you shortly to confirm the details."
+msgstr ""
+"Наш менеджер зв'яжеться з вами найближчим часом для підтвердження деталей."
+
+#: .\templates\registration\password_reset_complete.html:3
+#: .\templates\registration\password_reset_complete.html:6
+msgid "Password reset complete"
+msgstr "Скидання пароля завершено"
+
+#: .\templates\registration\password_reset_complete.html:7
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr "Ваш пароль встановлено. Тепер ви можете увійти."
+
+#: .\templates\registration\password_reset_confirm.html:3
+#: .\templates\registration\password_reset_confirm.html:8
+msgid "Enter new password"
+msgstr "Введіть новий пароль"
+
+#: .\templates\registration\password_reset_confirm.html:10
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Будь ласка, введіть ваш новий пароль двічі, щоб ми могли переконатися, що ви "
+"ввели його правильно."
+
+#: .\templates\registration\password_reset_confirm.html:15
+msgid "Change my password"
+msgstr "Змінити мій пароль"
+
+#: .\templates\registration\password_reset_confirm.html:20
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+"Посилання для скидання пароля було недійсним, можливо, тому що воно вже було "
+"використане. Будь ласка, надішліть запит на нове скидання пароля."
+
+#: .\templates\registration\password_reset_done.html:3
+#: .\templates\registration\password_reset_done.html:6
+msgid "Instructions Sent"
+msgstr "Інструкції надіслано"
+
+#: .\templates\registration\password_reset_done.html:7
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+"Ми надіслали вам електронною поштою інструкції щодо встановлення вашого "
+"пароля, якщо існує обліковий запис із введеною вами адресою електронної "
+"пошти. Ви повинні отримати їх найближчим часом."
+
+#: .\templates\registration\password_reset_done.html:8
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Якщо ви не отримали листа, будь ласка, переконайтеся, що ви ввели адресу, з "
+"якою ви зареєструвалися, та перевірте папку зі спамом."
+
+#: .\templates\registration\password_reset_form.html:3
+#: .\templates\registration\password_reset_form.html:8
+msgid "Reset Password"
+msgstr "Скинути пароль"
+
+#: .\templates\registration\password_reset_form.html:9
+msgid ""
+"Enter your email address below, and we'll email instructions for setting a "
+"new one."
+msgstr ""
+"Введіть вашу адресу електронної пошти нижче, і ми надішлемо інструкції щодо "
+"встановлення нового пароля."
+
+#: .\templates\registration\password_reset_form.html:14
+msgid "Send Instructions"
+msgstr "Надіслати інструкції"
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:15
+msgid "Messages"
+msgstr "Повідомлення"
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr "Мапи сайту"
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr "Статичні файли"
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr "Синдикація"
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr "…"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:50
+msgid "That page number is not an integer"
+msgstr "Номер цієї сторінки не є цілим числом"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:52
+msgid "That page number is less than 1"
+msgstr "Номер цієї сторінки менший за 1"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:54
+msgid "That page contains no results"
+msgstr "Ця сторінка не містить результатів"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr "Введіть правильне значення."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:104
+#: .\venv\Lib\site-packages\django\forms\fields.py:752
+msgid "Enter a valid URL."
+msgstr "Введіть правильний URL."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:165
+msgid "Enter a valid integer."
+msgstr "Введіть ціле число."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:176
+msgid "Enter a valid email address."
+msgstr "Введіть правильну адресу електронної пошти."
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:259
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+"Введіть правильний «slug», що складається з літер, цифр, підкреслень або "
+"дефісів."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:267
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+"Введіть правильний «slug», що складається з літер Unicode, цифр, підкреслень "
+"або дефісів."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:281
+#: .\venv\Lib\site-packages\django\core\validators.py:289
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+msgid "Enter a valid IPv4 address."
+msgstr "Введіть правильну адресу електронної пошти."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:298
+#: .\venv\Lib\site-packages\django\core\validators.py:319
+msgid "Enter a valid IPv6 address."
+msgstr "Введіть правильну адресу електронної пошти."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:310
+#: .\venv\Lib\site-packages\django\core\validators.py:317
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr "Введіть правильну адресу електронної пошти."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:353
+msgid "Enter only digits separated by commas."
+msgstr "Введіть тільки цифри, розділені комами."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:359
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+"Переконайтеся, що це значення дорівнює %(limit_value)s (зараз "
+"%(show_value)s)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:394
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "Переконайтеся, що це значення менше або дорівнює %(limit_value)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:403
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "Переконайтеся, що це значення більше або дорівнює %(limit_value)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:412
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr "Переконайтеся, що це значення кратне розміру кроку %(limit_value)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:422
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"Переконайтеся, що це значення містить щонайменше %(limit_value)d символ "
+"(зараз %(show_value)d)."
+msgstr[1] ""
+"Переконайтеся, що це значення містить щонайменше %(limit_value)d символи "
+"(зараз %(show_value)d)."
+msgstr[2] ""
+"Переконайтеся, що це значення містить щонайменше %(limit_value)d символів "
+"(зараз %(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:440
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"Переконайтеся, що це значення містить не більше %(limit_value)d символу "
+"(зараз %(show_value)d)."
+msgstr[1] ""
+"Переконайтеся, що це значення містить не більше %(limit_value)d символів "
+"(зараз %(show_value)d)."
+msgstr[2] ""
+"Переконайтеся, що це значення містить не більше %(limit_value)d символів "
+"(зараз %(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:463
+#: .\venv\Lib\site-packages\django\forms\fields.py:347
+#: .\venv\Lib\site-packages\django\forms\fields.py:386
+msgid "Enter a number."
+msgstr "Введіть число."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:465
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] "Переконайтеся, що загальна кількість цифр не перевищує %(max)s."
+msgstr[1] "Переконайтеся, що загальна кількість цифр не перевищує %(max)s."
+msgstr[2] "Переконайтеся, що загальна кількість цифр не перевищує %(max)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:470
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] "Переконайтеся, що кількість знаків після коми не перевищує %(max)s."
+msgstr[1] "Переконайтеся, що кількість знаків після коми не перевищує %(max)s."
+msgstr[2] "Переконайтеся, що кількість знаків після коми не перевищує %(max)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:475
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] "Переконайтеся, що кількість цифр до коми не перевищує %(max)s."
+msgstr[1] "Переконайтеся, що кількість цифр до коми не перевищує %(max)s."
+msgstr[2] "Переконайтеся, що кількість цифр до коми не перевищує %(max)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:546
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+"Розширення файлу «%(extension)s» не допускається. Дозволені розширення: "
+"%(allowed_extensions)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:607
+msgid "Null characters are not allowed."
+msgstr "Нульові символи не допускаються."
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1423
+#: .\venv\Lib\site-packages\django\forms\models.py:893
+msgid "and"
+msgstr "і"
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1425
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr "%(model_name)s з таким %(field_labels)s вже існує."
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:17
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr "Обмеження «%(name)s» порушено."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:128
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr "Значення %(value)r не є допустимим вибором."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:129
+msgid "This field cannot be null."
+msgstr "Це поле не може бути порожнім."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:130
+msgid "This field cannot be blank."
+msgstr "Це поле не може бути порожнім."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:131
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr "%(model_name)s з таким %(field_label)s вже існує."
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+"%(field_label)s має бути унікальним для %(date_field_label)s %(lookup_type)s."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:173
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr "Поле типу: %(field_type)s"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1094
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr "Значення «%(value)s» має бути або True, або False."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1095
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr "Значення «%(value)s» має бути або True, False, або None."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1097
+msgid "Boolean (Either True or False)"
+msgstr "Логічне значення (True або False)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1147
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr "Рядок (до %(max_length)s)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1149
+msgid "String (unlimited)"
+msgstr "Рядок (необмежений)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1253
+msgid "Comma-separated integers"
+msgstr "Цілі числа через кому"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1354
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+"Значення «%(value)s» має недійсний формат дати. Він має бути у форматі РРРР-"
+"ММ-ДД."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1358
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1493
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+"Значення «%(value)s» має правильний формат (РРРР-ММ-ДД), але це недійсна "
+"дата."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1362
+msgid "Date (without time)"
+msgstr "Дата (без часу)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1489
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+"Значення «%(value)s» має недійсний формат. Він має бути у форматі РРРР-ММ-ДД "
+"ГГ:ХХ[:сс[.uuuuuu]][TZ]."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1497
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+"Значення «%(value)s» має правильний формат (РРРР-ММ-ДД ГГ:ХХ[:сс[.uuuuuu]]"
+"[TZ]), але це недійсна дата/час."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1502
+msgid "Date (with time)"
+msgstr "Дата (з часом)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1626
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr "Значення «%(value)s» має бути десятковим числом."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1628
+msgid "Decimal number"
+msgstr "Десяткове число"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1789
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+"Значення «%(value)s» має недійсний формат. Він має бути у форматі [ДД] "
+"[[ГГ:]ХХ:]сс[.uuuuuu]."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1793
+msgid "Duration"
+msgstr "Тривалість"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1870
+msgid "File path"
+msgstr "Шлях до файлу"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1948
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr "Значення «%(value)s» має бути числом з плаваючою комою."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1950
+msgid "Floating point number"
+msgstr "Число з плаваючою комою"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1990
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr "Значення «%(value)s» має бути цілим числом."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1992
+msgid "Integer"
+msgstr "Ціле число"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2088
+msgid "Big (8 byte) integer"
+msgstr "Велике (8 байт) ціле число"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2105
+msgid "Small integer"
+msgstr "Маленьке ціле число"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2113
+msgid "IPv4 address"
+msgstr "Адреса IPv4"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2144
+msgid "IP address"
+msgstr "IP-адреса"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2237
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2238
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr "Значення «%(value)s» має бути або None, True, або False."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2240
+msgid "Boolean (Either True, False or None)"
+msgstr "Логічне значення (True, False або None)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2291
+msgid "Positive big integer"
+msgstr "Додатне велике ціле число"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2306
+msgid "Positive integer"
+msgstr "Додатне ціле число"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2321
+msgid "Positive small integer"
+msgstr "Додатне маленьке ціле число"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2337
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr "Slug (до %(max_length)s)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2373
+msgid "Text"
+msgstr "Текст"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2448
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+"Значення «%(value)s» має недійсний формат. Він має бути у форматі "
+"ГГ:ХХ[:сс[.uuuuuu]]."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2452
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+"Значення «%(value)s» має правильний формат (ГГ:ХХ[:сс[.uuuuuu]]), але це "
+"недійсний час."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2456
+msgid "Time"
+msgstr "Час"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2564
+msgid "URL"
+msgstr "URL"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2588
+msgid "Raw binary data"
+msgstr "Сирі двійкові дані"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2653
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr "«%(value)s» не є дійсним UUID."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2655
+msgid "Universally unique identifier"
+msgstr "Універсальний унікальний ідентифікатор"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:232
+msgid "File"
+msgstr "Файл"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "A JSON object"
+msgstr "Об'єкт JSON"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:28
+msgid "Value must be valid JSON."
+msgstr "Значення має бути дійсним JSON."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:919
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr "Екземпляр %(model)s з %(field)s %(value)r не є допустимим вибором."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:921
+msgid "Foreign Key (type determined by related field)"
+msgstr "Зовнішній ключ (тип визначається пов'язаним полем)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1212
+msgid "One-to-one relationship"
+msgstr "Відношення один до одного"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1269
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr "Відношення %(from)s-%(to)s"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1271
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr "Відношення %(from)s-%(to)s"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1319
+msgid "Many-to-many relationship"
+msgstr "Відношення багато до багатьох"
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:184
+msgid ":?.!"
+msgstr ":?.!"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:91
+msgid "This field is required."
+msgstr "Це поле є обов'язковим."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:298
+msgid "Enter a whole number."
+msgstr "Введіть ціле число."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:467
+#: .\venv\Lib\site-packages\django\forms\fields.py:1241
+msgid "Enter a valid date."
+msgstr "Введіть правильну дату."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:490
+#: .\venv\Lib\site-packages\django\forms\fields.py:1242
+msgid "Enter a valid time."
+msgstr "Введіть правильний час."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:517
+msgid "Enter a valid date/time."
+msgstr "Введіть правильну дату/час."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:551
+msgid "Enter a valid duration."
+msgstr "Введіть правильну тривалість."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:552
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr "Кількість днів має бути від {min_days} до {max_days}."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:621
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr "Файл не було надіслано. Перевірте тип кодування у формі."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:622
+msgid "No file was submitted."
+msgstr "Файл не було надіслано."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:623
+msgid "The submitted file is empty."
+msgstr "Надісланий файл порожній."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:625
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+"Переконайтеся, що ім'я файлу містить не більше %(max)d символу (зараз "
+"%(length)d)."
+msgstr[1] ""
+"Переконайтеся, що ім'я файлу містить не більше %(max)d символів (зараз "
+"%(length)d)."
+msgstr[2] ""
+"Переконайтеся, що ім'я файлу містить не більше %(max)d символів (зараз "
+"%(length)d)."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:630
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+"Будь ласка, або надішліть файл, або встановіть прапорець «очистити», але не "
+"обидва."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:694
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+"Завантажте дійсне зображення. Файл, який ви завантажили, або не є "
+"зображенням, або є пошкодженим зображенням."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:857
+#: .\venv\Lib\site-packages\django\forms\fields.py:949
+#: .\venv\Lib\site-packages\django\forms\models.py:1566
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr "Виберіть дійсний варіант. %(value)s не є одним з доступних варіантів."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:951
+#: .\venv\Lib\site-packages\django\forms\fields.py:1070
+#: .\venv\Lib\site-packages\django\forms\models.py:1564
+msgid "Enter a list of values."
+msgstr "Введіть список значень."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1071
+msgid "Enter a complete value."
+msgstr "Введіть повне значення."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1313
+msgid "Enter a valid UUID."
+msgstr "Введіть дійсний UUID."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1343
+msgid "Enter a valid JSON."
+msgstr "Введіть дійсний JSON."
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:98
+msgid ":"
+msgstr ":"
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:244
+#: .\venv\Lib\site-packages\django\forms\forms.py:328
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr "(Приховане поле %(name)s) %(error)s"
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:63
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+"Дані ManagementForm відсутні або були змінені. Відсутні поля: "
+"%(field_names)s. Можливо, вам доведеться повідомити про помилку, якщо "
+"проблема не зникне."
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:67
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] "Будь ласка, надішліть не більше %(num)d форми."
+msgstr[1] "Будь ласка, надішліть не більше %(num)d форм."
+msgstr[2] "Будь ласка, надішліть не більше %(num)d форм."
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:72
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] "Будь ласка, надішліть щонайменше %(num)d форму."
+msgstr[1] "Будь ласка, надішліть щонайменше %(num)d форми."
+msgstr[2] "Будь ласка, надішліть щонайменше %(num)d форм."
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr "Видалити"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:886
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr "Будь ласка, виправте дубльовані дані для %(field)s."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:891
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+"Будь ласка, виправте дубльовані дані для %(field)s, які мають бути "
+"унікальними."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:898
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+"Будь ласка, виправте дубльовані дані для %(field_name)s, які мають бути "
+"унікальними для %(lookup)s в %(date_field)s."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:907
+msgid "Please correct the duplicate values below."
+msgstr "Будь ласка, виправте дубльовані значення нижче."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1338
+msgid "The inline value did not match the parent instance."
+msgstr "Вбудоване значення не відповідає батьківському екземпляру."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1429
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr "Виберіть дійсний варіант. Цей варіант не є одним з доступних."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1568
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr "«%(pk)s» не є дійсним значенням."
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:226
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+"%(datetime)s не може бути інтерпретовано в часовому поясі "
+"%(current_timezone)s; воно може бути неоднозначним або не існувати."
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:463
+msgid "Clear"
+msgstr "Очистити"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:464
+msgid "Currently"
+msgstr "На даний момент"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:465
+msgid "Change"
+msgstr "Змінити"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:794
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:795
+msgid "Yes"
+msgstr "Так"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:796
+msgid "No"
+msgstr "Ні"
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:874
+msgid "yes,no,maybe"
+msgstr "так,ні,можливо"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:904
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:921
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] "%(size)d байт"
+msgstr[1] "%(size)d байти"
+msgstr[2] "%(size)d байтів"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:923
+#, python-format
+msgid "%s KB"
+msgstr "%s КБ"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:925
+#, python-format
+msgid "%s MB"
+msgstr "%s МБ"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:927
+#, python-format
+msgid "%s GB"
+msgstr "%s ГБ"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:929
+#, python-format
+msgid "%s TB"
+msgstr "%s ТБ"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:931
+#, python-format
+msgid "%s PB"
+msgstr "%s ПБ"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:73
+msgid "p.m."
+msgstr "після полудня"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "a.m."
+msgstr "до полудня"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:79
+msgid "PM"
+msgstr "PM"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "AM"
+msgstr "AM"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:152
+msgid "midnight"
+msgstr "північ"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:154
+msgid "noon"
+msgstr "полудень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr "понеділок"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr "вівторок"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr "середа"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr "четвер"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr "п'ятниця"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr "субота"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr "неділя"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr "пн"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr "вт"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr "ср"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr "чт"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr "пт"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr "сб"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr "нд"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr "січень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr "лютий"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr "березень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr "квітень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr "травень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr "червень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr "липень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr "серпень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr "вересень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr "жовтень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr "листопад"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr "грудень"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr "січ"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr "лют"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr "бер"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr "кві"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr "тра"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr "чер"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr "лип"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr "сер"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr "вер"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr "жов"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr "лис"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr "гру"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr "Січ."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr "Лют."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "Бер."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr "Квіт."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr "Трав."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr "Черв."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr "Лип."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr "Серп."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr "Вер."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr "Жовт."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr "Лист."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr "Груд."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr "січня"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr "лютого"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr "березня"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr "квітня"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr "травня"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr "червня"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr "липня"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr "серпня"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr "вересня"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr "жовтня"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr "листопада"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr "грудня"
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr "Це недійсна адреса IPv6."
+
+#: .\venv\Lib\site-packages\django\utils\text.py:138
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr "%(truncated_text)s…"
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:342
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ", "
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] "%(num)d рік"
+msgstr[1] "%(num)d роки"
+msgstr[2] "%(num)d років"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] "%(num)d місяць"
+msgstr[1] "%(num)d місяці"
+msgstr[2] "%(num)d місяців"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] "%(num)d тиждень"
+msgstr[1] "%(num)d тижні"
+msgstr[2] "%(num)d тижнів"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] "%(num)d день"
+msgstr[1] "%(num)d дні"
+msgstr[2] "%(num)d днів"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] "%(num)d година"
+msgstr[1] "%(num)d години"
+msgstr[2] "%(num)d годин"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] "%(num)d хвилина"
+msgstr[1] "%(num)d хвилини"
+msgstr[2] "%(num)d хвилин"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:111
+msgid "Forbidden"
+msgstr "Заборонено"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:112
+msgid "CSRF verification failed. Request aborted."
+msgstr "Перевірка CSRF не вдалася. Запит перервано."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:116
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+"Ви бачите це повідомлення, тому що цей HTTPS-сайт вимагає, щоб ваш веб-"
+"браузер надсилав заголовок «Referer», але його не було надіслано. Цей "
+"заголовок необхідний з міркувань безпеки, щоб гарантувати, що ваш браузер не "
+"буде захоплено третіми особами."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:122
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+"Якщо ви налаштували свій браузер на вимкнення заголовків «Referer», будь "
+"ласка, увімкніть їх знову, принаймні для цього сайту, або для HTTPS-"
+"з'єднань, або для запитів «same-origin»."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:127
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+"Якщо ви використовуєте тег <meta name=\"referrer\" content=\"no-referrer\"> "
+"або включаєте заголовок «Referrer-Policy: no-referrer», будь ласка, видаліть "
+"їх. Захист CSRF вимагає наявності заголовка «Referer» для суворої перевірки "
+"реферера. Якщо вас турбує конфіденційність, використовуйте альтернативи, "
+"такі як <a rel=\"noreferrer\" …> для посилань на сторонні сайти."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:136
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+"Ви бачите це повідомлення, тому що цей сайт вимагає наявності CSRF-cookie "
+"при надсиланні форм. Цей cookie необхідний з міркувань безпеки, щоб "
+"гарантувати, що ваш браузер не буде захоплено третіми особами."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:142
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+"Якщо ви налаштували свій браузер на вимкнення cookie, будь ласка, увімкніть "
+"їх знову, принаймні для цього сайту, або для запитів «same-origin»."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:148
+msgid "More information is available with DEBUG=True."
+msgstr "Більше інформації доступно з DEBUG=True."
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr "Рік не вказано"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr "Дата поза діапазоном"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr "Місяць не вказано"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr "День не вказано"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr "Тиждень не вказано"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:349
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:380
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr "Немає доступних %(verbose_name_plural)s"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:652
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+"Майбутні %(verbose_name_plural)s недоступні, оскільки "
+"%(class_name)s.allow_future має значення False."
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:692
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr "Недійсний рядок дати «%(datestr)s» для формату «%(format)s»"
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr "Не знайдено %(verbose_name)s, що відповідає запиту"
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "Сторінка не є «останньою» і не може бути перетворена на ціле число."
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr "Недійсна сторінка (%(page_number)s): %(message)s"
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:169
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr "Порожній список і «%(class_name)s.allow_empty» має значення False."
+
+#: .\venv\Lib\site-packages\django\views\static.py:38
+msgid "Directory indexes are not allowed here."
+msgstr "Індекси каталогів тут не дозволені."
+
+#: .\venv\Lib\site-packages\django\views\static.py:40
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr "«%(path)s» не існує"
+
+#: .\venv\Lib\site-packages\django\views\static.py:79
+#, python-format
+msgid "Index of %(directory)s"
+msgstr "Індекс %(directory)s"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:220
+msgid "The install worked successfully! Congratulations!"
+msgstr "Встановлення пройшло успішно! Вітаємо!"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+"Переглянути <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/"
+"\" target=\"_blank\" rel=\"noopener\">нотатки до випуску</a> для Django "
+"%(version)s"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:221
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+"Ви бачите цю сторінку, тому що у вашому файлі налаштувань встановлено <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> і ви не налаштували жодних "
+"URL-адрес."
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:229
+msgid "Django Documentation"
+msgstr "Документація Django"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:230
+msgid "Topics, references, &amp; how-to’s"
+msgstr "Теми, довідники та інструкції"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:238
+msgid "Tutorial: A Polling App"
+msgstr "Підручник: Додаток для опитувань"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:239
+msgid "Get started with Django"
+msgstr "Початок роботи з Django"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:247
+msgid "Django Community"
+msgstr "Спільнота Django"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
+msgid "Connect, get help, or contribute"
+msgstr "Приєднуйтесь, отримуйте допомогу або робіть свій внесок"
+
+#: .\venv\Lib\site-packages\django_apscheduler\admin.py:62
+msgid "Average Duration (sec)"
+msgstr "Базова тривалість (хвилини)"
+
+#: .\venv\Lib\site-packages\django_apscheduler\admin.py:81
+msgid "Could not find job {} in the database! Skipping execution..."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\admin.py:105
+msgid ""
+"Maximum runtime of {} seconds exceeded! Not all jobs could be completed "
+"successfully. Pending jobs: {}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\admin.py:124
+msgid "Executed job '{}'!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\admin.py:132
+msgid "Run the selected django jobs"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\admin.py:160
+msgid "Duration (sec)"
+msgstr "Тривалість (хвилини)"
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:18
+msgid "Unique id for this job."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:26
+msgid "Date and time at which this job is scheduled to be executed next."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:72
+msgid "Unique ID for this job execution."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:78
+msgid "The job that this execution relates to."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:86
+msgid "The current status of this job execution."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:91
+msgid "Date and time at which this job was executed."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:101
+msgid "Total run time of this job (in seconds)."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:109
+msgid "Timestamp at which this job was finished."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:116
+msgid "Details of exception that occurred during job execution (if any)."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_apscheduler\models.py:123
+msgid "Traceback of exception that occurred during job execution (if any)."
+msgstr ""
+
+#: .\venv\Lib\site-packages\httplib2\__init__.py:407
+#, python-format
+msgid "Content purported to be compressed with %s but failed to decompress."
+msgstr ""
+
+#: .\venv\Lib\site-packages\httplib2\__init__.py:571
+#, python-format
+msgid "Unsupported value for qop: %s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\httplib2\__init__.py:575
+#: .\venv\Lib\site-packages\httplib2\__init__.py:653
+#, python-format
+msgid "Unsupported value for algorithm: %s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\httplib2\__init__.py:648
+msgid "The challenge doesn't contain a server nonce, or this one is empty."
+msgstr ""
+
+#: .\venv\Lib\site-packages\httplib2\__init__.py:658
+#, python-format
+msgid "Unsupported value for pw-algorithm: %s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\httplib2\__init__.py:1471
+msgid "Redirected but the response is missing a Location: header."
+msgstr ""
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:14
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:54
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:62
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:72
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:82
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:86
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:118
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:137
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:364
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:369
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:379
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:399
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:416
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:435
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:441
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:458
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:470
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:478
+msgid "title"
+msgstr "назва"
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:18
+msgid "password"
+msgstr "пароль"
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:245
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:264
+msgid "title a"
+msgstr "назва a"
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:249
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:275
+msgid "title b"
+msgstr "назва b"
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:253
+msgid "title c"
+msgstr "назва c"
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:257
+msgid "title d"
+msgstr "назва d"
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\models.py:380
+msgid "visits"
+msgstr "відвідування"
+
+#: .\venv\Lib\site-packages\modeltranslation\tests\translation.py:62
+msgid "Sorry, translation is not available."
+msgstr "Вибачте, переклад недоступний."
+
+#: .\venv\Lib\site-packages\modeltranslation\widgets.py:32
+msgid "None"
+msgstr "Немає"
+
+#~ msgid "Selected service not found."
+#~ msgstr "Вибрану послугу не знайдено."
+
+#~ msgid "Additional Rooms"
+#~ msgstr "Додаткові приміщення"
+
+#~ msgid "More"
+#~ msgstr "Більше"
+
+#~ msgid "Card"
+#~ msgstr "Картка"
+
+#~ msgid "Wiping dust from all surfaces"
+#~ msgstr "Витирання пилу з усіх поверхонь"
+
+#~ msgid "Vacuuming and mopping floors"
+#~ msgstr "Пилососіння та миття підлоги"
+
+#~ msgid "Kitchen cleaning (countertops, sink)"
+#~ msgstr "Прибирання кухні (стільниці, раковина)"
+
+#~ msgid "Bathroom cleaning (toilet, sink, shower)"
+#~ msgstr "Прибирання ванної (унітаз, раковина, душ)"
+
+#~ msgid "Everything in Standard"
+#~ msgstr "Все, що в пакеті 'Стандарт'"
+
+#~ msgid "Washing baseboards and doors"
+#~ msgstr "Миття плінтусів та дверей"
+
+#~ msgid "Cleaning inside kitchen cabinets"
+#~ msgstr "Чищення всередині кухонних шаф"
+
+#~ msgid "Deep cleaning of bathroom tiles"
+#~ msgstr "Глибоке очищення плитки у ванній"
+
+#~ msgid "Removal of construction dust"
+#~ msgstr "Видалення будівельного пилу"
+
+#~ msgid "Washing windows and window sills"
+#~ msgstr "Миття вікон та підвіконь"
+
+#~ msgid "Removing paint and glue stains"
+#~ msgstr "Видалення плям фарби та клею"
+
+#~ msgid "Deep cleaning of all surfaces"
+#~ msgstr "Глибоке очищення всіх поверхонь"
+
+#~ msgid "hour(s)"
+#~ msgstr "год."
+
+#~ msgid "Orders Management"
+#~ msgstr "Управління замовленнями"
+
+#~ msgid "Kitchen Cleaning Illustration"
+#~ msgstr "Ілюстрація прибирання кухні"
+
+#~ msgid ""
+#~ "A full kitchen cleaning is a comprehensive 5-6 hour cleaning of "
+#~ "everything in the kitchen. All appliances are cleaned inside and out. "
+#~ "We'll tidy up the furniture, take out the trash, and replace the garbage "
+#~ "bags."
+#~ msgstr ""
+#~ "Повне прибирання кухні — це комплексне 5-6 годинне прибирання всього, що "
+#~ "є на кухні. Вся техніка чиститься всередині та зовні. Ми приведемо до "
+#~ "ладу меблі, винесемо сміття та замінимо мішки для сміття."
+
+#~ msgid "Cleaning time"
+#~ msgstr "Час прибирання"
+
+#~ msgid "Fixed price"
+#~ msgstr "Фіксована ціна"
+
+#~ msgid "What does the cleaning consist of?"
+#~ msgstr "З чого складається прибирання?"
+
+#~ msgid "Enter a valid domain name."
+#~ msgstr "Введіть правильне доменне ім'я."
+
+#, python-format
+#~ msgid "Enter a valid %(protocol)s address."
+#~ msgstr "Введіть правильну адресу %(protocol)s."
+
+#~ msgid "IPv4"
+#~ msgstr "IPv4"
+
+#~ msgid "IPv6"
+#~ msgstr "IPv6"
+
+#~ msgid "IPv4 or IPv6"
+#~ msgstr "IPv4 або IPv6"
+
+#, python-format
+#~ msgid ""
+#~ "Ensure this value is a multiple of step size %(limit_value)s, starting "
+#~ "from %(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and "
+#~ "so on."
+#~ msgstr ""
+#~ "Переконайтеся, що це значення кратне розміру кроку %(limit_value)s, "
+#~ "починаючи з %(offset)s, наприклад, %(offset)s, %(valid_value1)s, "
+#~ "%(valid_value2)s і так далі."
+
+#~ msgid ""
+#~ "Since you are canceling less than 24 hours before the scheduled time, a "
+#~ "cancellation fee of"
+#~ msgstr ""
+#~ "Оскільки ви скасовуєте замовлення менш ніж за 24 години до запланованого "
+#~ "часу, буде стягнуто плату за скасування у розмірі"
+
+#~ msgid "will be applied."
+#~ msgstr "буде застосовано."
+
+#~ msgid "Calculate precisely"
+#~ msgstr "Розрахувати точно"

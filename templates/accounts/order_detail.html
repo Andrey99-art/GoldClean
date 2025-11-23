@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Order Details" %} #{{ order.id }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>{% trans "Order Details" %} #{{ order.id }}</h1>
+        <a href="{% url 'order_list' %}" class="btn btn-outline-primary">{% trans "Back to Orders" %}</a>
+    </div>
+
+    {% if order.status == 'new' %}
+    <div class="mb-3">
+        <a href="{% url 'order_edit' order.id %}" class="btn btn-warning">{% trans "Edit Order" %}</a>
+                <a href="{% url 'cancel_order' order.id %}" class="btn btn-danger">{% trans "Cancel Order" %}</a>
+
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4>{% trans "Service Information" %}</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>{% trans "Status" %}:</strong> <span class="badge bg-primary fs-6">{{ order.get_status_display }}</span></li>
+                    <li class="list-group-item"><strong>{% trans "Service" %}:</strong> {{ order.service.name }}</li>
+                    <!-- ... добавьте другие детали по аналогии ... -->
+                    <li class="list-group-item"><strong>{% trans "Cleaning Date" %}:</strong> {{ order.cleaning_date|date:"d M Y" }} at {{ order.cleaning_time|time:"H:i" }}</li>
+                    <li class="list-group-item"><strong>{% trans "Address" %}:</strong> {{ order.city }}, {{ order.street }} {{ order.building_number }}{% if order.apartment_number %}, {% trans "apt." %} {{ order.apartment_number }}{% endif %}</li>
+                    <li class="list-group-item"><strong>{% trans "Comments" %}:</strong> {{ order.comments|default:"-" }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>{% trans "Total Cost" %}</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h2 class="display-4">{{ order.total_price|floatformat:2 }} zł</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

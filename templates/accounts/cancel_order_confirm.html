@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Confirm Cancellation" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="mb-4">{% trans "Confirm Cancellation" %}</h1>
+            <p>{% trans "You are about to cancel your order" %} #{{ order.id }} ({{ order.service.name }}) {% trans "scheduled for" %} {{ order.cleaning_date|date:"d M Y" }} at {{ order.cleaning_time|time:"H:i" }}.</p>
+
+            {% if is_penalty_period %}
+                <div class="alert alert-danger">
+                    <h4 class="alert-heading">{% trans "Attention!" %}</h4>
+                   <p>{% blocktrans %}Since you are canceling less than 24 hours before the scheduled time, 
+                    a penalty of <strong>{{ penalty_fee|floatformat:2 }} zł</strong> will be added to your account balance.
+                     This amount will be automatically included in the cost of your next order.{% endblocktrans %}</p>
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    <p>{% trans "No penalty will be applied for this cancellation." %}</p>
+                </div>
+            {% endif %}
+            
+            <p><strong>{% trans "Are you sure you want to proceed?" %}</strong></p>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="d-flex gap-2 mt-4">
+                    <button type="submit" class="btn btn-danger">{% trans "Yes, Cancel This Order" %}</button>
+                    <a href="{% url 'order_detail' order.id %}" class="btn btn-secondary">{% trans "No, Go Back" %}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+/* File: static/css/style.css */
+
+/* ==========================================================================
+   Pricing Page - Order Footer Bar
+   ========================================================================== */
+
+.order-footer-bar {
+    position: fixed; /* <-- Главное свойство, которое "приклеивает" блок */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030; /* Убедимся, что он поверх других элементов */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 1rem 2rem;
+    background-color: var(--bs-body-bg, #fff); /* Используем цвет фона из темы Bootstrap */
+    border-top: 1px solid var(--bs-border-color, #dee2e6);
+    
+    /* Добавляем красивую тень, как у вас в классе shadow-lg */
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+    
+    /* Анимация для плавного появления */
+    transform: translateY(100%);
+    animation: slide-up 0.5s ease-out forwards;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.total-price-display {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* Добавляем отступ для основного контента, чтобы футер его не перекрывал */
+/* 120px - примерная высота плашки + запас */
+body {
+    padding-bottom: 120px; 
+}

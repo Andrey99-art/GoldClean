@@ -1,0 +1,83 @@
+<!-- File: templates/core/services.html -->
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Our Services" %} - O.L.A. Cleaning{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- ИЗМЕНЕНИЕ: Добавлен неймспейс 'orders:' в action формы -->
+    <form action="{% url 'orders:start_order_from_list' %}" method="post" id="service-selection-form">
+        {% csrf_token %}
+        <!-- ... остальной код шаблона без изменений ... -->
+        <div class="text-center mb-5">
+            <h1 class="display-5">{% trans "Our Services" %}</h1>
+            <p class="lead">{% trans "We offer a wide range of cleaning services to make your home shine. Below you can find our main packages and additional options." %}</p>
+        </div>
+        <h2 class="pb-2 border-bottom">{% trans "Main Services" %} <small class="text-muted fs-6">({% trans "select one" %})</small></h2>
+        <div class="row g-4 mt-3">
+            {% for service in main_services %}
+            <div class="col-md-6 col-lg-4">
+                <label class="service-card-selectable h-100">
+                    <input type="radio" name="main_service" value="{{ service.id }}" class="form-check-input" required data-price="{{ service.base_price }}">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-primary">{{ service.name }}</h5>
+                            <p class="card-text">
+                                {% blocktrans %}A comprehensive package designed for this type of cleaning. We pay attention to every detail.{% endblocktrans %}
+                            </p>
+                            <div class="mt-auto text-end">
+                                <span class="fs-5 fw-bold">{% trans "from" %} {{ service.base_price|floatformat:0 }} zł</span>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+        <h2 class="pb-2 border-bottom mt-5">{% trans "Additional Services" %}</h2>
+        <p>{% trans "You can add any of these options to your main cleaning package." %}</p>
+        <div class="list-group mt-3 shadow-sm">
+            {% for service in additional_services %}
+            <label class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <input class="form-check-input me-2" type="checkbox" name="additional_services" value="{{ service.id }}" data-price="{{ service.price }}">
+                    {{ service.name }}
+                </div>
+                <span class="badge bg-primary rounded-pill fs-6">+ {{ service.price|floatformat:0 }} zł</span>
+            </label>
+            {% endfor %}
+        </div>
+        <div class="order-footer-bar shadow-lg">
+            <div class="total-price-display">
+                {% trans "Total" %}: <span id="total-price-value">0.00 zł</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">{% trans "Proceed to order" %}</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- ... ваш JS-код остается без изменений ... -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('service-selection-form');
+    const totalPriceEl = document.getElementById('total-price-value');
+    function updateTotalPrice() {
+        let total = 0;
+        const selectedMainService = form.querySelector('input[name="main_service"]:checked');
+        if (selectedMainService) {
+            total += Number.parseFloat(selectedMainService.dataset.price);
+        }
+        const selectedAddServices = form.querySelectorAll('input[name="additional_services"]:checked');
+        for (const service of selectedAddServices) {
+            total += Number.parseFloat(service.dataset.price);
+        }
+        totalPriceEl.textContent = total.toFixed(2) + ' zł';
+    }
+    form.addEventListener('change', updateTotalPrice);
+    updateTotalPrice();
+});
+</script>
+{% endblock %}

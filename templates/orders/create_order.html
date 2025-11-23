@@ -1,0 +1,223 @@
+<!-- File: orders/templates/orders/create_order.html -->
+
+{% extends 'base.html' %}
+{% load i18n %} 
+
+{% block title %}{% trans "Order placement" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>{% trans "Order placement" %}</h2>
+        <p class="lead">{% trans "Please fill in the fields below to finalize your order. Check your order details on the right." %}</p>
+    </div>
+
+    <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">{% trans "Your order" %}</span>
+            </h4>
+            {% if summary %}
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>{% trans "Cleaning type" %}</span>
+                    <strong>{{ summary.service_name }}</strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>{% trans "Rooms / Bathrooms" %}</span>
+                    <strong>{{ summary.rooms_count }} / {{ summary.bathrooms_count }}</strong>
+                </li>
+                
+                <li id="delivery-charge-summary" class="list-group-item d-flex justify-content-between" style="display: none;">
+                    <span>{% trans "Travel costs" %}</span>
+                    <strong id="delivery-charge-value">0.00 zł</strong>
+                </li>
+
+                {% if penalty_balance > 0 %}
+                <li class="list-group-item d-flex justify-content-between text-danger">
+                  <span>{% trans "Outstanding penalty" %}</span>
+                  <strong>+ {{ penalty_balance|floatformat:2 }} zł</strong>
+                </li>
+                {% endif %}
+
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0">{% trans "Total cost" %}</h6>
+                    </div>
+                    <span id="total-price-value" class="text-success"><strong>{{ summary.total_price|floatformat:2 }} zł</strong></span>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+        <div class="col-md-7 col-lg-8">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <h4 class="mb-3">{% trans "Contact details" %}</h4>
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="{{ form.customer_name.id_for_label }}" class="form-label">{{ form.customer_name.label }}</label>
+                        {{ form.customer_name }}
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="{{ form.customer_phone.id_for_label }}" class="form-label">{{ form.customer_phone.label }}</label>
+                        {{ form.customer_phone }}
+                    </div>
+                    <div class="col-12">
+                        <label for="{{ form.customer_email.id_for_label }}" class="form-label">{{ form.customer_email.label }}</label>
+                        {{ form.customer_email }}
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h4 class="mb-3">{% trans "Cleaning address" %}</h4>
+                <div class="col-12 mb-3">
+                    <label for="{{ form.city.id_for_label }}" class="form-label">{{ form.city.label }}</label>
+                    <select name="{{ form.city.name }}" id="{{ form.city.id_for_label }}" class="form-select form-select-lg" data-base-price="{{ summary.total_price }}">
+                        {% for city in cities %}
+                            <option value="{{ city.pk }}" data-charge="{{ city.delivery_charge }}">
+                                {{ city.name }} 
+                                {% if city.delivery_charge > 0 %}
+                                    (+{{ city.delivery_charge|floatformat:2 }} zł)
+                                {% endif %}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="{{ form.street.id_for_label }}" class="form-label">{{ form.street.label }}</label>
+                        {{ form.street }}
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="{{ form.postal_code.id_for_label }}" class="form-label">{{ form.postal_code.label }}</label>
+                        {{ form.postal_code }}
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="{{ form.building_number.id_for_label }}" class="form-label">{{ form.building_number.label }}</label>
+                        {{ form.building_number }}
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="{{ form.apartment_number.id_for_label }}" class="form-label">{{ form.apartment_number.label }} <span class="text-muted">({% trans "Optional" %})</span></label>
+                        {{ form.apartment_number }}
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="{{ form.entrance.id_for_label }}" class="form-label">{{ form.entrance.label }} <span class="text-muted">({% trans "Optional" %})</span></label>
+                        {{ form.entrance }}
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="{{ form.floor.id_for_label }}" class="form-label">{{ form.floor.label }} <span class="text-muted">({% trans "Optional" %})</span></label>
+                        {{ form.floor }}
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="{{ form.intercom_code.id_for_label }}" class="form-label">{{ form.intercom_code.label }} <span class="text-muted">({% trans "Optional" %})</span></label>
+                        {{ form.intercom_code }}
+                    </div>
+                </div>
+                
+                <hr class="my-4">
+
+                <h4 class="mb-3">{% trans "Date and additional info" %}</h4>
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="{{ form.cleaning_date.id_for_label }}" class="form-label">{{ form.cleaning_date.label }}</label>
+                        {{ form.cleaning_date }}
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="{{ form.cleaning_time.id_for_label }}" class="form-label">{{ form.cleaning_time.label }}</label>
+                        {{ form.cleaning_time }}
+                    </div>
+                    <div class="col-12">
+                        <label for="{{ form.comments.id_for_label }}" class="form-label">{{ form.comments.label }}</label>
+                        {{ form.comments }}
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <!-- ======================================================= -->
+                <!--          НАЧАЛО НОВОГО БЛОКА: ВЫБОР ОПЛАТЫ               -->
+                <!-- ======================================================= -->
+                <h4 class="mb-3">{% trans "Payment method" %}</h4>
+                <div class="payment-methods-grid my-3">
+                    {% for radio in form.payment_method %}
+                    <div class="payment-item">
+                        {# Рендерим input вручную, чтобы добавить класс и связать с label #}
+                        <input type="radio" 
+                               name="{{ radio.data.name }}" 
+                               value="{{ radio.data.value }}" 
+                               id="{{ radio.id_for_label }}" 
+                               class="payment-method-input" 
+                               {% if radio.data.selected %}checked{% endif %} 
+                               required>
+                        
+                        <label class="payment-method-card" for="{{ radio.id_for_label }}">
+                            {% if radio.data.value == 'cash' %}
+                                <i class="bi bi-cash-coin"></i>
+                            {% elif radio.data.value == 'card' %}
+                                <i class="bi bi-credit-card-2-front"></i>
+                            {% endif %}
+                            <span>{{ radio.choice_label }}</span>
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- ======================================================= -->
+                <!--                  КОНЕЦ НОВОГО БЛОКА                     -->
+                <!-- ======================================================= -->
+
+                <hr class="my-4">
+
+                <button class="w-100 btn btn-primary btn-lg" type="submit">{% trans "Confirm and order" %}</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- СКРИПТ ДЛЯ ПЕРЕСЧЕТА ЦЕНЫ ПРИ ВЫБОРЕ ГОРОДА ---
+    const citySelect = document.getElementById('{{ form.city.id_for_label }}');
+    if (citySelect) {
+        const basePrice = parseFloat("{{ summary.total_price }}".replace(',', '.'));
+        const penaltyBalance = parseFloat("{{ penalty_balance|default:'0' }}".replace(',', '.'));
+
+        const deliverySummaryEl = document.getElementById('delivery-charge-summary');
+        const deliveryValueEl = document.getElementById('delivery-charge-value');
+        const totalPriceEl = document.getElementById('total-price-value').querySelector('strong');
+
+        function updatePrice() {
+            const selectedOption = citySelect.options[citySelect.selectedIndex];
+            const deliveryCharge = parseFloat(selectedOption.dataset.charge.replace(',', '.'));
+
+            if (deliveryCharge > 0) {
+                deliveryValueEl.textContent = `${deliveryCharge.toFixed(2)} zł`;
+                deliverySummaryEl.style.display = 'flex';
+            } else {
+                deliverySummaryEl.style.display = 'none';
+            }
+
+            const finalPrice = basePrice + deliveryCharge + penaltyBalance;
+            totalPriceEl.textContent = `${finalPrice.toFixed(2)} zł`;
+        }
+
+        citySelect.addEventListener('change', updatePrice);
+        updatePrice(); // Первоначальный вызов при загрузке
+    }
+
+    // --- ВАШИ СТАРЫЕ СКРИПТЫ ДЛЯ КАЛЕНДАРЯ ---
+    const currentLocale = "{{ request.LANGUAGE_CODE }}";
+    flatpickr("#{{ form.cleaning_date.id_for_label }}", {
+        "locale": currentLocale, "dateFormat": "Y-m-d", "altInput": true,
+        "altFormat": "d.m.Y", "minDate": "today"
+    });
+    flatpickr("#{{ form.cleaning_time.id_for_label }}", {
+        "enableTime": true, "noCalendar": true, "dateFormat": "H:i",
+        "time_24hr": true, "minuteIncrement": 30, "defaultHour": 9
+    });
+});
+</script>
+{% endblock %}

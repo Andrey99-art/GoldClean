@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "About us" %} - Gold Clean{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">{% trans "Our values and approach" %}</h1>
+            <p class="col-md-8 fs-4">{% trans "We understand that in today's fast-paced world, every minute counts. We have an individual approach to the cleanliness of your space." %}</p>
+        </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6 mb-4">
+            <div class="h-100 p-5 rounded-3 about-card about-card-dark">
+                <h2>1. {% trans "Personal Approach" %}</h2>
+                <p>{% trans "We know that every home and office is unique, just like the people who live and work in them. Before we start cleaning, we carefully listen to your wishes and habits. Our goal is to create a space where you will feel most comfortable." %}</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="h-100 p-5 rounded-3 abour-card abour-card-light">
+                <h2>2. {% trans "Professionalism" %}</h2>
+                <p>{% trans "We work only with proven methods and safe products, paying attention to every detail. Our team consists of specialists who know how to find individual solutions for any task—from maintenance cleaning to complex general cleanups." %}</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="h-100 p-5 border rounded-3 about-card about-card-light ">
+                <h2>3. {% trans "Time Saving" %}</h2>
+                <p>{% trans "We value your schedule. The cleaning is built around your timetable—quickly, precisely, without unnecessary calls or waiting. You can be sure: on the appointed day and time, our specialists will be there and do everything as agreed." %}</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="h-100 p-5 rounded-3 about-card about-card-dark">
+                <h2>4. {% trans "Reliability" %}</h2>
+                <p>{% trans "We understand how important trust is when it comes to your home or office. We handle your property with care, guarantee confidentiality, and honestly fulfill our obligations." %}</p>
+            </div>
+        </div>
+        <div class="col-md-12 mb-4">
+            <div class="h-100 p-5 border rounded-3 about-card about-card-light">
+                <h2>5. {% trans "Health Care" %}</h2>
+                <p>{% trans "We use hypoallergenic and safe products so that your space is always clean, fresh, and safe for the whole family, employees, and pets. Cleanliness is not just about order; it's about health and easy breathing." %}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <h2 class="fw-light">{% trans "Our philosophy is simple:" %}</h2>
+        <blockquote class="blockquote fs-4 my-4 philosophy-quote">
+            <p>{% trans "“When it’s clean around you—thoughts are clearer, energy is greater, and there is enough time for what’s important.”" %}</p>
+        </blockquote>
+    </div>
+</div>
+{% endblock %}

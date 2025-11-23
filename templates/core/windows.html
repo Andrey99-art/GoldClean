@@ -1,0 +1,194 @@
+<!-- File: templates/core/windows.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Window Cleaning" %} - Gold Clean{% endblock %}
+
+{% block content %}
+<!-- ======================================================= -->
+<!--          ИЗМЕНЕНИЕ: Добавлено пространство имен 'orders:'      -->
+<!-- ======================================================= -->
+<form action="{% url 'orders:order_create' %}" method="GET" id="window-calculator-form" data-calculate-url="{% url 'calculate_window_price' %}">
+    {% csrf_token %}
+    <input type="hidden" name="service_id" value="{{ service.id }}">
+
+    <div class="row g-5">
+        <!-- Левая колонка: Калькулятор и информация -->
+        <div class="col-lg-8">
+            <h1 class="display-5 mb-4">{% trans "Window Cleaning" %}</h1>
+            <p class="lead">{% trans "Choose the number of windows you want to clean. We wash from both sides. The minimum order is 5 windows." %}</p>
+
+            <div class="card shadow-sm my-4">
+                <div class="card-body text-center">
+                    <h4 class="card-title">{% trans "Choose the number of windows" %}</h4>
+                    <div class="d-flex justify-content-center align-items-center my-3">
+                        <button type="button" id="btn-minus" class="btn btn-outline-primary btn-lg">-</button>
+                        <input type="number" id="window-count-input" name="window_count" class="form-control form-control-lg text-center mx-3" value="5" min="5">
+                        <button type="button" id="btn-plus" class="btn btn-outline-primary btn-lg">+</button>
+                    </div>
+                    <div class="bg-warning rounded-pill px-3 py-2 d-inline-block">
+                        <span class="fs-5">{% trans "Cost of washing one window (on both sides)" %} <strong id="price-per-window">40.00 zł</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Информационный блок -->
+            <div class="accordion mt-5" id="infoAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <strong>{% trans "How do we count the number of windows?" %}</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#infoAccordion">
+                        <div class="accordion-body">
+                            <p>{% trans "We count the windows by leaves. They may vary in size, the main thing is their number." %}</p>
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <img src="{% static 'images/info/window1.png' %}" class="img-fluid mb-2" alt="Double-leaf window">
+                                    <p><strong>{% trans "This is a double-leaf window - it counts as one window." %}</strong></p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <img src="{% static 'images/info/window2.png' %}" class="img-fluid mb-2" alt="Single-leaf window">
+                                    <p><strong>{% trans "Single-leaf narrow window is half window." %}</strong></p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <img src="{% static 'images/info/window3.png' %}" class="img-fluid mb-2" alt="Triple-leaf window">
+                                    <p><strong>{% trans "If you have three leaves, it's 1.5 windows." %}</strong></p>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-4 text-center">
+                                    <img src="{% static 'images/info/window4.png' %}" class="img-fluid mb-2" alt="Balcony door and window">
+                                    <p><strong>{% trans "Balcony door and window - it's 2 windows." %}</strong></p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <img src="{% static 'images/info/window5.png' %}" class="img-fluid mb-2" alt="Floor to ceiling window">
+                                    <p><strong>{% trans "One section to the floor counts as one window. There are 5 windows in the picture." %}</strong></p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <img src="{% static 'images/info/window6.png' %}" class="img-fluid mb-2" alt="Windows counted by leafs">
+                                    <p><strong>{% trans "If the windows are not to the floor, they are counted by leafs. In the picture there are 2 windows (4 leafs)." %}</strong></p>
+                                </div>
+                            </div>
+
+                            <p class="mt-4">{% trans "If you get 9.5 windows in your order, round down to 9." %}</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая колонка: Итог заказа -->
+        <div class="col-lg-4 order-lg-last">
+            <div class="card shadow-sm sticky-top" style="top: 2rem;">
+                <div class="card-header">
+                    <h4 class="my-0 fw-normal">{% trans "Your Order" %}</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ service.name }}</span>
+                            <span id="window-count-summary">5 {% trans "windows" %}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span class="fs-5"><strong>{% trans "To pay" %}</strong></span>
+                            <strong class="fs-4 text-primary" id="total-price-summary">200.00 zł</strong>
+                        </li>
+                    </ul>
+                    <button id="submit-order-btn" class="w-100 btn btn-primary btn-lg mt-3" type="submit">{% trans "Order cleaning" %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('window-calculator-form');
+    const calculateUrl = form.dataset.calculateUrl;
+    const serviceId = form.querySelector('input[name="service_id"]').value;
+    const windowInput = document.getElementById('window-count-input');
+    const btnMinus = document.getElementById('btn-minus');
+    const btnPlus = document.getElementById('btn-plus');
+    const csrftoken = form.querySelector('input[name="csrfmiddlewaretoken"]').value;
+
+    // Элементы для обновления
+    const pricePerWindowEl = document.getElementById('price-per-window');
+    const windowCountSummaryEl = document.getElementById('window-count-summary');
+    const totalPriceSummaryEl = document.getElementById('total-price-summary');
+    const submitBtn = document.getElementById('submit-order-btn');
+
+    async function updatePrice() {
+        const windowCount = parseInt(windowInput.value);
+        if (isNaN(windowCount) || windowCount < 5) {
+            submitBtn.disabled = true;
+            return;
+        }
+        submitBtn.disabled = false;
+
+        const data = {
+            service_id: serviceId,
+            window_count: windowCount,
+        };
+
+        try {
+            const response = await fetch(calculateUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken,
+                },
+                body: JSON.stringify(data),
+            });
+            const result = await response.json();
+
+            if (result.error) {
+                console.error('Calculation error:', result.error);
+                return;
+            }
+
+            // Обновляем UI
+            pricePerWindowEl.textContent = `${result.price_per_window.toFixed(2)} zł`;
+            windowCountSummaryEl.textContent = `${windowCount} {% trans "windows" %}`;
+            totalPriceSummaryEl.textContent = `${result.total_price.toFixed(2)} zł`;
+
+        } catch (error) {
+            console.error('Fetch error:', error);
+        }
+    }
+
+    btnMinus.addEventListener('click', () => {
+        let currentValue = parseInt(windowInput.value);
+        if (currentValue > 5) {
+            windowInput.value = currentValue - 1;
+            updatePrice();
+        }
+    });
+
+    btnPlus.addEventListener('click', () => {
+        let currentValue = parseInt(windowInput.value);
+        windowInput.value = currentValue + 1;
+        updatePrice();
+    });
+
+    windowInput.addEventListener('change', () => {
+        if (parseInt(windowInput.value) < 5) {
+            windowInput.value = 5;
+        }
+        updatePrice();
+    });
+    
+    windowInput.addEventListener('input', updatePrice);
+
+    // Первоначальный расчет при загрузке страницы
+    updatePrice();
+});
+</script>
+{% endblock %}

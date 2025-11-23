@@ -1,0 +1,117 @@
+<!-- File: templates/core/kitchen_cleaning.html -->
+
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Kitchen Cleaning" %} | Gold Clean{% endblock %}
+
+{% block content %}
+<!-- ======================================================= -->
+<!--          ИЗМЕНЕНИЕ: Добавлено пространство имен 'orders:'      -->
+<!-- ======================================================= -->
+<form id="kitchen-order-form" action="{% url 'orders:start_kitchen_order' %}" method="POST">
+    {% csrf_token %}
+    
+    <div class="text-center">
+        <h1 class="display-4">{% trans "Complete Kitchen Cleaning" %}</h1>
+        <p class="lead text-muted col-lg-8 mx-auto">{% trans "Choose additional services to make your kitchen perfectly clean. Base price includes all the points listed below." %}</p>
+        
+        <img src="{% static 'images/kitchen_main.png' %}" alt="{% trans 'Beautifully cleaned kitchen' %}" class="img-fluid my-4 rounded shadow-sm" style="max-height: 400px;">
+    </div>
+
+    <hr class="my-5">
+
+    {% if features %}
+    <div class="mb-5">
+        <h2 class="text-center mb-4">{% trans "What's included in the base price" %}</h2>
+        
+        {% regroup features by get_category_display as category_list %}
+        {% for category in category_list %}
+            <h3 class="mt-4 mb-3">{{ category.grouper }}</h3>
+            <div class="row g-4 text-center">
+                {% for feature in category.list %}
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="feature-item">
+                        {% if feature.icon %}
+                        <img src="{{ feature.icon.url }}" alt="{{ feature.title }}" class="feature-icon mb-2">
+                        {% endif %}
+                        <p class="mb-0">{{ feature.title | default:feature.title_pl }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="my-5">
+    {% endif %}
+
+    {% if additional_services %}
+    <div class="additional-services-list">
+        <h2 class="text-center mb-4">{% trans "Strengthen the effect with additional services" %}</h2>
+        
+        {% for add_service in additional_services %}
+        <div class="form-check d-flex justify-content-between align-items-center py-3 border-bottom">
+            <div class="d-flex align-items-center">
+                 <input class="form-check-input additional-service-checkbox" 
+                       type="checkbox" 
+                       id="add-service-{{ add_service.id }}" 
+                       name="additional_services" 
+                       value="{{ add_service.id }}"
+                       data-price="{{ add_service.price }}">
+
+                <label class="form-check-label" for="add-service-{{ add_service.id }}">
+                    {% if add_service.icon %}
+                        <img src="{{ add_service.icon.url }}" alt="{{ add_service.name }}" class="service-icon">
+                    {% endif %}
+                    <span class="service-name">{{ add_service.name | default:add_service.name_pl }}</span>
+                </label>
+            </div>
+            <span class="fw-bold text-nowrap">+ {{ add_service.price|floatformat:0 }} zł</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <input type="hidden" name="additional_services_ids" id="additional_services_ids">
+</form>
+
+<div class="order-footer-bar shadow-lg">
+    <div class="total-price-display">
+        {% trans "Total:" %} <span><span id="total-price-value">{{ base_price_str }}</span> zł</span>
+    </div>
+    <button type="submit" form="kitchen-order-form" class="btn btn-primary btn-lg">{% trans "Proceed to order" %}</button>
+</div>
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const basePrice = parseFloat("{{ base_price_str|default:'229.00' }}".replace(',', '.'));
+    const totalPriceEl = document.getElementById('total-price-value');
+    const checkboxes = document.querySelectorAll('.additional-service-checkbox');
+    const hiddenInput = document.getElementById('additional_services_ids');
+    
+    function calculateTotal() {
+        let currentTotal = basePrice;
+        const selectedIds = [];
+
+        for (const checkbox of checkboxes) {
+            if (checkbox.checked) {
+                currentTotal += Number.parseFloat(checkbox.dataset.price);
+                selectedIds.push(checkbox.value);
+            }
+        }
+        
+        totalPriceEl.textContent = currentTotal.toFixed(2);
+        hiddenInput.value = selectedIds.join(',');
+    }
+
+     for (const checkbox of checkboxes) {
+        checkbox.addEventListener('change', calculateTotal);
+    }
+
+    calculateTotal();
+});
+</script>
+{% endblock %}

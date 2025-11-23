@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %} 
+
+{% block title %}{% trans "Order accepted" %}{% endblock %} 
+
+{% block content %}
+<div class="container text-center py-5">
+    {# ШАГ 2: Оборачиваем каждую строку в тег trans #}
+    <h1 class="display-4 text-success">{% trans "Thank you!" %}</h1>
+    <p class="lead">{% trans "Your order has been successfully accepted." %}</p>
+    <p>{% trans "Our manager will contact you shortly to confirm the details." %}</p>
+    <hr>
+    <p>
+        <a href="{% url 'index' %}" class="btn btn-primary my-2">{% trans "Back to main page" %}</a>
+    </p>
+</div>
+{% endblock %}

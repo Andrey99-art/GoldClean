@@ -1,0 +1,15 @@
+# style_guide.yaml
+naming_conventions:
+  models: { pattern: "PascalCase", example: "Service" }
+  services: { pattern: "PascalCase", suffix: "Service", example: "OrderCalculationService" }
+  variables_functions: { pattern: "snake_case", example: "get_total_price" }
+api_standards:
+  # Стандарт для будущего API, если потребуется
+  success_response: { data: "mixed", status: "success" }
+  error_response: { error: { code: "string", message: "string" } }
+code_organization:
+  business_logic: "Сложная бизнес-логика (расчеты стоимости, обработка заказов) должна быть вынесена в сервисный слой (например, orders/services.py), чтобы Views оставались 'тонкими'."
+validation_rules:
+  - "Все модели должны иметь метод __str__."
+  - "Все ForeignKey и OneToOneField связи должны явно указывать атрибут on_delete."
+  - "Все поля в моделях, предназначенные для отображения в админ-панели, должны иметь verbose_name."

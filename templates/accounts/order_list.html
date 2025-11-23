@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "My Orders" %}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">{% trans "My Orders" %}</h1>
+
+    {% if penalty_balance > 0 %}
+        <div class="alert alert-danger">
+            <strong>{% trans "Attention!" %}</strong> {% blocktrans %}You have an outstanding penalty of <strong>{{ penalty_balance|floatformat:2 }} zł</strong>. This amount will be automatically added to your next order.{% endblocktrans %}
+        </div>
+    {% endif %}
+
+    {% if orders %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">{% trans "Order #" %}</th>
+                        <th scope="col">{% trans "Date" %}</th>
+                        <th scope="col">{% trans "Total Price" %}</th>
+                        <th scope="col">{% trans "Status" %}</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <th scope="row">{{ order.id }}</th>
+                        <td>{{ order.created_at|date:"d M Y" }}</td>
+                        <td>{{ order.total_price|floatformat:2 }} zł</td>
+                        <td><span class="badge bg-primary">{{ order.get_status_display }}</span></td>
+                        <td>
+                            <a href="{% url 'order_detail' order.id %}" class="btn btn-outline-primary btn-sm">{% trans "View Details" %}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-info">{% trans "You don't have any orders yet." %}</div>
+    {% endif %} 
+</div>
+{% endblock %}

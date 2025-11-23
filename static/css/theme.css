@@ -1,0 +1,1188 @@
+/* File: static/css/theme.css (Optimized and Merged) */
+
+/* 1. Define the Color Palette */
+:root {
+    --primary-gold: #B89E40;
+    --hover-gold: #D1C07A;
+    --dark-charcoal: #1c1d21;
+    --panel-bg: #ffffff;
+    --light-text: #f8f9fa;
+    --dark-text: #212529;
+    --subtle-border: #3a3c42;
+    --header-bg-light: #f8f9fa;
+    --header-border: #e0e0e0;
+}
+
+/* 2. High-Tech Body Background */
+body {
+    background-color: var(--dark-charcoal);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%233a3c42' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30L0 22.5zM15 0l13 7.5v15L15 30V15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    color: var(--light-text);
+    /* OPTIMIZATION: Added padding here to prevent content being overlapped by the fixed footer bar */
+    padding-bottom: 120px;
+}
+
+/* 3. High-Tech Header/Footer Style */
+.header-footer-bg {
+    background-color: var(--header-bg-light);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23e9ecef' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30L0 22.5zM15 0l13 7.5v15L15 30V15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* 4. Main Content Panel */
+.content-panel {
+    background-color: var(--panel-bg);
+    color: var(--dark-text);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 5. Logo Sizing */
+.header-logo {
+    max-height: 290px;
+    width: auto;
+}
+
+/* 6. Override Bootstrap Primary Color */
+.btn-primary {
+    background-color: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: var(--dark-text);
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-gold);
+    border-color: var(--hover-gold);
+    color: var(--dark-text);
+}
+
+.btn-primary:disabled {
+    background-color: var(--primary-gold);
+    border-color: var(--primary-gold);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--primary-gold);
+    --bs-btn-border-color: var(--primary-gold);
+    --bs-btn-hover-bg: var(--primary-gold);
+    --bs-btn-hover-color: var(--dark-text);
+}
+
+.text-primary {
+    color: var(--primary-gold) !important;
+}
+
+.badge.bg-primary {
+    background-color: var(--primary-gold) !important;
+    color: var(--dark-text);
+}
+
+/* 7. Form Input Focus Glow */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--hover-gold);
+    box-shadow: 0 0 0 0.25rem rgba(184, 158, 64, 0.25);
+}
+
+/* 7A. Additional Service Icons */
+.additional-services-list .form-check-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    margin-left: 0.75rem;
+}
+
+.additional-services-list .service-icon {
+    width: 240px;
+    height: 240px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.additional-services-list .service-name {
+    font-weight: 500;
+    color: var(--dark-text);
+}
+
+
+/* 8. Slogan Separator Effect */
+.slogan-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.slogan-container::before,
+.slogan-container::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--primary-gold), transparent);
+}
+
+.slogan-heading {
+    color: var(--primary-gold);
+    padding: 0 2rem;
+    white-space: nowrap;
+}
+
+/* 9. Header Slogan Styling */
+.header-slogan p {
+    color: var(--primary-gold);
+    font-style: italic;
+    font-size: 2rem;
+    border-left: 2px solid var(--hover-gold);
+    padding-left: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+/* 10. Particles Animation Styling */
+header.header-footer-bg {
+    position: relative;
+    z-index: 1;
+}
+
+#tsparticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* 11. Before/After Carousel Styling */
+.carousel-caption-custom {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* 12. Carousel Image Fit */
+.carousel-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    background-color: transparent;
+    /* Убираем черный фон */
+    border-radius: 0.5rem;
+    /* Добавляем легкую рамку, чтобы границы контейнера были видны */
+    border: 1px solid #eaeaea;
+}
+
+.carousel-img-fit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Заполняем весь блок без пробелов */
+    object-position: center;
+}
+
+/* 13. CORRECTED STYLES FOR GLightbox */
+.carousel-image-wrapper a.glightbox {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Убраны эффекты затемнения и лупы */
+.carousel-image-wrapper a.glightbox::before {
+    display: none;
+    /* Убираем затемнение */
+}
+
+.carousel-image-wrapper a.glightbox::after {
+    display: none;
+    /* Убираем иконку лупы */
+}
+
+/* Убраны hover-эффекты */
+.carousel-image-wrapper a.glightbox:hover::before {
+    display: none;
+}
+
+.carousel-image-wrapper a.glightbox:hover::after {
+    display: none;
+    /* Эффекты удалены */
+}
+
+/* 14. Carousel Controls Styling (FIXED POSITIONING) */
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    width: 80px !important;
+    /* Чуть шире зона клика */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important;
+    /* Убираем прозрачность Bootstrap */
+    background: none !important;
+    border: none;
+}
+
+/* Жесткое позиционирование по краям */
+.carousel-control-prev {
+    left: 0 !important;
+}
+
+.carousel-control-next {
+    right: 0 !important;
+    left: auto !important;
+    /* Страховка от сброса стилей */
+}
+
+/* Стили самих иконок (золотые круги) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--primary-gold);
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-size: 50%;
+    /* Оптимальный размер стрелки */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    /* Убеждаемся, что это блочный элемент, а не абсолютный внутри флекса */
+    display: inline-block;
+    position: static;
+    /* Флекс-контейнер сам отцентрует кнопку */
+
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: var(--hover-gold);
+    transform: scale(1.1);
+}
+
+/* 15. Reviews Section Styling (v2) */
+.reviews-section {
+    padding: 1rem 1.5rem 3rem 1.5rem;
+    /* top | horizontal | bottom */
+    box-shadow: 0 0 60px 20px rgba(184, 158, 64, 0.15);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.review-card {
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+}
+
+.reviews-section .swiper-wrapper {
+    align-items: stretch;
+}
+
+.reviews-section .swiper-slide {
+    height: auto;
+}
+
+.rating-icons {
+    margin-bottom: 1rem;
+    color: var(--primary-gold);
+}
+
+.rating-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0 2px;
+}
+
+.review-text {
+    font-style: italic;
+    color: var(--dark-text);
+    background-color: #f8f0f0;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.review-text::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #f8f0f0;
+}
+
+.review-footer {
+    margin-top: auto;
+}
+
+.review-author {
+    font-weight: bold;
+    color: var(--dark-charcoal);
+}
+
+.review-date {
+    font-size: 0.8rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary-gold) !important;
+}
+
+.reviews-section .text-center.mt-4 {
+    margin-top: 2.5rem !important;
+}
+
+/* 16. Social Icons Styling (UPDATED FOR BOOTSTRAP ICONS) */
+.social-icon-header {
+    text-decoration: none;
+}
+
+.social-icon-header i {
+    font-size: 1.75rem;
+    color: var(--primary-gold);
+    vertical-align: middle;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-inout;
+}
+
+.social-icon-header:hover i {
+    color: var(--hover-gold);
+    transform: scale(1.1);
+}
+
+.social-icon-footer {
+    text-decoration: none;
+}
+
+.social-icon-footer i {
+    font-size: 1.5rem;
+    color: var(--dark-text);
+    transition: color 0.2s ease-in-out;
+}
+
+.social-icon-footer:hover i {
+    color: var(--primary-gold);
+}
+
+/* 17. Button Shine Hover Effect */
+.btn-primary,
+.btn-outline-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-primary::before,
+.btn-outline-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.4),
+            rgba(255, 255, 255, 0.1));
+    transform: skewX(-25deg);
+    transition: left 0.7s ease-in-out;
+}
+
+.btn-primary:hover::before,
+.btn-outline-primary:hover::before {
+    left: 120%;
+}
+
+/* 18. Custom Password Toggle Icon */
+.password-toggle-container {
+    position: relative;
+}
+
+.password-toggle-container .form-control {
+    padding-right: 2.5rem;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+    z-index: 5;
+}
+
+/* 19. Various Component Styles */
+.cleaning-area-card {
+    position: relative;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    height: 350px;
+    width: 100%;
+}
+
+.cleaning-area-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feature-point-list {
+    padding-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+}
+
+.feature-point-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 1rem;
+    color: var(--dark-text);
+}
+
+.feature-point-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(184, 158, 64, 0.5);
+}
+
+.info-badge {
+    background-color: #e9f5ea;
+    color: #2e7d32;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.feature-icon {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
+}
+
+.feature-item p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--dark-text);
+}
+
+.price-order-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.price-display {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--dark-text);
+}
+
+.price-display .price-value {
+    font-weight: 700;
+    color: var(--primary-gold);
+}
+
+@media (min-width: 768px) {
+    .price-order-section {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+}
+
+.service-card-selectable {
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.service-card-selectable .form-check-input {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 1.5em;
+    height: 1.5em;
+    z-index: 10;
+}
+
+.service-card-selectable .card {
+    transition: all 0.2s ease-in-out;
+    border: 2px solid transparent;
+}
+
+.service-card-selectable input:checked+.card {
+    border-color: var(--primary-gold);
+    box-shadow: 0 0.5rem 1rem rgba(184, 158, 64, 0.25) !important;
+    transform: translateY(-5px);
+}
+
+.about-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.about-card-dark {
+    background-color: var(--dark-charcoal);
+    color: #fff;
+    border: 1px solid var(--subtle-border);
+}
+
+.about-card-dark h2 {
+    color: var(--primary-gold);
+    border-bottom: 1px solid var(--subtle-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-card-light {
+    background-color: #f8f9fa;
+    color: var(--dark-text);
+    border-color: #dee2e6;
+}
+
+.about-card-light h2 {
+    color: var(--dark-charcoal);
+}
+
+.philosophy-quote {
+    position: relative;
+    padding: 2rem 3rem;
+    margin: 3rem auto;
+    max-width: 800px;
+    border: 2px solid var(--primary-gold);
+    border-radius: 0.5rem;
+    background-color: #f8f9fa;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.07);
+}
+
+.philosophy-quote p {
+    font-style: italic;
+    color: var(--dark-text);
+}
+
+.philosophy-quote::before,
+.philosophy-quote::after {
+    content: "“";
+    font-family: Georgia, serif;
+    font-size: 6rem;
+    color: rgba(184, 158, 64, 0.15);
+    position: absolute;
+    line-height: 1;
+}
+
+.philosophy-quote::before {
+    top: 0.5rem;
+    left: 1rem;
+}
+
+.philosophy-quote::after {
+    content: "”";
+    bottom: -1.5rem;
+    right: 1rem;
+}
+
+.form-section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-gold);
+    display: inline-block;
+}
+
+#calculator-form>.form-section-title:first-of-type {
+    margin-top: 0;
+}
+
+.bubbles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -150px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fffbd5, #f7d060, #c59b2d);
+    box-shadow: 0 0 10px rgba(247, 208, 96, 0.5), 0 0 20px rgba(247, 208, 96, 0.3);
+    animation: fly-up 25s infinite linear;
+}
+
+@keyframes fly-up {
+    0% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+.bubble:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    animation-duration: 20s;
+}
+
+.bubble:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    left: 20%;
+    animation-duration: 15s;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+    width: 60px;
+    height: 60px;
+    left: 35%;
+    animation-duration: 30s;
+    animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+    width: 90px;
+    height: 90px;
+    left: 50%;
+    animation-duration: 18s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(5) {
+    width: 35px;
+    height: 35px;
+    left: 55%;
+    animation-duration: 28s;
+    animation-delay: 6s;
+}
+
+.bubble:nth-child(6) {
+    width: 70px;
+    height: 70px;
+    left: 65%;
+    animation-duration: 22s;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(7) {
+    width: 45px;
+    height: 45px;
+    left: 75%;
+    animation-duration: 17s;
+}
+
+.bubble:nth-child(8) {
+    width: 100px;
+    height: 100px;
+    left: 85%;
+    animation-duration: 25s;
+    animation-delay: 5s;
+}
+
+.bubble:nth-child(9) {
+    width: 50px;
+    height: 50px;
+    left: 90%;
+    animation-duration: 23s;
+    animation-delay: 7s;
+}
+
+.bubble:nth-child(10) {
+    width: 75px;
+    height: 75px;
+    left: 5%;
+    animation-duration: 19s;
+    animation-delay: 8s;
+}
+
+.quantity-widget .quantity-input {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.quantity-widget .quantity-input::-webkit-outer-spin-button,
+.quantity-widget .quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.calculator-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+
+.calculator-fab .btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offcanvas-body {
+    padding-bottom: 100px;
+}
+
+/*
+==========================================================================
+   20. Pricing Page - Fixed Order Footer Bar (NEW & CORRECTED)
+==========================================================================
+*/
+
+.order-footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 2rem;
+    background-color: var(--panel-bg);
+    border-top: 1px solid var(--header-border);
+    box-shadow: 0 -0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+
+    transform: translateY(100%);
+    animation: slide-up 0.5s 0.2s ease-out forwards;
+    /* Added 0.2s delay */
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.total-price-display {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--dark-text);
+}
+
+.total-price-display span {
+    color: var(--primary-gold);
+    font-weight: bold;
+}
+
+/*
+==========================================================================
+   21. Off-Canvas Calculator Styles (NEW)
+==========================================================================
+*/
+
+/* Делаем всплывашку шире на больших экранах */
+@media (min-width: 992px) {
+    #offcanvasCalculator {
+        width: 800px;
+    }
+}
+
+/* 
+ * Главный трюк: превращаем тело offcanvas в flex-контейнер,
+ * чтобы управлять прикрепленным футером и прокручиваемым контентом.
+*/
+.offcanvas-calculator-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    /* Убираем стандартные отступы, чтобы контент прилегал к краям */
+    height: 100%;
+    overflow: hidden;
+    /* Предотвращаем двойную прокрутку */
+}
+
+/* Основной контент (левая часть) - делаем его прокручиваемым */
+.calculator-main-content {
+    flex-grow: 1;
+    /* Занимает все доступное пространство */
+    overflow-y: auto;
+    /* Добавляет вертикальную прокрутку, если контент не влезает */
+    padding: 1.5rem;
+}
+
+.calculator-summary-sidebar {
+    flex-shrink: 0;
+    /* Запрещаем сжиматься */
+    padding: 1.5rem;
+    background-color: var(--header-bg-light);
+    border-top: 1px solid var(--header-border);
+    /* Верхняя граница, как у футера */
+    box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.05);
+    /* Тень сверху */
+}
+
+/* 
+ * Стили для больших экранов (992px и шире).
+ * Здесь мы делаем панель шире и превращаем "подвал" в боковую колонку.
+*/
+@media (min-width: 992px) {
+
+    /* Делаем саму всплывающую панель шире */
+    #offcanvasCalculator {
+        width: 850px !important;
+        /* Гарантированно устанавливаем ширину */
+    }
+
+    /* Адаптируем боковую панель с итогом под вид колонки */
+    .calculator-summary-sidebar {
+        /* Переопределяем мобильные стили */
+        border-top: none;
+        /* Убираем верхнюю границу */
+        box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.05);
+        /* Меняем тень на левую сторону */
+
+        /* Добавляем новые стили только для десктопа */
+        border-left: 1px solid var(--header-border);
+        /* Добавляем левую границу */
+        height: 100%;
+        /* Растягиваем на всю высоту */
+        overflow-y: auto;
+        /* Добавляем прокрутку, если не помещается */
+    }
+}
+
+/*
+==========================================================================
+   23. Total Cost Modal Styling
+==========================================================================
+*/
+#modal-total-price {
+    font-weight: 700;
+    color: var(--primary-gold);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*
+==========================================================================
+   24. Creative Grid for Services Section
+==========================================================================
+*/
+
+
+
+.services-grid {
+    display: grid;
+    /* Мы создаем очень гибкую сетку из 6 колонок */
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Заголовок по-прежнему занимает всю ширину */
+.services-grid .grid-title {
+    grid-column: 1 / -1;
+    /* Растянуть от 1-й до последней колонки */
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--subtle-border);
+}
+
+/* --- Главный трюк для идеального баланса --- */
+
+/* Первые 3 карточки (Стандартная, Генеральная, После ремонта) */
+/* nth-child(-n+4) выбирает элементы со 2-го по 4-й (т.к. заголовок - первый) */
+.services-grid .service-card:nth-child(-n+4) {
+    /* Каждая из них занимает 2 из 6 колонок (2+2+2 = 6) */
+    grid-column: span 2;
+}
+
+/* Последние 2 карточки (Организация, Уборка кухни) */
+/* nth-child(n+5) выбирает элементы с 5-го и далее */
+.services-grid .service-card:nth-child(n+5) {
+    /* Каждая из них занимает 3 из 6 колонок (3+3 = 6) */
+    grid-column: span 3;
+}
+
+
+/* --- Адаптивность --- */
+
+/* Для планшетов: 2 карточки в ряд */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Все карточки становятся одинаковой ширины */
+    .services-grid .service-card:nth-child(-n+4),
+    .services-grid .service-card:nth-child(n+5) {
+        grid-column: span 1;
+    }
+}
+
+/* Для мобильных: 1 карточка в ряд */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*
+==========================================================================
+   25. Payment Method Icons Styling
+==========================================================================
+*/
+.payment-option-label {
+    display: flex;
+    align-items: center;
+    /* Это идеально выровняет иконку и текст по вертикали */
+    gap: 0.5rem;
+    /* Это добавит небольшой отступ между иконкой и текстом */
+    font-size: 1.1rem;
+    /* Сделаем текст чуть крупнее */
+}
+
+.payment-option-label i {
+    font-size: 1.3rem;
+    /* Сделаем иконку чуть больше текста */
+    color: var(--primary-gold);
+    /* Используем ваш фирменный золотой цвет */
+}
+
+/*
+==========================================================================
+   26. Price Unit Label Styling for Additional Services
+==========================================================================
+*/
+
+.price-unit-label {
+    font-size: 0.9rem;
+    color: var(--dark-charcoal);
+    /* Используем темный цвет для контраста */
+    font-weight: 600;
+    /* Жирнее, чем обычный текст */
+    font-style: italic;
+    /* Курсив для стиля */
+    margin-left: 0.4rem;
+    opacity: 0.9;
+}
+
+/*
+==========================================================================
+   27. Payment Method Cards Styling (UPDATED V2)
+==========================================================================
+*/
+
+.payment-methods-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    /* Больше расстояние между карточками */
+}
+
+/* Скрываем стандартный input */
+.payment-method-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Стили самой карточки */
+.payment-method-card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    /* Увеличенный вертикальный отступ */
+    border: 2px solid var(--header-border);
+    border-radius: 0.75rem;
+    background-color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    color: var(--dark-text);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    /* Легкая тень по умолчанию */
+}
+
+/* Стили иконки */
+.payment-method-card i {
+    font-size: 3.5rem;
+    /* ОЧЕНЬ КРУПНЫЕ иконки */
+    margin-bottom: 1rem;
+    color: #6c757d;
+    /* Темно-серый цвет для неактивного состояния */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Текст */
+.payment-method-card span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* --- АКТИВНОЕ СОСТОЯНИЕ (ВЫБРАНО) --- */
+.payment-method-input:checked+.payment-method-card {
+    border-color: var(--primary-gold);
+    background-color: rgba(184, 158, 64, 0.1);
+    /* Более насыщенный золотой фон */
+    box-shadow: 0 8px 20px rgba(184, 158, 64, 0.15);
+    /* Золотистое свечение */
+    transform: translateY(-2px);
+    /* Легкое приподнятие */
+}
+
+.payment-method-input:checked+.payment-method-card i {
+    color: var(--primary-gold);
+    transform: scale(1.1);
+    /* Иконка чуть увеличивается */
+}
+
+/* Ховер эффект */
+.payment-method-card:hover {
+    border-color: var(--hover-gold);
+    background-color: #fdfdfd;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS FIXES
+   ========================================= */
+
+/* 1. Глобальный запрет на горизонтальный скролл */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* 2. Адаптация списка дополнительных услуг */
+.additional-services-list .service-icon {
+    /* На мобильных делаем иконки маленькими */
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+    /* Запрещаем иконке сжиматься */
+}
+
+/* Обертка элемента списка */
+.additional-services-list .d-flex.align-items-center {
+    /* Разрешаем элементам внутри строки сжиматься */
+    max-width: 100%;
+}
+
+/* Текст названия услуги */
+.additional-services-list .service-name {
+    font-size: 0.95rem;
+    white-space: normal;
+    /* Разрешаем перенос текста */
+    word-wrap: break-word;
+    margin-right: 0.5rem;
+}
+
+/* Цена и описание */
+.additional-services-list .fw-bold.text-nowrap {
+    font-size: 0.9rem;
+    /* На очень узких экранах разрешаем цене перенестись, если нужно, 
+       но text-nowrap обычно держит цену цельной. 
+       Оставим как есть, но уменьшим шрифт. */
+}
+
+/* 3. Медиа-запрос для Планшетов и Десктопов (возвращаем крупный размер) */
+@media (min-width: 768px) {
+    .additional-services-list .service-icon {
+        width: 120px;
+        /* На десктопе побольше, но 240px было перебором */
+        height: 120px;
+    }
+
+    .additional-services-list .service-name {
+        font-size: 1.1rem;
+    }
+}
+
+/* 4. Исправление слогана (чтобы не улетал) */
+.slogan-heading {
+    white-space: normal;
+    /* Текст может переноситься */
+    font-size: 1.5rem;
+    /* Чуть меньше на мобильных */
+}
+
+@media (min-width: 992px) {
+    .slogan-heading {
+        white-space: nowrap;
+        /* На больших экранах в одну строку */
+        font-size: 2rem;
+    }
+}
+
+/* 5. Отступ снизу для контента, чтобы Липкий Футер не перекрывал его */
+body {
+    padding-bottom: 100px !important;
+}
