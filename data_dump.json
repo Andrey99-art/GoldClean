@@ -1,0 +1,2077 @@
+[
+{
+  "model": "products.service",
+  "pk": 1,
+  "fields": {
+    "name": "Sprzątanie standardowe",
+    "name_pl": "Sprzątanie standardowe",
+    "name_en": "Standard cleaning",
+    "name_ru": "Стандартная уборка",
+    "name_uk": "Стандартне прибирання",
+    "short_description": "Sprzątanie podtrzymujące czystość w domu. Skupiamy się na najważniejszych strefach: powierzchnie, podłogi, łazienka i kuchnia. Od 175 złotych.",
+    "short_description_pl": "Sprzątanie podtrzymujące czystość w domu. Skupiamy się na najważniejszych strefach: powierzchnie, podłogi, łazienka i kuchnia. Od 175 złotych.",
+    "short_description_en": "Maintenance cleaning to regularly uphold cleanliness in your home. We focus on the most essential areas: surfaces, floors, the bathroom, and the kitchen. From 175 PLN.",
+    "short_description_ru": "Поддерживающая уборка для регулярного поддержания чистоты в доме. Фокусируемся на самых востребованных зонах: поверхности, полы, санузел и кухня. От 175 злотых.",
+    "short_description_uk": "Підтримуюче прибирання для регулярного підтримання чистоти в домі. Фокусуємося на найбільш затребуваних зонах: поверхні, підлога, санвузол та кухня. Від 175 злотих.",
+    "slug": null,
+    "base_price": "175.00",
+    "price_per_room": "45.00",
+    "price_per_bathroom": "65.00",
+    "base_duration_minutes": 180,
+    "is_sqm_based": false,
+    "price_per_sqm": "0.00",
+    "is_window_service": false,
+    "order": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "products.service",
+  "pk": 2,
+  "fields": {
+    "name": "Sprzątanie generalne",
+    "name_pl": "Sprzątanie generalne",
+    "name_en": "General cleaning",
+    "name_ru": "Генеральная уборка",
+    "name_uk": "Генеральне прибирання",
+    "short_description": "Pełne, szczegółowe czyszczenie pomieszczeń, w tym sprzątanie sezonowe (np. sierść zwierząt) i usuwanie starych zabrudzeń. Głębokie czyszczenie z kurzu, tłuszczu i osadów. Od 250 złotych.",
+    "short_description_pl": "Pełne, szczegółowe czyszczenie pomieszczeń, w tym sprzątanie sezonowe (np. sierść zwierząt) i usuwanie starych zabrudzeń. Głębokie czyszczenie z kurzu, tłuszczu i osadów. Od 250 złotych.",
+    "short_description_en": "A complete, detailed cleaning of the premises, including seasonal tasks (e.g., pet hair) and removal of old stains. Deep cleaning of dust, grease, and grime. From 250 PLN.",
+    "short_description_ru": "Полная, детальная очистка помещения, включая сезонную уборку (например, шерсть животных) и устранение застарелых загрязнений. Глубокая очистка от пыли, жира и налета. От 250 злотых.",
+    "short_description_uk": "Повне, детальне очищення приміщення, включаючи сезонне прибирання (наприклад, шерсть тварин) та усунення застарілих забруднень. Глибоке очищення від пилу, жиру та нальоту. Від 250 злотих.",
+    "slug": null,
+    "base_price": "250.00",
+    "price_per_room": "45.00",
+    "price_per_bathroom": "65.00",
+    "base_duration_minutes": 60,
+    "is_sqm_based": false,
+    "price_per_sqm": "0.00",
+    "is_window_service": false,
+    "order": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "products.service",
+  "pk": 3,
+  "fields": {
+    "name": "Sprzątanie po remoncie",
+    "name_pl": "Sprzątanie po remoncie",
+    "name_en": "Post-renovation cleaning",
+    "name_ru": "Уборка после ремонта",
+    "name_uk": "Прибирання після ремонту",
+    "short_description": "Całkowite oczyszczenie pomieszczenia z zanieczyszczeń budowlanych i drobnego pyłu. Przygotowanie do ostatecznego ustawienia mebli i natychmiastowego zamieszkania. Od 400 złotych.",
+    "short_description_pl": "Całkowite oczyszczenie pomieszczenia z zanieczyszczeń budowlanych i drobnego pyłu. Przygotowanie do ostatecznego ustawienia mebli i natychmiastowego zamieszkania. Od 400 złotych.",
+    "short_description_en": "Complete removal of construction debris and fine dust. We prepare your space for the final furniture arrangement and immediate move-in. From 400 PLN.",
+    "short_description_ru": "Полная очистка помещения от строительных загрязнений и мелкодисперсной пыли. Подготовка к финальной расстановке мебели и немедленному проживанию. От 400 злотых.",
+    "short_description_uk": "Повне очищення приміщення від будівельних забруднень та дрібнодисперсного пилу. Підготовка до фінального розміщення меблів та негайного проживання. Від 400 злотих.",
+    "slug": null,
+    "base_price": "400.00",
+    "price_per_room": "45.00",
+    "price_per_bathroom": "65.00",
+    "base_duration_minutes": 240,
+    "is_sqm_based": true,
+    "price_per_sqm": "12.00",
+    "is_window_service": false,
+    "order": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "products.service",
+  "pk": 4,
+  "fields": {
+    "name": "Organizacja przestrzeni indywidualnej",
+    "name_pl": "Organizacja przestrzeni indywidualnej",
+    "name_en": "Organization of individual space",
+    "name_ru": "Организация индивидуального пространства",
+    "name_uk": "Організація індивідуального простору",
+    "short_description": "Dekluttering i sortowanie. Pomagamy pozbyć się niepotrzebnych rzeczy i tworzymy logiczny system przechowywania oparty na częstotliwości użytkowania. Od 120 złotych.",
+    "short_description_pl": "Dekluttering i sortowanie. Pomagamy pozbyć się niepotrzebnych rzeczy i tworzymy logiczny system przechowywania oparty na częstotliwości użytkowania. Od 120 złotych.",
+    "short_description_en": "Decluttering and sorting. We help you get rid of unnecessary items and create a logical storage system based on how frequently you use things. From 120 PLN.",
+    "short_description_ru": "Расхламление и сортировка. Помогаем избавиться от ненужного и создаем логичную систему хранения, основанную на частоте использования вещей. От 120 злотых.",
+    "short_description_uk": "Розхламлення та сортування. Допомагаємо позбутися непотрібного та створюємо логічну систему зберігання, засновану на частоті використання речей. Від 120 злотих.",
+    "slug": null,
+    "base_price": "120.00",
+    "price_per_room": "45.00",
+    "price_per_bathroom": "65.00",
+    "base_duration_minutes": 180,
+    "is_sqm_based": false,
+    "price_per_sqm": "0.00",
+    "is_window_service": false,
+    "order": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "products.service",
+  "pk": 5,
+  "fields": {
+    "name": "Sprzątanie kuchni",
+    "name_pl": "Sprzątanie kuchni",
+    "name_en": "Kitchen  Cleaning",
+    "name_ru": "Уборка кухни",
+    "name_uk": "Прибирання кухні",
+    "short_description": "Pełne generalne sprzątanie kuchni. Kompleksowe mycie sprzętu AGD (lodówka, piekarnik), odtłuszczanie wszystkich frontów i wewnętrznych powierzchni szafek. Od 229 złotych.",
+    "short_description_pl": "Pełne generalne sprzątanie kuchni. Kompleksowe mycie sprzętu AGD (lodówka, piekarnik), odtłuszczanie wszystkich frontów i wewnętrznych powierzchni szafek. Od 229 złotych.",
+    "short_description_en": "A full deep clean of your kitchen. Includes comprehensive washing of appliances (fridge, oven), degreasing all cabinet fronts, and cleaning their interior surfaces. From 229 PLN.",
+    "short_description_ru": "Полноценная генеральная уборка кухни. Комплексная мойка бытовой техники (холодильник, духовка), обезжиривание всех фасадов и внутренних поверхностей шкафов. От 229 злотых.",
+    "short_description_uk": "Повноцінне генеральне прибирання кухні. Комплексне миття побутової техніки (холодильник, духовка), знежирення всіх фасадів та внутрішніх поверхонь шаф. Від 229 злотих.",
+    "slug": "kitchen-cleaning",
+    "base_price": "229.00",
+    "price_per_room": "45.00",
+    "price_per_bathroom": "65.00",
+    "base_duration_minutes": 180,
+    "is_sqm_based": false,
+    "price_per_sqm": "0.00",
+    "is_window_service": false,
+    "order": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "products.service",
+  "pk": 6,
+  "fields": {
+    "name": "Mycie okien",
+    "name_pl": "Mycie okien",
+    "name_en": "Window cleaning",
+    "name_ru": "Мытьё окон",
+    "name_uk": "Миття вікон",
+    "short_description": "Usługa sezonowa i po remoncie. Szybkie usuwanie pyłu budowlanego, farby lub sezonowych zabrudzeń. Czyste szyby, ramy i parapety bez smug. Od 40 złotych.",
+    "short_description_pl": "Usługa sezonowa i po remoncie. Szybkie usuwanie pyłu budowlanego, farby lub sezonowych zabrudzeń. Czyste szyby, ramy i parapety bez smug. Od 40 złotych.",
+    "short_description_en": "Seasonal and post-renovation service. Quick removal of construction dust, paint, or seasonal dirt. Streak-free cleaning of glass, frames, and sills. From 40 PLN.",
+    "short_description_ru": "Сезонный и послеремонтный сервис. Быстрое удаление строительной пыли, краски или сезонной грязи. Очистка стёкол, рам и подоконников без разводов. От 40 злотых.",
+    "short_description_uk": "Сезонний та післяремонтний сервіс. Швидке видалення будівельного пилу, фарби чи сезонного бруду. Очищення скла, рам та підвіконь без розводів. Від 40 злотих.",
+    "slug": null,
+    "base_price": "40.00",
+    "price_per_room": "45.00",
+    "price_per_bathroom": "65.00",
+    "base_duration_minutes": 180,
+    "is_sqm_based": false,
+    "price_per_sqm": "40.00",
+    "is_window_service": true,
+    "order": 0,
+    "is_active": true
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 1,
+  "fields": {
+    "name": "Czyszczenie lodówki",
+    "name_pl": "Czyszczenie lodówki",
+    "name_en": "Refrigerator cleaning",
+    "name_ru": "Чистка холодильника",
+    "name_uk": "Чищення холодильника",
+    "price": "40.00",
+    "price_description": "Za sztukę",
+    "price_description_pl": "Za sztukę",
+    "price_description_en": "Per item",
+    "price_description_ru": "За штуку",
+    "price_description_uk": "За штуку",
+    "is_quantity_based": false,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/fridge_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 2,
+  "fields": {
+    "name": "Czyszczenie okapu",
+    "name_pl": "Czyszczenie okapu",
+    "name_en": "Cooker Hood Cleaning",
+    "name_ru": "Чистка вытяжки",
+    "name_uk": "Чищення витяжки",
+    "price": "40.00",
+    "price_description": "Za sztukę",
+    "price_description_pl": "Za sztukę",
+    "price_description_en": "Per item",
+    "price_description_ru": "За штуку",
+    "price_description_uk": "За штуку",
+    "is_quantity_based": false,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/cooker_hood_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 3,
+  "fields": {
+    "name": "Czyszczenie szafek kuchennych",
+    "name_pl": "Czyszczenie szafek kuchennych",
+    "name_en": "Kitchen Cabinet Cleaning",
+    "name_ru": "Чистка кухонных шкафов",
+    "name_uk": "Чищення кухонних шаф",
+    "price": "55.00",
+    "price_description": "Za sztukę",
+    "price_description_pl": "Za sztukę",
+    "price_description_en": "Per item",
+    "price_description_ru": "За штуку",
+    "price_description_uk": "За штуку",
+    "is_quantity_based": false,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/kitchen_wardrobes_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 4,
+  "fields": {
+    "name": "Mycie naczyń",
+    "name_pl": "Mycie naczyń",
+    "name_en": "Dishwashing Service",
+    "name_ru": "Мытье посуды",
+    "name_uk": "Миття посуду",
+    "price": "35.00",
+    "price_description": "Za 30 minut",
+    "price_description_pl": "Za 30 minut",
+    "price_description_en": "per 30 minutes",
+    "price_description_ru": "За 30 минут",
+    "price_description_uk": "За 30 хвилин",
+    "is_quantity_based": true,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/dishwashing_service_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 5,
+  "fields": {
+    "name": "Czyszczenie zmywarki",
+    "name_pl": "Czyszczenie zmywarki",
+    "name_en": "Dishwasher cleaning",
+    "name_ru": "Чистка посудомоечной машины",
+    "name_uk": "Чищення посудомийної машини",
+    "price": "40.00",
+    "price_description": "Za sztukę",
+    "price_description_pl": "Za sztukę",
+    "price_description_en": "Per item",
+    "price_description_ru": "За штуку",
+    "price_description_uk": "За штуку",
+    "is_quantity_based": false,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/dishwashing_machine_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 6,
+  "fields": {
+    "name": "Czyszczenie piekarnika",
+    "name_pl": "Czyszczenie piekarnika",
+    "name_en": "Oven cleaning",
+    "name_ru": "Чистка духовки",
+    "name_uk": "Чищення духовки",
+    "price": "40.00",
+    "price_description": "Za sztukę",
+    "price_description_pl": "Za sztukę",
+    "price_description_en": "Per item",
+    "price_description_ru": "За штуку",
+    "price_description_uk": "За штуку",
+    "is_quantity_based": false,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/oven_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 7,
+  "fields": {
+    "name": "Prasowanie",
+    "name_pl": "Prasowanie",
+    "name_en": "Ironing",
+    "name_ru": "Глажка",
+    "name_uk": "Прасування",
+    "price": "50.00",
+    "price_description": "Za godzinę pracy",
+    "price_description_pl": "Za godzinę pracy",
+    "price_description_en": "Per hour of work",
+    "price_description_ru": "За час работы",
+    "price_description_uk": "За годину роботи",
+    "is_quantity_based": true,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 60,
+    "icon": "service_icons/ironing_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 8,
+  "fields": {
+    "name": "Czyszczenie kuwety",
+    "name_pl": "Czyszczenie kuwety",
+    "name_en": "Litter box cleaning",
+    "name_ru": "Чистка лотка",
+    "name_uk": "Чищення лотка (для тварин)",
+    "price": "10.00",
+    "price_description": "Za sztukę",
+    "price_description_pl": "Za sztukę",
+    "price_description_en": "Per item",
+    "price_description_ru": "За штуку",
+    "price_description_uk": "За штуку",
+    "is_quantity_based": true,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/lotok_icon-Picsart-BackgroundRemover.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 9,
+  "fields": {
+    "name": "Sprzątanie w szafie",
+    "name_pl": "Sprzątanie w szafie",
+    "name_en": "Closet cleaning",
+    "name_ru": "Уборка в шкафу",
+    "name_uk": "Прибирання в шафі",
+    "price": "30.00",
+    "price_description": "Za sztukę",
+    "price_description_pl": "Za sztukę",
+    "price_description_en": "Per item",
+    "price_description_ru": "За штуку",
+    "price_description_uk": "За штуку",
+    "is_quantity_based": true,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/wardrobe_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 10,
+  "fields": {
+    "name": "Dodatkowa godzina",
+    "name_pl": "Dodatkowa godzina",
+    "name_en": "Extra hour",
+    "name_ru": "Дополнительный час",
+    "name_uk": "Додаткова година",
+    "price": "45.00",
+    "price_description": "Za dodatkową godzinę",
+    "price_description_pl": "Za dodatkową godzinę",
+    "price_description_en": "Per every additional hour",
+    "price_description_ru": "За дополнительный час",
+    "price_description_uk": "За додаткову годину",
+    "is_quantity_based": true,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 60,
+    "icon": "service_icons/add_hour_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 11,
+  "fields": {
+    "name": "Mycie szklanych balustrad balkonowych",
+    "name_pl": "Mycie szklanych balustrad balkonowych",
+    "name_en": "Cleaning of glass balcony railings",
+    "name_ru": "Мытьё стеклянных балконных оград",
+    "name_uk": "Миття скляних балконних огорож",
+    "price": "20.00",
+    "price_description": "Za sztukę",
+    "price_description_pl": "Za sztukę",
+    "price_description_en": "Per item",
+    "price_description_ru": "За штуку",
+    "price_description_uk": "За штуку",
+    "is_quantity_based": true,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/balcony_perrils_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 12,
+  "fields": {
+    "name": "Czyszczenie balkonu",
+    "name_pl": "Czyszczenie balkonu",
+    "name_en": "Balcony cleaning",
+    "name_ru": "Чистка балкона",
+    "name_uk": "Чищення балкона",
+    "price": "35.00",
+    "price_description": "Za sztukę",
+    "price_description_pl": "Za sztukę",
+    "price_description_en": "Per item",
+    "price_description_ru": "За штуку",
+    "price_description_uk": "За штуку",
+    "is_quantity_based": true,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 30,
+    "icon": "service_icons/balcony_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.additionalservice",
+  "pk": 13,
+  "fields": {
+    "name": "Wyjazd na zakupy",
+    "name_pl": "Wyjazd na zakupy",
+    "name_en": "Shopping trip / Running errands (shopping)",
+    "name_ru": "Выезд за покупками",
+    "name_uk": "Виїзд за покупками",
+    "price": "60.00",
+    "price_description": "Za dodatkową godzinę",
+    "price_description_pl": "Za dodatkową godzinę",
+    "price_description_en": "Per every additional hour",
+    "price_description_ru": "За дополнительный час",
+    "price_description_uk": "За додаткову годину",
+    "is_quantity_based": true,
+    "is_for_kitchen": false,
+    "order": 0,
+    "is_active": true,
+    "duration_minutes": 60,
+    "icon": "service_icons/grocery_shopping_icon-removebg-preview.png"
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 1,
+  "fields": {
+    "title": "Lodówka",
+    "title_pl": "Lodówka",
+    "title_en": "Fridge",
+    "title_ru": "Холодильник",
+    "title_uk": "Холодильник",
+    "icon": "kitchen_features_icons/холодильник-removebg-preview.png",
+    "category": "wash",
+    "order": 1
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 2,
+  "fields": {
+    "title": "Piekarnik",
+    "title_pl": "Piekarnik",
+    "title_en": "Oven",
+    "title_ru": "Духовка",
+    "title_uk": "Духовка",
+    "icon": "kitchen_features_icons/печь-removebg-preview.png",
+    "category": "wash",
+    "order": 2
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 3,
+  "fields": {
+    "title": "Szafki kuchenne",
+    "title_pl": "Szafki kuchenne",
+    "title_en": "Kitchen wardrobes",
+    "title_ru": "Кухонные шкафы",
+    "title_uk": "Кухонні шафи",
+    "icon": "kitchen_features_icons/кухонные_шкафы-removebg-preview.png",
+    "category": "wash",
+    "order": 3
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 4,
+  "fields": {
+    "title": "Odsysanie",
+    "title_pl": "Odsysanie",
+    "title_en": "Cooker hood",
+    "title_ru": "Вытяжка",
+    "title_uk": "Витяжка",
+    "icon": "kitchen_features_icons/вытяжка-removebg-preview.png",
+    "category": "wash",
+    "order": 4
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 5,
+  "fields": {
+    "title": "Kuchenka mikrofalowa",
+    "title_pl": "Kuchenka mikrofalowa",
+    "title_en": "Microwave",
+    "title_ru": "Микроволновка",
+    "title_uk": "Мікрохвильовка",
+    "icon": "kitchen_features_icons/духовка-removebg-preview.png",
+    "category": "wash",
+    "order": 5
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 6,
+  "fields": {
+    "title": "Zmywarka",
+    "title_pl": "Zmywarka",
+    "title_en": "Dishwasher",
+    "title_ru": "Посудомойка",
+    "title_uk": "Посудомийна машина",
+    "icon": "kitchen_features_icons/посудомойка-removebg-preview.png",
+    "category": "wash",
+    "order": 6
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 7,
+  "fields": {
+    "title": "Podłogi",
+    "title_pl": "Podłogi",
+    "title_en": "Floors",
+    "title_ru": "Полы",
+    "title_uk": "Підлоги",
+    "icon": "kitchen_features_icons/плитка_2-removebg-preview.png",
+    "category": "wipe",
+    "order": 7
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 8,
+  "fields": {
+    "title": "Urządzenia kuchenne",
+    "title_pl": "Urządzenia kuchenne",
+    "title_en": "Kitchen items",
+    "title_ru": "Кухонные приборы",
+    "title_uk": "Кухонні прилади",
+    "icon": "kitchen_features_icons/приборы-removebg-preview.png",
+    "category": "wipe",
+    "order": 8
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 9,
+  "fields": {
+    "title": "Umywalka",
+    "title_pl": "Umywalka",
+    "title_en": "Basin",
+    "title_ru": "Раковина",
+    "title_uk": "Раковина",
+    "icon": "kitchen_features_icons/раковина-removebg-preview.png",
+    "category": "wipe",
+    "order": 9
+  }
+},
+{
+  "model": "products.kitchencleaningfeature",
+  "pk": 10,
+  "fields": {
+    "title": "Płytki",
+    "title_pl": "Płytki",
+    "title_en": "Tiles",
+    "title_ru": "Плитка",
+    "title_uk": "Плитка",
+    "icon": "kitchen_features_icons/плитка-removebg-preview.png",
+    "category": "wipe",
+    "order": 10
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 1,
+  "fields": {
+    "service": 6,
+    "description": "Czyszczenie szyb, ram, parapetów i okapów bez smug",
+    "description_pl": "Czyszczenie szyb, ram, parapetów i okapów bez smug",
+    "description_en": "Cleaning windows, frames, window sills and flashings without streaks",
+    "description_ru": "Очистка стёкол, рам, подоконников и отливов без разводов",
+    "description_uk": "Очищення скла, рам, підвіконь і відливів без розводів",
+    "order": 2
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 2,
+  "fields": {
+    "service": 6,
+    "description": "Serwis sezonowy i po remoncie: Szybkie usuwanie pyłu budowlanego, farby lub sezonowego brudu",
+    "description_pl": "Serwis sezonowy i po remoncie: Szybkie usuwanie pyłu budowlanego, farby lub sezonowego brudu",
+    "description_en": "Seasonal and post-renovation service: Quick removal of construction dust, paint or seasonal dirt",
+    "description_ru": "Сезонный и послеремонтный сервис: Быстрое удаление строительной пыли, краски или сезонной грязи",
+    "description_uk": "Сезонний та післяремонтний сервіс: Швидке видалення будівельного пилу, фарби або сезонного бруду",
+    "order": 1
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 3,
+  "fields": {
+    "service": 4,
+    "description": "Porządkowanie i sortowanie. Wyjmujemy, sortujemy, pomagamy pozbyć się niepotrzebnych rzeczy",
+    "description_pl": "Porządkowanie i sortowanie. Wyjmujemy, sortujemy, pomagamy pozbyć się niepotrzebnych rzeczy",
+    "description_en": "Decluttering and sorting. We remove, sort, and help you get rid of unnecessary items",
+    "description_ru": "Расхламление и сортировка. Извлекаем, сортируем, помогаем избавиться от ненужного",
+    "description_uk": "Розбирання та сортування. Витягуємо, сортуємо, допомагаємо позбутися непотрібного",
+    "order": 1
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 4,
+  "fields": {
+    "service": 4,
+    "description": "Tworzymy logiczny system przechowywania oparty na częstotliwości użytkowania przedmiotów",
+    "description_pl": "Tworzymy logiczny system przechowywania oparty na częstotliwości użytkowania przedmiotów",
+    "description_en": "We create a logical storage system based on how often the items are used",
+    "description_ru": "Создаем логичную систему хранения, основанную на частоте использования вещей",
+    "description_uk": "Створюємо логічну систему зберігання, засновану на частоті використання речей",
+    "order": 2
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 5,
+  "fields": {
+    "service": 4,
+    "description": "Uporządkowane rozmieszczenie rzeczy w celu utrzymania porządku",
+    "description_pl": "Uporządkowane rozmieszczenie rzeczy w celu utrzymania porządku",
+    "description_en": "Organised storage of items to maintain order",
+    "description_ru": "Упорядоченное размещение вещей для поддержания порядка",
+    "description_uk": "Упорядковане розміщення речей для підтримки порядку",
+    "order": 3
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 6,
+  "fields": {
+    "service": 5,
+    "description": "Kompleksowe 5–6-godzinne sprzątanie kuchni",
+    "description_pl": "Kompleksowe 5–6-godzinne sprzątanie kuchni",
+    "description_en": "A thorough general cleaning of the kitchen (5-6 hours)",
+    "description_ru": "Полноценная 5–6-часовая генеральная уборка кухни",
+    "description_uk": "Повноцінне 5–6-годинне генеральне прибирання кухні",
+    "order": 1
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 7,
+  "fields": {
+    "service": 5,
+    "description": "Kompleksowe czyszczenie wszystkich urządzeń gospodarstwa domowego (lodówka, piekarnik, kuchenka mikrofalowa itp.) wewnątrz i na zewnątrz",
+    "description_pl": "Kompleksowe czyszczenie wszystkich urządzeń gospodarstwa domowego (lodówka, piekarnik, kuchenka mikrofalowa itp.) wewnątrz i na zewnątrz",
+    "description_en": "Comprehensive cleaning of all household appliances (refrigerator, oven, microwave, etc.) inside and out.",
+    "description_ru": "Комплексная мойка всей бытовой техники (холодильник, духовка, микроволновка и тд.) внутри и снаружи.",
+    "description_uk": "Комплексне миття всієї побутової техніки (холодильник, духовка, мікрохвильовка тощо) всередині та зовні",
+    "order": 2
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 8,
+  "fields": {
+    "service": 5,
+    "description": "Dokładne wycieranie i odtłuszczanie wszystkich frontów i wewnętrznych powierzchni szafek",
+    "description_pl": "Dokładne wycieranie i odtłuszczanie wszystkich frontów i wewnętrznych powierzchni szafek",
+    "description_en": "Thorough wiping and degreasing of all facades and interior surfaces of cabinets",
+    "description_ru": "Тщательная протирка и обезжиривание всех фасадов и внутренних поверхностей шкафов",
+    "description_uk": "Ретельне протирання та знежирення всіх фасадів і внутрішніх поверхонь шаф",
+    "order": 3
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 9,
+  "fields": {
+    "service": 5,
+    "description": "Organizacja i systematyzacja treści, porządkowanie w razie potrzeby",
+    "description_pl": "Organizacja i systematyzacja treści, porządkowanie w razie potrzeby",
+    "description_en": "Organising and systematising content, decluttering as necessary",
+    "description_ru": "Организация и систематизация содержимого, расхламление по необходимости",
+    "description_uk": "Організація та систематизація вмісту, розхламлення за необхідності",
+    "order": 4
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 10,
+  "fields": {
+    "service": 1,
+    "description": "Standardowe sprzątanie, które pomaga utrzymać porządek. Okresowe sprzątanie domu, skupiające się na najbardziej wymagających obszarach (powierzchnie, podłogi, łazienka, kuchnia, jeden pokój i korytarz)",
+    "description_pl": "Standardowe sprzątanie, które pomaga utrzymać porządek. Okresowe sprzątanie domu, skupiające się na najbardziej wymagających obszarach (powierzchnie, podłogi, łazienka, kuchnia, jeden pokój i korytarz)",
+    "description_en": "Standard cleaning to maintain cleanliness. Periodic cleaning of the house, focusing on the most frequently used areas (surfaces, floors, bathroom, kitchen, one room and hallway)",
+    "description_ru": "Стандартная уборка поддерживающая  чистоту периодическая  уборка в доме, фокусируясь на самых востребованных зонах (поверхности, полы, санузел, кухня, одна комната и коридор)",
+    "description_uk": "Стандартне прибирання, що підтримує  чистоту. Періодичне  прибирання в будинку, зосереджуючись на найбільш затребуваних зонах (поверхні, підлоги, санвузол, кухня, одна кімната і коридор)",
+    "order": 1
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 11,
+  "fields": {
+    "service": 2,
+    "description": "Kompleksowe, szczegółowe sprzątanie pomieszczeń (np. sierść zwierząt, sprzątanie międzysezonowe, a także przed/po wynajmie)",
+    "description_pl": "Kompleksowe, szczegółowe sprzątanie pomieszczeń (np. sierść zwierząt, sprzątanie międzysezonowe, a także przed/po wynajmie)",
+    "description_en": "Complete, detailed cleaning of the premises (e.g. animal hair, seasonal cleaning, as well as before/after rental)",
+    "description_ru": "Полная, детальная очистка помещения (например, шерсть от животных, межсезонная уборка, а также до/после аренды)",
+    "description_uk": "Повне, детальне прибирання приміщення (наприклад, шерсть від тварин, міжсезонне прибирання, а також до/після оренди)",
+    "order": 1
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 12,
+  "fields": {
+    "service": 2,
+    "description": "Usuwane są stare zabrudzenia",
+    "description_pl": "Usuwane są stare zabrudzenia",
+    "description_en": "Removing of the  stubborn dirt",
+    "description_ru": "Устраняются застарелые загрязнения",
+    "description_uk": "Усуваються застарілі забруднення",
+    "order": 2
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 13,
+  "fields": {
+    "service": 2,
+    "description": "Usuwane są stare zabrudzenia, tłuszcz, sadza i osady, które nagromadziły się przez długi czas",
+    "description_pl": "Usuwane są stare zabrudzenia, tłuszcz, sadza i osady, które nagromadziły się przez długi czas",
+    "description_en": "Cleaning is carried out to remove old dust, grease, soot and deposits that have accumulated over a long period of time",
+    "description_ru": "Производится очистка от застарелой пыли, жира, копоти и налета, которые накопились за длительный период",
+    "description_uk": "Проводиться очищення від застарілого пилу, жиру, кіптяви та нальоту, які накопичилися за тривалий період",
+    "order": 3
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 14,
+  "fields": {
+    "service": 3,
+    "description": "Całkowite oczyszczenie pomieszczenia z zanieczyszczeń budowlanych i drobnego pyłu budowlanego",
+    "description_pl": "Całkowite oczyszczenie pomieszczenia z zanieczyszczeń budowlanych i drobnego pyłu budowlanego",
+    "description_en": "Complete cleaning of the premises from construction debris and fine construction dust",
+    "description_ru": "Полная очистка помещения от строительных загрязнений и мелкодисперсной строительной пыли",
+    "description_uk": "Повне очищення приміщення від будівельних забруднень і дрібнодисперсного будівельного пилу",
+    "order": 1
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 15,
+  "fields": {
+    "service": 3,
+    "description": "Przygotowanie  do ostatecznego rozmieszczenia mebli i natychmiastowego zamieszkania",
+    "description_pl": "Przygotowanie  do ostatecznego rozmieszczenia mebli i natychmiastowego zamieszkania",
+    "description_en": "Preparation for final furniture arrangement and immediate occupancy",
+    "description_ru": "Подготавка  к финальной расстановке мебели и немедленному проживанию",
+    "description_uk": "Підготовка до остаточного розміщення меблів і негайного проживання",
+    "order": 2
+  }
+},
+{
+  "model": "products.servicefeature",
+  "pk": 16,
+  "fields": {
+    "service": 3,
+    "description": "Koszt jest obliczany na podstawie powierzchni Twojego pomieszczenia (m2)",
+    "description_pl": "Koszt jest obliczany na podstawie powierzchni Twojego pomieszczenia (m2)",
+    "description_en": "The cost is calculated based on the area of your premises (m2)",
+    "description_ru": "Расчет стоимости производится, исходя из площади вашего помещения (м2)",
+    "description_uk": "Розрахунок вартості проводиться, виходячи з площі вашого приміщення (м2)",
+    "order": 3
+  }
+},
+{
+  "model": "core.cleaningarea",
+  "pk": 1,
+  "fields": {
+    "title": "W pokoju",
+    "title_pl": "W pokoju",
+    "title_en": "In the room",
+    "title_ru": "В комнате",
+    "title_uk": "In the room",
+    "image": "cleaning_areas/bedroom_Ll3dykr.png",
+    "order": 1
+  }
+},
+{
+  "model": "core.cleaningarea",
+  "pk": 2,
+  "fields": {
+    "title": "W korytarzu",
+    "title_pl": "W korytarzu",
+    "title_en": "In the corridor",
+    "title_ru": "В коридоре",
+    "title_uk": "In the corridor",
+    "image": "cleaning_areas/corridor_FsgOpuM.png",
+    "order": 2
+  }
+},
+{
+  "model": "core.cleaningarea",
+  "pk": 3,
+  "fields": {
+    "title": "W kuchni",
+    "title_pl": "W kuchni",
+    "title_en": "In the kitchen",
+    "title_ru": "На кухне",
+    "title_uk": "In the kitchen",
+    "image": "cleaning_areas/kitchen_Bc5DyaI.png",
+    "order": 3
+  }
+},
+{
+  "model": "core.cleaningarea",
+  "pk": 4,
+  "fields": {
+    "title": "W łazience",
+    "title_pl": "W łazience",
+    "title_en": "In the bathroom",
+    "title_ru": "В ванной",
+    "title_uk": "In the bathroom",
+    "image": "cleaning_areas/bathroom_DpblR8L.png",
+    "order": 4
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 1,
+  "fields": {
+    "area": 1,
+    "description": "Myję podłogi",
+    "description_pl": "Myję podłogi",
+    "description_en": "We wash the floors",
+    "description_ru": "Моем полы",
+    "description_uk": "Миємо підлоги",
+    "position_x": 10.4,
+    "position_y": 92.1
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 2,
+  "fields": {
+    "area": 1,
+    "description": "Starannie rozkładamy buty i składamy rzeczy.",
+    "description_pl": "Starannie rozkładamy buty i składamy rzeczy.",
+    "description_en": "We carefully unfold our shoes and fold our things.",
+    "description_ru": "Аккуратно расставляем обувь и складываем вещи",
+    "description_uk": "Акуратно розставляємо взуття і складаємо речі",
+    "position_x": 75.9,
+    "position_y": 87.6
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 3,
+  "fields": {
+    "area": 1,
+    "description": "Ścielenie łóżek i zmiana pościeli",
+    "description_pl": "Ścielenie łóżek i zmiana pościeli",
+    "description_en": "Making beds and changing bed linen",
+    "description_ru": "Заправляем кровати и меняем постельное бельё",
+    "description_uk": "Заправляємо ліжка і міняємо постільну білизну",
+    "position_x": 39.4,
+    "position_y": 65.5
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 4,
+  "fields": {
+    "area": 1,
+    "description": "Myję parapety, grzejniki, listwy przypodłogowe, klamki, drzwi, włączniki",
+    "description_pl": "Myję parapety, grzejniki, listwy przypodłogowe, klamki, drzwi, włączniki",
+    "description_en": "We wash window sills, radiators, skirting boards, door handles, doors and switches",
+    "description_ru": "Моем подоконники, батареи, плинтусы, ручки, двери, выключатели",
+    "description_uk": "Миємо підвіконня, батареї, плінтуси, ручки, двері, вимикачі",
+    "position_x": 5.5,
+    "position_y": 56.5
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 5,
+  "fields": {
+    "area": 1,
+    "description": "Czyszczenie luster",
+    "description_pl": "Czyszczenie luster",
+    "description_en": "Cleaning mirrors",
+    "description_ru": "Чистим зеркала",
+    "description_uk": "Чистимо дзеркала",
+    "position_x": 48.0,
+    "position_y": 23.2
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 6,
+  "fields": {
+    "area": 1,
+    "description": "Sprzątamy i wynosimy śmieci",
+    "description_pl": "Sprzątamy i wynosimy śmieci",
+    "description_en": "We clean and take out the garbage",
+    "description_ru": "Убираем и выносим мусор",
+    "description_uk": "Прибираємо і виношуємо сміття",
+    "position_x": 36.9,
+    "position_y": 93.4
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 7,
+  "fields": {
+    "area": 1,
+    "description": "Wycieramy kurz ze wszystkich otwartych powierzchni.",
+    "description_pl": "Wycieramy kurz ze wszystkich otwartych powierzchni.",
+    "description_en": "We wipe dust from all open surfaces.",
+    "description_ru": "Вытираем пыль со всех открытых поверхностей",
+    "description_uk": "Витираємо пил з усіх відкритих поверхонь",
+    "position_x": 38.5,
+    "position_y": 58.3
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 8,
+  "fields": {
+    "area": 2,
+    "description": "Myję podłogi",
+    "description_pl": "Myję podłogi",
+    "description_en": "We wash the floors",
+    "description_ru": "Моем полы",
+    "description_uk": "Миємо підлоги",
+    "position_x": 34.9,
+    "position_y": 94.3
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 9,
+  "fields": {
+    "area": 2,
+    "description": "Rozkładamy buty",
+    "description_pl": "Rozkładamy buty",
+    "description_en": "We put our shoes on",
+    "description_ru": "Расставляем обувь",
+    "description_uk": "Розставляємо взуття",
+    "position_x": 13.4,
+    "position_y": 82.0
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 10,
+  "fields": {
+    "area": 2,
+    "description": "Starannie złożymy i rozwiesimy Twoje ubrania.",
+    "description_pl": "Starannie złożymy i rozwiesimy Twoje ubrania.",
+    "description_en": "We will carefully fold and hang your clothes.",
+    "description_ru": "Аккуратно сложим и развесим вашу одежду",
+    "description_uk": "Акуратно складемо і розвісимо ваш одяг",
+    "position_x": 74.9,
+    "position_y": 59.1
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 11,
+  "fields": {
+    "area": 2,
+    "description": "Sprzątamy śmieci",
+    "description_pl": "Sprzątamy śmieci",
+    "description_en": "We clean up garbage",
+    "description_ru": "Убираем мусор",
+    "description_uk": "Прибираємо сміття",
+    "position_x": 77.2,
+    "position_y": 86.5
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 12,
+  "fields": {
+    "area": 3,
+    "description": "Wycieramy parapety, drzwi, listwy przypodłogowe, baterie, przełączniki,",
+    "description_pl": "Wycieramy parapety, drzwi, listwy przypodłogowe, baterie, przełączniki,",
+    "description_en": "We wipe window sills, doors, skirting boards, faucets, switches,",
+    "description_ru": "Протираем подоконники, двери, плинтуса, батареи выключатели,",
+    "description_uk": "Протираємо підвіконня, двері, плінтуси, батареї, вимикачі",
+    "position_x": 1.0,
+    "position_y": 20.8
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 13,
+  "fields": {
+    "area": 3,
+    "description": "Myję podłogi",
+    "description_pl": "Myję podłogi",
+    "description_en": "I wash the floors",
+    "description_ru": "Моем полы",
+    "description_uk": "Миємо підлоги",
+    "position_x": 5.4,
+    "position_y": 38.3
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 14,
+  "fields": {
+    "area": 3,
+    "description": "Myję fasady i meble",
+    "description_pl": "Myję fasady i meble",
+    "description_en": "I wash facades and furniture",
+    "description_ru": "Моем фасады и мебель",
+    "description_uk": "Миємо фасади та меблі",
+    "position_x": 33.0,
+    "position_y": 18.0
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 15,
+  "fields": {
+    "area": 3,
+    "description": "Wycieramy płytki",
+    "description_pl": "Wycieramy płytki",
+    "description_en": "We wipe the tiles",
+    "description_ru": "Протираем плитку",
+    "description_uk": "Протираємо плитку",
+    "position_x": 83.2,
+    "position_y": 53.3
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 16,
+  "fields": {
+    "area": 3,
+    "description": "Wycieramy wszystkie powierzchnie, lodówkę, okap, sprzęt kuchenny i kuchenkę mikrofalową.",
+    "description_pl": "Wycieramy wszystkie powierzchnie, lodówkę, okap, sprzęt kuchenny i kuchenkę mikrofalową.",
+    "description_en": "We wipe all surfaces, the refrigerator, the hood, kitchen equipment and the microwave.",
+    "description_ru": "Протираем все поверхности, холодильник, вытяжку, кухонную технику и микроволновку",
+    "description_uk": "Протираємо всі поверхні, холодильник, витяжку, кухонну техніку та мікрохвильовку",
+    "position_x": 23.9,
+    "position_y": 53.9
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 17,
+  "fields": {
+    "area": 3,
+    "description": "Myję płytę kuchenną, zlew i blat",
+    "description_pl": "Myję płytę kuchenną, zlew i blat",
+    "description_en": "I wash the stovetop, sink and countertop",
+    "description_ru": "Моем плиту раковину и столешницу",
+    "description_uk": "Миємо плиту, раковину і стільницю",
+    "position_x": 47.9,
+    "position_y": 87.6
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 19,
+  "fields": {
+    "area": 4,
+    "description": "Mycie i dezynfekcja toalety",
+    "description_pl": "Mycie i dezynfekcja toalety",
+    "description_en": "Washing and disinfecting the toilet",
+    "description_ru": "Моем и дезинфицируем унитаз",
+    "description_uk": "Миємо та дезінфікуємо унітаз",
+    "position_x": 16.5,
+    "position_y": 66.0
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 20,
+  "fields": {
+    "area": 4,
+    "description": "Wycieramy wszystkie powierzchnie",
+    "description_pl": "Wycieramy wszystkie powierzchnie",
+    "description_en": "We wipe all surfaces",
+    "description_ru": "Протираем все поверхности",
+    "description_uk": "Протираємо всі поверхні",
+    "position_x": 16.9,
+    "position_y": 12.3
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 21,
+  "fields": {
+    "area": 4,
+    "description": "Czyszczenie luster",
+    "description_pl": "Czyszczenie luster",
+    "description_en": "Cleaning mirrors",
+    "description_ru": "Чистим зеркала",
+    "description_uk": "Чистимо дзеркала",
+    "position_x": 25.5,
+    "position_y": 37.3
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 22,
+  "fields": {
+    "area": 4,
+    "description": "Myję wanny, baterie i kabiny prysznicowe. Ale pamiętaj: jeśli Twoja łazienka i kabina prysznicowa są bardzo brudne, należy o tym poinformować.",
+    "description_pl": "Myję wanny, baterie i kabiny prysznicowe. Ale pamiętaj: jeśli Twoja łazienka i kabina prysznicowa są bardzo brudne, należy o tym poinformować.",
+    "description_en": "I clean bathtubs, faucets and shower cabins. But remember: if your bathroom and shower are very dirty, you should report it.",
+    "description_ru": "Моем ванны, краны и душевые кабины. Но помните: если ваша ванная и душевая кабина очень грязные, об этом нужно предупредить",
+    "description_uk": "Миємо ванни, крани та душові кабіни. Але пам'ятайте: якщо ваша ванна і душова кабіна дуже брудні, про це потрібно попередити",
+    "position_x": 73.2,
+    "position_y": 80.2
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 23,
+  "fields": {
+    "area": 4,
+    "description": "Myję umywalkę",
+    "description_pl": "Myję umywalkę",
+    "description_en": "I'm washing the sink",
+    "description_ru": "Моем раковину",
+    "description_uk": "Мию раковину",
+    "position_x": 35.7,
+    "position_y": 80.3
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 24,
+  "fields": {
+    "area": 4,
+    "description": "Możemy wrzucić Twoje rzeczy do prania.",
+    "description_pl": "Możemy wrzucić Twoje rzeczy do prania.",
+    "description_en": "We can put your clothes in the laundry.",
+    "description_ru": "Можем кинуть ваши вещи в стирку",
+    "description_uk": "Можемо кинути ваші речі в прання",
+    "position_x": 64.2,
+    "position_y": 57.2
+  }
+},
+{
+  "model": "core.featurepoint",
+  "pk": 25,
+  "fields": {
+    "area": 4,
+    "description": "Myję podłogę i listwy przypodłogowe",
+    "description_pl": "Myję podłogę i listwy przypodłogowe",
+    "description_en": "I wash the floor and skirting boards",
+    "description_ru": "Моем пол и плинтусы",
+    "description_uk": "Миємо підлогу та плінтуси",
+    "position_x": 60.2,
+    "position_y": 95.9
+  }
+},
+{
+  "model": "core.siteconfiguration",
+  "pk": 1,
+  "fields": {
+    "cancellation_fee": "50.00",
+    "services_page_enabled": false,
+    "telegram_link": "http://t.me/GoldClean2026"
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 1,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "text_pl": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "text_en": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "text_ru": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "text_uk": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "rating": 5,
+    "created_at": "2025-11-06T11:09:24.760Z",
+    "is_active": true,
+    "order": 27,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 2,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "text_pl": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "text_en": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "text_ru": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "text_uk": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "rating": 5,
+    "created_at": "2025-11-06T11:09:40.620Z",
+    "is_active": true,
+    "order": 26,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 3,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Отличная работа, спасибо огромное персоналу",
+    "text_pl": "Отличная работа, спасибо огромное персоналу",
+    "text_en": "Отличная работа, спасибо огромное персоналу",
+    "text_ru": "Отличная работа, спасибо огромное персоналу",
+    "text_uk": "Отличная работа, спасибо огромное персоналу",
+    "rating": 5,
+    "created_at": "2025-11-06T11:09:55.118Z",
+    "is_active": true,
+    "order": 25,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 4,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Pani stawiła się przed czasem, przygotowana do pracy i zaopatrzona we wszystkie potrzebne sprzęty oraz produkty do czyszczenia. Odrazu sumiennie wzięła się do pracy, i rzetelnie do niej podeszła cały czas zlecenia. Gorąco polecam",
+    "text_pl": "Pani stawiła się przed czasem, przygotowana do pracy i zaopatrzona we wszystkie potrzebne sprzęty oraz produkty do czyszczenia. Odrazu sumiennie wzięła się do pracy, i rzetelnie do niej podeszła cały czas zlecenia. Gorąco polecam",
+    "text_en": "Pani stawiła się przed czasem, przygotowana do pracy i zaopatrzona we wszystkie potrzebne sprzęty oraz produkty do czyszczenia. Odrazu sumiennie wzięła się do pracy, i rzetelnie do niej podeszła cały czas zlecenia. Gorąco polecam",
+    "text_ru": "Pani stawiła się przed czasem, przygotowana do pracy i zaopatrzona we wszystkie potrzebne sprzęty oraz produkty do czyszczenia. Odrazu sumiennie wzięła się do pracy, i rzetelnie do niej podeszła cały czas zlecenia. Gorąco polecam",
+    "text_uk": "Pani stawiła się przed czasem, przygotowana do pracy i zaopatrzona we wszystkie potrzebne sprzęty oraz produkty do czyszczenia. Odrazu sumiennie wzięła się do pracy, i rzetelnie do niej podeszła cały czas zlecenia. Gorąco polecam",
+    "rating": 5,
+    "created_at": "2025-11-06T11:10:07.559Z",
+    "is_active": true,
+    "order": 24,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 5,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Jak zwykle świetnie wykonana usługa, w dobrym czasie, Pani przyjeżdża zawsze na czas. Rodzina zadowolona!",
+    "text_pl": "Jak zwykle świetnie wykonana usługa, w dobrym czasie, Pani przyjeżdża zawsze na czas. Rodzina zadowolona!",
+    "text_en": "Jak zwykle świetnie wykonana usługa, w dobrym czasie, Pani przyjeżdża zawsze na czas. Rodzina zadowolona!",
+    "text_ru": "Jak zwykle świetnie wykonana usługa, w dobrym czasie, Pani przyjeżdża zawsze na czas. Rodzina zadowolona!",
+    "text_uk": "Jak zwykle świetnie wykonana usługa, w dobrym czasie, Pani przyjeżdża zawsze na czas. Rodzina zadowolona!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:10:22.556Z",
+    "is_active": true,
+    "order": 23,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 6,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Koooocham Panią Oksanę! Złota osoba <3 Praca wykonana bardzo rzetelnie, szafy i szafki efekt \"wow\", piesek tez załapał się na dużo miłości, w mieszkaniu pięknie pachnie. Na pewno będę zgłaszać się do Pani Oksany, kiedy będę potrzebować pomocy w ogarnięciu mieszkania! :) Jeszcze raz pięknie dziękuję <3",
+    "text_pl": "Koooocham Panią Oksanę! Złota osoba <3 Praca wykonana bardzo rzetelnie, szafy i szafki efekt \"wow\", piesek tez załapał się na dużo miłości, w mieszkaniu pięknie pachnie. Na pewno będę zgłaszać się do Pani Oksany, kiedy będę potrzebować pomocy w ogarnięciu mieszkania! :) Jeszcze raz pięknie dziękuję <3",
+    "text_en": "Koooocham Panią Oksanę! Złota osoba <3 Praca wykonana bardzo rzetelnie, szafy i szafki efekt \"wow\", piesek tez załapał się na dużo miłości, w mieszkaniu pięknie pachnie. Na pewno będę zgłaszać się do Pani Oksany, kiedy będę potrzebować pomocy w ogarnięciu mieszkania! :) Jeszcze raz pięknie dziękuję <3",
+    "text_ru": "Koooocham Panią Oksanę! Złota osoba <3 Praca wykonana bardzo rzetelnie, szafy i szafki efekt \"wow\", piesek tez załapał się na dużo miłości, w mieszkaniu pięknie pachnie. Na pewno będę zgłaszać się do Pani Oksany, kiedy będę potrzebować pomocy w ogarnięciu mieszkania! :) Jeszcze raz pięknie dziękuję <3",
+    "text_uk": "Koooocham Panią Oksanę! Złota osoba <3 Praca wykonana bardzo rzetelnie, szafy i szafki efekt \"wow\", piesek tez załapał się na dużo miłości, w mieszkaniu pięknie pachnie. Na pewno będę zgłaszać się do Pani Oksany, kiedy będę potrzebować pomocy w ogarnięciu mieszkania! :) Jeszcze raz pięknie dziękuję <3",
+    "rating": 5,
+    "created_at": "2025-11-06T11:10:37.034Z",
+    "is_active": true,
+    "order": 22,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 7,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "wykonawczyni była punktualnie, posprzątane dokładnie i bardzo dobrze!",
+    "text_pl": "wykonawczyni była punktualnie, posprzątane dokładnie i bardzo dobrze!",
+    "text_en": "wykonawczyni była punktualnie, posprzątane dokładnie i bardzo dobrze!",
+    "text_ru": "wykonawczyni była punktualnie, posprzątane dokładnie i bardzo dobrze!",
+    "text_uk": "wykonawczyni była punktualnie, posprzątane dokładnie i bardzo dobrze!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:10:51.025Z",
+    "is_active": true,
+    "order": 21,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 8,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Pani przyszła punktualnie, szybko i sprawnie sprzątała mieszkanie. Jesteśmy zadowoleni z Jej pracy.",
+    "text_pl": "Pani przyszła punktualnie, szybko i sprawnie sprzątała mieszkanie. Jesteśmy zadowoleni z Jej pracy.",
+    "text_en": "Pani przyszła punktualnie, szybko i sprawnie sprzątała mieszkanie. Jesteśmy zadowoleni z Jej pracy.",
+    "text_ru": "Pani przyszła punktualnie, szybko i sprawnie sprzątała mieszkanie. Jesteśmy zadowoleni z Jej pracy.",
+    "text_uk": "Pani przyszła punktualnie, szybko i sprawnie sprzątała mieszkanie. Jesteśmy zadowoleni z Jej pracy.",
+    "rating": 5,
+    "created_at": "2025-11-06T11:11:07.766Z",
+    "is_active": true,
+    "order": 20,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 9,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Super, szybko, dokładnie, sprawnie i bardzo miło! Dziękuję i polecam!",
+    "text_pl": "Super, szybko, dokładnie, sprawnie i bardzo miło! Dziękuję i polecam!",
+    "text_en": "Super, szybko, dokładnie, sprawnie i bardzo miło! Dziękuję i polecam!",
+    "text_ru": "Super, szybko, dokładnie, sprawnie i bardzo miło! Dziękuję i polecam!",
+    "text_uk": "Super, szybko, dokładnie, sprawnie i bardzo miło! Dziękuję i polecam!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:11:20.532Z",
+    "is_active": true,
+    "order": 19,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 10,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Wszystko w porządku, mieszkanie błyszczy. Dziękuję",
+    "text_pl": "Wszystko w porządku, mieszkanie błyszczy. Dziękuję",
+    "text_en": "Wszystko w porządku, mieszkanie błyszczy. Dziękuję",
+    "text_ru": "Wszystko w porządku, mieszkanie błyszczy. Dziękuję",
+    "text_uk": "Wszystko w porządku, mieszkanie błyszczy. Dziękuję",
+    "rating": 5,
+    "created_at": "2025-11-06T11:11:32.164Z",
+    "is_active": true,
+    "order": 18,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 11,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Wszystko super, punktualnie, miło, dokładnie posprzątane i umyte. Polecam!",
+    "text_pl": "Wszystko super, punktualnie, miło, dokładnie posprzątane i umyte. Polecam!",
+    "text_en": "Wszystko super, punktualnie, miło, dokładnie posprzątane i umyte. Polecam!",
+    "text_ru": "Wszystko super, punktualnie, miło, dokładnie posprzątane i umyte. Polecam!",
+    "text_uk": "Wszystko super, punktualnie, miło, dokładnie posprzątane i umyte. Polecam!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:11:48.264Z",
+    "is_active": true,
+    "order": 17,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 12,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Przemila i pomocna Pani, wielkie podziękowania za wsparcie i profesjonalne wykonanie wszystkich zadań. Dziękuję",
+    "text_pl": "Przemila i pomocna Pani, wielkie podziękowania za wsparcie i profesjonalne wykonanie wszystkich zadań. Dziękuję",
+    "text_en": "Przemila i pomocna Pani, wielkie podziękowania za wsparcie i profesjonalne wykonanie wszystkich zadań. Dziękuję",
+    "text_ru": "Przemila i pomocna Pani, wielkie podziękowania za wsparcie i profesjonalne wykonanie wszystkich zadań. Dziękuję",
+    "text_uk": "Przemila i pomocna Pani, wielkie podziękowania za wsparcie i profesjonalne wykonanie wszystkich zadań. Dziękuję",
+    "rating": 5,
+    "created_at": "2025-11-06T11:12:05.592Z",
+    "is_active": true,
+    "order": 16,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 13,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Świetny serwis, bardzo profesjonalny oraz niezwykle miła osoba.",
+    "text_pl": "Świetny serwis, bardzo profesjonalny oraz niezwykle miła osoba.",
+    "text_en": "Świetny serwis, bardzo profesjonalny oraz niezwykle miła osoba.",
+    "text_ru": "Świetny serwis, bardzo profesjonalny oraz niezwykle miła osoba.",
+    "text_uk": "Świetny serwis, bardzo profesjonalny oraz niezwykle miła osoba.",
+    "rating": 5,
+    "created_at": "2025-11-06T11:12:20.670Z",
+    "is_active": true,
+    "order": 15,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 14,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Anna is amazing, very thorough on her work and spotless clean. Also is very quiet and discreet while doing her work so even working from home I dont feel there's cleaning going on.",
+    "text_pl": "Anna is amazing, very thorough on her work and spotless clean. Also is very quiet and discreet while doing her work so even working from home I dont feel there's cleaning going on.",
+    "text_en": "Anna is amazing, very thorough on her work and spotless clean. Also is very quiet and discreet while doing her work so even working from home I dont feel there's cleaning going on.",
+    "text_ru": "Anna is amazing, very thorough on her work and spotless clean. Also is very quiet and discreet while doing her work so even working from home I dont feel there's cleaning going on.",
+    "text_uk": "Anna is amazing, very thorough on her work and spotless clean. Also is very quiet and discreet while doing her work so even working from home I dont feel there's cleaning going on.",
+    "rating": 5,
+    "created_at": "2025-11-06T11:12:43.562Z",
+    "is_active": true,
+    "order": 13,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 15,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "The lady was very professional extremely good and she cleaned the house sparkling.extremely satisfied with service highly recommend.thank you!",
+    "text_pl": "The lady was very professional extremely good and she cleaned the house sparkling.extremely satisfied with service highly recommend.thank you!",
+    "text_en": "The lady was very professional extremely good and she cleaned the house sparkling.extremely satisfied with service highly recommend.thank you!",
+    "text_ru": "The lady was very professional extremely good and she cleaned the house sparkling.extremely satisfied with service highly recommend.thank you!",
+    "text_uk": "The lady was very professional extremely good and she cleaned the house sparkling.extremely satisfied with service highly recommend.thank you!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:12:55.021Z",
+    "is_active": true,
+    "order": 13,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 16,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Wszystko super! Szybko, czysto i z dbałością o szczegóły. Bardzo dziękuję!",
+    "text_pl": "Wszystko super! Szybko, czysto i z dbałością o szczegóły. Bardzo dziękuję!",
+    "text_en": "Wszystko super! Szybko, czysto i z dbałością o szczegóły. Bardzo dziękuję!",
+    "text_ru": "Wszystko super! Szybko, czysto i z dbałością o szczegóły. Bardzo dziękuję!",
+    "text_uk": "Wszystko super! Szybko, czysto i z dbałością o szczegóły. Bardzo dziękuję!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:13:07.858Z",
+    "is_active": true,
+    "order": 12,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 17,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Wielkie dziękuję za przyibranie!",
+    "text_pl": "Wielkie dziękuję za przyibranie!",
+    "text_en": "Wielkie dziękuję za przyibranie!",
+    "text_ru": "Wielkie dziękuję za przyibranie!",
+    "text_uk": "Wielkie dziękuję za przyibranie!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:13:23.157Z",
+    "is_active": true,
+    "order": 11,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 18,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Jestem bardzo zadowolona. Bardzo dokładnie wysprzątany dom, wspaniała pani, spokojna i bardzo sympatyczna, sprawna i dokładna!",
+    "text_pl": "Jestem bardzo zadowolona. Bardzo dokładnie wysprzątany dom, wspaniała pani, spokojna i bardzo sympatyczna, sprawna i dokładna!",
+    "text_en": "Jestem bardzo zadowolona. Bardzo dokładnie wysprzątany dom, wspaniała pani, spokojna i bardzo sympatyczna, sprawna i dokładna!",
+    "text_ru": "Jestem bardzo zadowolona. Bardzo dokładnie wysprzątany dom, wspaniała pani, spokojna i bardzo sympatyczna, sprawna i dokładna!",
+    "text_uk": "Jestem bardzo zadowolona. Bardzo dokładnie wysprzątany dom, wspaniała pani, spokojna i bardzo sympatyczna, sprawna i dokładna!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:13:34.321Z",
+    "is_active": true,
+    "order": 10,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 19,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Jeszcze tak świetnie posprzątanego mieszkania nie miałam nigdy. Pani Anna wspaniała osoba!",
+    "text_pl": "Jeszcze tak świetnie posprzątanego mieszkania nie miałam nigdy. Pani Anna wspaniała osoba!",
+    "text_en": "Jeszcze tak świetnie posprzątanego mieszkania nie miałam nigdy. Pani Anna wspaniała osoba!",
+    "text_ru": "Jeszcze tak świetnie posprzątanego mieszkania nie miałam nigdy. Pani Anna wspaniała osoba!",
+    "text_uk": "Jeszcze tak świetnie posprzątanego mieszkania nie miałam nigdy. Pani Anna wspaniała osoba!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:13:45.344Z",
+    "is_active": true,
+    "order": 9,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 20,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Rewelacja, Pani super sprzątała, wykorzystała każdą minutę, jestem bardzo zadowolona, dziękuję",
+    "text_pl": "Rewelacja, Pani super sprzątała, wykorzystała każdą minutę, jestem bardzo zadowolona, dziękuję",
+    "text_en": "Rewelacja, Pani super sprzątała, wykorzystała każdą minutę, jestem bardzo zadowolona, dziękuję",
+    "text_ru": "Rewelacja, Pani super sprzątała, wykorzystała każdą minutę, jestem bardzo zadowolona, dziękuję",
+    "text_uk": "Rewelacja, Pani super sprzątała, wykorzystała każdą minutę, jestem bardzo zadowolona, dziękuję",
+    "rating": 5,
+    "created_at": "2025-11-06T11:14:10.923Z",
+    "is_active": true,
+    "order": 8,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 21,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Kawał dobrej roboty! Najwyższa ocena!",
+    "text_pl": "Kawał dobrej roboty! Najwyższa ocena!",
+    "text_en": "Kawał dobrej roboty! Najwyższa ocena!",
+    "text_ru": "Kawał dobrej roboty! Najwyższa ocena!",
+    "text_uk": "Kawał dobrej roboty! Najwyższa ocena!",
+    "rating": 5,
+    "created_at": "2025-11-06T11:14:21.336Z",
+    "is_active": true,
+    "order": 7,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 22,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "text_pl": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "text_en": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "text_ru": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "text_uk": "Anna did an amazing job! I really liked the attention to detail that she gave each task. She cleaned everything, windows, rooms, stairs, floors, dusting and vacuuming.",
+    "rating": 5,
+    "created_at": "2025-11-06T11:14:32.895Z",
+    "is_active": true,
+    "order": 6,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 23,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Very good and Educated person I recommend her very much",
+    "text_pl": "Very good and Educated person I recommend her very much",
+    "text_en": "Very good and Educated person I recommend her very much",
+    "text_ru": "Very good and Educated person I recommend her very much",
+    "text_uk": "Very good and Educated person I recommend her very much",
+    "rating": 5,
+    "created_at": "2025-11-06T11:14:45.234Z",
+    "is_active": true,
+    "order": 5,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 24,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Super, wszystko dokładnie wysprzątane, dziękujemy.",
+    "text_pl": "Super, wszystko dokładnie wysprzątane, dziękujemy.",
+    "text_en": "Super, wszystko dokładnie wysprzątane, dziękujemy.",
+    "text_ru": "Super, wszystko dokładnie wysprzątane, dziękujemy.",
+    "text_uk": "Super, wszystko dokładnie wysprzątane, dziękujemy.",
+    "rating": 5,
+    "created_at": "2025-11-06T11:14:55.870Z",
+    "is_active": true,
+    "order": 4,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 25,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Miła, pomocna, profesjonalna, jestem z usługi pani Anny bardzo zadowolony",
+    "text_pl": "Miła, pomocna, profesjonalna, jestem z usługi pani Anny bardzo zadowolony",
+    "text_en": "Miła, pomocna, profesjonalna, jestem z usługi pani Anny bardzo zadowolony",
+    "text_ru": "Miła, pomocna, profesjonalna, jestem z usługi pani Anny bardzo zadowolony",
+    "text_uk": "Miła, pomocna, profesjonalna, jestem z usługi pani Anny bardzo zadowolony",
+    "rating": 5,
+    "created_at": "2025-11-06T11:15:06.636Z",
+    "is_active": true,
+    "order": 3,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 26,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "text_pl": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "text_en": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "text_ru": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "text_uk": "Sprzątanie odbyło się u mojej córki, która potrzebowała pomocy ze względu na zwichnięta nogę. Wszystko odbyło się mega profesjonalnie, córka jest bardzo zadowolona i planuje powtórkę za jakiś czas",
+    "rating": 5,
+    "created_at": "2025-11-06T11:15:20.297Z",
+    "is_active": true,
+    "order": 2,
+    "show_date": false
+  }
+},
+{
+  "model": "reviews.review",
+  "pk": 27,
+  "fields": {
+    "author_name": null,
+    "author_name_pl": null,
+    "author_name_en": null,
+    "author_name_ru": null,
+    "author_name_uk": null,
+    "text": "Świetna robota Bardzo porządnie wykonane zadanie",
+    "text_pl": "Świetna robota Bardzo porządnie wykonane zadanie",
+    "text_en": "Świetna robota Bardzo porządnie wykonane zadanie",
+    "text_ru": "Świetna robota Bardzo porządnie wykonane zadanie",
+    "text_uk": "Świetna robota Bardzo porządnie wykonane zadanie",
+    "rating": 5,
+    "created_at": "2025-11-06T11:15:32.010Z",
+    "is_active": true,
+    "order": 1,
+    "show_date": false
+  }
+},
+{
+  "model": "gallery.galleryimage",
+  "pk": 1,
+  "fields": {
+    "title": "Muszla klozetowa",
+    "title_pl": "Muszla klozetowa",
+    "title_en": "Toilet",
+    "title_ru": "Унитаз",
+    "title_uk": "Унітаз",
+    "before_image": "gallery/before/unitaz_do.jpeg",
+    "after_image": "gallery/after/unitaz_posle.jpeg",
+    "order": 1
+  }
+},
+{
+  "model": "gallery.galleryimage",
+  "pk": 2,
+  "fields": {
+    "title": "Kabina prysznicowa",
+    "title_pl": "Kabina prysznicowa",
+    "title_en": "Shower cabin",
+    "title_ru": "Душевая кабина",
+    "title_uk": "Душова кабіна",
+    "before_image": "gallery/before/dush_do.jpeg",
+    "after_image": "gallery/after/dush_posle.jpeg",
+    "order": 2
+  }
+},
+{
+  "model": "gallery.galleryimage",
+  "pk": 3,
+  "fields": {
+    "title": "Kabina prysznicowa",
+    "title_pl": "Kabina prysznicowa",
+    "title_en": "Shower cabin",
+    "title_ru": "Душевая кабина",
+    "title_uk": "Душова кабіна",
+    "before_image": "gallery/before/dush_1_do.jpeg",
+    "after_image": "gallery/after/dush_1_posle.jpeg",
+    "order": 3
+  }
+},
+{
+  "model": "gallery.galleryimage",
+  "pk": 4,
+  "fields": {
+    "title": "Umywalka",
+    "title_pl": "Umywalka",
+    "title_en": "Basin",
+    "title_ru": "Раковина",
+    "title_uk": "Раковина",
+    "before_image": "gallery/before/rakovina_do.jpeg",
+    "after_image": "gallery/after/rakovina_posle.jpeg",
+    "order": 4
+  }
+},
+{
+  "model": "gallery.galleryimage",
+  "pk": 5,
+  "fields": {
+    "title": "Sofa",
+    "title_pl": "Sofa",
+    "title_en": "Couch",
+    "title_ru": "Диван",
+    "title_uk": "Диван",
+    "before_image": "gallery/before/divan_do.jpeg",
+    "after_image": "gallery/after/divan_posle.jpeg",
+    "order": 5
+  }
+},
+{
+  "model": "gallery.galleryimage",
+  "pk": 6,
+  "fields": {
+    "title": "Lustro",
+    "title_pl": "Lustro",
+    "title_en": "Mirror",
+    "title_ru": "Зеркало",
+    "title_uk": "Дзеркало",
+    "before_image": "gallery/before/zerkalo_do.jpeg",
+    "after_image": "gallery/after/zerkalo_posle.jpeg",
+    "order": 6
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 1,
+  "fields": {
+    "name": "Warszawa",
+    "delivery_charge": "0.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 2,
+  "fields": {
+    "name": "Piastów",
+    "delivery_charge": "30.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 3,
+  "fields": {
+    "name": "Pruszków",
+    "delivery_charge": "30.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 4,
+  "fields": {
+    "name": "Piaseczno",
+    "delivery_charge": "30.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 5,
+  "fields": {
+    "name": "Sulejówek",
+    "delivery_charge": "40.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 6,
+  "fields": {
+    "name": "Kobyłka",
+    "delivery_charge": "50.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 7,
+  "fields": {
+    "name": "Ożarów Mazowiecki",
+    "delivery_charge": "50.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 8,
+  "fields": {
+    "name": "Zielonka",
+    "delivery_charge": "40.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 9,
+  "fields": {
+    "name": "Legionowo",
+    "delivery_charge": "40.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 10,
+  "fields": {
+    "name": "Józefosław",
+    "delivery_charge": "60.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 11,
+  "fields": {
+    "name": "Ząbki",
+    "delivery_charge": "30.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 12,
+  "fields": {
+    "name": "Stare Babice",
+    "delivery_charge": "30.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 13,
+  "fields": {
+    "name": "Brwinów",
+    "delivery_charge": "50.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 14,
+  "fields": {
+    "name": "Grodzisk Mazowiecki",
+    "delivery_charge": "60.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 15,
+  "fields": {
+    "name": "Marki",
+    "delivery_charge": "30.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 16,
+  "fields": {
+    "name": "Raszyn",
+    "delivery_charge": "25.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 17,
+  "fields": {
+    "name": "Łomianki",
+    "delivery_charge": "40.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 18,
+  "fields": {
+    "name": "Łazy",
+    "delivery_charge": "50.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 19,
+  "fields": {
+    "name": "Nowa Iwiczna",
+    "delivery_charge": "50.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 20,
+  "fields": {
+    "name": "Wołomin",
+    "delivery_charge": "40.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 21,
+  "fields": {
+    "name": "Konstancin-Jeziorna",
+    "delivery_charge": "50.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 22,
+  "fields": {
+    "name": "Jabłonna",
+    "delivery_charge": "40.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 23,
+  "fields": {
+    "name": "Młochów",
+    "delivery_charge": "60.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 24,
+  "fields": {
+    "name": "Milanówek",
+    "delivery_charge": "50.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 25,
+  "fields": {
+    "name": "Mysłiadło",
+    "delivery_charge": "40.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 26,
+  "fields": {
+    "name": "Nowa Wola",
+    "delivery_charge": "60.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 27,
+  "fields": {
+    "name": "Janki",
+    "delivery_charge": "45.00"
+  }
+},
+{
+  "model": "orders.city",
+  "pk": 28,
+  "fields": {
+    "name": "Góraszka",
+    "delivery_charge": "65.00"
+  }
+}
+]

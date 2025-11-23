@@ -1,0 +1,26 @@
+# Игнорируем виртуальное окружение (в контейнере будет свой Python)
+venv/
+.venv/
+env/
+
+# Игнорируем локальную базу данных
+db.sqlite3
+goldclean_db/
+
+# Игнорируем Git
+.git/
+.gitignore
+
+# Игнорируем кэш
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Игнорируем медиа (на продакшене они будут в облаке или volume)
+media/
+
+# Прочее
+.env
+Dockerfile
+docker-compose.yml
