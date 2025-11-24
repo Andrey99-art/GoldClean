@@ -16,11 +16,17 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '.ngrok-free.app'
+    '.ngrok-free.app',
+    '217.154.149.215',  # <--- Твой IP
+    'goldclean.pl',     # <--- Твой домен (на будущее)
+    'www.goldclean.pl'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.ngrok-free.app',
+    'http://217.154.149.215',  # <--- Добавь HTTP IP (для тестов)
+    'https://217.154.149.215', # <--- Добавь HTTPS IP
+    'https://goldclean.pl',    # <--- Домен
     'https://*.loca.lt',
     'http://*.loca.lt',
     'https://some-plums-sin.loca.lt'
