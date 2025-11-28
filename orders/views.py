@@ -1,5 +1,4 @@
 # ПУТЬ: orders/views.py
-# КОНТЕКСТ: Исправление логики сохранения услуг (Snapshot Pattern) для прохождения тестов
 
 import logging
 import stripe
@@ -133,18 +132,16 @@ def order_create(request):
             _process_order_details_from_summary(order, summary)
             order.save()
             
-            # --- ИЗМЕНЕНИЕ: ЛОГИКА SNAPSHOT ---
-            # Берем готовый список услуг из сессии.
+            # --- ЛОГИКА SNAPSHOT ---
             details = summary.get('additional_services_details')
             if details and not summary.get('is_window_service'):
                 order.additional_services_details = details
                 order.save()
-            # ----------------------------------
+            # -----------------------
 
             if 'order_summary' in request.session:
                 del request.session['order_summary']
             
-            # Отправляем письмо только если оплата наличными
             if order.payment_method == 'cash':
                 _send_order_confirmation_email(order)
 
@@ -152,11 +149,25 @@ def order_create(request):
                 return redirect(reverse('orders:create_checkout_session', kwargs={'order_id': order.id}))
             else:
                 return redirect('orders:order_success')
+        else:
+            # === ВАЛИДАЦИЯ НЕ ПРОШЛА ===
+            messages.error(request, _("Please correct the errors below."))
+            
+            # Проходимся по всем ошибкам формы
+            for field in form.errors:
+                if field in form.fields:
+                    # Получаем текущие классы виджета (например, 'form-control')
+                    current_classes = form.fields[field].widget.attrs.get('class', '')
+                    # Добавляем класс 'is-invalid', если его там еще нет
+                    if 'is-invalid' not in current_classes:
+                        form.fields[field].widget.attrs['class'] = f"{current_classes} is-invalid"
+            
     else: 
         initial_data = {}
         if request.user.is_authenticated and user_profile:
             initial_data = {'customer_name': request.user.get_full_name() or request.user.username, 'customer_email': request.user.email}
         form = OrderCreateForm(initial=initial_data)
+    
     penalty_balance = user_profile.penalty_balance if user_profile else Decimal('0.00')
     context = {'form': form, 'summary': summary, 'cities': cities, 'penalty_balance': penalty_balance}
     return render(request, 'orders/create_order.html', context)
@@ -173,7 +184,6 @@ def start_kitchen_order(request):
             additional_services_ids_str = request.POST.get('additional_services_ids', '')
             additional_services_ids = [int(sid) for sid in additional_services_ids_str.split(',')] if additional_services_ids_str else []
             
-            # --- ИЗМЕНЕНИЕ: Формируем details ---
             additional_services_details = []
             if additional_services_ids:
                 add_services_objs = AdditionalService.objects.filter(id__in=additional_services_ids)
@@ -184,12 +194,11 @@ def start_kitchen_order(request):
                         'price': float(svc.price),
                         'quantity': 1
                     })
-            # ------------------------------------
 
             summary = {
                 'service_id': kitchen_service.id, 'service_name': str(kitchen_service.name),
                 'is_window_service': False, 'rooms_count': 0, 'bathrooms_count': 0, 'sqm': 0,
-                'additional_services_details': additional_services_details, # <-- Сохраняем details
+                'additional_services_details': additional_services_details,
                 'frequency': 'one_time',
                 'bring_vacuum': False, 'is_private_house': False,
                 'estimated_duration_minutes': kitchen_service.base_duration_minutes,
@@ -245,10 +254,6 @@ class PaymentCancelView(TemplateView):
 
 
 def initialize_order(request):
-    """
-    Принимает POST-запрос со страниц услуг/цен,
-    сохраняет выбранную услугу в сессию и перенаправляет.
-    """
     if request.method == 'POST':
         service_id = request.POST.get('service_id')
         if not service_id:
@@ -265,7 +270,7 @@ def initialize_order(request):
                 'rooms_count': 1,
                 'bathrooms_count': 1,
                 'total_price': str(service.base_price),
-                'additional_services_details': [] # <-- Пустой список по умолчанию
+                'additional_services_details': []
             }
             request.session['order_summary'] = summary
             return redirect(reverse('orders:order_create'))
@@ -279,9 +284,6 @@ def initialize_order(request):
 
 
 def initialize_order_from_list(request):
-    """
-    Принимает POST-запрос со страниц услуг/цен.
-    """
     if request.method == 'POST':
         main_service_id = request.POST.get('main_service')
         additional_services_ids = request.POST.getlist('additional_services')
@@ -294,7 +296,6 @@ def initialize_order_from_list(request):
             main_service = get_object_or_404(Service, id=main_service_id)
             total_price = main_service.base_price
             
-            # --- ИЗМЕНЕНИЕ: Формируем details ---
             additional_services_details = []
             if additional_services_ids:
                 add_services_objs = AdditionalService.objects.filter(id__in=additional_services_ids)
@@ -305,13 +306,12 @@ def initialize_order_from_list(request):
                         'price': float(svc.price),
                         'quantity': 1
                     })
-            # ------------------------------------
 
             summary = {
                 'service_id': main_service.id,
                 'service_name': str(main_service.name),
                 'is_window_service': main_service.is_window_service,
-                'additional_services_details': additional_services_details, # <-- Сохраняем details
+                'additional_services_details': additional_services_details,
                 'rooms_count': 1,
                 'bathrooms_count': 1,
                 'sqm': 0,

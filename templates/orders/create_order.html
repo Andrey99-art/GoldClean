@@ -1,5 +1,3 @@
-<!-- File: orders/templates/orders/create_order.html -->
-
 {% extends 'base.html' %}
 {% load i18n %} 
 
@@ -57,14 +55,23 @@
                     <div class="col-sm-6">
                         <label for="{{ form.customer_name.id_for_label }}" class="form-label">{{ form.customer_name.label }}</label>
                         {{ form.customer_name }}
+                        {% if form.customer_name.errors %}
+                            <div class="invalid-feedback d-block">{{ form.customer_name.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <label for="{{ form.customer_phone.id_for_label }}" class="form-label">{{ form.customer_phone.label }}</label>
                         {{ form.customer_phone }}
+                        {% if form.customer_phone.errors %}
+                            <div class="invalid-feedback d-block">{{ form.customer_phone.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-12">
                         <label for="{{ form.customer_email.id_for_label }}" class="form-label">{{ form.customer_email.label }}</label>
                         {{ form.customer_email }}
+                        {% if form.customer_email.errors %}
+                            <div class="invalid-feedback d-block">{{ form.customer_email.errors.0 }}</div>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -73,7 +80,11 @@
                 <h4 class="mb-3">{% trans "Cleaning address" %}</h4>
                 <div class="col-12 mb-3">
                     <label for="{{ form.city.id_for_label }}" class="form-label">{{ form.city.label }}</label>
-                    <select name="{{ form.city.name }}" id="{{ form.city.id_for_label }}" class="form-select form-select-lg" data-base-price="{{ summary.total_price }}">
+                    
+                    <!-- Добавляем проверку класса ошибки вручную для Select, так как это сложный виджет -->
+                    <select name="{{ form.city.name }}" id="{{ form.city.id_for_label }}" 
+                            class="form-select form-select-lg {% if form.city.errors %}is-invalid{% endif %}" 
+                            data-base-price="{{ summary.total_price }}">
                         {% for city in cities %}
                             <option value="{{ city.pk }}" data-charge="{{ city.delivery_charge }}">
                                 {{ city.name }} 
@@ -83,36 +94,60 @@
                             </option>
                         {% endfor %}
                     </select>
+                    {% if form.city.errors %}
+                        <div class="invalid-feedback d-block">{{ form.city.errors.0 }}</div>
+                    {% endif %}
                 </div>
 
                 <div class="row g-3">
                     <div class="col-12">
                         <label for="{{ form.street.id_for_label }}" class="form-label">{{ form.street.label }}</label>
                         {{ form.street }}
+                        {% if form.street.errors %}
+                            <div class="invalid-feedback d-block">{{ form.street.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <label for="{{ form.postal_code.id_for_label }}" class="form-label">{{ form.postal_code.label }}</label>
                         {{ form.postal_code }}
+                        {% if form.postal_code.errors %}
+                            <div class="invalid-feedback d-block">{{ form.postal_code.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <label for="{{ form.building_number.id_for_label }}" class="form-label">{{ form.building_number.label }}</label>
                         {{ form.building_number }}
+                        {% if form.building_number.errors %}
+                            <div class="invalid-feedback d-block">{{ form.building_number.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <label for="{{ form.apartment_number.id_for_label }}" class="form-label">{{ form.apartment_number.label }} <span class="text-muted">({% trans "Optional" %})</span></label>
                         {{ form.apartment_number }}
+                        {% if form.apartment_number.errors %}
+                            <div class="invalid-feedback d-block">{{ form.apartment_number.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <label for="{{ form.entrance.id_for_label }}" class="form-label">{{ form.entrance.label }} <span class="text-muted">({% trans "Optional" %})</span></label>
                         {{ form.entrance }}
+                        {% if form.entrance.errors %}
+                            <div class="invalid-feedback d-block">{{ form.entrance.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <label for="{{ form.floor.id_for_label }}" class="form-label">{{ form.floor.label }} <span class="text-muted">({% trans "Optional" %})</span></label>
                         {{ form.floor }}
+                        {% if form.floor.errors %}
+                            <div class="invalid-feedback d-block">{{ form.floor.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <label for="{{ form.intercom_code.id_for_label }}" class="form-label">{{ form.intercom_code.label }} <span class="text-muted">({% trans "Optional" %})</span></label>
                         {{ form.intercom_code }}
+                        {% if form.intercom_code.errors %}
+                            <div class="invalid-feedback d-block">{{ form.intercom_code.errors.0 }}</div>
+                        {% endif %}
                     </div>
                 </div>
                 
@@ -123,23 +158,37 @@
                     <div class="col-sm-6">
                         <label for="{{ form.cleaning_date.id_for_label }}" class="form-label">{{ form.cleaning_date.label }}</label>
                         {{ form.cleaning_date }}
+                        {% if form.cleaning_date.errors %}
+                            <div class="invalid-feedback d-block">{{ form.cleaning_date.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-sm-6">
                         <label for="{{ form.cleaning_time.id_for_label }}" class="form-label">{{ form.cleaning_time.label }}</label>
                         {{ form.cleaning_time }}
+                        {% if form.cleaning_time.errors %}
+                            <div class="invalid-feedback d-block">{{ form.cleaning_time.errors.0 }}</div>
+                        {% endif %}
                     </div>
                     <div class="col-12">
                         <label for="{{ form.comments.id_for_label }}" class="form-label">{{ form.comments.label }}</label>
                         {{ form.comments }}
+                        {% if form.comments.errors %}
+                            <div class="invalid-feedback d-block">{{ form.comments.errors.0 }}</div>
+                        {% endif %}
                     </div>
                 </div>
 
                 <hr class="my-4">
 
-                <!-- ======================================================= -->
-                <!--          НАЧАЛО НОВОГО БЛОКА: ВЫБОР ОПЛАТЫ               -->
-                <!-- ======================================================= -->
                 <h4 class="mb-3">{% trans "Payment method" %}</h4>
+                
+                <!-- Ошибка для радио-кнопок оплаты -->
+                {% if form.payment_method.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.payment_method.errors.0 }}
+                    </div>
+                {% endif %}
+
                 <div class="payment-methods-grid my-3">
                     {% for radio in form.payment_method %}
                     <div class="payment-item">
@@ -163,9 +212,6 @@
                     </div>
                     {% endfor %}
                 </div>
-                <!-- ======================================================= -->
-                <!--                  КОНЕЦ НОВОГО БЛОКА                     -->
-                <!-- ======================================================= -->
 
                 <hr class="my-4">
 
