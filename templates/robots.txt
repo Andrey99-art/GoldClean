@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /order/
+Disallow: /accounts/
+Allow: /
+
+Sitemap: https://goldclean2026.pl/sitemap.xml

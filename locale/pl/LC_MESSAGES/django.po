@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-14 19:14+0300\n"
+"POT-Creation-Date: 2025-11-30 01:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -81,19 +81,19 @@ msgstr "Do salda Twojego konta została dodana kara w wysokości {fee} zł."
 msgid "Order #{id} has been successfully canceled."
 msgstr "Zamówienie #{id} zostało pomyślnie anulowane."
 
-#: .\config\settings.py:101
+#: .\config\settings.py:118
 msgid "Polish"
 msgstr "Polski"
 
-#: .\config\settings.py:102
+#: .\config\settings.py:119
 msgid "English"
 msgstr "Angielski"
 
-#: .\config\settings.py:103
+#: .\config\settings.py:120
 msgid "Russian"
 msgstr "Rosyjski"
 
-#: .\config\settings.py:104
+#: .\config\settings.py:121
 msgid "Ukrainian"
 msgstr "Ukraiński"
 
@@ -101,7 +101,7 @@ msgstr "Ukraiński"
 msgid "Website Content"
 msgstr "Zawartość Witryny"
 
-#: .\core\models.py:8 .\products\models.py:53
+#: .\core\models.py:8 .\products\models.py:60
 msgid "Title"
 msgstr "Tytuł"
 
@@ -115,7 +115,7 @@ msgid "Image"
 msgstr "Obraz"
 
 #: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:18
-#: .\products\models.py:40 .\products\models.py:56 .\reviews\models.py:24
+#: .\products\models.py:47 .\products\models.py:63 .\reviews\models.py:27
 msgid "Display Order"
 msgstr "Kolejność wyświetlania"
 
@@ -131,7 +131,7 @@ msgstr "Obszar sprzątania"
 msgid "Cleaning Areas"
 msgstr "Obszary sprzątania"
 
-#: .\core\models.py:27 .\products\models.py:66
+#: .\core\models.py:27 .\products\models.py:73
 msgid "Description"
 msgstr "Opis"
 
@@ -182,23 +182,23 @@ msgstr "Pełny adres URL konta Telegram, np. https://t.me/your_account"
 msgid "Site Configuration"
 msgstr "Konfiguracja Witryny"
 
-#: .\core\utils.py:20
+#: .\core\utils.py:11
 msgid "Not specified"
 msgstr "Nie podano miesiąca"
 
-#: .\core\utils.py:29
+#: .\core\utils.py:16
 msgid "hour"
 msgstr "godzina"
 
-#: .\core\utils.py:31
+#: .\core\utils.py:17
 msgid "hours_2_4"
 msgstr "godziny"
 
-#: .\core\utils.py:33
+#: .\core\utils.py:18
 msgid "hours_5_plus"
 msgstr "godziny"
 
-#: .\core\utils.py:36
+#: .\core\utils.py:21
 msgid "min"
 msgstr "min"
 
@@ -207,7 +207,6 @@ msgid "Произошла непредвиденная ошибка."
 msgstr "Wystąpił nieprzewidziany błąd."
 
 #: .\core\views.py:200
-#, fuzzy
 #| msgid "Kitchen Cleaning service is not available at the moment."
 msgid "Window cleaning service is currently unavailable."
 msgstr "Usługa Sprzątanie Kuchni nie jest obecnie dostępna."
@@ -248,56 +247,61 @@ msgstr "Galeria zdjęć"
 msgid "City"
 msgstr "Miasto"
 
-#: .\orders\forms.py:27
+#: .\orders\forms.py:18 .\orders\models.py:58
+#: .\templates\orders\create_order.html:183
+msgid "Payment method"
+msgstr "Metoda płatności"
+
+#: .\orders\forms.py:32
 msgid "Your full name"
 msgstr "Twoje imię i nazwisko"
 
-#: .\orders\forms.py:30 .\orders\models.py:45
+#: .\orders\forms.py:35 .\orders\models.py:45
 msgid "Street"
 msgstr "Ulica"
 
-#: .\orders\forms.py:31 .\orders\models.py:46
+#: .\orders\forms.py:36 .\orders\models.py:46
 msgid "Postal code"
 msgstr "Kod pocztowy"
 
-#: .\orders\forms.py:32
+#: .\orders\forms.py:37
 msgid "Building No."
 msgstr "Numer budynku"
 
-#: .\orders\forms.py:33
+#: .\orders\forms.py:38
 msgid "Apartment No."
 msgstr "Numer mieszkania"
 
-#: .\orders\forms.py:34 .\orders\models.py:49
+#: .\orders\forms.py:39 .\orders\models.py:49
 msgid "Entrance"
 msgstr "Wejście"
 
-#: .\orders\forms.py:35 .\orders\models.py:50
+#: .\orders\forms.py:40 .\orders\models.py:50
 msgid "Floor"
 msgstr "Piętro"
 
-#: .\orders\forms.py:36 .\orders\models.py:51
+#: .\orders\forms.py:41 .\orders\models.py:51
 msgid "Intercom code"
 msgstr "Kod do domofonu"
 
-#: .\orders\forms.py:37
+#: .\orders\forms.py:42
 msgid "Select date"
 msgstr "Wybierz datę"
 
-#: .\orders\forms.py:38
+#: .\orders\forms.py:43
 msgid "Select time"
 msgstr "Wybierz godzinę"
 
-#: .\orders\forms.py:39
+#: .\orders\forms.py:44
 msgid "e.g., parking details, how to find the entrance..."
 msgstr "np. szczegóły parkowania, jak znaleźć wejście..."
 
-#: .\orders\forms.py:59
+#: .\orders\forms.py:64
 msgid "Cleaning Type"
 msgstr "Rodzaj sprzątania"
 
-#: .\orders\forms.py:64 .\orders\models.py:77 .\templates\core\pricing.html:45
-#: .\templates\core\services.html:38
+#: .\orders\forms.py:69 .\orders\models.py:77 .\templates\core\pricing.html:46
+#: .\templates\core\services.html:39
 msgid "Additional Services"
 msgstr "Usługi dodatkowe"
 
@@ -313,16 +317,16 @@ msgstr "Opłata za dojazd"
 msgid "Cities"
 msgstr ""
 
-#: .\orders\models.py:26 .\products\models.py:65
+#: .\orders\models.py:26 .\products\models.py:72
 #: .\templates\accounts\order_detail.html:29
 msgid "Service"
 msgstr "Usługa"
 
-#: .\orders\models.py:30 .\templates\core\index.html:165
+#: .\orders\models.py:30 .\templates\core\index.html:134
 msgid "Number of rooms"
 msgstr "Liczba pokoi"
 
-#: .\orders\models.py:31 .\templates\core\index.html:169
+#: .\orders\models.py:31 .\templates\core\index.html:138
 msgid "Number of bathrooms"
 msgstr "Liczba łazienek"
 
@@ -335,7 +339,6 @@ msgid "Number of windows"
 msgstr "Liczba okien"
 
 #: .\orders\models.py:34
-#, fuzzy
 #| msgid "Additional Services"
 msgid "Additional Services Details"
 msgstr "Usługi dodatkowe"
@@ -353,7 +356,7 @@ msgid "Bring vacuum cleaner"
 msgstr "Przynieść odkurzacz"
 
 #: .\orders\models.py:39 .\templates\accounts\order_edit.html:51
-#: .\templates\core\index.html:143
+#: .\templates\core\index.html:112
 msgid "Private house"
 msgstr "Dom prywatny"
 
@@ -411,7 +414,6 @@ msgid "Canceled"
 msgstr "Anulowane"
 
 #: .\orders\models.py:56
-#, fuzzy
 #| msgid "Order Details"
 msgid "Order Status"
 msgstr "Szczegóły zamówienia"
@@ -423,10 +425,6 @@ msgstr "Gotówka"
 #: .\orders\models.py:57
 msgid "Card Online"
 msgstr "Płatność kartą"
-
-#: .\orders\models.py:58 .\templates\orders\create_order.html:142
-msgid "Payment method"
-msgstr "Metoda płatności"
 
 #: .\orders\models.py:59
 msgid "Pending"
@@ -441,7 +439,6 @@ msgid "Failed"
 msgstr ""
 
 #: .\orders\models.py:60
-#, fuzzy
 #| msgid "Payment method"
 msgid "Payment Status"
 msgstr "Metoda płatności"
@@ -458,7 +455,7 @@ msgstr "Data utworzenia"
 msgid "Update date"
 msgstr "Data aktualizacji"
 
-#: .\orders\models.py:83 .\products\models.py:67
+#: .\orders\models.py:83 .\products\models.py:74
 #: .\venv\Lib\site-packages\django\forms\formsets.py:484
 #: .\venv\Lib\site-packages\django\forms\formsets.py:491
 msgid "Order"
@@ -468,15 +465,15 @@ msgstr "Zamówienie"
 msgid "Orders"
 msgstr "Zamówienia"
 
-#: .\orders\views.py:99
+#: .\orders\views.py:98
 msgid "Your session has expired. Please calculate the cost again."
 msgstr "Twoja sesja wygasła. Proszę ponownie obliczyć koszt."
 
-#: .\orders\views.py:106
+#: .\orders\views.py:105
 msgid "Invalid order summary data. Please calculate the cost again."
 msgstr "Twoja sesja wygasła. Proszę ponownie obliczyć koszt."
 
-#: .\orders\views.py:125
+#: .\orders\views.py:124
 #, python-brace-format
 msgid ""
 "\n"
@@ -485,33 +482,35 @@ msgstr ""
 "\n"
 "[System] Anulowano z opłatą karną w wysokości {fee} zł."
 
-#: .\orders\views.py:185
+#: .\orders\views.py:154
+#| msgid "Please correct the duplicate values below."
+msgid "Please correct the errors below."
+msgstr "Proszę poprawić zduplikowane wartości poniżej."
+
+#: .\orders\views.py:210
 msgid "Kitchen Cleaning service is not available at the moment."
 msgstr "Usługa Sprzątanie Kuchni nie jest obecnie dostępna."
 
-#: .\orders\views.py:189 .\orders\views.py:266 .\orders\views.py:326
+#: .\orders\views.py:214 .\orders\views.py:280 .\orders\views.py:329
 msgid "An unexpected error occurred. Please try again."
 msgstr "Wystąpił nieoczekiwany błąd. Spróbuj ponownie."
 
-#: .\orders\views.py:196
-#, fuzzy
+#: .\orders\views.py:221
 #| msgid "This order can no longer be edited."
 msgid "This order has already been paid for."
 msgstr "Tego zamówienia nie można już edytować."
 
-#: .\orders\views.py:222
+#: .\orders\views.py:247
 msgid ""
 "An error occurred while creating the payment session. Please try again later."
 msgstr ""
 
-#: .\orders\views.py:240
-#, fuzzy
+#: .\orders\views.py:260
 #| msgid "Please select a main cleaning service."
 msgid "Please select a service."
 msgstr "Proszę wybrać główną usługę sprzątania."
 
-#: .\orders\views.py:285
-#, fuzzy
+#: .\orders\views.py:292
 #| msgid "Please select a main cleaning service."
 msgid "Please select a main service to proceed."
 msgstr "Proszę wybrać główną usługę sprzątania."
@@ -525,7 +524,6 @@ msgid "Service Name"
 msgstr "Nazwa usługi"
 
 #: .\products\models.py:9
-#, fuzzy
 #| msgid "Description"
 msgid "Short Description"
 msgstr "Opis"
@@ -570,7 +568,7 @@ msgstr "Cena za m² / za okno"
 msgid "Is Window Cleaning Service?"
 msgstr "Czy jest to usługa mycia okien?"
 
-#: .\products\models.py:19 .\products\models.py:41 .\reviews\models.py:23
+#: .\products\models.py:19 .\products\models.py:48 .\reviews\models.py:26
 msgid "Is Active"
 msgstr "Aktywny"
 
@@ -586,77 +584,84 @@ msgstr "Usługi główne"
 msgid "Price"
 msgstr "Cena"
 
-#: .\products\models.py:35
+#: .\products\models.py:36
+#| msgid "Description"
+msgid "Price Description"
+msgstr "Opis"
+
+#: .\products\models.py:37
+msgid "Ex: 'per item', 'per hour'. Leave empty if not needed."
+msgstr ""
+
+#: .\products\models.py:42
 msgid "Is quantity-based?"
 msgstr ""
 
-#: .\products\models.py:36
+#: .\products\models.py:43
 msgid "If checked, a quantity selector will be shown instead of a checkbox."
 msgstr ""
 
-#: .\products\models.py:39
+#: .\products\models.py:46
 msgid "For Kitchen Cleaning Page"
 msgstr "Sprzątanie kuchni"
 
-#: .\products\models.py:39
+#: .\products\models.py:46
 msgid ""
 "Check this if the service should be displayed on the Kitchen Cleaning page."
 msgstr ""
 "Zaznacz tę opcję, jeśli usługa ma być wyświetlana na stronie Czyszczenie "
 "kuchni."
 
-#: .\products\models.py:40
+#: .\products\models.py:47
 msgid "Services with a lower number will be displayed first."
 msgstr "Mniejsze liczby wyświetlane są jako pierwsze."
 
-#: .\products\models.py:42
+#: .\products\models.py:49
 msgid "Duration (minutes)"
 msgstr "Czas trwania (minuty)"
 
-#: .\products\models.py:42
+#: .\products\models.py:49
 msgid "How many minutes does this service add to the total cleaning time?"
 msgstr "Ile minut ta usługa dodaje do całkowitego czasu sprzątania?"
 
-#: .\products\models.py:43 .\products\models.py:54
+#: .\products\models.py:50 .\products\models.py:61
 msgid "Icon"
 msgstr "Ikona"
 
-#: .\products\models.py:46
+#: .\products\models.py:53
 msgid "Дополнительная услуга"
 msgstr "Usługa dodatkowa"
 
-#: .\products\models.py:47
+#: .\products\models.py:54
 msgid "Дополнительные услуги"
 msgstr "Usługi dodatkowe"
 
-#: .\products\models.py:52
+#: .\products\models.py:59
 msgid "Wash inside and out"
 msgstr "Mycie wewnątrz i na zewnątrz"
 
-#: .\products\models.py:52
+#: .\products\models.py:59
 msgid "Wipe and clean"
 msgstr "Przetrzyj i wyczyść"
 
-#: .\products\models.py:55
+#: .\products\models.py:62
 msgid "Category"
 msgstr "Kategoria"
 
-#: .\products\models.py:59
+#: .\products\models.py:66
 msgid "Kitchen Cleaning Feature"
 msgstr "Cecha sprzątania kuchni"
 
-#: .\products\models.py:60
+#: .\products\models.py:67
 msgid "Kitchen Cleaning Features"
 msgstr "Cechy sprzątania kuchni"
 
-#: .\products\models.py:70
-#, fuzzy
+#: .\products\models.py:77
 #| msgid "Service Name"
 msgid "Service Feature"
 msgstr "Nazwa usługi"
 
-#: .\products\models.py:71
-#, fuzzy
+#: .\products\models.py:78
 #| msgid "Service Name"
 msgid "Service Features"
 msgstr "Nazwa usługi"
@@ -713,15 +718,24 @@ msgstr "Treść recenzji"
 msgid "Rating (1-5)"
 msgstr "Ocena (1-5)"
 
-#: .\reviews\models.py:21
+#: .\reviews\models.py:23
 msgid "Date Created"
 msgstr "Data utworzenia"
 
-#: .\reviews\models.py:34
+#: .\reviews\models.py:32
+#| msgid "Creation date"
+msgid "Show Creation Date on Site"
+msgstr "Data utworzenia"
+
+#: .\reviews\models.py:33
+msgid "If checked, the creation date will be displayed on the website."
+msgstr ""
+
+#: .\reviews\models.py:44
 msgid "Review"
 msgstr "Recenzja"
 
-#: .\reviews\models.py:35
+#: .\reviews\models.py:45
 msgid "Reviews"
 msgstr "Recenzje"
 
@@ -793,7 +807,7 @@ msgid "No, Go Back"
 msgstr "Nie, wróć"
 
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:10
-#: .\templates\accounts\login.html:30 .\templates\base.html:113
+#: .\templates\accounts\login.html:30 .\templates\base.html:145
 msgid "Login"
 msgstr "Zaloguj się"
 
@@ -846,7 +860,7 @@ msgstr "mieszkanie"
 msgid "Comments"
 msgstr "Komentarze"
 
-#: .\templates\accounts\order_detail.html:40 .\templates\core\index.html:26
+#: .\templates\accounts\order_detail.html:40
 msgid "Total Cost"
 msgstr "Całkowity Koszt"
 
@@ -855,13 +869,13 @@ msgid "Options"
 msgstr "Opcje"
 
 #: .\templates\accounts\order_edit.html:47
-#: .\templates\accounts\order_edit.html:124 .\templates\core\index.html:69
+#: .\templates\accounts\order_edit.html:124 .\templates\core\index.html:38
 msgid "Bring a vacuum cleaner"
 msgstr "Przynieś odkurzacz"
 
 #: .\templates\accounts\order_edit.html:54
-#: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:88
-#: .\templates\core\index.html:196
+#: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:57
+#: .\templates\core\index.html:165
 msgid "Additional services"
 msgstr "Usługi dodatkowe"
 
@@ -881,21 +895,21 @@ msgstr "Anuluj"
 msgid "New Cost"
 msgstr "Nowy Koszt"
 
-#: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:54
+#: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:23
 msgid "Base cost"
 msgstr "Koszt podstawowy"
 
-#: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:68
-#: .\templates\core\index.html:180
+#: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:37
+#: .\templates\core\index.html:149
 msgid "Equipment"
 msgstr "Sprzęt"
 
-#: .\templates\accounts\order_edit.html:130 .\templates\core\index.html:81
-#: .\templates\core\index.html:136
+#: .\templates\accounts\order_edit.html:130 .\templates\core\index.html:50
+#: .\templates\core\index.html:105
 msgid "Object Type"
 msgstr "Typ Obiektu"
 
-#: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:82
+#: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:51
 msgid "Private House"
 msgstr "Dom Prywatny"
 
@@ -903,25 +917,25 @@ msgstr "Dom Prywatny"
 msgid "The final price will be recalculated upon saving."
 msgstr "Ostateczna cena zostanie przeliczona po zapisaniu."
 
-#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:502
+#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:487
 msgid "Area"
 msgstr "Powierzchnia"
 
-#: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:61
-#: .\templates\core\index.html:506
+#: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:30
+#: .\templates\core\index.html:491
 msgid "Rooms and bathrooms"
 msgstr "Pokoje i łazienki"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:507
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:492
 msgid "room(s)"
 msgstr "pokój/pokoje"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:507
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:492
 msgid "bathroom(s)"
 msgstr "łazienka/łazienki"
 
 #: .\templates\accounts\order_list.html:4
-#: .\templates\accounts\order_list.html:8 .\templates\base.html:107
+#: .\templates\accounts\order_list.html:8 .\templates\base.html:139
 msgid "My Orders"
 msgstr "Moje zamówienia"
 
@@ -956,7 +970,7 @@ msgid "You don't have any orders yet."
 msgstr "Nie masz jeszcze żadnych zamówień."
 
 #: .\templates\accounts\register.html:4 .\templates\accounts\register.html:50
-#: .\templates\base.html:114
+#: .\templates\base.html:146
 msgid "Register"
 msgstr "Zarejestruj się"
 
@@ -968,64 +982,87 @@ msgstr "Załóż konto"
 msgid "Auto-translate and Save"
 msgstr ""
 
-#: .\templates\base.html:54 .\templates\core\index.html:233
+#: .\templates\base.html:19
+#| msgid "Cleaning Areas"
+msgid "Cleaning Services in Warsaw"
+msgstr "Obszary sprzątania"
+
+#: .\templates\base.html:22
+msgid ""
+"Professional cleaning of apartments, houses and offices in Warsaw. Order "
+"online in 1 minute."
+msgstr ""
+"Profesjonalne sprzątanie mieszkań, domów i biur w Warszawie. Zamów online w 1 minutę."
+
+#: .\templates\base.html:26
+msgid "Professional cleaning services. Click to calculate price."
+msgstr "Profesjonalne usługi sprzątania. Kliknij, aby obliczyć cenę. "
+
+#: .\templates\base.html:85 .\templates\core\index.html:217
 msgid "An individual approach to the cleanliness of your space."
 msgstr "Indywidualne podejście do czystości Twojej przestrzeni."
 
-#: .\templates\base.html:60 .\templates\base.html:142
-#: .\templates\core\index.html:6
+#: .\templates\base.html:91 .\templates\base.html:176
+#: .\templates\core\index.html:5
 msgid "Home"
 msgstr "Strona główna"
 
-#: .\templates\base.html:62 .\templates\base.html:144
+#: .\templates\base.html:93 .\templates\base.html:178
 msgid "Services"
 msgstr "Usługi"
 
-#: .\templates\base.html:64 .\templates\base.html:146
-#: .\templates\core\windows.html:7 .\templates\core\windows.html:20
+#: .\templates\base.html:95 .\templates\base.html:180
+#: .\templates\core\windows.html:7 .\templates\core\windows.html:21
 msgid "Window Cleaning"
 msgstr "Mycie okien"
 
-#: .\templates\base.html:65 .\templates\base.html:147
+#: .\templates\base.html:96 .\templates\base.html:181
 #: .\templates\core\kitchen_cleaning.html:6
 msgid "Kitchen Cleaning"
 msgstr "Sprzątanie kuchni"
 
-#: .\templates\base.html:66 .\templates\base.html:148
-#: .\templates\core\pricing.html:5 .\templates\core\pricing.html:13
+#: .\templates\base.html:97 .\templates\base.html:182
+#: .\templates\core\pricing.html:5 .\templates\core\pricing.html:14
 msgid "Pricing"
 msgstr "Cennik"
 
-#: .\templates\base.html:67 .\templates\base.html:149
+#: .\templates\base.html:98 .\templates\base.html:183
 #: .\templates\core\about.html:4
 msgid "About us"
 msgstr "O nas"
 
-#: .\templates\base.html:100 .\templates\base.html:154
+#: .\templates\base.html:131 .\templates\base.html:188
 msgid "Write to us on Telegram"
 msgstr "Napisz do nas na Telegramie"
 
-#: .\templates\base.html:106
+#: .\templates\base.html:138
 msgid "Welcome"
 msgstr "Witamy"
 
-#: .\templates\base.html:110
+#: .\templates\base.html:142
 msgid "Logout"
 msgstr "Wyloguj się"
 
-#: .\templates\base.html:159
+#: .\templates\base.html:193
 msgid "© "
 msgstr "© "
 
-#: .\templates\base.html:159
+#: .\templates\base.html:193
 msgid "Gold Clean, Inc"
 msgstr "Gold Clean, Inc"
 
-#: .\templates\core\about.html:10
+#: .\templates\core\about.html:5
+msgid ""
+"Gold Clean is a team of professional cleaners in Warsaw. We use eco-friendly "
+"products and vetted staff to ensure the cleanliness of your home."
+msgstr ""
+"Gold Clean to zespół profesjonalnych sprzątaczy w Warszawie. Korzystamy z ekologicznych produktów i sprawdzonego personelu, aby zapewnić czystość w Twoim domu."
+
+#: .\templates\core\about.html:11
 msgid "Our values and approach"
 msgstr "Nasze wartości i podejście"
 
-#: .\templates\core\about.html:11
+#: .\templates\core\about.html:12
 msgid ""
 "We understand that in today's fast-paced world, every minute counts. We have "
 "an individual approach to the cleanliness of your space."
@@ -1033,11 +1070,11 @@ msgstr ""
 "Rozumiemy, że w dzisiejszym szybkim tempie życia liczy się każda minuta. "
 "Mamy indywidualne podejście do czystości Twojej przestrzeni."
 
-#: .\templates\core\about.html:18
+#: .\templates\core\about.html:19
 msgid "Personal Approach"
 msgstr "Indywidualne podejście"
 
-#: .\templates\core\about.html:19
+#: .\templates\core\about.html:20
 msgid ""
 "We know that every home and office is unique, just like the people who live "
 "and work in them. Before we start cleaning, we carefully listen to your "
@@ -1049,11 +1086,11 @@ msgstr ""
 "życzeń i przyzwyczajeń. Naszym celem jest stworzenie przestrzeni, w której "
 "to właśnie Ty poczujesz się najbardziej komfortowo."
 
-#: .\templates\core\about.html:24
+#: .\templates\core\about.html:25
 msgid "Professionalism"
 msgstr "Profesjonalizm"
 
-#: .\templates\core\about.html:25
+#: .\templates\core\about.html:26
 msgid ""
 "We work only with proven methods and safe products, paying attention to "
 "every detail. Our team consists of specialists who know how to find "
@@ -1065,11 +1102,11 @@ msgstr ""
 "znaleźć indywidualne rozwiązania dla każdego zadania – od sprzątania "
 "podtrzymującego po skomplikowane prace generalne."
 
-#: .\templates\core\about.html:30
+#: .\templates\core\about.html:31
 msgid "Time Saving"
 msgstr "Oszczędność czasu"
 
-#: .\templates\core\about.html:31
+#: .\templates\core\about.html:32
 msgid ""
 "We value your schedule. The cleaning is built around your timetable—quickly, "
 "precisely, without unnecessary calls or waiting. You can be sure: on the "
@@ -1081,11 +1118,11 @@ msgstr ""
 "wyznaczonym dniu i godzinie nasi specjaliści będą na miejscu i wykonają "
 "wszystko zgodnie z ustaleniami."
 
-#: .\templates\core\about.html:36
+#: .\templates\core\about.html:37
 msgid "Reliability"
 msgstr "Niezawodność"
 
-#: .\templates\core\about.html:37
+#: .\templates\core\about.html:38
 msgid ""
 "We understand how important trust is when it comes to your home or office. "
 "We handle your property with care, guarantee confidentiality, and honestly "
@@ -1095,11 +1132,11 @@ msgstr ""
 "Twoje mienie, gwarantujemy poufność i rzetelnie wypełniamy nasze "
 "zobowiązania."
 
-#: .\templates\core\about.html:42
+#: .\templates\core\about.html:43
 msgid "Health Care"
 msgstr "Dbałość o zdrowie"
 
-#: .\templates\core\about.html:43
+#: .\templates\core\about.html:44
 msgid ""
 "We use hypoallergenic and safe products so that your space is always clean, "
 "fresh, and safe for the whole family, employees, and pets. Cleanliness is "
@@ -1110,11 +1147,11 @@ msgstr ""
 "zwierząt domowych. Czystość to nie tylko porządek, to zdrowie i lekkość "
 "oddychania."
 
-#: .\templates\core\about.html:49
+#: .\templates\core\about.html:50
 msgid "Our philosophy is simple:"
 msgstr "Nasza filozofia jest prosta:"
 
-#: .\templates\core\about.html:51
+#: .\templates\core\about.html:52
 msgid ""
 "“When it’s clean around you—thoughts are clearer, energy is greater, and "
 "there is enough time for what’s important.”"
@@ -1122,168 +1159,134 @@ msgstr ""
 "„Gdy wokół jest czysto — myśli są jaśniejsze, energii jest więcej, a czasu "
 "na to, co ważne, staje się wystarczająco”."
 
-#: .\templates\core\index.html:14
-#, fuzzy
-#| msgid "Total Cost"
-msgid "Show Total Cost"
-msgstr "Całkowity Koszt"
-
-#: .\templates\core\index.html:30
-msgid "Based on the options selected on the page"
+#: .\templates\core\index.html:6
+msgid ""
+"Professional cleaning of apartments, houses and offices in Warsaw. We offer "
+"standard, deep, and post-renovation cleaning. Book online in 1 minute!"
 msgstr ""
+"Profesjonalne sprzątanie mieszkań, domów i biur w Warszawie. Oferujemy sprzątanie standardowe, dogłębne i po remoncie. Zarezerwuj online w 1 minutę!"
 
-#: .\templates\core\index.html:34
-msgid "Close"
-msgstr ""
-
-#: .\templates\core\index.html:35
-msgid "Go to calculator"
-msgstr "Przejdź do kalkulatora"
-
-#: .\templates\core\index.html:48
+#: .\templates\core\index.html:17
 msgid "Cost"
 msgstr "Koszt"
 
-#: .\templates\core\index.html:55 .\templates\core\index.html:105
+#: .\templates\core\index.html:24 .\templates\core\index.html:74
 msgid "Select cleaning type"
 msgstr "Wybierz rodzaj sprzątania"
 
-#: .\templates\core\index.html:62
+#: .\templates\core\index.html:31
 msgid "1 room, 1 bathroom"
 msgstr "1 pokój, 1 łazienka"
 
-#: .\templates\core\index.html:75
+#: .\templates\core\index.html:44
 msgid "Approximate operating time"
 msgstr "Przybliżony czas pracy"
 
-#: .\templates\core\index.html:95
+#: .\templates\core\index.html:64
 msgid "Subscription Discount"
 msgstr "Zniżka subskrypcyjna"
 
-#: .\templates\core\index.html:101 .\templates\core\kitchen_cleaning.html:82
-#: .\templates\core\pricing.html:86 .\templates\core\services.html:55
+#: .\templates\core\index.html:70 .\templates\core\kitchen_cleaning.html:83
+#: .\templates\core\pricing.html:87 .\templates\core\services.html:56
 msgid "Proceed to order"
 msgstr "Przejdź do zamówienia"
 
-#: .\templates\core\index.html:104
+#: .\templates\core\index.html:73
 msgid "Calculate cleaning cost"
 msgstr "Oblicz koszt sprzątania"
 
-#: .\templates\core\index.html:108
+#: .\templates\core\index.html:77
 msgid "Cleaning Frequency"
 msgstr "Częstotliwość sprzątania"
 
-#: .\templates\core\index.html:112
+#: .\templates\core\index.html:81
 msgid "One-time cleaning"
 msgstr "Jednorazowe sprzątanie"
 
-#: .\templates\core\index.html:117
+#: .\templates\core\index.html:86
 msgid "Once a month"
 msgstr "Raz w miesiącu"
 
-#: .\templates\core\index.html:121
+#: .\templates\core\index.html:90
 msgid "Every 2 weeks"
 msgstr "Co 2 tygodnie"
 
-#: .\templates\core\index.html:125
+#: .\templates\core\index.html:94
 msgid "Once a week"
 msgstr "Raz w tygodniu"
 
-#: .\templates\core\index.html:130
+#: .\templates\core\index.html:99
 #: .\templates\registration\password_reset_complete.html:8
 msgid "Log in"
 msgstr "Zaloguj się"
 
-#: .\templates\core\index.html:130
+#: .\templates\core\index.html:99
 #: .\venv\Lib\site-packages\django\utils\text.py:323
 msgid "or"
 msgstr "lub"
 
-#: .\templates\core\index.html:130
+#: .\templates\core\index.html:99
 msgid "register"
 msgstr "zarejestruj się"
 
-#: .\templates\core\index.html:130
+#: .\templates\core\index.html:99
 msgid "to access subscription discounts!"
 msgstr "aby uzyskać dostęp do zniżek na subskrypcję!"
 
-#: .\templates\core\index.html:141
+#: .\templates\core\index.html:110
 msgid "House icon"
 msgstr "Ikona domu"
 
-#: .\templates\core\index.html:150 .\templates\orders\create_order.html:23
+#: .\templates\core\index.html:119 .\templates\orders\create_order.html:21
 msgid "Cleaning type"
 msgstr "Rodzaj sprzątania"
 
-#: .\templates\core\index.html:153
+#: .\templates\core\index.html:122
 msgid "Select..."
 msgstr "Wybierz..."
 
-#: .\templates\core\index.html:162
+#: .\templates\core\index.html:131
 msgid "Cleaning Parameters"
 msgstr "Parametry lokalu"
 
-#: .\templates\core\index.html:175
+#: .\templates\core\index.html:144
 msgid "Area in m²"
 msgstr "Powierzchnia w m²"
 
-#: .\templates\core\index.html:185
+#: .\templates\core\index.html:154
 msgid "Vacuum cleaner icon"
 msgstr "Ikona odkurzacza"
 
-#: .\templates\core\index.html:187
+#: .\templates\core\index.html:156
 msgid "You need a vacuum cleaner on the order"
 msgstr "Potrzebujesz odkurzacza do zamówienia"
 
-#: .\templates\core\index.html:188
+#: .\templates\core\index.html:157
 msgid "We will bring a small vacuum cleaner"
 msgstr "Przyniesiemy mały odkurzacz"
 
-#: .\templates\core\index.html:238
+#: .\templates\core\index.html:208 .\templates\core\pricing.html:84
+#: .\templates\core\services.html:54
+msgid "Total"
+msgstr "Całkowity Koszt"
+
+#: .\templates\core\index.html:210
+msgid "Go to calculator"
+msgstr "Przejdź do kalkulatora"
+
+#: .\templates\core\index.html:223
 msgid "Our services"
 msgstr "Nasze usługi"
 
-#: .\templates\core\index.html:241
-msgid "Standard cleaning"
-msgstr "Sprzątanie standardowe"
-
-#: .\templates\core\index.html:242
-msgid "Ideal for regular maintenance of cleanliness in your home. From 120 zł."
-msgstr "Idealne do regularnego utrzymania czystości w Twoim domu. Od 120 zł."
-
-#: .\templates\core\index.html:247
-msgid "General cleaning"
-msgstr "Sprzątanie generalne"
-
-#: .\templates\core\index.html:248
-msgid ""
-"Comprehensive cleaning of all surfaces, including hard-to-reach places. From "
-"250 zł."
-msgstr ""
-"Kompleksowe czyszczenie wszystkich powierzchni, łącznie z trudno dostępnymi "
-"miejscami. Od 250 zł."
-
-#: .\templates\core\index.html:253
-msgid "Post-renovation cleaning"
-msgstr "Sprzątanie po remoncie"
-
-#: .\templates\core\index.html:254
-msgid ""
-"We will remove all construction dust, paint stains, and prepare the premises "
-"for moving in. From 400 zł."
-msgstr ""
-"Usuniemy cały pył budowlany, plamy farby i przygotujemy pomieszczenie do "
-"zamieszkania. Od 400 zł."
-
-#: .\templates\core\index.html:260
+#: .\templates\core\index.html:240
 msgid "How we work"
 msgstr "Jak pracujemy"
 
-#: .\templates\core\index.html:263
+#: .\templates\core\index.html:243
 msgid "1. Make a request"
 msgstr "1. Złóż zapytanie"
 
-#: .\templates\core\index.html:264
+#: .\templates\core\index.html:244
 msgid ""
 "Fill out the form on the website or give us a call. We will clarify the "
 "details and calculate the cost."
@@ -1291,11 +1294,11 @@ msgstr ""
 "Wypełnij formularz na stronie lub zadzwoń do nas. Ustalimy szczegóły i "
 "obliczymy koszt."
 
-#: .\templates\core\index.html:267
+#: .\templates\core\index.html:247
 msgid "2. We arrive on time"
 msgstr "2. Przyjeżdżamy na czas"
 
-#: .\templates\core\index.html:268
+#: .\templates\core\index.html:248
 msgid ""
 "Our cleaners will arrive at the appointed time with all the necessary "
 "equipment and supplies."
@@ -1303,64 +1306,71 @@ msgstr ""
 "Nasi specjaliści przybędą o umówionej godzinie z całym niezbędnym sprzętem i "
 "środkami."
 
-#: .\templates\core\index.html:271
+#: .\templates\core\index.html:251
 msgid "3. Enjoy the cleanliness"
 msgstr "3. Ciesz się czystością"
 
-#: .\templates\core\index.html:272
+#: .\templates\core\index.html:252
 msgid ""
 "You accept the work and pay for the result. Your home shines with "
 "cleanliness!"
 msgstr ""
 "Akceptujesz wykonaną pracę i płacisz za rezultat. Twój dom lśni czystością!"
 
-#: .\templates\core\index.html:279
+#: .\templates\core\index.html:259
 msgid "What's included in apartment cleaning"
 msgstr "Co obejmuje sprzątanie mieszkania"
 
-#: .\templates\core\index.html:300
+#: .\templates\core\index.html:280
 msgid "Our Work in Action"
 msgstr "Nasza praca w praktyce"
 
-#: .\templates\core\index.html:301
+#: .\templates\core\index.html:281
 msgid "See the difference we make with your own eyes."
 msgstr "Zobacz na własne oczy, jaką różnicę robimy."
 
-#: .\templates\core\index.html:314 .\templates\core\index.html:315
-#: .\templates\core\index.html:317
+#: .\templates\core\index.html:294 .\templates\core\index.html:295
+#: .\templates\core\index.html:297
 msgid "Before"
 msgstr "Przed"
 
-#: .\templates\core\index.html:322 .\templates\core\index.html:323
-#: .\templates\core\index.html:325
+#: .\templates\core\index.html:302 .\templates\core\index.html:303
+#: .\templates\core\index.html:305
 msgid "After"
 msgstr "Po"
 
-#: .\templates\core\index.html:334
+#: .\templates\core\index.html:316
 msgid "Previous"
 msgstr "Poprzedni"
 
-#: .\templates\core\index.html:337
+#: .\templates\core\index.html:320
 msgid "Next"
 msgstr "Następny"
 
-#: .\templates\core\index.html:345
+#: .\templates\core\index.html:328
 msgid "What Our Clients Say"
 msgstr "Co mówią nasi klienci"
 
-#: .\templates\core\index.html:360
+#: .\templates\core\index.html:344
 msgid "Posted on"
 msgstr "Opublikowano"
 
-#: .\templates\core\index.html:373
+#: .\templates\core\index.html:358
 msgid "Leave your own review"
 msgstr "Dodaj swoją recenzję"
 
-#: .\templates\core\kitchen_cleaning.html:16
+#: .\templates\core\kitchen_cleaning.html:7
+msgid ""
+"Deep kitchen cleaning service. We remove grease from hoods, ovens, and "
+"cabinets. Make your kitchen shine again with Gold Clean Warsaw."
+msgstr ""
+"Kompleksowe sprzątanie kuchni. Usuwamy tłuszcz z okapów, piekarników i szafek. Spraw, aby Twoja kuchnia znów lśniła dzięki Gold Clean Warszawa."
+
+#: .\templates\core\kitchen_cleaning.html:17
 msgid "Complete Kitchen Cleaning"
 msgstr "Sprzątanie kuchni"
 
-#: .\templates\core\kitchen_cleaning.html:17
+#: .\templates\core\kitchen_cleaning.html:18
 msgid ""
 "Choose additional services to make your kitchen perfectly clean. Base price "
 "includes all the points listed below."
@@ -1368,23 +1378,30 @@ msgstr ""
 "Wybierz dodatkowe usługi, aby Twoja kuchnia była idealnie czysta. Cena "
 "podstawowa obejmuje wszystkie poniższe punkty."
 
-#: .\templates\core\kitchen_cleaning.html:19
+#: .\templates\core\kitchen_cleaning.html:20
 msgid "Beautifully cleaned kitchen"
 msgstr "Ikona odkurzacza"
 
-#: .\templates\core\kitchen_cleaning.html:26
+#: .\templates\core\kitchen_cleaning.html:27
 msgid "What's included in the base price"
 msgstr "Co obejmuje cena podstawowa"
 
-#: .\templates\core\kitchen_cleaning.html:50
+#: .\templates\core\kitchen_cleaning.html:51
 msgid "Strengthen the effect with additional services"
-msgstr ""
+msgstr "Wzmocnij efekt dzięki dodatkowym usługom"
 
-#: .\templates\core\kitchen_cleaning.html:80
+#: .\templates\core\kitchen_cleaning.html:81
 msgid "Total:"
 msgstr "Całkowity Koszt"
 
-#: .\templates\core\pricing.html:14
+#: .\templates\core\pricing.html:6
+msgid ""
+"Transparent cleaning prices in Warsaw. No hidden fees. Check our calculator "
+"for regular cleaning, window washing, and dry cleaning costs."
+msgstr ""
+"Przejrzyste ceny sprzątania w Warszawie. Bez ukrytych opłat. Sprawdź nasz kalkulator kosztów regularnego sprzątania, mycia okien i czyszczenia na sucho."
+
+#: .\templates\core\pricing.html:15
 msgid ""
 "Choose the perfect cleaning plan for your home. All prices are starting "
 "points and can be customized with additional services."
@@ -1392,29 +1409,31 @@ msgstr ""
 "Wybierz idealny plan sprzątania dla swojego domu. Wszystkie ceny są cenami "
 "wyjściowymi i mogą być dostosowane za pomocą dodatkowych usług."
 
-#: .\templates\core\pricing.html:17 .\templates\core\services.html:17
+#: .\templates\core\pricing.html:18 .\templates\core\services.html:18
 msgid "Main Services"
 msgstr "Usługi główne"
 
-#: .\templates\core\pricing.html:29
+#: .\templates\core\pricing.html:30
 msgid "start"
 msgstr "start"
 
-#: .\templates\core\pricing.html:35
-#, fuzzy
+#: .\templates\core\pricing.html:36
 #| msgid "Description"
 msgid "Description coming soon."
 msgstr "Opis"
 
-#: .\templates\core\pricing.html:83 .\templates\core\services.html:53
-msgid "Total"
-msgstr "Całkowity Koszt"
-
-#: .\templates\core\services.html:5 .\templates\core\services.html:14
+#: .\templates\core\services.html:5 .\templates\core\services.html:15
 msgid "Our Services"
 msgstr "Nasze usługi"
 
-#: .\templates\core\services.html:15
+#: .\templates\core\services.html:6
+msgid ""
+"Comprehensive cleaning services: regular maintenance, deep cleaning, moving "
+"in/out cleaning, and dry cleaning of furniture. High quality guaranteed."
+msgstr ""
+"Kompleksowe usługi sprzątania: regularna konserwacja, sprzątanie dogłębne, sprzątanie przy przeprowadzce oraz czyszczenie na sucho mebli. Gwarancja wysokiej jakości."
+
+#: .\templates\core\services.html:16
 msgid ""
 "We offer a wide range of cleaning services to make your home shine. Below "
 "you can find our main packages and additional options."
@@ -1422,11 +1441,11 @@ msgstr ""
 "Oferujemy szeroki zakres usług sprzątających, aby Twój dom lśnił. Poniżej "
 "znajdziesz nasze główne pakiety oraz opcje dodatkowe."
 
-#: .\templates\core\services.html:17
+#: .\templates\core\services.html:18
 msgid "select one"
 msgstr "Wybierz datę"
 
-#: .\templates\core\services.html:27
+#: .\templates\core\services.html:28
 msgid ""
 "A comprehensive package designed for this type of cleaning. We pay attention "
 "to every detail."
@@ -1434,16 +1453,23 @@ msgstr ""
 "Kompleksowy pakiet zaprojektowany do tego typu sprzątania. Zwracamy uwagę na "
 "każdy szczegół."
 
-#: .\templates\core\services.html:30
+#: .\templates\core\services.html:31
 msgid "from"
 msgstr "od"
 
-#: .\templates\core\services.html:39
+#: .\templates\core\services.html:40
 msgid "You can add any of these options to your main cleaning package."
 msgstr ""
 "Możesz dodać dowolną z tych opcji do swojego głównego pakietu sprzątania."
 
-#: .\templates\core\windows.html:21
+#: .\templates\core\windows.html:8
+msgid ""
+"Professional window cleaning in Warsaw. Streak-free guarantee. We wash "
+"windows, frames, and sills in apartments and private houses."
+msgstr ""
+"Profesjonalne mycie okien w Warszawie. Gwarancja bez smug. Myjemy okna, ramy i parapety w mieszkaniach i domach prywatnych."
+
+#: .\templates\core\windows.html:22
 msgid ""
 "Choose the number of windows you want to clean. We wash from both sides. The "
 "minimum order is 5 windows."
@@ -1451,19 +1477,19 @@ msgstr ""
 "Wybierz liczbę okien, które chcesz umyć. Myjemy z obu stron. Minimalne "
 "zamówienie to 5 okien."
 
-#: .\templates\core\windows.html:25
+#: .\templates\core\windows.html:26
 msgid "Choose the number of windows"
 msgstr "Wybierz liczbę okien"
 
-#: .\templates\core\windows.html:32
+#: .\templates\core\windows.html:33
 msgid "Cost of washing one window (on both sides)"
 msgstr "Koszt umycia jednego okna (z obu stron)"
 
-#: .\templates\core\windows.html:42
+#: .\templates\core\windows.html:43
 msgid "How do we count the number of windows?"
 msgstr "Jak liczymy liczbę okien?"
 
-#: .\templates\core\windows.html:47
+#: .\templates\core\windows.html:48
 msgid ""
 "We count the windows by leaves. They may vary in size, the main thing is "
 "their number."
@@ -1471,30 +1497,30 @@ msgstr ""
 "Liczymy okna na podstawie skrzydeł. Mogą się różnić rozmiarem, najważniejsza "
 "jest ich liczba."
 
-#: .\templates\core\windows.html:51
+#: .\templates\core\windows.html:52
 msgid "This is a double-leaf window - it counts as one window."
 msgstr "To jest okno dwuskrzydłowe – liczy się jako jedno okno."
 
-#: .\templates\core\windows.html:55
+#: .\templates\core\windows.html:56
 msgid "Single-leaf narrow window is half window."
 msgstr "Wąskie okno jednoskrzydłowe to pół okna."
 
-#: .\templates\core\windows.html:59
+#: .\templates\core\windows.html:60
 msgid "If you have three leaves, it's 1.5 windows."
 msgstr "Jeśli masz trzy skrzydła, to 1,5 okna."
 
-#: .\templates\core\windows.html:66
+#: .\templates\core\windows.html:67
 msgid "Balcony door and window - it's 2 windows."
 msgstr "Drzwi balkonowe i okno – to 2 okna."
 
-#: .\templates\core\windows.html:70
+#: .\templates\core\windows.html:71
 msgid ""
 "One section to the floor counts as one window. There are 5 windows in the "
 "picture."
 msgstr ""
 "Jedna sekcja do podłogi liczy się jako jedno okno. Na zdjęciu jest 5 okien."
 
-#: .\templates\core\windows.html:74
+#: .\templates\core\windows.html:75
 msgid ""
 "If the windows are not to the floor, they are counted by leafs. In the "
 "picture there are 2 windows (4 leafs)."
@@ -1502,32 +1528,32 @@ msgstr ""
 "Jeśli okna nie sięgają podłogi, liczone są na podstawie skrzydeł. Na zdjęciu "
 "są 2 okna (4 skrzydła)."
 
-#: .\templates\core\windows.html:78
+#: .\templates\core\windows.html:79
 msgid "If you get 9.5 windows in your order, round down to 9."
 msgstr "Jeśli w zamówieniu masz 9,5 okna, zaokrąglij w dół do 9."
 
-#: .\templates\core\windows.html:90
+#: .\templates\core\windows.html:91
 msgid "Your Order"
 msgstr "Twoje zamówienie"
 
-#: .\templates\core\windows.html:96 .\templates\core\windows.html:159
+#: .\templates\core\windows.html:97 .\templates\core\windows.html:160
 msgid "windows"
 msgstr "okna"
 
-#: .\templates\core\windows.html:99
+#: .\templates\core\windows.html:100
 msgid "To pay"
 msgstr "Do zapłaty"
 
-#: .\templates\core\windows.html:103
+#: .\templates\core\windows.html:104
 msgid "Order cleaning"
 msgstr "Zamów sprzątanie"
 
-#: .\templates\orders\create_order.html:6
-#: .\templates\orders\create_order.html:11
+#: .\templates\orders\create_order.html:4
+#: .\templates\orders\create_order.html:9
 msgid "Order placement"
 msgstr "Składanie zamówienia"
 
-#: .\templates\orders\create_order.html:12
+#: .\templates\orders\create_order.html:10
 msgid ""
 "Please fill in the fields below to finalize your order. Check your order "
 "details on the right."
@@ -1535,46 +1561,46 @@ msgstr ""
 "Proszę wypełnić poniższe pola, aby sfinalizować zamówienie. Proszę sprawdzić "
 "szczegóły zamówienia po prawej stronie."
 
-#: .\templates\orders\create_order.html:18
+#: .\templates\orders\create_order.html:16
 msgid "Your order"
 msgstr "Twoje zamówienie"
 
-#: .\templates\orders\create_order.html:27
+#: .\templates\orders\create_order.html:25
 msgid "Rooms / Bathrooms"
 msgstr "Pokoje / Łazienki"
 
-#: .\templates\orders\create_order.html:32
+#: .\templates\orders\create_order.html:30
 msgid "Travel costs"
 msgstr "Koszty dojazdu"
 
-#: .\templates\orders\create_order.html:38
+#: .\templates\orders\create_order.html:36
 msgid "Outstanding penalty"
-msgstr ""
+msgstr "Niezapłacona kara"
 
-#: .\templates\orders\create_order.html:45
+#: .\templates\orders\create_order.html:43
 msgid "Total cost"
 msgstr "Koszt całkowity"
 
-#: .\templates\orders\create_order.html:55
+#: .\templates\orders\create_order.html:53
 msgid "Contact details"
 msgstr "Dane kontaktowe"
 
-#: .\templates\orders\create_order.html:73
+#: .\templates\orders\create_order.html:80
 msgid "Cleaning address"
 msgstr "Adres sprzątania"
 
-#: .\templates\orders\create_order.html:102
-#: .\templates\orders\create_order.html:106
-#: .\templates\orders\create_order.html:110
-#: .\templates\orders\create_order.html:114
+#: .\templates\orders\create_order.html:125
+#: .\templates\orders\create_order.html:132
+#: .\templates\orders\create_order.html:139
+#: .\templates\orders\create_order.html:146
 msgid "Optional"
 msgstr "Opcjonalnie"
 
-#: .\templates\orders\create_order.html:121
+#: .\templates\orders\create_order.html:156
 msgid "Date and additional info"
 msgstr "Data i dodatkowe informacje"
 
-#: .\templates\orders\create_order.html:159
+#: .\templates\orders\create_order.html:218
 msgid "Confirm and order"
 msgstr "Potwierdź i zamów"
 
@@ -3121,6 +3147,38 @@ msgstr "Przepraszamy, tłumaczenie jest niedostępne."
 #: .\venv\Lib\site-packages\modeltranslation\widgets.py:32
 msgid "None"
 msgstr "Brak"
+
+#~| msgid "Total Cost"
+#~ msgid "Show Total Cost"
+#~ msgstr "Całkowity Koszt"
+
+#~ msgid "Standard cleaning"
+#~ msgstr "Sprzątanie standardowe"
+
+#~ msgid ""
+#~ "Ideal for regular maintenance of cleanliness in your home. From 120 zł."
+#~ msgstr ""
+#~ "Idealne do regularnego utrzymania czystości w Twoim domu. Od 120 zł."
+
+#~ msgid "General cleaning"
+#~ msgstr "Sprzątanie generalne"
+
+#~ msgid ""
+#~ "Comprehensive cleaning of all surfaces, including hard-to-reach places. "
+#~ "From 250 zł."
+#~ msgstr ""
+#~ "Kompleksowe czyszczenie wszystkich powierzchni, łącznie z trudno "
+#~ "dostępnymi miejscami. Od 250 zł."
+
+#~ msgid "Post-renovation cleaning"
+#~ msgstr "Sprzątanie po remoncie"
+
+#~ msgid ""
+#~ "We will remove all construction dust, paint stains, and prepare the "
+#~ "premises for moving in. From 400 zł."
+#~ msgstr ""
+#~ "Usuniemy cały pył budowlany, plamy farby i przygotujemy pomieszczenie do "
+#~ "zamieszkania. Od 400 zł."
 
 #~ msgid "Selected service not found."
 #~ msgstr "Nie znaleziono wybranej usługi."

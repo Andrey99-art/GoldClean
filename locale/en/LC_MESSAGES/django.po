@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-22 17:45+0300\n"
+"POT-Creation-Date: 2025-11-30 01:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,19 +79,19 @@ msgstr "A penalty of {fee} zł has been added to your account balance."
 msgid "Order #{id} has been successfully canceled."
 msgstr "Order #{id} has been successfully canceled."
 
-#: .\config\settings.py:101
+#: .\config\settings.py:118
 msgid "Polish"
 msgstr "Polish"
 
-#: .\config\settings.py:102
+#: .\config\settings.py:119
 msgid "English"
 msgstr "English"
 
-#: .\config\settings.py:103
+#: .\config\settings.py:120
 msgid "Russian"
 msgstr "Russian"
 
-#: .\config\settings.py:104
+#: .\config\settings.py:121
 msgid "Ukrainian"
 msgstr "Ukrainian"
 
@@ -113,7 +113,7 @@ msgid "Image"
 msgstr "Image"
 
 #: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:18
-#: .\products\models.py:47 .\products\models.py:63 .\reviews\models.py:24
+#: .\products\models.py:47 .\products\models.py:63 .\reviews\models.py:27
 msgid "Display Order"
 msgstr "Display Order"
 
@@ -165,7 +165,8 @@ msgstr "Show 'Services' page"
 msgid ""
 "Если флаг выключен, ссылка на страницу 'Услуги' исчезнет из навигации сайта."
 msgstr ""
-"If disabled, the link to the 'Services' page will disappear from the site navigation."
+"If disabled, the link to the 'Services' page will disappear from the site "
+"navigation."
 
 #: .\core\models.py:56
 msgid "Telegram Link"
@@ -179,23 +180,23 @@ msgstr "Full URL to the Telegram account, e.g., https://t.me/your_account"
 msgid "Site Configuration"
 msgstr "Site Configuration"
 
-#: .\core\utils.py:20
+#: .\core\utils.py:11
 msgid "Not specified"
 msgstr "Not specified"
 
-#: .\core\utils.py:29
+#: .\core\utils.py:16
 msgid "hour"
 msgstr "hour"
 
-#: .\core\utils.py:31
+#: .\core\utils.py:17
 msgid "hours_2_4"
 msgstr "hours"
 
-#: .\core\utils.py:33
+#: .\core\utils.py:18
 msgid "hours_5_plus"
 msgstr "hours"
 
-#: .\core\utils.py:36
+#: .\core\utils.py:21
 msgid "min"
 msgstr "min"
 
@@ -244,7 +245,7 @@ msgid "City"
 msgstr "City"
 
 #: .\orders\forms.py:18 .\orders\models.py:58
-#: .\templates\orders\create_order.html:142
+#: .\templates\orders\create_order.html:183
 msgid "Payment method"
 msgstr "Payment method"
 
@@ -296,8 +297,8 @@ msgstr "e.g., parking details, how to find the entrance..."
 msgid "Cleaning Type"
 msgstr "Cleaning Type"
 
-#: .\orders\forms.py:69 .\orders\models.py:77 .\templates\core\pricing.html:45
-#: .\templates\core\services.html:38
+#: .\orders\forms.py:69 .\orders\models.py:77 .\templates\core\pricing.html:46
+#: .\templates\core\services.html:39
 msgid "Additional Services"
 msgstr "Additional Services"
 
@@ -458,15 +459,15 @@ msgstr "Order"
 msgid "Orders"
 msgstr "Orders"
 
-#: .\orders\views.py:99
+#: .\orders\views.py:98
 msgid "Your session has expired. Please calculate the cost again."
 msgstr "Your session has expired. Please calculate the cost again."
 
-#: .\orders\views.py:106
+#: .\orders\views.py:105
 msgid "Invalid order summary data. Please calculate the cost again."
 msgstr "Invalid order summary data. Please calculate the cost again."
 
-#: .\orders\views.py:125
+#: .\orders\views.py:124
 #, python-brace-format
 msgid ""
 "\n"
@@ -475,29 +476,35 @@ msgstr ""
 "\n"
 "[System Note] Added outstanding penalty of {fee} zł."
 
-#: .\orders\views.py:185
+#: .\orders\views.py:154
+#, fuzzy
+#| msgid "Please correct the duplicate values below."
+msgid "Please correct the errors below."
+msgstr "Please correct the duplicate values below."
+
+#: .\orders\views.py:210
 msgid "Kitchen Cleaning service is not available at the moment."
 msgstr "Kitchen Cleaning service is not available at the moment."
 
-#: .\orders\views.py:189 .\orders\views.py:266 .\orders\views.py:326
+#: .\orders\views.py:214 .\orders\views.py:280 .\orders\views.py:329
 msgid "An unexpected error occurred. Please try again."
 msgstr "An unexpected error occurred. Please try again."
 
-#: .\orders\views.py:196
+#: .\orders\views.py:221
 msgid "This order has already been paid for."
 msgstr "This order has already been paid for."
 
-#: .\orders\views.py:222
+#: .\orders\views.py:247
 msgid ""
 "An error occurred while creating the payment session. Please try again later."
 msgstr ""
 "An error occurred while creating the payment session. Please try again later."
 
-#: .\orders\views.py:240
+#: .\orders\views.py:260
 msgid "Please select a service."
 msgstr "Please select a service."
 
-#: .\orders\views.py:285
+#: .\orders\views.py:292
 msgid "Please select a main service to proceed."
 msgstr "Please select a main service to proceed."
 
@@ -553,7 +560,7 @@ msgstr "Price Per Sqm / Per Window"
 msgid "Is Window Cleaning Service?"
 msgstr "Is Window Cleaning Service?"
 
-#: .\products\models.py:19 .\products\models.py:48 .\reviews\models.py:23
+#: .\products\models.py:19 .\products\models.py:48 .\reviews\models.py:26
 msgid "Is Active"
 msgstr "Is Active"
 
@@ -697,15 +704,25 @@ msgstr "Review Text"
 msgid "Rating (1-5)"
 msgstr "Rating (1-5)"
 
-#: .\reviews\models.py:21
+#: .\reviews\models.py:23
 msgid "Date Created"
 msgstr "Date Created"
 
-#: .\reviews\models.py:34
+#: .\reviews\models.py:32
+#, fuzzy
+#| msgid "Creation date"
+msgid "Show Creation Date on Site"
+msgstr "Creation date"
+
+#: .\reviews\models.py:33
+msgid "If checked, the creation date will be displayed on the website."
+msgstr ""
+
+#: .\reviews\models.py:44
 msgid "Review"
 msgstr "Review"
 
-#: .\reviews\models.py:35
+#: .\reviews\models.py:45
 msgid "Reviews"
 msgstr "Reviews"
 
@@ -778,7 +795,7 @@ msgid "No, Go Back"
 msgstr "No, Go Back"
 
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:10
-#: .\templates\accounts\login.html:30 .\templates\base.html:115
+#: .\templates\accounts\login.html:30 .\templates\base.html:145
 msgid "Login"
 msgstr "Login"
 
@@ -888,25 +905,25 @@ msgstr "Private House"
 msgid "The final price will be recalculated upon saving."
 msgstr "The final price will be recalculated upon saving."
 
-#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:482
+#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:487
 msgid "Area"
 msgstr "Area"
 
 #: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:30
-#: .\templates\core\index.html:486
+#: .\templates\core\index.html:491
 msgid "Rooms and bathrooms"
 msgstr "Rooms and bathrooms"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:487
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:492
 msgid "room(s)"
 msgstr "room(s)"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:487
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:492
 msgid "bathroom(s)"
 msgstr "bathroom(s)"
 
 #: .\templates\accounts\order_list.html:4
-#: .\templates\accounts\order_list.html:8 .\templates\base.html:109
+#: .\templates\accounts\order_list.html:8 .\templates\base.html:139
 msgid "My Orders"
 msgstr "My Orders"
 
@@ -940,7 +957,7 @@ msgid "You don't have any orders yet."
 msgstr "You don't have any orders yet."
 
 #: .\templates\accounts\register.html:4 .\templates\accounts\register.html:50
-#: .\templates\base.html:116
+#: .\templates\base.html:146
 msgid "Register"
 msgstr "Register"
 
@@ -952,64 +969,86 @@ msgstr "Create an Account"
 msgid "Auto-translate and Save"
 msgstr "Auto-translate and Save"
 
-#: .\templates\base.html:56 .\templates\core\index.html:217
+#: .\templates\base.html:19
+#, fuzzy
+#| msgid "Cleaning Areas"
+msgid "Cleaning Services in Warsaw"
+msgstr "Cleaning Areas"
+
+#: .\templates\base.html:22
+msgid ""
+"Professional cleaning of apartments, houses and offices in Warsaw. Order "
+"online in 1 minute."
+msgstr ""
+
+#: .\templates\base.html:26
+msgid "Professional cleaning services. Click to calculate price."
+msgstr ""
+
+#: .\templates\base.html:85 .\templates\core\index.html:217
 msgid "An individual approach to the cleanliness of your space."
 msgstr "An individual approach to the cleanliness of your space."
 
-#: .\templates\base.html:62 .\templates\base.html:144
-#: .\templates\core\index.html:6
+#: .\templates\base.html:91 .\templates\base.html:176
+#: .\templates\core\index.html:5
 msgid "Home"
 msgstr "Home"
 
-#: .\templates\base.html:64 .\templates\base.html:146
+#: .\templates\base.html:93 .\templates\base.html:178
 msgid "Services"
 msgstr "Services"
 
-#: .\templates\base.html:66 .\templates\base.html:148
-#: .\templates\core\windows.html:7 .\templates\core\windows.html:20
+#: .\templates\base.html:95 .\templates\base.html:180
+#: .\templates\core\windows.html:7 .\templates\core\windows.html:21
 msgid "Window Cleaning"
 msgstr "Window Cleaning"
 
-#: .\templates\base.html:67 .\templates\base.html:149
+#: .\templates\base.html:96 .\templates\base.html:181
 #: .\templates\core\kitchen_cleaning.html:6
 msgid "Kitchen Cleaning"
 msgstr "Kitchen Cleaning"
 
-#: .\templates\base.html:68 .\templates\base.html:150
-#: .\templates\core\pricing.html:5 .\templates\core\pricing.html:13
+#: .\templates\base.html:97 .\templates\base.html:182
+#: .\templates\core\pricing.html:5 .\templates\core\pricing.html:14
 msgid "Pricing"
 msgstr "Pricing"
 
-#: .\templates\base.html:69 .\templates\base.html:151
+#: .\templates\base.html:98 .\templates\base.html:183
 #: .\templates\core\about.html:4
 msgid "About us"
 msgstr "About us"
 
-#: .\templates\base.html:102 .\templates\base.html:156
+#: .\templates\base.html:131 .\templates\base.html:188
 msgid "Write to us on Telegram"
 msgstr "Write to us on Telegram"
 
-#: .\templates\base.html:108
+#: .\templates\base.html:138
 msgid "Welcome"
 msgstr "Welcome"
 
-#: .\templates\base.html:112
+#: .\templates\base.html:142
 msgid "Logout"
 msgstr "Logout"
 
-#: .\templates\base.html:161
+#: .\templates\base.html:193
 msgid "© "
 msgstr "© "
 
-#: .\templates\base.html:161
+#: .\templates\base.html:193
 msgid "Gold Clean, Inc"
 msgstr "Gold Clean, Inc"
 
-#: .\templates\core\about.html:10
+#: .\templates\core\about.html:5
+msgid ""
+"Gold Clean is a team of professional cleaners in Warsaw. We use eco-friendly "
+"products and vetted staff to ensure the cleanliness of your home."
+msgstr ""
+
+#: .\templates\core\about.html:11
 msgid "Our values and approach"
 msgstr "Our values and approach"
 
-#: .\templates\core\about.html:11
+#: .\templates\core\about.html:12
 msgid ""
 "We understand that in today's fast-paced world, every minute counts. We have "
 "an individual approach to the cleanliness of your space."
@@ -1017,11 +1056,11 @@ msgstr ""
 "We understand that in today's fast-paced world, every minute counts. We have "
 "an individual approach to the cleanliness of your space."
 
-#: .\templates\core\about.html:18
+#: .\templates\core\about.html:19
 msgid "Personal Approach"
 msgstr "Personal Approach"
 
-#: .\templates\core\about.html:19
+#: .\templates\core\about.html:20
 msgid ""
 "We know that every home and office is unique, just like the people who live "
 "and work in them. Before we start cleaning, we carefully listen to your "
@@ -1033,11 +1072,11 @@ msgstr ""
 "wishes and habits. Our goal is to create a space where you will feel most "
 "comfortable."
 
-#: .\templates\core\about.html:24
+#: .\templates\core\about.html:25
 msgid "Professionalism"
 msgstr "Professionalism"
 
-#: .\templates\core\about.html:25
+#: .\templates\core\about.html:26
 msgid ""
 "We work only with proven methods and safe products, paying attention to "
 "every detail. Our team consists of specialists who know how to find "
@@ -1049,11 +1088,11 @@ msgstr ""
 "individual solutions for any task—from maintenance cleaning to complex "
 "general cleanups."
 
-#: .\templates\core\about.html:30
+#: .\templates\core\about.html:31
 msgid "Time Saving"
 msgstr "Time Saving"
 
-#: .\templates\core\about.html:31
+#: .\templates\core\about.html:32
 msgid ""
 "We value your schedule. The cleaning is built around your timetable—quickly, "
 "precisely, without unnecessary calls or waiting. You can be sure: on the "
@@ -1065,11 +1104,11 @@ msgstr ""
 "appointed day and time, our specialists will be there and do everything as "
 "agreed."
 
-#: .\templates\core\about.html:36
+#: .\templates\core\about.html:37
 msgid "Reliability"
 msgstr "Reliability"
 
-#: .\templates\core\about.html:37
+#: .\templates\core\about.html:38
 msgid ""
 "We understand how important trust is when it comes to your home or office. "
 "We handle your property with care, guarantee confidentiality, and honestly "
@@ -1079,11 +1118,11 @@ msgstr ""
 "We handle your property with care, guarantee confidentiality, and honestly "
 "fulfill our obligations."
 
-#: .\templates\core\about.html:42
+#: .\templates\core\about.html:43
 msgid "Health Care"
 msgstr "Health Care"
 
-#: .\templates\core\about.html:43
+#: .\templates\core\about.html:44
 msgid ""
 "We use hypoallergenic and safe products so that your space is always clean, "
 "fresh, and safe for the whole family, employees, and pets. Cleanliness is "
@@ -1093,17 +1132,23 @@ msgstr ""
 "fresh, and safe for the whole family, employees, and pets. Cleanliness is "
 "not just about order; it's about health and easy breathing."
 
-#: .\templates\core\about.html:49
+#: .\templates\core\about.html:50
 msgid "Our philosophy is simple:"
 msgstr "Our philosophy is simple:"
 
-#: .\templates\core\about.html:51
+#: .\templates\core\about.html:52
 msgid ""
 "“When it’s clean around you—thoughts are clearer, energy is greater, and "
 "there is enough time for what’s important.”"
 msgstr ""
 "“When it’s clean around you—thoughts are clearer, energy is greater, and "
 "there is enough time for what’s important.”"
+
+#: .\templates\core\index.html:6
+msgid ""
+"Professional cleaning of apartments, houses and offices in Warsaw. We offer "
+"standard, deep, and post-renovation cleaning. Book online in 1 minute!"
+msgstr ""
 
 #: .\templates\core\index.html:17
 msgid "Cost"
@@ -1125,8 +1170,8 @@ msgstr "Approximate operating time"
 msgid "Subscription Discount"
 msgstr "Subscription Discount"
 
-#: .\templates\core\index.html:70 .\templates\core\kitchen_cleaning.html:82
-#: .\templates\core\pricing.html:86 .\templates\core\services.html:55
+#: .\templates\core\index.html:70 .\templates\core\kitchen_cleaning.html:83
+#: .\templates\core\pricing.html:87 .\templates\core\services.html:56
 msgid "Proceed to order"
 msgstr "Proceed to order"
 
@@ -1176,7 +1221,7 @@ msgstr "to access subscription discounts!"
 msgid "House icon"
 msgstr "House icon"
 
-#: .\templates\core\index.html:119 .\templates\orders\create_order.html:23
+#: .\templates\core\index.html:119 .\templates\orders\create_order.html:21
 msgid "Cleaning type"
 msgstr "Cleaning type"
 
@@ -1204,8 +1249,8 @@ msgstr "You need a vacuum cleaner on the order"
 msgid "We will bring a small vacuum cleaner"
 msgstr "We will bring a small vacuum cleaner"
 
-#: .\templates\core\index.html:208 .\templates\core\pricing.html:83
-#: .\templates\core\services.html:53
+#: .\templates\core\index.html:208 .\templates\core\pricing.html:84
+#: .\templates\core\services.html:54
 msgid "Total"
 msgstr "Total"
 
@@ -1279,31 +1324,37 @@ msgstr "Before"
 msgid "After"
 msgstr "After"
 
-#: .\templates\core\index.html:314
+#: .\templates\core\index.html:316
 msgid "Previous"
 msgstr "Previous"
 
-#: .\templates\core\index.html:317
+#: .\templates\core\index.html:320
 msgid "Next"
 msgstr "Next"
 
-#: .\templates\core\index.html:325
+#: .\templates\core\index.html:328
 msgid "What Our Clients Say"
 msgstr "What Our Clients Say"
 
-#: .\templates\core\index.html:340
+#: .\templates\core\index.html:344
 msgid "Posted on"
 msgstr "Posted on"
 
-#: .\templates\core\index.html:353
+#: .\templates\core\index.html:358
 msgid "Leave your own review"
 msgstr "Leave your own review"
 
-#: .\templates\core\kitchen_cleaning.html:16
+#: .\templates\core\kitchen_cleaning.html:7
+msgid ""
+"Deep kitchen cleaning service. We remove grease from hoods, ovens, and "
+"cabinets. Make your kitchen shine again with Gold Clean Warsaw."
+msgstr ""
+
+#: .\templates\core\kitchen_cleaning.html:17
 msgid "Complete Kitchen Cleaning"
 msgstr "Complete Kitchen Cleaning"
 
-#: .\templates\core\kitchen_cleaning.html:17
+#: .\templates\core\kitchen_cleaning.html:18
 msgid ""
 "Choose additional services to make your kitchen perfectly clean. Base price "
 "includes all the points listed below."
@@ -1311,23 +1362,29 @@ msgstr ""
 "Choose additional services to make your kitchen perfectly clean. Base price "
 "includes all the points listed below."
 
-#: .\templates\core\kitchen_cleaning.html:19
+#: .\templates\core\kitchen_cleaning.html:20
 msgid "Beautifully cleaned kitchen"
 msgstr "Beautifully cleaned kitchen"
 
-#: .\templates\core\kitchen_cleaning.html:26
+#: .\templates\core\kitchen_cleaning.html:27
 msgid "What's included in the base price"
 msgstr "What's included in the base price"
 
-#: .\templates\core\kitchen_cleaning.html:50
+#: .\templates\core\kitchen_cleaning.html:51
 msgid "Strengthen the effect with additional services"
 msgstr "Strengthen the effect with additional services"
 
-#: .\templates\core\kitchen_cleaning.html:80
+#: .\templates\core\kitchen_cleaning.html:81
 msgid "Total:"
 msgstr "Total:"
 
-#: .\templates\core\pricing.html:14
+#: .\templates\core\pricing.html:6
+msgid ""
+"Transparent cleaning prices in Warsaw. No hidden fees. Check our calculator "
+"for regular cleaning, window washing, and dry cleaning costs."
+msgstr ""
+
+#: .\templates\core\pricing.html:15
 msgid ""
 "Choose the perfect cleaning plan for your home. All prices are starting "
 "points and can be customized with additional services."
@@ -1335,23 +1392,29 @@ msgstr ""
 "Choose the perfect cleaning plan for your home. All prices are starting "
 "points and can be customized with additional services."
 
-#: .\templates\core\pricing.html:17 .\templates\core\services.html:17
+#: .\templates\core\pricing.html:18 .\templates\core\services.html:18
 msgid "Main Services"
 msgstr "Main Services"
 
-#: .\templates\core\pricing.html:29
+#: .\templates\core\pricing.html:30
 msgid "start"
 msgstr "start"
 
-#: .\templates\core\pricing.html:35
+#: .\templates\core\pricing.html:36
 msgid "Description coming soon."
 msgstr "Description coming soon."
 
-#: .\templates\core\services.html:5 .\templates\core\services.html:14
+#: .\templates\core\services.html:5 .\templates\core\services.html:15
 msgid "Our Services"
 msgstr "Our Services"
 
-#: .\templates\core\services.html:15
+#: .\templates\core\services.html:6
+msgid ""
+"Comprehensive cleaning services: regular maintenance, deep cleaning, moving "
+"in/out cleaning, and dry cleaning of furniture. High quality guaranteed."
+msgstr ""
+
+#: .\templates\core\services.html:16
 msgid ""
 "We offer a wide range of cleaning services to make your home shine. Below "
 "you can find our main packages and additional options."
@@ -1359,11 +1422,11 @@ msgstr ""
 "We offer a wide range of cleaning services to make your home shine. Below "
 "you can find our main packages and additional options."
 
-#: .\templates\core\services.html:17
+#: .\templates\core\services.html:18
 msgid "select one"
 msgstr "select one"
 
-#: .\templates\core\services.html:27
+#: .\templates\core\services.html:28
 msgid ""
 "A comprehensive package designed for this type of cleaning. We pay attention "
 "to every detail."
@@ -1371,15 +1434,21 @@ msgstr ""
 "A comprehensive package designed for this type of cleaning. We pay attention "
 "to every detail."
 
-#: .\templates\core\services.html:30
+#: .\templates\core\services.html:31
 msgid "from"
 msgstr "from"
 
-#: .\templates\core\services.html:39
+#: .\templates\core\services.html:40
 msgid "You can add any of these options to your main cleaning package."
 msgstr "You can add any of these options to your main cleaning package."
 
-#: .\templates\core\windows.html:21
+#: .\templates\core\windows.html:8
+msgid ""
+"Professional window cleaning in Warsaw. Streak-free guarantee. We wash "
+"windows, frames, and sills in apartments and private houses."
+msgstr ""
+
+#: .\templates\core\windows.html:22
 msgid ""
 "Choose the number of windows you want to clean. We wash from both sides. The "
 "minimum order is 5 windows."
@@ -1387,19 +1456,19 @@ msgstr ""
 "Choose the number of windows you want to clean. We wash from both sides. The "
 "minimum order is 5 windows."
 
-#: .\templates\core\windows.html:25
+#: .\templates\core\windows.html:26
 msgid "Choose the number of windows"
 msgstr "Choose the number of windows"
 
-#: .\templates\core\windows.html:32
+#: .\templates\core\windows.html:33
 msgid "Cost of washing one window (on both sides)"
 msgstr "Cost of washing one window (on both sides)"
 
-#: .\templates\core\windows.html:42
+#: .\templates\core\windows.html:43
 msgid "How do we count the number of windows?"
 msgstr "How do we count the number of windows?"
 
-#: .\templates\core\windows.html:47
+#: .\templates\core\windows.html:48
 msgid ""
 "We count the windows by leaves. They may vary in size, the main thing is "
 "their number."
@@ -1407,23 +1476,23 @@ msgstr ""
 "We count the windows by leaves. They may vary in size, the main thing is "
 "their number."
 
-#: .\templates\core\windows.html:51
+#: .\templates\core\windows.html:52
 msgid "This is a double-leaf window - it counts as one window."
 msgstr "This is a double-leaf window - it counts as one window."
 
-#: .\templates\core\windows.html:55
+#: .\templates\core\windows.html:56
 msgid "Single-leaf narrow window is half window."
 msgstr "Single-leaf narrow window is half window."
 
-#: .\templates\core\windows.html:59
+#: .\templates\core\windows.html:60
 msgid "If you have three leaves, it's 1.5 windows."
 msgstr "If you have three leaves, it's 1.5 windows."
 
-#: .\templates\core\windows.html:66
+#: .\templates\core\windows.html:67
 msgid "Balcony door and window - it's 2 windows."
 msgstr "Balcony door and window - it's 2 windows."
 
-#: .\templates\core\windows.html:70
+#: .\templates\core\windows.html:71
 msgid ""
 "One section to the floor counts as one window. There are 5 windows in the "
 "picture."
@@ -1431,7 +1500,7 @@ msgstr ""
 "One section to the floor counts as one window. There are 5 windows in the "
 "picture."
 
-#: .\templates\core\windows.html:74
+#: .\templates\core\windows.html:75
 msgid ""
 "If the windows are not to the floor, they are counted by leafs. In the "
 "picture there are 2 windows (4 leafs)."
@@ -1439,32 +1508,32 @@ msgstr ""
 "If the windows are not to the floor, they are counted by leafs. In the "
 "picture there are 2 windows (4 leafs)."
 
-#: .\templates\core\windows.html:78
+#: .\templates\core\windows.html:79
 msgid "If you get 9.5 windows in your order, round down to 9."
 msgstr "If you get 9.5 windows in your order, round down to 9."
 
-#: .\templates\core\windows.html:90
+#: .\templates\core\windows.html:91
 msgid "Your Order"
 msgstr "Your Order"
 
-#: .\templates\core\windows.html:96 .\templates\core\windows.html:159
+#: .\templates\core\windows.html:97 .\templates\core\windows.html:160
 msgid "windows"
 msgstr "windows"
 
-#: .\templates\core\windows.html:99
+#: .\templates\core\windows.html:100
 msgid "To pay"
 msgstr "To pay"
 
-#: .\templates\core\windows.html:103
+#: .\templates\core\windows.html:104
 msgid "Order cleaning"
 msgstr "Order cleaning"
 
-#: .\templates\orders\create_order.html:6
-#: .\templates\orders\create_order.html:11
+#: .\templates\orders\create_order.html:4
+#: .\templates\orders\create_order.html:9
 msgid "Order placement"
 msgstr "Order placement"
 
-#: .\templates\orders\create_order.html:12
+#: .\templates\orders\create_order.html:10
 msgid ""
 "Please fill in the fields below to finalize your order. Check your order "
 "details on the right."
@@ -1472,46 +1541,46 @@ msgstr ""
 "Please fill in the fields below to finalize your order. Check your order "
 "details on the right."
 
-#: .\templates\orders\create_order.html:18
+#: .\templates\orders\create_order.html:16
 msgid "Your order"
 msgstr "Your order"
 
-#: .\templates\orders\create_order.html:27
+#: .\templates\orders\create_order.html:25
 msgid "Rooms / Bathrooms"
 msgstr "Rooms / Bathrooms"
 
-#: .\templates\orders\create_order.html:32
+#: .\templates\orders\create_order.html:30
 msgid "Travel costs"
 msgstr "Travel costs"
 
-#: .\templates\orders\create_order.html:38
+#: .\templates\orders\create_order.html:36
 msgid "Outstanding penalty"
 msgstr "Outstanding penalty"
 
-#: .\templates\orders\create_order.html:45
+#: .\templates\orders\create_order.html:43
 msgid "Total cost"
 msgstr "Total cost"
 
-#: .\templates\orders\create_order.html:55
+#: .\templates\orders\create_order.html:53
 msgid "Contact details"
 msgstr "Contact details"
 
-#: .\templates\orders\create_order.html:73
+#: .\templates\orders\create_order.html:80
 msgid "Cleaning address"
 msgstr "Cleaning address"
 
-#: .\templates\orders\create_order.html:102
-#: .\templates\orders\create_order.html:106
-#: .\templates\orders\create_order.html:110
-#: .\templates\orders\create_order.html:114
+#: .\templates\orders\create_order.html:125
+#: .\templates\orders\create_order.html:132
+#: .\templates\orders\create_order.html:139
+#: .\templates\orders\create_order.html:146
 msgid "Optional"
 msgstr "Optional"
 
-#: .\templates\orders\create_order.html:121
+#: .\templates\orders\create_order.html:156
 msgid "Date and additional info"
 msgstr "Date and additional info"
 
-#: .\templates\orders\create_order.html:167
+#: .\templates\orders\create_order.html:218
 msgid "Confirm and order"
 msgstr "Confirm and order"
 
@@ -2234,7 +2303,8 @@ msgstr "The inline value did not match the parent instance."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1429
 msgid "Select a valid choice. That choice is not one of the available choices."
-msgstr "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+"Select a valid choice. That choice is not one of the available choices."
 
 #: .\venv\Lib\site-packages\django\forms\models.py:1568
 #, python-format

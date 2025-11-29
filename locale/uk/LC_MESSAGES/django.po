@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-14 19:14+0300\n"
+"POT-Creation-Date: 2025-11-30 01:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -60,7 +60,7 @@ msgid "This order can no longer be canceled."
 msgstr "Це замовлення більше не можна скасувати."
 
 #: .\accounts\views.py:156
-#, fuzzy, python-brace-format
+#, python-brace-format
 #| msgid "[System] Canceled with a penalty of {fee} zł."
 msgid ""
 "\n"
@@ -78,19 +78,19 @@ msgstr "До балансу вашого рахунку було додано ш
 msgid "Order #{id} has been successfully canceled."
 msgstr "Замовлення №{id} було успішно скасовано."
 
-#: .\config\settings.py:101
+#: .\config\settings.py:118
 msgid "Polish"
 msgstr "Польська"
 
-#: .\config\settings.py:102
+#: .\config\settings.py:119
 msgid "English"
 msgstr "Англійська"
 
-#: .\config\settings.py:103
+#: .\config\settings.py:120
 msgid "Russian"
 msgstr "Російська"
 
-#: .\config\settings.py:104
+#: .\config\settings.py:121
 msgid "Ukrainian"
 msgstr "Українська"
 
@@ -98,7 +98,7 @@ msgstr "Українська"
 msgid "Website Content"
 msgstr "Вміст сайту"
 
-#: .\core\models.py:8 .\products\models.py:53
+#: .\core\models.py:8 .\products\models.py:60
 msgid "Title"
 msgstr "Назва"
 
@@ -112,7 +112,7 @@ msgid "Image"
 msgstr "Зображення"
 
 #: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:18
-#: .\products\models.py:40 .\products\models.py:56 .\reviews\models.py:24
+#: .\products\models.py:47 .\products\models.py:63 .\reviews\models.py:27
 msgid "Display Order"
 msgstr "Порядок відображення"
 
@@ -128,7 +128,7 @@ msgstr "Зона прибирання"
 msgid "Cleaning Areas"
 msgstr "Зони прибирання"
 
-#: .\core\models.py:27 .\products\models.py:66
+#: .\core\models.py:27 .\products\models.py:73
 msgid "Description"
 msgstr "Опис"
 
@@ -180,26 +180,23 @@ msgstr ""
 msgid "Site Configuration"
 msgstr "Конфігурація сайту"
 
-#: .\core\utils.py:20
-#| msgid "No month specified"
+#: .\core\utils.py:11
 msgid "Not specified"
 msgstr "Місяць не вказано"
 
-#: .\core\utils.py:29
-#| msgid "hours"
+#: .\core\utils.py:16
 msgid "hour"
 msgstr "година"
 
-#: .\core\utils.py:31
-#| msgid "hours"
+#: .\core\utils.py:17
 msgid "hours_2_4"
 msgstr "години"
 
-#: .\core\utils.py:33
+#: .\core\utils.py:18
 msgid "hours_5_plus"
 msgstr "годин"
 
-#: .\core\utils.py:36
+#: .\core\utils.py:21
 msgid "min"
 msgstr "хв."
 
@@ -208,7 +205,6 @@ msgid "Произошла непредвиденная ошибка."
 msgstr ""
 
 #: .\core\views.py:200
-#, fuzzy
 #| msgid "Kitchen Cleaning service is not available at the moment."
 msgid "Window cleaning service is currently unavailable."
 msgstr "Послуга 'Прибирання кухні' на даний момент недоступна."
@@ -249,56 +245,61 @@ msgstr "Зображення галереї"
 msgid "City"
 msgstr "Місто"
 
-#: .\orders\forms.py:27
+#: .\orders\forms.py:18 .\orders\models.py:58
+#: .\templates\orders\create_order.html:183
+msgid "Payment method"
+msgstr "Спосіб оплати"
+
+#: .\orders\forms.py:32
 msgid "Your full name"
 msgstr "Ваше повне ім'я"
 
-#: .\orders\forms.py:30 .\orders\models.py:45
+#: .\orders\forms.py:35 .\orders\models.py:45
 msgid "Street"
 msgstr "Вулиця"
 
-#: .\orders\forms.py:31 .\orders\models.py:46
+#: .\orders\forms.py:36 .\orders\models.py:46
 msgid "Postal code"
 msgstr "Поштовий індекс"
 
-#: .\orders\forms.py:32
+#: .\orders\forms.py:37
 msgid "Building No."
 msgstr "Номер будинку"
 
-#: .\orders\forms.py:33
+#: .\orders\forms.py:38
 msgid "Apartment No."
 msgstr "Номер квартири"
 
-#: .\orders\forms.py:34 .\orders\models.py:49
+#: .\orders\forms.py:39 .\orders\models.py:49
 msgid "Entrance"
 msgstr "Під'їзд"
 
-#: .\orders\forms.py:35 .\orders\models.py:50
+#: .\orders\forms.py:40 .\orders\models.py:50
 msgid "Floor"
 msgstr "Поверх"
 
-#: .\orders\forms.py:36 .\orders\models.py:51
+#: .\orders\forms.py:41 .\orders\models.py:51
 msgid "Intercom code"
 msgstr "Код домофону"
 
-#: .\orders\forms.py:37
+#: .\orders\forms.py:42
 msgid "Select date"
 msgstr "Виберіть дату"
 
-#: .\orders\forms.py:38
+#: .\orders\forms.py:43
 msgid "Select time"
 msgstr "Виберіть час"
 
-#: .\orders\forms.py:39
+#: .\orders\forms.py:44
 msgid "e.g., parking details, how to find the entrance..."
 msgstr "наприклад, деталі паркування, як знайти вхід..."
 
-#: .\orders\forms.py:59
+#: .\orders\forms.py:64
 msgid "Cleaning Type"
 msgstr "Тип прибирання"
 
-#: .\orders\forms.py:64 .\orders\models.py:77 .\templates\core\pricing.html:45
-#: .\templates\core\services.html:38
+#: .\orders\forms.py:69 .\orders\models.py:77 .\templates\core\pricing.html:46
+#: .\templates\core\services.html:39
 msgid "Additional Services"
 msgstr "Додаткові послуги"
 
@@ -314,16 +315,16 @@ msgstr "Плата за виїзд"
 msgid "Cities"
 msgstr ""
 
-#: .\orders\models.py:26 .\products\models.py:65
+#: .\orders\models.py:26 .\products\models.py:72
 #: .\templates\accounts\order_detail.html:29
 msgid "Service"
 msgstr "Послуга"
 
-#: .\orders\models.py:30 .\templates\core\index.html:165
+#: .\orders\models.py:30 .\templates\core\index.html:134
 msgid "Number of rooms"
 msgstr "Кількість кімнат"
 
-#: .\orders\models.py:31 .\templates\core\index.html:169
+#: .\orders\models.py:31 .\templates\core\index.html:138
 msgid "Number of bathrooms"
 msgstr "Кількість ванних кімнат"
 
@@ -336,7 +337,6 @@ msgid "Number of windows"
 msgstr "Кількість вікон"
 
 #: .\orders\models.py:34
-#, fuzzy
 #| msgid "Additional Services"
 msgid "Additional Services Details"
 msgstr "Додаткові послуги"
@@ -354,7 +354,7 @@ msgid "Bring vacuum cleaner"
 msgstr "Привезти пилосос"
 
 #: .\orders\models.py:39 .\templates\accounts\order_edit.html:51
-#: .\templates\core\index.html:143
+#: .\templates\core\index.html:112
 msgid "Private house"
 msgstr "Приватний будинок"
 
@@ -412,7 +412,6 @@ msgid "Canceled"
 msgstr "Скасовано"
 
 #: .\orders\models.py:56
-#, fuzzy
 #| msgid "Order Details"
 msgid "Order Status"
 msgstr "Деталі замовлення"
@@ -424,10 +423,6 @@ msgstr "Готівка"
 #: .\orders\models.py:57
 msgid "Card Online"
 msgstr "Оплата карткою"
-
-#: .\orders\models.py:58 .\templates\orders\create_order.html:142
-msgid "Payment method"
-msgstr "Спосіб оплати"
 
 #: .\orders\models.py:59
 msgid "Pending"
@@ -442,7 +437,6 @@ msgid "Failed"
 msgstr ""
 
 #: .\orders\models.py:60
-#, fuzzy
 #| msgid "Payment method"
 msgid "Payment Status"
 msgstr "Спосіб оплати"
@@ -459,7 +453,7 @@ msgstr "Дата створення"
 msgid "Update date"
 msgstr "Дата оновлення"
 
-#: .\orders\models.py:83 .\products\models.py:67
+#: .\orders\models.py:83 .\products\models.py:74
 #: .\venv\Lib\site-packages\django\forms\formsets.py:484
 #: .\venv\Lib\site-packages\django\forms\formsets.py:491
 msgid "Order"
@@ -469,15 +463,15 @@ msgstr "Замовлення"
 msgid "Orders"
 msgstr "Замовлення"
 
-#: .\orders\views.py:99
+#: .\orders\views.py:98
 msgid "Your session has expired. Please calculate the cost again."
 msgstr "Ваша сесія закінчилася. Будь ласка, розрахуйте вартість знову."
 
-#: .\orders\views.py:106
+#: .\orders\views.py:105
 msgid "Invalid order summary data. Please calculate the cost again."
 msgstr "Ваша сесія закінчилася. Будь ласка, розрахуйте вартість знову."
 
-#: .\orders\views.py:125
+#: .\orders\views.py:124
 #, python-brace-format
 msgid ""
 "\n"
@@ -486,33 +480,35 @@ msgstr ""
 "\n"
 "[Система] Додано непогашений штраф у розмірі {fee} zł."
 
-#: .\orders\views.py:185
+#: .\orders\views.py:154
+#| msgid "Please correct the duplicate values below."
+msgid "Please correct the errors below."
+msgstr "Будь ласка, виправте дубльовані значення нижче."
+
+#: .\orders\views.py:210
 msgid "Kitchen Cleaning service is not available at the moment."
 msgstr "Послуга 'Прибирання кухні' на даний момент недоступна."
 
-#: .\orders\views.py:189 .\orders\views.py:266 .\orders\views.py:326
+#: .\orders\views.py:214 .\orders\views.py:280 .\orders\views.py:329
 msgid "An unexpected error occurred. Please try again."
 msgstr ""
 
-#: .\orders\views.py:196
-#, fuzzy
+#: .\orders\views.py:221
 #| msgid "This order can no longer be edited."
 msgid "This order has already been paid for."
 msgstr "Це замовлення більше не можна редагувати."
 
-#: .\orders\views.py:222
+#: .\orders\views.py:247
 msgid ""
 "An error occurred while creating the payment session. Please try again later."
 msgstr ""
 
-#: .\orders\views.py:240
-#, fuzzy
+#: .\orders\views.py:260
 #| msgid "Please select a main cleaning service."
 msgid "Please select a service."
 msgstr "Будь ласка, оберіть основну послугу прибирання."
 
-#: .\orders\views.py:285
-#, fuzzy
+#: .\orders\views.py:292
 #| msgid "Please select a main cleaning service."
 msgid "Please select a main service to proceed."
 msgstr "Будь ласка, оберіть основну послугу прибирання."
@@ -526,7 +522,6 @@ msgid "Service Name"
 msgstr "Назва послуги"
 
 #: .\products\models.py:9
-#, fuzzy
 #| msgid "Description"
 msgid "Short Description"
 msgstr "Опис"
@@ -572,7 +567,7 @@ msgstr "Ціна за м² / за вікно"
 msgid "Is Window Cleaning Service?"
 msgstr "Це послуга миття вікон?"
 
-#: .\products\models.py:19 .\products\models.py:41 .\reviews\models.py:23
+#: .\products\models.py:19 .\products\models.py:48 .\reviews\models.py:26
 msgid "Is Active"
 msgstr "Активно"
 
@@ -588,75 +583,82 @@ msgstr "Основні послуги"
 msgid "Price"
 msgstr "Ціна"
 
-#: .\products\models.py:35
+#: .\products\models.py:36
+#| msgid "Description"
+msgid "Price Description"
+msgstr "Опис"
+
+#: .\products\models.py:37
+msgid "Ex: 'per item', 'per hour'. Leave empty if not needed."
+msgstr ""
+
+#: .\products\models.py:42
 msgid "Is quantity-based?"
 msgstr ""
 
-#: .\products\models.py:36
+#: .\products\models.py:43
 msgid "If checked, a quantity selector will be shown instead of a checkbox."
 msgstr ""
 
-#: .\products\models.py:39
+#: .\products\models.py:46
 msgid "For Kitchen Cleaning Page"
 msgstr "Прибирання кухні"
 
-#: .\products\models.py:39
+#: .\products\models.py:46
 msgid ""
 "Check this if the service should be displayed on the Kitchen Cleaning page."
 msgstr ""
 
-#: .\products\models.py:40
+#: .\products\models.py:47
 msgid "Services with a lower number will be displayed first."
 msgstr "Менші номери відображаються першими."
 
-#: .\products\models.py:42
+#: .\products\models.py:49
 msgid "Duration (minutes)"
 msgstr "Тривалість (хвилини)"
 
-#: .\products\models.py:42
+#: .\products\models.py:49
 msgid "How many minutes does this service add to the total cleaning time?"
 msgstr "Скільки хвилин ця послуга додає до загального часу прибирання?"
 
-#: .\products\models.py:43 .\products\models.py:54
+#: .\products\models.py:50 .\products\models.py:61
 msgid "Icon"
 msgstr "Іконка"
 
-#: .\products\models.py:46
+#: .\products\models.py:53
 msgid "Дополнительная услуга"
 msgstr "Додаткова послуга"
 
-#: .\products\models.py:47
+#: .\products\models.py:54
 msgid "Дополнительные услуги"
 msgstr "Додаткові послуги"
 
-#: .\products\models.py:52
+#: .\products\models.py:59
 msgid "Wash inside and out"
 msgstr "Миття всередині та зовні"
 
-#: .\products\models.py:52
+#: .\products\models.py:59
 msgid "Wipe and clean"
 msgstr "Протерти та очистити"
 
-#: .\products\models.py:55
+#: .\products\models.py:62
 msgid "Category"
 msgstr "Категорія"
 
-#: .\products\models.py:59
+#: .\products\models.py:66
 msgid "Kitchen Cleaning Feature"
 msgstr "Особливість прибирання кухні"
 
-#: .\products\models.py:60
+#: .\products\models.py:67
 msgid "Kitchen Cleaning Features"
 msgstr "Особливості прибирання кухні"
 
-#: .\products\models.py:70
-#, fuzzy
+#: .\products\models.py:77
 #| msgid "Service Name"
 msgid "Service Feature"
 msgstr "Назва послуги"
 
-#: .\products\models.py:71
-#, fuzzy
+#: .\products\models.py:78
 #| msgid "Service Name"
 msgid "Service Features"
 msgstr "Назва послуги"
@@ -713,15 +715,24 @@ msgstr "Текст відгуку"
 msgid "Rating (1-5)"
 msgstr "Оцінка (1-5)"
 
-#: .\reviews\models.py:21
+#: .\reviews\models.py:23
 msgid "Date Created"
 msgstr "Дата створення"
 
-#: .\reviews\models.py:34
+#: .\reviews\models.py:32
+#| msgid "Creation date"
+msgid "Show Creation Date on Site"
+msgstr "Дата створення"
+
+#: .\reviews\models.py:33
+msgid "If checked, the creation date will be displayed on the website."
+msgstr ""
+
+#: .\reviews\models.py:44
 msgid "Review"
 msgstr "Відгук"
 
-#: .\reviews\models.py:35
+#: .\reviews\models.py:45
 msgid "Reviews"
 msgstr "Відгуки"
 
@@ -793,7 +804,7 @@ msgid "No, Go Back"
 msgstr "Ні, повернутися"
 
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:10
-#: .\templates\accounts\login.html:30 .\templates\base.html:113
+#: .\templates\accounts\login.html:30 .\templates\base.html:145
 msgid "Login"
 msgstr "Увійти"
 
@@ -846,7 +857,7 @@ msgstr "кв."
 msgid "Comments"
 msgstr "Коментарі"
 
-#: .\templates\accounts\order_detail.html:40 .\templates\core\index.html:26
+#: .\templates\accounts\order_detail.html:40
 msgid "Total Cost"
 msgstr "Загальна вартість"
 
@@ -855,13 +866,13 @@ msgid "Options"
 msgstr "Опції"
 
 #: .\templates\accounts\order_edit.html:47
-#: .\templates\accounts\order_edit.html:124 .\templates\core\index.html:69
+#: .\templates\accounts\order_edit.html:124 .\templates\core\index.html:38
 msgid "Bring a vacuum cleaner"
 msgstr "Привезти пилосос"
 
 #: .\templates\accounts\order_edit.html:54
-#: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:88
-#: .\templates\core\index.html:196
+#: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:57
+#: .\templates\core\index.html:165
 msgid "Additional services"
 msgstr "Додаткові послуги"
 
@@ -881,21 +892,21 @@ msgstr "Скасувати"
 msgid "New Cost"
 msgstr "Нова вартість"
 
-#: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:54
+#: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:23
 msgid "Base cost"
 msgstr "Базова вартість"
 
-#: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:68
-#: .\templates\core\index.html:180
+#: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:37
+#: .\templates\core\index.html:149
 msgid "Equipment"
 msgstr "Обладнання"
 
-#: .\templates\accounts\order_edit.html:130 .\templates\core\index.html:81
-#: .\templates\core\index.html:136
+#: .\templates\accounts\order_edit.html:130 .\templates\core\index.html:50
+#: .\templates\core\index.html:105
 msgid "Object Type"
 msgstr "Тип об'єкта"
 
-#: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:82
+#: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:51
 msgid "Private House"
 msgstr "Приватний будинок"
 
@@ -903,25 +914,25 @@ msgstr "Приватний будинок"
 msgid "The final price will be recalculated upon saving."
 msgstr "Остаточна ціна буде перерахована після збереження."
 
-#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:502
+#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:487
 msgid "Area"
 msgstr "Площа"
 
-#: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:61
-#: .\templates\core\index.html:506
+#: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:30
+#: .\templates\core\index.html:491
 msgid "Rooms and bathrooms"
 msgstr "Кімнати та ванні"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:507
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:492
 msgid "room(s)"
 msgstr "кімната(и)"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:507
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:492
 msgid "bathroom(s)"
 msgstr "ванна(і)"
 
 #: .\templates\accounts\order_list.html:4
-#: .\templates\accounts\order_list.html:8 .\templates\base.html:107
+#: .\templates\accounts\order_list.html:8 .\templates\base.html:139
 msgid "My Orders"
 msgstr "Мої замовлення"
 
@@ -931,6 +942,7 @@ msgid ""
 "You have an outstanding penalty of <strong>%(penalty_balance|floatformat:2)s "
 "zł</strong>. This amount will be automatically added to your next order."
 msgstr ""
+"Ви маєте непогашений штраф у розмірі <strong>%(penalty_balance|floatformat:2)s zł</strong>. Ця сума буде автоматично додана до вашого наступного замовлення."
 
 #: .\templates\accounts\order_list.html:21
 msgid "Order #"
@@ -953,7 +965,7 @@ msgid "You don't have any orders yet."
 msgstr "У вас ще немає замовлень."
 
 #: .\templates\accounts\register.html:4 .\templates\accounts\register.html:50
-#: .\templates\base.html:114
+#: .\templates\base.html:146
 msgid "Register"
 msgstr "Зареєструватися"
 
@@ -965,64 +977,87 @@ msgstr "Створити акаунт"
 msgid "Auto-translate and Save"
 msgstr ""
 
-#: .\templates\base.html:54 .\templates\core\index.html:233
+#: .\templates\base.html:19
+#| msgid "Cleaning Areas"
+msgid "Cleaning Services in Warsaw"
+msgstr "Зони прибирання"
+
+#: .\templates\base.html:22
+msgid ""
+"Professional cleaning of apartments, houses and offices in Warsaw. Order "
+"online in 1 minute."
+msgstr ""
+"Професійне прибирання квартир, будинків та офісів у Варшаві. Замовляйте онлайн за 1 хвилину."
+
+#: .\templates\base.html:26
+msgid "Professional cleaning services. Click to calculate price."
+msgstr "Професійні клінінгові послуги. Натисніть, щоб розрахувати вартість."
+
+#: .\templates\base.html:85 .\templates\core\index.html:217
 msgid "An individual approach to the cleanliness of your space."
 msgstr "Індивідуальний підхід до чистоти вашого простору."
 
-#: .\templates\base.html:60 .\templates\base.html:142
-#: .\templates\core\index.html:6
+#: .\templates\base.html:91 .\templates\base.html:176
+#: .\templates\core\index.html:5
 msgid "Home"
 msgstr "Головна"
 
-#: .\templates\base.html:62 .\templates\base.html:144
+#: .\templates\base.html:93 .\templates\base.html:178
 msgid "Services"
 msgstr "Послуги"
 
-#: .\templates\base.html:64 .\templates\base.html:146
-#: .\templates\core\windows.html:7 .\templates\core\windows.html:20
+#: .\templates\base.html:95 .\templates\base.html:180
+#: .\templates\core\windows.html:7 .\templates\core\windows.html:21
 msgid "Window Cleaning"
 msgstr "Миття вікон"
 
-#: .\templates\base.html:65 .\templates\base.html:147
+#: .\templates\base.html:96 .\templates\base.html:181
 #: .\templates\core\kitchen_cleaning.html:6
 msgid "Kitchen Cleaning"
 msgstr "Прибирання кухні"
 
-#: .\templates\base.html:66 .\templates\base.html:148
-#: .\templates\core\pricing.html:5 .\templates\core\pricing.html:13
+#: .\templates\base.html:97 .\templates\base.html:182
+#: .\templates\core\pricing.html:5 .\templates\core\pricing.html:14
 msgid "Pricing"
 msgstr "Ціни"
 
-#: .\templates\base.html:67 .\templates\base.html:149
+#: .\templates\base.html:98 .\templates\base.html:183
 #: .\templates\core\about.html:4
 msgid "About us"
 msgstr "Про нас"
 
-#: .\templates\base.html:100 .\templates\base.html:154
+#: .\templates\base.html:131 .\templates\base.html:188
 msgid "Write to us on Telegram"
 msgstr "Напишіть нам у Telegram"
 
-#: .\templates\base.html:106
+#: .\templates\base.html:138
 msgid "Welcome"
 msgstr "Ласкаво просимо"
 
-#: .\templates\base.html:110
+#: .\templates\base.html:142
 msgid "Logout"
 msgstr "Вийти"
 
-#: .\templates\base.html:159
+#: .\templates\base.html:193
 msgid "© "
 msgstr "© "
 
-#: .\templates\base.html:159
+#: .\templates\base.html:193
 msgid "Gold Clean, Inc"
 msgstr "Gold Clean, Inc"
 
-#: .\templates\core\about.html:10
+#: .\templates\core\about.html:5
+msgid ""
+"Gold Clean is a team of professional cleaners in Warsaw. We use eco-friendly "
+"products and vetted staff to ensure the cleanliness of your home."
+msgstr ""
+"Gold Clean - це команда професійних прибиральників у Варшаві. Ми використовуємо екологічно чисті засоби та перевірений персонал, щоб забезпечити чистоту вашої оселі."
+
+#: .\templates\core\about.html:11
 msgid "Our values and approach"
 msgstr "Наші цінності та підхід"
 
-#: .\templates\core\about.html:11
+#: .\templates\core\about.html:12
 msgid ""
 "We understand that in today's fast-paced world, every minute counts. We have "
 "an individual approach to the cleanliness of your space."
@@ -1030,11 +1065,11 @@ msgstr ""
 "Ми розуміємо, що в сучасному швидкому світі кожна хвилина на рахунку. У нас "
 "індивідуальний підхід до чистоти вашого простору."
 
-#: .\templates\core\about.html:18
+#: .\templates\core\about.html:19
 msgid "Personal Approach"
 msgstr "Індивідуальний підхід"
 
-#: .\templates\core\about.html:19
+#: .\templates\core\about.html:20
 msgid ""
 "We know that every home and office is unique, just like the people who live "
 "and work in them. Before we start cleaning, we carefully listen to your "
@@ -1046,11 +1081,11 @@ msgstr ""
 "звички. Наша мета — створити простір, у якому ви почуватиметеся "
 "найкомфортніше."
 
-#: .\templates\core\about.html:24
+#: .\templates\core\about.html:25
 msgid "Professionalism"
 msgstr "Професіоналізм"
 
-#: .\templates\core\about.html:25
+#: .\templates\core\about.html:26
 msgid ""
 "We work only with proven methods and safe products, paying attention to "
 "every detail. Our team consists of specialists who know how to find "
@@ -1062,11 +1097,11 @@ msgstr ""
 "вміють знаходити індивідуальні рішення для будь-якого завдання — від "
 "підтримуючого прибирання до складних генеральних."
 
-#: .\templates\core\about.html:30
+#: .\templates\core\about.html:31
 msgid "Time Saving"
 msgstr "Економія часу"
 
-#: .\templates\core\about.html:31
+#: .\templates\core\about.html:32
 msgid ""
 "We value your schedule. The cleaning is built around your timetable—quickly, "
 "precisely, without unnecessary calls or waiting. You can be sure: on the "
@@ -1078,11 +1113,11 @@ msgstr ""
 "призначений день і час наші фахівці будуть на місці та зроблять все, як "
 "домовлено."
 
-#: .\templates\core\about.html:36
+#: .\templates\core\about.html:37
 msgid "Reliability"
 msgstr "Надійність"
 
-#: .\templates\core\about.html:37
+#: .\templates\core\about.html:38
 msgid ""
 "We understand how important trust is when it comes to your home or office. "
 "We handle your property with care, guarantee confidentiality, and honestly "
@@ -1092,11 +1127,11 @@ msgstr ""
 "дбайливо ставимося до вашого майна, гарантуємо конфіденційність та чесно "
 "виконуємо свої зобов'язання."
 
-#: .\templates\core\about.html:42
+#: .\templates\core\about.html:43
 msgid "Health Care"
 msgstr "Турбота про здоров'я"
 
-#: .\templates\core\about.html:43
+#: .\templates\core\about.html:44
 msgid ""
 "We use hypoallergenic and safe products so that your space is always clean, "
 "fresh, and safe for the whole family, employees, and pets. Cleanliness is "
@@ -1106,11 +1141,11 @@ msgstr ""
 "був чистим, свіжим та безпечним для всієї родини, співробітників та домашніх "
 "тварин. Чистота — це не просто порядок; це здоров'я та легкість дихання."
 
-#: .\templates\core\about.html:49
+#: .\templates\core\about.html:50
 msgid "Our philosophy is simple:"
 msgstr "Наша філософія проста:"
 
-#: .\templates\core\about.html:51
+#: .\templates\core\about.html:52
 msgid ""
 "“When it’s clean around you—thoughts are clearer, energy is greater, and "
 "there is enough time for what’s important.”"
@@ -1118,170 +1153,134 @@ msgstr ""
 "«Коли навколо чисто — думки ясніші, енергії більше, і на важливе вистачає "
 "часу»."
 
-#: .\templates\core\index.html:14
-#, fuzzy
-#| msgid "Total Cost"
-msgid "Show Total Cost"
-msgstr "Загальна вартість"
-
-#: .\templates\core\index.html:30
-msgid "Based on the options selected on the page"
+#: .\templates\core\index.html:6
+msgid ""
+"Professional cleaning of apartments, houses and offices in Warsaw. We offer "
+"standard, deep, and post-renovation cleaning. Book online in 1 minute!"
 msgstr ""
+"Професійне прибирання квартир, будинків та офісів у Варшаві. Пропонуємо стандартне, глибоке та післяремонтне прибирання. Замовляйте онлайн за 1 хвилину!"
 
-#: .\templates\core\index.html:34
-msgid "Close"
-msgstr ""
-
-#: .\templates\core\index.html:35
-msgid "Go to calculator"
-msgstr "Перейти до калькулятора"
-
-#: .\templates\core\index.html:48
+#: .\templates\core\index.html:17
 msgid "Cost"
 msgstr "Вартість"
 
-#: .\templates\core\index.html:55 .\templates\core\index.html:105
+#: .\templates\core\index.html:24 .\templates\core\index.html:74
 msgid "Select cleaning type"
 msgstr "Виберіть тип прибирання"
 
-#: .\templates\core\index.html:62
+#: .\templates\core\index.html:31
 msgid "1 room, 1 bathroom"
 msgstr "1 кімната, 1 ванна"
 
-#: .\templates\core\index.html:75
+#: .\templates\core\index.html:44
 msgid "Approximate operating time"
 msgstr "Приблизний час роботи"
 
-#: .\templates\core\index.html:95
+#: .\templates\core\index.html:64
 msgid "Subscription Discount"
 msgstr "Знижка за підпискою"
 
-#: .\templates\core\index.html:101 .\templates\core\kitchen_cleaning.html:82
-#: .\templates\core\pricing.html:86 .\templates\core\services.html:55
+#: .\templates\core\index.html:70 .\templates\core\kitchen_cleaning.html:83
+#: .\templates\core\pricing.html:87 .\templates\core\services.html:56
 msgid "Proceed to order"
 msgstr "Перейти до замовлення"
 
-#: .\templates\core\index.html:104
+#: .\templates\core\index.html:73
 msgid "Calculate cleaning cost"
 msgstr "Розрахувати вартість прибирання"
 
-#: .\templates\core\index.html:108
+#: .\templates\core\index.html:77
 msgid "Cleaning Frequency"
 msgstr "Частота прибирання"
 
-#: .\templates\core\index.html:112
+#: .\templates\core\index.html:81
 msgid "One-time cleaning"
 msgstr "Разове прибирання"
 
-#: .\templates\core\index.html:117
+#: .\templates\core\index.html:86
 msgid "Once a month"
 msgstr "Раз на місяць"
 
-#: .\templates\core\index.html:121
+#: .\templates\core\index.html:90
 msgid "Every 2 weeks"
 msgstr "Кожні 2 тижні"
 
-#: .\templates\core\index.html:125
+#: .\templates\core\index.html:94
 msgid "Once a week"
 msgstr "Раз на тиждень"
 
-#: .\templates\core\index.html:130
+#: .\templates\core\index.html:99
 #: .\templates\registration\password_reset_complete.html:8
 msgid "Log in"
 msgstr "Увійти"
 
-#: .\templates\core\index.html:130
+#: .\templates\core\index.html:99
 #: .\venv\Lib\site-packages\django\utils\text.py:323
 msgid "or"
 msgstr "або"
 
-#: .\templates\core\index.html:130
+#: .\templates\core\index.html:99
 msgid "register"
 msgstr "зареєструйтеся"
 
-#: .\templates\core\index.html:130
+#: .\templates\core\index.html:99
 msgid "to access subscription discounts!"
 msgstr "щоб отримати доступ до знижок за підпискою!"
 
-#: .\templates\core\index.html:141
+#: .\templates\core\index.html:110
 msgid "House icon"
 msgstr "Іконка будинку"
 
-#: .\templates\core\index.html:150 .\templates\orders\create_order.html:23
+#: .\templates\core\index.html:119 .\templates\orders\create_order.html:21
 msgid "Cleaning type"
 msgstr "Тип прибирання"
 
-#: .\templates\core\index.html:153
+#: .\templates\core\index.html:122
 msgid "Select..."
 msgstr "Виберіть..."
 
-#: .\templates\core\index.html:162
+#: .\templates\core\index.html:131
 msgid "Cleaning Parameters"
 msgstr "Параметри приміщення"
 
-#: .\templates\core\index.html:175
+#: .\templates\core\index.html:144
 msgid "Area in m²"
 msgstr "Площа в м²"
 
-#: .\templates\core\index.html:185
+#: .\templates\core\index.html:154
 msgid "Vacuum cleaner icon"
 msgstr "Іконка пилососа"
 
-#: .\templates\core\index.html:187
+#: .\templates\core\index.html:156
 msgid "You need a vacuum cleaner on the order"
 msgstr "Вам потрібен пилосос для замовлення"
 
-#: .\templates\core\index.html:188
+#: .\templates\core\index.html:157
 msgid "We will bring a small vacuum cleaner"
 msgstr "Ми привеземо маленький пилосос"
 
-#: .\templates\core\index.html:238
+#: .\templates\core\index.html:208 .\templates\core\pricing.html:84
+#: .\templates\core\services.html:54
+msgid "Total"
+msgstr "Загальна вартість"
+
+#: .\templates\core\index.html:210
+msgid "Go to calculator"
+msgstr "Перейти до калькулятора"
+
+#: .\templates\core\index.html:223
 msgid "Our services"
 msgstr "Наші послуги"
 
-#: .\templates\core\index.html:241
-msgid "Standard cleaning"
-msgstr "Стандартне прибирання"
-
-#: .\templates\core\index.html:242
-msgid "Ideal for regular maintenance of cleanliness in your home. From 120 zł."
-msgstr ""
-"Ідеально підходить для регулярного підтримання чистоти у вашому домі. Від "
-"120 zł."
-
-#: .\templates\core\index.html:247
-msgid "General cleaning"
-msgstr "Генеральне прибирання"
-
-#: .\templates\core\index.html:248
-msgid ""
-"Comprehensive cleaning of all surfaces, including hard-to-reach places. From "
-"250 zł."
-msgstr ""
-"Комплексне очищення всіх поверхонь, включаючи важкодоступні місця. Від 250 "
-"zł."
-
-#: .\templates\core\index.html:253
-msgid "Post-renovation cleaning"
-msgstr "Прибирання після ремонту"
-
-#: .\templates\core\index.html:254
-msgid ""
-"We will remove all construction dust, paint stains, and prepare the premises "
-"for moving in. From 400 zł."
-msgstr ""
-"Ми видалимо весь будівельний пил, плями фарби та підготуємо приміщення до "
-"заселення. Від 400 zł."
-
-#: .\templates\core\index.html:260
+#: .\templates\core\index.html:240
 msgid "How we work"
 msgstr "Як ми працюємо"
 
-#: .\templates\core\index.html:263
+#: .\templates\core\index.html:243
 msgid "1. Make a request"
 msgstr "1. Залиште заявку"
 
-#: .\templates\core\index.html:264
+#: .\templates\core\index.html:244
 msgid ""
 "Fill out the form on the website or give us a call. We will clarify the "
 "details and calculate the cost."
@@ -1289,11 +1288,11 @@ msgstr ""
 "Заповніть форму на сайті або зателефонуйте нам. Ми уточнимо деталі та "
 "розрахуємо вартість."
 
-#: .\templates\core\index.html:267
+#: .\templates\core\index.html:247
 msgid "2. We arrive on time"
 msgstr "2. Ми приїжджаємо вчасно"
 
-#: .\templates\core\index.html:268
+#: .\templates\core\index.html:248
 msgid ""
 "Our cleaners will arrive at the appointed time with all the necessary "
 "equipment and supplies."
@@ -1301,63 +1300,70 @@ msgstr ""
 "Наші прибиральники приїдуть у призначений час з усім необхідним обладнанням "
 "та засобами."
 
-#: .\templates\core\index.html:271
+#: .\templates\core\index.html:251
 msgid "3. Enjoy the cleanliness"
 msgstr "3. Насолоджуйтесь чистотою"
 
-#: .\templates\core\index.html:272
+#: .\templates\core\index.html:252
 msgid ""
 "You accept the work and pay for the result. Your home shines with "
 "cleanliness!"
 msgstr "Ви приймаєте роботу та платите за результат. Ваш дім сяє чистотою!"
 
-#: .\templates\core\index.html:279
+#: .\templates\core\index.html:259
 msgid "What's included in apartment cleaning"
 msgstr "Що входить у вартість прибирання квартири"
 
-#: .\templates\core\index.html:300
+#: .\templates\core\index.html:280
 msgid "Our Work in Action"
 msgstr "Наша робота в дії"
 
-#: .\templates\core\index.html:301
+#: .\templates\core\index.html:281
 msgid "See the difference we make with your own eyes."
 msgstr "Побачте різницю, яку ми робимо, на власні очі."
 
-#: .\templates\core\index.html:314 .\templates\core\index.html:315
-#: .\templates\core\index.html:317
+#: .\templates\core\index.html:294 .\templates\core\index.html:295
+#: .\templates\core\index.html:297
 msgid "Before"
 msgstr "До"
 
-#: .\templates\core\index.html:322 .\templates\core\index.html:323
-#: .\templates\core\index.html:325
+#: .\templates\core\index.html:302 .\templates\core\index.html:303
+#: .\templates\core\index.html:305
 msgid "After"
 msgstr "Після"
 
-#: .\templates\core\index.html:334
+#: .\templates\core\index.html:316
 msgid "Previous"
 msgstr "Попередній"
 
-#: .\templates\core\index.html:337
+#: .\templates\core\index.html:320
 msgid "Next"
 msgstr "Наступний"
 
-#: .\templates\core\index.html:345
+#: .\templates\core\index.html:328
 msgid "What Our Clients Say"
 msgstr "Що кажуть наші клієнти"
 
-#: .\templates\core\index.html:360
+#: .\templates\core\index.html:344
 msgid "Posted on"
 msgstr "Опубліковано"
 
-#: .\templates\core\index.html:373
+#: .\templates\core\index.html:358
 msgid "Leave your own review"
 msgstr "Залишити свій відгук"
 
-#: .\templates\core\kitchen_cleaning.html:16
+#: .\templates\core\kitchen_cleaning.html:7
+msgid ""
+"Deep kitchen cleaning service. We remove grease from hoods, ovens, and "
+"cabinets. Make your kitchen shine again with Gold Clean Warsaw."
+msgstr ""
+"Послуга глибокого прибирання кухні. Видаляємо жир з витяжок, духовок та шаф. Зробіть свою кухню знову блискучою з Gold Clean Warsaw"
+
+#: .\templates\core\kitchen_cleaning.html:17
 msgid "Complete Kitchen Cleaning"
 msgstr "Прибирання кухні"
 
-#: .\templates\core\kitchen_cleaning.html:17
+#: .\templates\core\kitchen_cleaning.html:18
 msgid ""
 "Choose additional services to make your kitchen perfectly clean. Base price "
 "includes all the points listed below."
@@ -1365,23 +1371,30 @@ msgstr ""
 "Обирайте додаткові послуги, щоб зробити вашу кухню ідеально чистою. Базова "
 "ціна включає всі пункти, перераховані нижче."
 
-#: .\templates\core\kitchen_cleaning.html:19
+#: .\templates\core\kitchen_cleaning.html:20
 msgid "Beautifully cleaned kitchen"
 msgstr "Іконка пилососа"
 
-#: .\templates\core\kitchen_cleaning.html:26
+#: .\templates\core\kitchen_cleaning.html:27
 msgid "What's included in the base price"
 msgstr "Що входить до базової ціни"
 
-#: .\templates\core\kitchen_cleaning.html:50
+#: .\templates\core\kitchen_cleaning.html:51
 msgid "Strengthen the effect with additional services"
-msgstr ""
+msgstr "Посилити ефект за допомогою додаткових послуг"
 
-#: .\templates\core\kitchen_cleaning.html:80
+#: .\templates\core\kitchen_cleaning.html:81
 msgid "Total:"
 msgstr "Загальна вартість"
 
-#: .\templates\core\pricing.html:14
+#: .\templates\core\pricing.html:6
+msgid ""
+"Transparent cleaning prices in Warsaw. No hidden fees. Check our calculator "
+"for regular cleaning, window washing, and dry cleaning costs."
+msgstr ""
+"Прозорі ціни на прибирання у Варшаві. Без прихованих платежів. Перевірте наш калькулятор, щоб дізнатися вартість регулярного прибирання, миття вікон та хімчистки."
+
+#: .\templates\core\pricing.html:15
 msgid ""
 "Choose the perfect cleaning plan for your home. All prices are starting "
 "points and can be customized with additional services."
@@ -1389,29 +1402,31 @@ msgstr ""
 "Виберіть ідеальний план прибирання для вашого дому. Всі ціни є початковими і "
 "можуть бути змінені за допомогою додаткових послуг."
 
-#: .\templates\core\pricing.html:17 .\templates\core\services.html:17
+#: .\templates\core\pricing.html:18 .\templates\core\services.html:18
 msgid "Main Services"
 msgstr "Основні послуги"
 
-#: .\templates\core\pricing.html:29
+#: .\templates\core\pricing.html:30
 msgid "start"
 msgstr "старт"
 
-#: .\templates\core\pricing.html:35
-#, fuzzy
+#: .\templates\core\pricing.html:36
 #| msgid "Description"
 msgid "Description coming soon."
 msgstr "Опис"
 
-#: .\templates\core\pricing.html:83 .\templates\core\services.html:53
-msgid "Total"
-msgstr "Загальна вартість"
-
-#: .\templates\core\services.html:5 .\templates\core\services.html:14
+#: .\templates\core\services.html:5 .\templates\core\services.html:15
 msgid "Our Services"
 msgstr "Наші послуги"
 
-#: .\templates\core\services.html:15
+#: .\templates\core\services.html:6
+msgid ""
+"Comprehensive cleaning services: regular maintenance, deep cleaning, moving "
+"in/out cleaning, and dry cleaning of furniture. High quality guaranteed."
+msgstr ""
+"Комплексні клінінгові послуги: регулярне обслуговування, глибоке прибирання, прибирання при переїзді, хімчистка меблів. Висока якість гарантована."
+
+#: .\templates\core\services.html:16
 msgid ""
 "We offer a wide range of cleaning services to make your home shine. Below "
 "you can find our main packages and additional options."
@@ -1419,11 +1434,11 @@ msgstr ""
 "Ми пропонуємо широкий спектр послуг з прибирання, щоб ваш дім сяяв. Нижче ви "
 "можете знайти наші основні пакети та додаткові опції."
 
-#: .\templates\core\services.html:17
+#: .\templates\core\services.html:18
 msgid "select one"
 msgstr "Виберіть дату"
 
-#: .\templates\core\services.html:27
+#: .\templates\core\services.html:28
 msgid ""
 "A comprehensive package designed for this type of cleaning. We pay attention "
 "to every detail."
@@ -1431,16 +1446,23 @@ msgstr ""
 "Комплексний пакет, розроблений для цього типу прибирання. Ми приділяємо "
 "увагу кожній деталі."
 
-#: .\templates\core\services.html:30
+#: .\templates\core\services.html:31
 msgid "from"
 msgstr "від"
 
-#: .\templates\core\services.html:39
+#: .\templates\core\services.html:40
 msgid "You can add any of these options to your main cleaning package."
 msgstr ""
 "Ви можете додати будь-яку з цих опцій до вашого основного пакету прибирання."
 
-#: .\templates\core\windows.html:21
+#: .\templates\core\windows.html:8
+msgid ""
+"Professional window cleaning in Warsaw. Streak-free guarantee. We wash "
+"windows, frames, and sills in apartments and private houses."
+msgstr ""
+"Професійне миття вікон у Варшаві. Гарантія без розводів. Ми миємо вікна, рами та підвіконня в квартирах і приватних будинках."
+
+#: .\templates\core\windows.html:22
 msgid ""
 "Choose the number of windows you want to clean. We wash from both sides. The "
 "minimum order is 5 windows."
@@ -1448,19 +1470,19 @@ msgstr ""
 "Виберіть кількість вікон, які ви хочете помити. Ми миємо з обох сторін. "
 "Мінімальне замовлення — 5 вікон."
 
-#: .\templates\core\windows.html:25
+#: .\templates\core\windows.html:26
 msgid "Choose the number of windows"
 msgstr "Виберіть кількість вікон"
 
-#: .\templates\core\windows.html:32
+#: .\templates\core\windows.html:33
 msgid "Cost of washing one window (on both sides)"
 msgstr "Вартість миття одного вікна (з обох сторін)"
 
-#: .\templates\core\windows.html:42
+#: .\templates\core\windows.html:43
 msgid "How do we count the number of windows?"
 msgstr "Як ми рахуємо кількість вікон?"
 
-#: .\templates\core\windows.html:47
+#: .\templates\core\windows.html:48
 msgid ""
 "We count the windows by leaves. They may vary in size, the main thing is "
 "their number."
@@ -1468,29 +1490,29 @@ msgstr ""
 "Ми рахуємо вікна за стулками. Вони можуть відрізнятися за розміром, головне "
 "— їхня кількість."
 
-#: .\templates\core\windows.html:51
+#: .\templates\core\windows.html:52
 msgid "This is a double-leaf window - it counts as one window."
 msgstr "Це двостулкове вікно — рахується як одне вікно."
 
-#: .\templates\core\windows.html:55
+#: .\templates\core\windows.html:56
 msgid "Single-leaf narrow window is half window."
 msgstr "Вузьке одностулкове вікно — це половина вікна."
 
-#: .\templates\core\windows.html:59
+#: .\templates\core\windows.html:60
 msgid "If you have three leaves, it's 1.5 windows."
 msgstr "Якщо у вас три стулки, це 1.5 вікна."
 
-#: .\templates\core\windows.html:66
+#: .\templates\core\windows.html:67
 msgid "Balcony door and window - it's 2 windows."
 msgstr "Балконні двері та вікно — це 2 вікна."
 
-#: .\templates\core\windows.html:70
+#: .\templates\core\windows.html:71
 msgid ""
 "One section to the floor counts as one window. There are 5 windows in the "
 "picture."
 msgstr "Одна секція до підлоги рахується як одне вікно. На картинці 5 вікон."
 
-#: .\templates\core\windows.html:74
+#: .\templates\core\windows.html:75
 msgid ""
 "If the windows are not to the floor, they are counted by leafs. In the "
 "picture there are 2 windows (4 leafs)."
@@ -1498,32 +1520,32 @@ msgstr ""
 "Якщо вікна не до підлоги, вони рахуються за стулками. На картинці 2 вікна (4 "
 "стулки)."
 
-#: .\templates\core\windows.html:78
+#: .\templates\core\windows.html:79
 msgid "If you get 9.5 windows in your order, round down to 9."
 msgstr "Якщо у вашому замовленні виходить 9.5 вікон, округліть до 9."
 
-#: .\templates\core\windows.html:90
+#: .\templates\core\windows.html:91
 msgid "Your Order"
 msgstr "Ваше замовлення"
 
-#: .\templates\core\windows.html:96 .\templates\core\windows.html:159
+#: .\templates\core\windows.html:97 .\templates\core\windows.html:160
 msgid "windows"
 msgstr "вікна"
 
-#: .\templates\core\windows.html:99
+#: .\templates\core\windows.html:100
 msgid "To pay"
 msgstr "До сплати"
 
-#: .\templates\core\windows.html:103
+#: .\templates\core\windows.html:104
 msgid "Order cleaning"
 msgstr "Замовити прибирання"
 
-#: .\templates\orders\create_order.html:6
-#: .\templates\orders\create_order.html:11
+#: .\templates\orders\create_order.html:4
+#: .\templates\orders\create_order.html:9
 msgid "Order placement"
 msgstr "Оформлення замовлення"
 
-#: .\templates\orders\create_order.html:12
+#: .\templates\orders\create_order.html:10
 msgid ""
 "Please fill in the fields below to finalize your order. Check your order "
 "details on the right."
@@ -1531,46 +1553,46 @@ msgstr ""
 "Будь ласка, заповніть поля нижче, щоб завершити оформлення замовлення. "
 "Перевірте деталі вашого замовлення праворуч."
 
-#: .\templates\orders\create_order.html:18
+#: .\templates\orders\create_order.html:16
 msgid "Your order"
 msgstr "Ваше замовлення"
 
-#: .\templates\orders\create_order.html:27
+#: .\templates\orders\create_order.html:25
 msgid "Rooms / Bathrooms"
 msgstr "Кімнати / Ванні"
 
-#: .\templates\orders\create_order.html:32
+#: .\templates\orders\create_order.html:30
 msgid "Travel costs"
 msgstr "Вартість виїзду"
 
-#: .\templates\orders\create_order.html:38
+#: .\templates\orders\create_order.html:36
 msgid "Outstanding penalty"
-msgstr ""
+msgstr "Несплачений штраф"
 
-#: .\templates\orders\create_order.html:45
+#: .\templates\orders\create_order.html:43
 msgid "Total cost"
 msgstr "Загальна вартість"
 
-#: .\templates\orders\create_order.html:55
+#: .\templates\orders\create_order.html:53
 msgid "Contact details"
 msgstr "Контактні дані"
 
-#: .\templates\orders\create_order.html:73
+#: .\templates\orders\create_order.html:80
 msgid "Cleaning address"
 msgstr "Адреса прибирання"
 
-#: .\templates\orders\create_order.html:102
-#: .\templates\orders\create_order.html:106
-#: .\templates\orders\create_order.html:110
-#: .\templates\orders\create_order.html:114
+#: .\templates\orders\create_order.html:125
+#: .\templates\orders\create_order.html:132
+#: .\templates\orders\create_order.html:139
+#: .\templates\orders\create_order.html:146
 msgid "Optional"
 msgstr "Необов'язково"
 
-#: .\templates\orders\create_order.html:121
+#: .\templates\orders\create_order.html:156
 msgid "Date and additional info"
 msgstr "Дата та додаткова інформація"
 
-#: .\templates\orders\create_order.html:159
+#: .\templates\orders\create_order.html:218
 msgid "Confirm and order"
 msgstr "Підтвердити та замовити"
 
@@ -3098,6 +3120,39 @@ msgstr "Вибачте, переклад недоступний."
 #: .\venv\Lib\site-packages\modeltranslation\widgets.py:32
 msgid "None"
 msgstr "Немає"
+
+#~| msgid "Total Cost"
+#~ msgid "Show Total Cost"
+#~ msgstr "Загальна вартість"
+
+#~ msgid "Standard cleaning"
+#~ msgstr "Стандартне прибирання"
+
+#~ msgid ""
+#~ "Ideal for regular maintenance of cleanliness in your home. From 120 zł."
+#~ msgstr ""
+#~ "Ідеально підходить для регулярного підтримання чистоти у вашому домі. Від "
+#~ "120 zł."
+
+#~ msgid "General cleaning"
+#~ msgstr "Генеральне прибирання"
+
+#~ msgid ""
+#~ "Comprehensive cleaning of all surfaces, including hard-to-reach places. "
+#~ "From 250 zł."
+#~ msgstr ""
+#~ "Комплексне очищення всіх поверхонь, включаючи важкодоступні місця. Від "
+#~ "250 zł."
+
+#~ msgid "Post-renovation cleaning"
+#~ msgstr "Прибирання після ремонту"
+
+#~ msgid ""
+#~ "We will remove all construction dust, paint stains, and prepare the "
+#~ "premises for moving in. From 400 zł."
+#~ msgstr ""
+#~ "Ми видалимо весь будівельний пил, плями фарби та підготуємо приміщення до "
+#~ "заселення. Від 400 zł."
 
 #~ msgid "Selected service not found."
 #~ msgstr "Вибрану послугу не знайдено."
