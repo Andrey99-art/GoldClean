@@ -224,8 +224,21 @@
     
     {% for service in main_services %}
     <div class="service-card"> 
-        {% cycle 'text-bg-dark' 'bg-body-tertiary border' 'text-bg-dark' 'text-bg-dark' 'bg-body-tertiary border' 'bg-body-tertiary border' as card_class silent %}
-        <div class="h-100 p-5 {{ card_class }} rounded-3 d-flex flex-column">
+        {# Логика выбора цвета карточки #}
+        
+        {% if service.slug == 'post-renovation-cleaning' %}
+            {# Золотая карточка для "Уборки после ремонта" #}
+            <div class="h-100 p-5 service-card-gold rounded-3 d-flex flex-column">
+        
+        {% elif forloop.counter0|divisibleby:2 %}
+            {# Черная карточка для четных #}
+            <div class="h-100 p-5 text-bg-dark rounded-3 d-flex flex-column">
+        
+        {% else %}
+            {# Светлая карточка для нечетных #}
+            <div class="h-100 p-5 bg-body-tertiary border rounded-3 d-flex flex-column">
+        {% endif %}
+
             <h3>{{ service.name }}</h3>
             {% if service.short_description %}
                 <p class="mt-auto">{{ service.short_description }}</p>

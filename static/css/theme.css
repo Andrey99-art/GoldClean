@@ -1215,3 +1215,22 @@ body {
     margin-top: 0.25rem;
     font-weight: 500;
 }
+
+/* Золотая карточка услуги */
+.service-card-gold {
+    background: linear-gradient(135deg, #B89E40 0%, #D1C07A 100%);
+    color: #1c1d21; /* Темный текст для контраста */
+    border: none;
+    box-shadow: 0 10px 20px rgba(184, 158, 64, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card-gold:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(184, 158, 64, 0.5);
+}
+
+.service-card-gold h3,
+.service-card-gold p {
+    color: #1c1d21; /* Принудительно темный цвет текста */
+}
