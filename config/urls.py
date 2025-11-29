@@ -7,6 +7,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from core.sitemaps import StaticViewSitemap 
+from django.views.generic import TemplateView
 
 sitemaps = {
     'static': StaticViewSitemap,
