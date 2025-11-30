@@ -579,12 +579,19 @@ header.header-footer-bg {
 }
 
 .about-card {
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Убрали 'transform' из анимации, добавили 'border-color' */
+    transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    height: 100%; /* Чтобы карточки были одной высоты */
 }
 
 .about-card:hover {
-    transform: translateY(-10px);
+    /* СТРОКУ С transform МЫ УДАЛИЛИ - карточка больше не прыгает */
+    
+    /* Оставляем тень */
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    
+    /* Добавляем золотую обводку при наведении для красоты */
+    border-color: var(--primary-gold);
 }
 
 .about-card-dark {
@@ -1241,11 +1248,30 @@ body {
 }
 
 .service-card-gold:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(184, 158, 64, 0.5);
+    /* Она уже имеет свои настройки, но этот блок гарантирует единый стиль */
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px rgba(184, 158, 64, 0.4) !important;
 }
 
 .service-card-gold h3,
 .service-card-gold p {
     color: #1c1d21; /* Принудительно темный цвет текста */
 }
+
+/* =========================================
+   UNIFIED SERVICE CARDS ANIMATION
+   ========================================= */
+
+/* Делаем все карточки внутри сетки услуг "живыми" */
+.services-grid .h-100 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+/* Эффект при наведении для ВСЕХ карточек (включая черные и белые) */
+.services-grid .h-100:hover {
+    transform: translateY(-5px); /* Легкое всплытие */
+    box-shadow: 0 1rem 1.5rem rgba(0,0,0,0.15) !important;
+    z-index: 2; /* Чтобы приподнятая карточка была выше соседей */
+}
+
