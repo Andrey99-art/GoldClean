@@ -128,15 +128,30 @@ body {
     white-space: nowrap;
 }
 
-/* 9. Header Slogan Styling */
+/* 9. Header Slogan Styling (Responsive) */
 .header-slogan p {
     color: var(--primary-gold);
     font-style: italic;
-    font-size: 2rem;
-    border-left: 2px solid var(--hover-gold);
-    padding-left: 1rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    white-space: nowrap;
+    
+    /* Настройки для мобильных (по умолчанию) */
+    font-size: 0.9rem;       /* Маленький шрифт */
+    line-height: 1.2;        /* Плотный межстрочный интервал */
+    border-left: 1px solid var(--hover-gold); /* Тонкая линия */
+    padding-left: 0.5rem;    /* Небольшой отступ */
+    margin-bottom: 0;
+    
+    /* Разрешаем перенос текста на мобильных, чтобы не улетал за экран */
+    white-space: normal; 
+}
+
+/* Настройки для ПК (экран шире 992px) */
+@media (min-width: 992px) {
+    .header-slogan p {
+        font-size: 2rem;      /* Большой шрифт */
+        border-left: 2px solid var(--hover-gold);
+        padding-left: 1rem;
+        white-space: nowrap;  /* В одну строку */
+    }
 }
 
 /* 10. Particles Animation Styling */
