@@ -7,13 +7,15 @@ services:
     restart: always
     command: sh entrypoint.sh
     volumes:
-      - .:/app
+      - .:/app            # Код берем с хоста
+      # - /app/static     # (Опционально) Если используешь WhiteNoise, это не критично
     ports:
       - "8000:8000"
     env_file:
       - .env
     depends_on:
-      - db
+      db:
+        condition: service_healthy # Ждем, пока БД скажет "Я готова"
 
   db:
     image: postgres:15
@@ -21,12 +23,20 @@ services:
     restart: always
     volumes:
       - pg_data:/var/lib/postgresql/data
+    env_file:             # ЯВНО указываем файл, это надежнее интерполяции
+      - .env
     environment:
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      # Дублируем переменные для уверенности, используем имена внутри контейнера
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   pg_data:

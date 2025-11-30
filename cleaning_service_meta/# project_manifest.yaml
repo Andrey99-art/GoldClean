@@ -1,22 +1,100 @@
-manifest_version: "3.2-GOLD"
+manifest_version: "3.3-RELEASE"
+last_updated: "2025-11-30"
 project_metadata:
-  project_name: "cleaning_service"
-  status: "LIVE & OPERATIONAL"
-  url: "https://goldclean2026.pl"
-  server_os: "Ubuntu 24.04 LTS"
-  container_strategy: "Docker Compose"
+  name: "cleaning_service"
+  display_name: "Gold Clean Warszawa"
+  domain: "goldclean2026.pl"
+  server_ip: "217.154.149.215"
+  status: "PRODUCTION (LIVE)"
+  stack: 
+    - Django 4.2.25
+    - PostgreSQL 15
+    - Nginx (Reverse Proxy)
+    - Gunicorn
+    - Docker & Docker Compose
 
-features_status:
-  - Payment: Active (Stripe Live)
-  - Database: Active (PostgreSQL)
-  - Static Files: Active (WhiteNoise)
-  - Translations: Active (Gettext installed & compiled)
-  - Security: Active (SSL/Secrets)
+# ---------------------------------------------------------
+# 1. ИНФРАСТРУКТУРА И БЕЗОПАСНОСТЬ
+# ---------------------------------------------------------
+infrastructure:
+  os: "Ubuntu 24.04 LTS"
+  containerization: "Docker Compose (web + db)"
+  database_storage: "Docker Volume (pg_data)"
+  ssl: "Let's Encrypt (Certbot)"
+  
+security_settings:
+  debug_mode: "False (Production Safe)"
+  allowed_hosts: ["goldclean2026.pl", "www.goldclean2026.pl", "217.154.149.215"]
+  secrets_management: ".env file (excluded from Git)"
+  payment_gateway: "Stripe Live Mode (Secure)"
 
-maintenance_guide:
-  # Сохрани эту шпаргалку:
-  1. Изменил код/перевод локально -> git push
-  2. Зашел на сервер -> git pull
-  3. Если менял переводы -> docker compose exec web python manage.py compilemessages
-  4. Если менял библиотеки/настройки -> docker compose up -d --build
-  5. Если просто код -> docker compose restart web
+# ---------------------------------------------------------
+# 2. АРХИТЕКТУРНЫЕ РЕШЕНИЯ
+# ---------------------------------------------------------
+architecture_log:
+  - component: "Static Files"
+    solution: "WhiteNoise (CompressedStaticFilesStorage)"
+    note: "Manifest storage disabled to prevent 500 errors on missing files."
+    
+  - component: "Media Files"
+    solution: "Nginx Alias"
+    path: "/root/goldclean/media/"
+    note: "Directly served by Nginx for performance."
+
+  - component: "Order Logic"
+    pattern: "Snapshot"
+    details: "Service prices/names are copied to JSONField at purchase time."
+
+  - component: "Localization"
+    solution: "Django ModelTranslation + Gettext"
+    languages: ["pl", "en", "ru", "uk"]
+    deployment: "Requires 'compilemessages' after content updates."
+
+# ---------------------------------------------------------
+# 3. СТАТУС ФУНКЦИОНАЛА
+# ---------------------------------------------------------
+features:
+  calculator: "Active (JS + Backend Validation)"
+  payments: "Active (Stripe Checkout + Webhooks)"
+  email_notifications: "Active (SMTP Gmail)"
+  seo: "Active (Sitemap, Robots.txt, Meta Tags, OpenGraph)"
+  admin_panel: "Secured & Accessible"
+  favicons: "Fixed & Active"
+
+# ---------------------------------------------------------
+# 4. РУКОВОДСТВО ПО ОБСЛУЖИВАНИЮ (SOP)
+# ---------------------------------------------------------
+maintenance_protocols:
+  
+  # Сценарий 1: Обновление кода (HTML, CSS, Logic)
+  update_code: |
+    1. [Local] git add . -> git commit -> git push
+    2. [Server] ssh root@... -> cd goldclean -> git pull
+    3. [Server] docker compose up -d --build
+
+  # Сценарий 2: Обновление переводов (.po файлы)
+  update_translations: |
+    1. [Server] git pull
+    2. [Server] docker compose exec web python manage.py compilemessages
+    3. [Server] docker compose restart web
+
+  # Сценарий 3: Резервное копирование (Бэкап)
+  backup_database: |
+    docker compose exec db pg_dump -U postgres goldclean_db > backup_$(date +%F).sql
+
+  # Сценарий 4: Чтение логов (если сайт упал)
+  debug_logs: |
+    docker compose logs -f --tail=100 web
+
+  # Сценарий 5: Сброс пароля админа
+  reset_admin: |
+    docker compose exec web python manage.py changepassword <username>
+    # или создание нового:
+    docker compose exec web python manage.py createsuperuser
+
+# ---------------------------------------------------------
+# 5. КОНТАКТЫ И ДОСТУПЫ (ХРАНИТЬ В СЕКРЕТЕ)
+# ---------------------------------------------------------
+credentials_location:
+  env_file: "/root/goldclean/.env"
+  ssh_key: "On local machine"
