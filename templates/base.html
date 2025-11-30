@@ -33,7 +33,7 @@
         <link rel="alternate" hreflang="{{ lang_code }}" href="https://goldclean2026.pl/{{ lang_code }}{{ request.path|slice:'3:' }}" />
     {% endfor %}
 
-    <!-- Favicon (Иконка во вкладке) -->
+    <!-- Favicon (Иконка во вкладке) --><input name="next" type="hidden" value="{{ request.get_full_path }}">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 
     <!-- ======================================================= -->
@@ -103,7 +103,7 @@
                     <!-- Язык -->
                     <form action="{% url 'set_language' %}" method="post" class="mb-0">
                         {% csrf_token %}
-                        <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
                         <div class="dropdown text-end">
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="fi fi-{% if request.LANGUAGE_CODE == 'en' %}gb{% elif request.LANGUAGE_CODE == 'uk' %}ua{% else %}{{ request.LANGUAGE_CODE }}{% endif %}"></span>
