@@ -22,7 +22,7 @@ services:
     container_name: goldclean_db
     restart: always
     volumes:
-      - pg_data:/var/lib/postgresql/data
+      - ./db_data_local:/var/lib/postgresql/data
     env_file:             # ЯВНО указываем файл, это надежнее интерполяции
       - .env
     environment:
