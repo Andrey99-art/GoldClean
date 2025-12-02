@@ -1,42 +1,55 @@
-version: '3.8'
+# ПУТЬ: /root/goldclean/docker-compose.yml
+# КОНТЕКСТ: Production-ready конфигурация с ПРАВИЛЬНОЙ персистентностью
+# Verified API: Docker Compose 3.8 syntax
 
 services:
   web:
     build: .
     container_name: goldclean_web
-    restart: always
+    restart: unless-stopped  # Безопаснее чем "always"
     command: sh entrypoint.sh
     volumes:
-      - .:/app            # Код берем с хоста
-      # - /app/static     # (Опционально) Если используешь WhiteNoise, это не критично
+      - .:/app
     ports:
       - "8000:8000"
     env_file:
       - .env
     depends_on:
       db:
-        condition: service_healthy # Ждем, пока БД скажет "Я готова"
+        condition: service_healthy
+    networks:
+      - goldclean_network
 
   db:
-    image: postgres:15
+    image: postgres:15-alpine  # Alpine легче и быстрее
     container_name: goldclean_db
-    restart: always
+    restart: unless-stopped
     volumes:
-      - ./db_data_local:/var/lib/postgresql/data
-    env_file:             # ЯВНО указываем файл, это надежнее интерполяции
-      - .env
+      # КРИТИЧНО: Используем NAMED VOLUME, а не bind mount!
+      - pg_data:/var/lib/postgresql/data
     environment:
-      # Дублируем переменные для уверенности, используем имена внутри контейнера
+      # ВАЖНО: Используй точные имена переменных PostgreSQL
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
+      # Добавляем безопасность
+      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"  # ВАЖНО: Биндим только на localhost!
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
-      interval: 5s
+      interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - goldclean_network
 
+# КРИТИЧНО: Named volume для персистентности
 volumes:
   pg_data:
+    driver: local
+
+# Изолируем сеть
+networks:
+  goldclean_network:
+    driver: bridge
