@@ -50,33 +50,23 @@ body {
     border-color: var(--primary-gold);
     color: var(--dark-text);
 }
-
 .btn-primary:hover {
     background-color: var(--hover-gold);
     border-color: var(--hover-gold);
     color: var(--dark-text);
 }
-
 .btn-primary:disabled {
     background-color: var(--primary-gold);
     border-color: var(--primary-gold);
 }
-
 .btn-outline-primary {
     --bs-btn-color: var(--primary-gold);
     --bs-btn-border-color: var(--primary-gold);
     --bs-btn-hover-bg: var(--primary-gold);
     --bs-btn-hover-color: var(--dark-text);
 }
-
-.text-primary {
-    color: var(--primary-gold) !important;
-}
-
-.badge.bg-primary {
-    background-color: var(--primary-gold) !important;
-    color: var(--dark-text);
-}
+.text-primary { color: var(--primary-gold) !important; }
+.badge.bg-primary { background-color: var(--primary-gold) !important; color: var(--dark-text); }
 
 /* 7. Form Input Focus Glow */
 .form-control:focus,
@@ -87,23 +77,21 @@ body {
 
 /* 7A. Additional Service Icons */
 .additional-services-list .form-check-label {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    margin-left: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  margin-left: 0.75rem;
 }
-
 .additional-services-list .service-icon {
-    width: 240px;
-    height: 240px;
-    flex-shrink: 0;
-    object-fit: contain;
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
-
 .additional-services-list .service-name {
-    font-weight: 500;
-    color: var(--dark-text);
+  font-weight: 500;
+  color: var(--dark-text);
 }
 
 
@@ -113,7 +101,6 @@ body {
     align-items: center;
     text-align: center;
 }
-
 .slogan-container::before,
 .slogan-container::after {
     content: '';
@@ -121,37 +108,21 @@ body {
     height: 1px;
     background: linear-gradient(to right, transparent, var(--primary-gold), transparent);
 }
-
 .slogan-heading {
     color: var(--primary-gold);
     padding: 0 2rem;
     white-space: nowrap;
 }
 
-/* 9. Header Slogan Styling (Responsive) */
+/* 9. Header Slogan Styling */
 .header-slogan p {
     color: var(--primary-gold);
     font-style: italic;
-    
-    /* Настройки для мобильных (по умолчанию) */
-    font-size: 0.9rem;       /* Маленький шрифт */
-    line-height: 1.2;        /* Плотный межстрочный интервал */
-    border-left: 1px solid var(--hover-gold); /* Тонкая линия */
-    padding-left: 0.5rem;    /* Небольшой отступ */
-    margin-bottom: 0;
-    
-    /* Разрешаем перенос текста на мобильных, чтобы не улетал за экран */
-    white-space: normal; 
-}
-
-/* Настройки для ПК (экран шире 992px) */
-@media (min-width: 992px) {
-    .header-slogan p {
-        font-size: 2rem;      /* Большой шрифт */
-        border-left: 2px solid var(--hover-gold);
-        padding-left: 1rem;
-        white-space: nowrap;  /* В одну строку */
-    }
+    font-size: 2rem;
+    border-left: 2px solid var(--hover-gold);
+    padding-left: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
 }
 
 /* 10. Particles Animation Styling */
@@ -159,7 +130,6 @@ header.header-footer-bg {
     position: relative;
     z-index: 1;
 }
-
 #tsparticles {
     position: absolute;
     top: 0;
@@ -187,11 +157,10 @@ header.header-footer-bg {
     width: 100%;
     height: 450px;
     overflow: hidden;
-    background-color: transparent;
-    /* Убираем черный фон */
+    background-color: transparent; /* Убираем черный фон */
     border-radius: 0.5rem;
     /* Добавляем легкую рамку, чтобы границы контейнера были видны */
-    border: 1px solid #eaeaea;
+    border: 1px solid #eaeaea; 
 }
 
 .carousel-img-fit {
@@ -200,8 +169,7 @@ header.header-footer-bg {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    /* Заполняем весь блок без пробелов */
+    object-fit: cover; /* Заполняем весь блок без пробелов */
     object-position: center;
 }
 
@@ -215,20 +183,17 @@ header.header-footer-bg {
 
 /* Убраны эффекты затемнения и лупы */
 .carousel-image-wrapper a.glightbox::before {
-    display: none;
-    /* Убираем затемнение */
+    display: none; /* Убираем затемнение */
 }
 
 .carousel-image-wrapper a.glightbox::after {
-    display: none;
-    /* Убираем иконку лупы */
+    display: none; /* Убираем иконку лупы */
 }
 
 /* Убраны hover-эффекты */
 .carousel-image-wrapper a.glightbox:hover::before {
     display: none;
 }
-
 .carousel-image-wrapper a.glightbox:hover::after {
     display: none;
     /* Эффекты удалены */
@@ -240,14 +205,12 @@ header.header-footer-bg {
     position: absolute !important;
     top: 0;
     bottom: 0;
-    z-index: 100;
-    width: 80px !important;
-    /* Чуть шире зона клика */
+    z-index: 100; 
+    width: 80px !important; /* Чуть шире зона клика */
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1 !important;
-    /* Убираем прозрачность Bootstrap */
+    opacity: 1 !important; /* Убираем прозрачность Bootstrap */
     background: none !important;
     border: none;
 }
@@ -259,8 +222,7 @@ header.header-footer-bg {
 
 .carousel-control-next {
     right: 0 !important;
-    left: auto !important;
-    /* Страховка от сброса стилей */
+    left: auto !important; /* Страховка от сброса стилей */
 }
 
 /* Стили самих иконок (золотые круги) */
@@ -270,15 +232,13 @@ header.header-footer-bg {
     border-radius: 50%;
     width: 3.5rem;
     height: 3.5rem;
-    background-size: 50%;
-    /* Оптимальный размер стрелки */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-
+    background-size: 50%; /* Оптимальный размер стрелки */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    
     /* Убеждаемся, что это блочный элемент, а не абсолютный внутри флекса */
     display: inline-block;
-    position: static;
-    /* Флекс-контейнер сам отцентрует кнопку */
-
+    position: static; /* Флекс-контейнер сам отцентрует кнопку */
+    
     transition: all 0.3s ease;
 }
 
@@ -290,13 +250,11 @@ header.header-footer-bg {
 
 /* 15. Reviews Section Styling (v2) */
 .reviews-section {
-    padding: 1rem 1.5rem 3rem 1.5rem;
-    /* top | horizontal | bottom */
+    padding: 1rem 1.5rem 3rem 1.5rem; /* top | horizontal | bottom */
     box-shadow: 0 0 60px 20px rgba(184, 158, 64, 0.15);
     border-radius: 1rem;
     margin-bottom: 2rem;
 }
-
 .review-card {
     background-color: #fff;
     border: 1px solid #f0f0f0;
@@ -307,26 +265,21 @@ header.header-footer-bg {
     text-align: center;
     height: auto;
 }
-
 .reviews-section .swiper-wrapper {
     align-items: stretch;
 }
-
 .reviews-section .swiper-slide {
     height: auto;
 }
-
 .rating-icons {
     margin-bottom: 1rem;
     color: var(--primary-gold);
 }
-
 .rating-icon {
     width: 24px;
     height: 24px;
     margin: 0 2px;
 }
-
 .review-text {
     font-style: italic;
     color: var(--dark-text);
@@ -336,7 +289,6 @@ header.header-footer-bg {
     position: relative;
     margin-bottom: 1rem;
 }
-
 .review-text::after {
     content: '';
     position: absolute;
@@ -349,25 +301,19 @@ header.header-footer-bg {
     border-right: 10px solid transparent;
     border-top: 10px solid #f8f0f0;
 }
-
 .review-footer {
     margin-top: auto;
 }
-
 .review-author {
     font-weight: bold;
     color: var(--dark-charcoal);
 }
-
 .review-date {
     font-size: 0.8rem;
 }
-
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next, .swiper-button-prev {
     color: var(--primary-gold) !important;
 }
-
 .reviews-section .text-center.mt-4 {
     margin-top: 2.5rem !important;
 }
@@ -376,29 +322,24 @@ header.header-footer-bg {
 .social-icon-header {
     text-decoration: none;
 }
-
 .social-icon-header i {
     font-size: 1.75rem;
     color: var(--primary-gold);
     vertical-align: middle;
     transition: transform 0.2s ease-in-out, color 0.2s ease-inout;
 }
-
 .social-icon-header:hover i {
     color: var(--hover-gold);
     transform: scale(1.1);
 }
-
 .social-icon-footer {
     text-decoration: none;
 }
-
 .social-icon-footer i {
     font-size: 1.5rem;
     color: var(--dark-text);
     transition: color 0.2s ease-in-out;
 }
-
 .social-icon-footer:hover i {
     color: var(--primary-gold);
 }
@@ -410,7 +351,6 @@ header.header-footer-bg {
     overflow: hidden;
     transition: all 0.3s ease;
 }
-
 .btn-primary::before,
 .btn-outline-primary::before {
     content: '';
@@ -419,14 +359,15 @@ header.header-footer-bg {
     left: -100%;
     width: 75%;
     height: 100%;
-    background: linear-gradient(120deg,
-            rgba(255, 255, 255, 0.1),
-            rgba(255, 255, 255, 0.4),
-            rgba(255, 255, 255, 0.1));
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.1)
+    );
     transform: skewX(-25deg);
     transition: left 0.7s ease-in-out;
 }
-
 .btn-primary:hover::before,
 .btn-outline-primary:hover::before {
     left: 120%;
@@ -436,11 +377,9 @@ header.header-footer-bg {
 .password-toggle-container {
     position: relative;
 }
-
 .password-toggle-container .form-control {
     padding-right: 2.5rem;
 }
-
 .password-toggle-icon {
     position: absolute;
     top: 50%;
@@ -459,20 +398,17 @@ header.header-footer-bg {
     height: 350px;
     width: 100%;
 }
-
 .cleaning-area-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .feature-point-list {
     padding-left: 0;
     margin-left: auto;
     margin-right: auto;
     max-width: 80%;
 }
-
 .feature-point-list li {
     position: relative;
     padding-left: 25px;
@@ -481,7 +417,6 @@ header.header-footer-bg {
     font-size: 1rem;
     color: var(--dark-text);
 }
-
 .feature-point-list li::before {
     content: '';
     position: absolute;
@@ -494,7 +429,6 @@ header.header-footer-bg {
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(184, 158, 64, 0.5);
 }
-
 .info-badge {
     background-color: #e9f5ea;
     color: #2e7d32;
@@ -503,28 +437,24 @@ header.header-footer-bg {
     font-size: 1.1rem;
     font-weight: 500;
 }
-
 .feature-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
 }
-
 .feature-icon {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    margin-bottom: 0.75rem;
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
 }
-
 .feature-item p {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--dark-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dark-text);
 }
-
 .price-order-section {
     display: flex;
     flex-direction: column;
@@ -532,18 +462,15 @@ header.header-footer-bg {
     align-items: center;
     gap: 1rem;
 }
-
 .price-display {
     font-size: 1.5rem;
     font-weight: 300;
     color: var(--dark-text);
 }
-
 .price-display .price-value {
     font-weight: 700;
     color: var(--primary-gold);
 }
-
 @media (min-width: 768px) {
     .price-order-section {
         flex-direction: row;
@@ -551,13 +478,11 @@ header.header-footer-bg {
         gap: 2rem;
     }
 }
-
 .service-card-selectable {
     display: block;
     cursor: pointer;
     position: relative;
 }
-
 .service-card-selectable .form-check-input {
     position: absolute;
     top: 15px;
@@ -566,57 +491,41 @@ header.header-footer-bg {
     height: 1.5em;
     z-index: 10;
 }
-
 .service-card-selectable .card {
     transition: all 0.2s ease-in-out;
     border: 2px solid transparent;
 }
-
-.service-card-selectable input:checked+.card {
+.service-card-selectable input:checked + .card {
     border-color: var(--primary-gold);
     box-shadow: 0 0.5rem 1rem rgba(184, 158, 64, 0.25) !important;
     transform: translateY(-5px);
 }
-
 .about-card {
-    /* Убрали 'transform' из анимации, добавили 'border-color' */
-    transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-    height: 100%; /* Чтобы карточки были одной высоты */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
 .about-card:hover {
-    /* СТРОКУ С transform МЫ УДАЛИЛИ - карточка больше не прыгает */
-    
-    /* Оставляем тень */
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-    
-    /* Добавляем золотую обводку при наведении для красоты */
-    border-color: var(--primary-gold);
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
 }
-
 .about-card-dark {
     background-color: var(--dark-charcoal);
     color: #fff;
     border: 1px solid var(--subtle-border);
 }
-
 .about-card-dark h2 {
     color: var(--primary-gold);
     border-bottom: 1px solid var(--subtle-border);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
-
 .about-card-light {
     background-color: #f8f9fa;
     color: var(--dark-text);
     border-color: #dee2e6;
 }
-
 .about-card-light h2 {
     color: var(--dark-charcoal);
 }
-
 .philosophy-quote {
     position: relative;
     padding: 2rem 3rem;
@@ -625,14 +534,12 @@ header.header-footer-bg {
     border: 2px solid var(--primary-gold);
     border-radius: 0.5rem;
     background-color: #f8f9fa;
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.07);
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.07);
 }
-
 .philosophy-quote p {
     font-style: italic;
     color: var(--dark-text);
 }
-
 .philosophy-quote::before,
 .philosophy-quote::after {
     content: "“";
@@ -642,18 +549,15 @@ header.header-footer-bg {
     position: absolute;
     line-height: 1;
 }
-
 .philosophy-quote::before {
     top: 0.5rem;
     left: 1rem;
 }
-
 .philosophy-quote::after {
     content: "”";
     bottom: -1.5rem;
     right: 1rem;
 }
-
 .form-section-title {
     font-size: 1.75rem;
     font-weight: 600;
@@ -664,11 +568,9 @@ header.header-footer-bg {
     border-bottom: 2px solid var(--primary-gold);
     display: inline-block;
 }
-
-#calculator-form>.form-section-title:first-of-type {
+#calculator-form > .form-section-title:first-of-type {
     margin-top: 0;
 }
-
 .bubbles-container {
     position: fixed;
     top: 0;
@@ -679,7 +581,6 @@ header.header-footer-bg {
     overflow: hidden;
     pointer-events: none;
 }
-
 .bubble {
     position: absolute;
     bottom: -150px;
@@ -688,115 +589,41 @@ header.header-footer-bg {
     box-shadow: 0 0 10px rgba(247, 208, 96, 0.5), 0 0 20px rgba(247, 208, 96, 0.3);
     animation: fly-up 25s infinite linear;
 }
-
 @keyframes fly-up {
     0% {
         transform: translateY(0);
         opacity: 0.7;
     }
-
     100% {
         transform: translateY(-120vh);
         opacity: 0;
     }
 }
-
-.bubble:nth-child(1) {
-    width: 80px;
-    height: 80px;
-    left: 10%;
-    animation-duration: 20s;
-}
-
-.bubble:nth-child(2) {
-    width: 40px;
-    height: 40px;
-    left: 20%;
-    animation-duration: 15s;
-    animation-delay: 2s;
-}
-
-.bubble:nth-child(3) {
-    width: 60px;
-    height: 60px;
-    left: 35%;
-    animation-duration: 30s;
-    animation-delay: 4s;
-}
-
-.bubble:nth-child(4) {
-    width: 90px;
-    height: 90px;
-    left: 50%;
-    animation-duration: 18s;
-    animation-delay: 1s;
-}
-
-.bubble:nth-child(5) {
-    width: 35px;
-    height: 35px;
-    left: 55%;
-    animation-duration: 28s;
-    animation-delay: 6s;
-}
-
-.bubble:nth-child(6) {
-    width: 70px;
-    height: 70px;
-    left: 65%;
-    animation-duration: 22s;
-    animation-delay: 3s;
-}
-
-.bubble:nth-child(7) {
-    width: 45px;
-    height: 45px;
-    left: 75%;
-    animation-duration: 17s;
-}
-
-.bubble:nth-child(8) {
-    width: 100px;
-    height: 100px;
-    left: 85%;
-    animation-duration: 25s;
-    animation-delay: 5s;
-}
-
-.bubble:nth-child(9) {
-    width: 50px;
-    height: 50px;
-    left: 90%;
-    animation-duration: 23s;
-    animation-delay: 7s;
-}
-
-.bubble:nth-child(10) {
-    width: 75px;
-    height: 75px;
-    left: 5%;
-    animation-duration: 19s;
-    animation-delay: 8s;
-}
-
+.bubble:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-duration: 20s; }
+.bubble:nth-child(2) { width: 40px; height: 40px; left: 20%; animation-duration: 15s; animation-delay: 2s; }
+.bubble:nth-child(3) { width: 60px; height: 60px; left: 35%; animation-duration: 30s; animation-delay: 4s; }
+.bubble:nth-child(4) { width: 90px; height: 90px; left: 50%; animation-duration: 18s; animation-delay: 1s; }
+.bubble:nth-child(5) { width: 35px; height: 35px; left: 55%; animation-duration: 28s; animation-delay: 6s; }
+.bubble:nth-child(6) { width: 70px; height: 70px; left: 65%; animation-duration: 22s; animation-delay: 3s; }
+.bubble:nth-child(7) { width: 45px; height: 45px; left: 75%; animation-duration: 17s; }
+.bubble:nth-child(8) { width: 100px; height: 100px; left: 85%; animation-duration: 25s; animation-delay: 5s; }
+.bubble:nth-child(9) { width: 50px; height: 50px; left: 90%; animation-duration: 23s; animation-delay: 7s; }
+.bubble:nth-child(10) { width: 75px; height: 75px; left: 5%; animation-duration: 19s; animation-delay: 8s; }
 .quantity-widget .quantity-input {
     -moz-appearance: textfield;
-    appearance: textfield;
+     appearance: textfield;
 }
-
 .quantity-widget .quantity-input::-webkit-outer-spin-button,
 .quantity-widget .quantity-input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
 .calculator-fab {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1050;
 }
-
 .calculator-fab .btn {
     width: 60px;
     height: 60px;
@@ -805,7 +632,6 @@ header.header-footer-bg {
     align-items: center;
     justify-content: center;
 }
-
 .offcanvas-body {
     padding-bottom: 100px;
 }
@@ -833,15 +659,13 @@ header.header-footer-bg {
     box-shadow: 0 -0.5rem 1.5rem rgba(0, 0, 0, 0.1);
 
     transform: translateY(100%);
-    animation: slide-up 0.5s 0.2s ease-out forwards;
-    /* Added 0.2s delay */
+    animation: slide-up 0.5s 0.2s ease-out forwards; /* Added 0.2s delay */
 }
 
 @keyframes slide-up {
     from {
         transform: translateY(100%);
     }
-
     to {
         transform: translateY(0);
     }
@@ -867,7 +691,7 @@ header.header-footer-bg {
 /* Делаем всплывашку шире на больших экранах */
 @media (min-width: 992px) {
     #offcanvasCalculator {
-        width: 800px;
+        width: 800px; 
     }
 }
 
@@ -878,31 +702,24 @@ header.header-footer-bg {
 .offcanvas-calculator-body {
     display: flex;
     flex-direction: column;
-    padding: 0;
-    /* Убираем стандартные отступы, чтобы контент прилегал к краям */
+    padding: 0; /* Убираем стандартные отступы, чтобы контент прилегал к краям */
     height: 100%;
-    overflow: hidden;
-    /* Предотвращаем двойную прокрутку */
+    overflow: hidden; /* Предотвращаем двойную прокрутку */
 }
 
 /* Основной контент (левая часть) - делаем его прокручиваемым */
 .calculator-main-content {
-    flex-grow: 1;
-    /* Занимает все доступное пространство */
-    overflow-y: auto;
-    /* Добавляет вертикальную прокрутку, если контент не влезает */
+    flex-grow: 1; /* Занимает все доступное пространство */
+    overflow-y: auto; /* Добавляет вертикальную прокрутку, если контент не влезает */
     padding: 1.5rem;
 }
 
 .calculator-summary-sidebar {
-    flex-shrink: 0;
-    /* Запрещаем сжиматься */
+    flex-shrink: 0; /* Запрещаем сжиматься */
     padding: 1.5rem;
     background-color: var(--header-bg-light);
-    border-top: 1px solid var(--header-border);
-    /* Верхняя граница, как у футера */
-    box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.05);
-    /* Тень сверху */
+    border-top: 1px solid var(--header-border); /* Верхняя граница, как у футера */
+    box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.05); /* Тень сверху */
 }
 
 /* 
@@ -910,28 +727,21 @@ header.header-footer-bg {
  * Здесь мы делаем панель шире и превращаем "подвал" в боковую колонку.
 */
 @media (min-width: 992px) {
-
     /* Делаем саму всплывающую панель шире */
     #offcanvasCalculator {
-        width: 850px !important;
-        /* Гарантированно устанавливаем ширину */
+        width: 850px !important; /* Гарантированно устанавливаем ширину */
     }
 
     /* Адаптируем боковую панель с итогом под вид колонки */
     .calculator-summary-sidebar {
         /* Переопределяем мобильные стили */
-        border-top: none;
-        /* Убираем верхнюю границу */
-        box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.05);
-        /* Меняем тень на левую сторону */
-
+        border-top: none; /* Убираем верхнюю границу */
+        box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.05); /* Меняем тень на левую сторону */
+        
         /* Добавляем новые стили только для десктопа */
-        border-left: 1px solid var(--header-border);
-        /* Добавляем левую границу */
-        height: 100%;
-        /* Растягиваем на всю высоту */
-        overflow-y: auto;
-        /* Добавляем прокрутку, если не помещается */
+        border-left: 1px solid var(--header-border); /* Добавляем левую границу */
+        height: 100%; /* Растягиваем на всю высоту */
+        overflow-y: auto; /* Добавляем прокрутку, если не помещается */
     }
 }
 
@@ -943,7 +753,7 @@ header.header-footer-bg {
 #modal-total-price {
     font-weight: 700;
     color: var(--primary-gold);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /*
@@ -965,8 +775,7 @@ header.header-footer-bg {
 
 /* Заголовок по-прежнему занимает всю ширину */
 .services-grid .grid-title {
-    grid-column: 1 / -1;
-    /* Растянуть от 1-й до последней колонки */
+    grid-column: 1 / -1; /* Растянуть от 1-й до последней колонки */
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--subtle-border);
 }
@@ -995,7 +804,7 @@ header.header-footer-bg {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
+    
     /* Все карточки становятся одинаковой ширины */
     .services-grid .service-card:nth-child(-n+4),
     .services-grid .service-card:nth-child(n+5) {
@@ -1017,19 +826,14 @@ header.header-footer-bg {
 */
 .payment-option-label {
     display: flex;
-    align-items: center;
-    /* Это идеально выровняет иконку и текст по вертикали */
-    gap: 0.5rem;
-    /* Это добавит небольшой отступ между иконкой и текстом */
-    font-size: 1.1rem;
-    /* Сделаем текст чуть крупнее */
+    align-items: center; /* Это идеально выровняет иконку и текст по вертикали */
+    gap: 0.5rem;         /* Это добавит небольшой отступ между иконкой и текстом */
+    font-size: 1.1rem;   /* Сделаем текст чуть крупнее */
 }
 
 .payment-option-label i {
-    font-size: 1.3rem;
-    /* Сделаем иконку чуть больше текста */
-    color: var(--primary-gold);
-    /* Используем ваш фирменный золотой цвет */
+    font-size: 1.3rem; /* Сделаем иконку чуть больше текста */
+    color: var(--primary-gold); /* Используем ваш фирменный золотой цвет */
 }
 
 /*
@@ -1040,12 +844,9 @@ header.header-footer-bg {
 
 .price-unit-label {
     font-size: 0.9rem;
-    color: var(--dark-charcoal);
-    /* Используем темный цвет для контраста */
-    font-weight: 600;
-    /* Жирнее, чем обычный текст */
-    font-style: italic;
-    /* Курсив для стиля */
+    color: var(--dark-charcoal); /* Используем темный цвет для контраста */
+    font-weight: 600;            /* Жирнее, чем обычный текст */
+    font-style: italic;          /* Курсив для стиля */
     margin-left: 0.4rem;
     opacity: 0.9;
 }
@@ -1059,8 +860,7 @@ header.header-footer-bg {
 .payment-methods-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    /* Больше расстояние между карточками */
+    gap: 1.5rem; /* Больше расстояние между карточками */
 }
 
 /* Скрываем стандартный input */
@@ -1078,25 +878,21 @@ header.header-footer-bg {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1rem;
-    /* Увеличенный вертикальный отступ */
+    padding: 2rem 1rem; /* Увеличенный вертикальный отступ */
     border: 2px solid var(--header-border);
     border-radius: 0.75rem;
     background-color: #fff;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
     color: var(--dark-text);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    /* Легкая тень по умолчанию */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02); /* Легкая тень по умолчанию */
 }
 
 /* Стили иконки */
 .payment-method-card i {
-    font-size: 3.5rem;
-    /* ОЧЕНЬ КРУПНЫЕ иконки */
+    font-size: 3.5rem; /* ОЧЕНЬ КРУПНЫЕ иконки */
     margin-bottom: 1rem;
-    color: #6c757d;
-    /* Темно-серый цвет для неактивного состояния */
+    color: #6c757d; /* Темно-серый цвет для неактивного состояния */
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -1108,20 +904,16 @@ header.header-footer-bg {
 }
 
 /* --- АКТИВНОЕ СОСТОЯНИЕ (ВЫБРАНО) --- */
-.payment-method-input:checked+.payment-method-card {
+.payment-method-input:checked + .payment-method-card {
     border-color: var(--primary-gold);
-    background-color: rgba(184, 158, 64, 0.1);
-    /* Более насыщенный золотой фон */
-    box-shadow: 0 8px 20px rgba(184, 158, 64, 0.15);
-    /* Золотистое свечение */
-    transform: translateY(-2px);
-    /* Легкое приподнятие */
+    background-color: rgba(184, 158, 64, 0.1); /* Более насыщенный золотой фон */
+    box-shadow: 0 8px 20px rgba(184, 158, 64, 0.15); /* Золотистое свечение */
+    transform: translateY(-2px); /* Легкое приподнятие */
 }
 
-.payment-method-input:checked+.payment-method-card i {
+.payment-method-input:checked + .payment-method-card i {
     color: var(--primary-gold);
-    transform: scale(1.1);
-    /* Иконка чуть увеличивается */
+    transform: scale(1.1); /* Иконка чуть увеличивается */
 }
 
 /* Ховер эффект */
@@ -1135,8 +927,7 @@ header.header-footer-bg {
    ========================================= */
 
 /* 1. Глобальный запрет на горизонтальный скролл */
-html,
-body {
+html, body {
     overflow-x: hidden;
     width: 100%;
     position: relative;
@@ -1148,8 +939,7 @@ body {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    flex-shrink: 0;
-    /* Запрещаем иконке сжиматься */
+    flex-shrink: 0; /* Запрещаем иконке сжиматься */
 }
 
 /* Обертка элемента списка */
@@ -1161,8 +951,7 @@ body {
 /* Текст названия услуги */
 .additional-services-list .service-name {
     font-size: 0.95rem;
-    white-space: normal;
-    /* Разрешаем перенос текста */
+    white-space: normal; /* Разрешаем перенос текста */
     word-wrap: break-word;
     margin-right: 0.5rem;
 }
@@ -1178,11 +967,10 @@ body {
 /* 3. Медиа-запрос для Планшетов и Десктопов (возвращаем крупный размер) */
 @media (min-width: 768px) {
     .additional-services-list .service-icon {
-        width: 120px;
-        /* На десктопе побольше, но 240px было перебором */
+        width: 120px; /* На десктопе побольше, но 240px было перебором */
         height: 120px;
     }
-
+    
     .additional-services-list .service-name {
         font-size: 1.1rem;
     }
@@ -1190,16 +978,13 @@ body {
 
 /* 4. Исправление слогана (чтобы не улетал) */
 .slogan-heading {
-    white-space: normal;
-    /* Текст может переноситься */
-    font-size: 1.5rem;
-    /* Чуть меньше на мобильных */
+    white-space: normal; /* Текст может переноситься */
+    font-size: 1.5rem;   /* Чуть меньше на мобильных */
 }
 
 @media (min-width: 992px) {
     .slogan-heading {
-        white-space: nowrap;
-        /* На больших экранах в одну строку */
+        white-space: nowrap; /* На больших экранах в одну строку */
         font-size: 2rem;
     }
 }
@@ -1208,70 +993,3 @@ body {
 body {
     padding-bottom: 100px !important;
 }
-
-/* =========================================
-   FORM VALIDATION STYLES (Error State)
-   ========================================= */
-
-/* 1. Розовый фон для ошибочных полей (как в примере) */
-.form-control.is-invalid,
-.form-select.is-invalid {
-    background-color: #ffe6e6; /* Светло-розовый */
-    border-color: #dc3545;     /* Красная рамка */
-    padding-right: calc(1.5em + 0.75rem); /* Место для иконки (если bootstrap добавит) */
-    background-image: none;    /* Убираем стандартную иконку восклицательного знака Bootstrap, если она мешает тексту, или оставляем */
-}
-
-/* 2. Эффект фокуса на ошибочном поле */
-.form-control.is-invalid:focus,
-.form-select.is-invalid:focus {
-    border-color: #dc3545;
-    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); /* Красное свечение */
-    background-color: #ffe6e6;
-}
-
-/* 3. Текст ошибки под полем */
-.invalid-feedback {
-    color: #dc3545;
-    font-size: 0.875em;
-    margin-top: 0.25rem;
-    font-weight: 500;
-}
-
-/* Золотая карточка услуги */
-.service-card-gold {
-    background: linear-gradient(135deg, #B89E40 0%, #D1C07A 100%);
-    color: #1c1d21; /* Темный текст для контраста */
-    border: none;
-    box-shadow: 0 10px 20px rgba(184, 158, 64, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card-gold:hover {
-    /* Она уже имеет свои настройки, но этот блок гарантирует единый стиль */
-    transform: translateY(-5px); 
-    box-shadow: 0 15px 30px rgba(184, 158, 64, 0.4) !important;
-}
-
-.service-card-gold h3,
-.service-card-gold p {
-    color: #1c1d21; /* Принудительно темный цвет текста */
-}
-
-/* =========================================
-   UNIFIED SERVICE CARDS ANIMATION
-   ========================================= */
-
-/* Делаем все карточки внутри сетки услуг "живыми" */
-.services-grid .h-100 {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
-}
-
-/* Эффект при наведении для ВСЕХ карточек (включая черные и белые) */
-.services-grid .h-100:hover {
-    transform: translateY(-5px); /* Легкое всплытие */
-    box-shadow: 0 1rem 1.5rem rgba(0,0,0,0.15) !important;
-    z-index: 2; /* Чтобы приподнятая карточка была выше соседей */
-}
-
