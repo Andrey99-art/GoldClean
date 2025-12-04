@@ -60,6 +60,14 @@ class SiteConfiguration(SingletonModel):
         help_text=_("Full URL to the Telegram account, e.g., https://t.me/your_account")
     )
 
+    whatsapp_link = models.URLField(
+       _("WhatsApp Link"),
+       max_length=255,
+       blank=True,
+       null=True,
+       help_text=_("Full URL to WhatsApp, e.g., https://wa.me/48781628269")
+    )
+
     def __str__(self):
         # --- ИСПРАВЛЕНИЕ ---
         # Оборачиваем ленивый перевод в str(), чтобы вернуть реальную строку
