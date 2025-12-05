@@ -1,4 +1,4 @@
-/* File: static/css/theme.css (Optimized and Merged) */
+/* File: static/css/theme.css (Optimized - No Duplicates) */
 
 /* 1. Define the Color Palette */
 :root {
@@ -18,7 +18,9 @@ body {
     background-color: var(--dark-charcoal);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%233a3c42' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.99 7.5V30L0 22.5zM15 0l13 7.5v15L15 30V15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     color: var(--light-text);
-    /* OPTIMIZATION: Added padding here to prevent content being overlapped by the fixed footer bar */
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
     padding-bottom: 120px;
 }
 
@@ -75,27 +77,52 @@ body {
     box-shadow: 0 0 0 0.25rem rgba(184, 158, 64, 0.25);
 }
 
-/* 7A. Additional Service Icons */
+/* 7A. Additional Service Icons (MERGED - no duplicates) */
 .additional-services-list .form-check-label {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
-  margin-left: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    margin-left: 0.75rem;
 }
+
 .additional-services-list .service-icon {
-  width: 240px;
-  height: 240px;
-  flex-shrink: 0;
-  object-fit: contain;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    object-fit: contain;
 }
+
 .additional-services-list .service-name {
-  font-weight: 500;
-  color: var(--dark-text);
+    font-weight: 500;
+    color: var(--dark-text);
+    font-size: 0.95rem;
+    white-space: normal;
+    word-wrap: break-word;
+    margin-right: 0.5rem;
 }
 
+.additional-services-list .d-flex.align-items-center {
+    max-width: 100%;
+}
 
-/* 8. Slogan Separator Effect */
+.additional-services-list .fw-bold.text-nowrap {
+    font-size: 0.9rem;
+}
+
+/* Tablet and Desktop sizes for additional services */
+@media (min-width: 768px) {
+    .additional-services-list .service-icon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .additional-services-list .service-name {
+        font-size: 1.1rem;
+    }
+}
+
+/* 8. Slogan Separator Effect (MERGED - no duplicates) */
 .slogan-container {
     display: flex;
     align-items: center;
@@ -108,10 +135,19 @@ body {
     height: 1px;
     background: linear-gradient(to right, transparent, var(--primary-gold), transparent);
 }
+
 .slogan-heading {
     color: var(--primary-gold);
     padding: 0 2rem;
-    white-space: nowrap;
+    white-space: normal;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 992px) {
+    .slogan-heading {
+        white-space: nowrap;
+        font-size: 2rem;
+    }
 }
 
 /* 9. Header Slogan Styling */
@@ -157,9 +193,8 @@ header.header-footer-bg {
     width: 100%;
     height: 450px;
     overflow: hidden;
-    background-color: transparent; /* Убираем черный фон */
+    background-color: transparent;
     border-radius: 0.5rem;
-    /* Добавляем легкую рамку, чтобы границы контейнера были видны */
     border: 1px solid #eaeaea; 
 }
 
@@ -169,7 +204,7 @@ header.header-footer-bg {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Заполняем весь блок без пробелов */
+    object-fit: cover;
     object-position: center;
 }
 
@@ -181,22 +216,14 @@ header.header-footer-bg {
     height: 100%;
 }
 
-/* Убраны эффекты затемнения и лупы */
-.carousel-image-wrapper a.glightbox::before {
-    display: none; /* Убираем затемнение */
-}
-
+.carousel-image-wrapper a.glightbox::before,
 .carousel-image-wrapper a.glightbox::after {
-    display: none; /* Убираем иконку лупы */
-}
-
-/* Убраны hover-эффекты */
-.carousel-image-wrapper a.glightbox:hover::before {
     display: none;
 }
+
+.carousel-image-wrapper a.glightbox:hover::before,
 .carousel-image-wrapper a.glightbox:hover::after {
     display: none;
-    /* Эффекты удалены */
 }
 
 /* 14. Carousel Controls Styling (FIXED POSITIONING) */
@@ -206,39 +233,34 @@ header.header-footer-bg {
     top: 0;
     bottom: 0;
     z-index: 100; 
-    width: 80px !important; /* Чуть шире зона клика */
+    width: 80px !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1 !important; /* Убираем прозрачность Bootstrap */
+    opacity: 1 !important;
     background: none !important;
     border: none;
 }
 
-/* Жесткое позиционирование по краям */
 .carousel-control-prev {
     left: 0 !important;
 }
 
 .carousel-control-next {
     right: 0 !important;
-    left: auto !important; /* Страховка от сброса стилей */
+    left: auto !important;
 }
 
-/* Стили самих иконок (золотые круги) */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: var(--primary-gold);
     border-radius: 50%;
     width: 3.5rem;
     height: 3.5rem;
-    background-size: 50%; /* Оптимальный размер стрелки */
+    background-size: 50%;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    
-    /* Убеждаемся, что это блочный элемент, а не абсолютный внутри флекса */
     display: inline-block;
-    position: static; /* Флекс-контейнер сам отцентрует кнопку */
-    
+    position: static;
     transition: all 0.3s ease;
 }
 
@@ -250,7 +272,7 @@ header.header-footer-bg {
 
 /* 15. Reviews Section Styling (v2) */
 .reviews-section {
-    padding: 1rem 1.5rem 3rem 1.5rem; /* top | horizontal | bottom */
+    padding: 1rem 1.5rem 3rem 1.5rem;
     box-shadow: 0 0 60px 20px rgba(184, 158, 64, 0.15);
     border-radius: 1rem;
     margin-bottom: 2rem;
@@ -326,7 +348,7 @@ header.header-footer-bg {
     font-size: 1.75rem;
     color: var(--primary-gold);
     vertical-align: middle;
-    transition: transform 0.2s ease-in-out, color 0.2s ease-inout;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 .social-icon-header:hover i {
     color: var(--hover-gold);
@@ -438,22 +460,22 @@ header.header-footer-bg {
     font-weight: 500;
 }
 .feature-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
 }
 .feature-icon {
-  width: 180px;
-  height: 180px;
-  object-fit: contain;
-  margin-bottom: 0.75rem;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
 }
 .feature-item p {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--dark-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--dark-text);
 }
 .price-order-section {
     display: flex;
@@ -542,7 +564,7 @@ header.header-footer-bg {
 }
 .philosophy-quote::before,
 .philosophy-quote::after {
-    content: "“";
+    content: """;
     font-family: Georgia, serif;
     font-size: 6rem;
     color: rgba(184, 158, 64, 0.15);
@@ -554,7 +576,7 @@ header.header-footer-bg {
     left: 1rem;
 }
 .philosophy-quote::after {
-    content: "”";
+    content: """;
     bottom: -1.5rem;
     right: 1rem;
 }
@@ -611,7 +633,7 @@ header.header-footer-bg {
 .bubble:nth-child(10) { width: 75px; height: 75px; left: 5%; animation-duration: 19s; animation-delay: 8s; }
 .quantity-widget .quantity-input {
     -moz-appearance: textfield;
-     appearance: textfield;
+    appearance: textfield;
 }
 .quantity-widget .quantity-input::-webkit-outer-spin-button,
 .quantity-widget .quantity-input::-webkit-inner-spin-button {
@@ -638,7 +660,7 @@ header.header-footer-bg {
 
 /*
 ==========================================================================
-   20. Pricing Page - Fixed Order Footer Bar (NEW & CORRECTED)
+   20. Pricing Page - Fixed Order Footer Bar
 ==========================================================================
 */
 
@@ -648,18 +670,15 @@ header.header-footer-bg {
     left: 0;
     right: 0;
     z-index: 1030;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 1rem 2rem;
     background-color: var(--panel-bg);
     border-top: 1px solid var(--header-border);
     box-shadow: 0 -0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-
     transform: translateY(100%);
-    animation: slide-up 0.5s 0.2s ease-out forwards; /* Added 0.2s delay */
+    animation: slide-up 0.5s 0.2s ease-out forwards;
 }
 
 @keyframes slide-up {
@@ -684,64 +703,45 @@ header.header-footer-bg {
 
 /*
 ==========================================================================
-   21. Off-Canvas Calculator Styles (NEW)
+   21. Off-Canvas Calculator Styles
 ==========================================================================
 */
 
-/* Делаем всплывашку шире на больших экранах */
 @media (min-width: 992px) {
     #offcanvasCalculator {
-        width: 800px; 
+        width: 850px !important;
     }
 }
 
-/* 
- * Главный трюк: превращаем тело offcanvas в flex-контейнер,
- * чтобы управлять прикрепленным футером и прокручиваемым контентом.
-*/
 .offcanvas-calculator-body {
     display: flex;
     flex-direction: column;
-    padding: 0; /* Убираем стандартные отступы, чтобы контент прилегал к краям */
+    padding: 0;
     height: 100%;
-    overflow: hidden; /* Предотвращаем двойную прокрутку */
+    overflow: hidden;
 }
 
-/* Основной контент (левая часть) - делаем его прокручиваемым */
 .calculator-main-content {
-    flex-grow: 1; /* Занимает все доступное пространство */
-    overflow-y: auto; /* Добавляет вертикальную прокрутку, если контент не влезает */
+    flex-grow: 1;
+    overflow-y: auto;
     padding: 1.5rem;
 }
 
 .calculator-summary-sidebar {
-    flex-shrink: 0; /* Запрещаем сжиматься */
+    flex-shrink: 0;
     padding: 1.5rem;
     background-color: var(--header-bg-light);
-    border-top: 1px solid var(--header-border); /* Верхняя граница, как у футера */
-    box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.05); /* Тень сверху */
+    border-top: 1px solid var(--header-border);
+    box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.05);
 }
 
-/* 
- * Стили для больших экранов (992px и шире).
- * Здесь мы делаем панель шире и превращаем "подвал" в боковую колонку.
-*/
 @media (min-width: 992px) {
-    /* Делаем саму всплывающую панель шире */
-    #offcanvasCalculator {
-        width: 850px !important; /* Гарантированно устанавливаем ширину */
-    }
-
-    /* Адаптируем боковую панель с итогом под вид колонки */
     .calculator-summary-sidebar {
-        /* Переопределяем мобильные стили */
-        border-top: none; /* Убираем верхнюю границу */
-        box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.05); /* Меняем тень на левую сторону */
-        
-        /* Добавляем новые стили только для десктопа */
-        border-left: 1px solid var(--header-border); /* Добавляем левую границу */
-        height: 100%; /* Растягиваем на всю высоту */
-        overflow-y: auto; /* Добавляем прокрутку, если не помещается */
+        border-top: none;
+        box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.05);
+        border-left: 1px solid var(--header-border);
+        height: 100%;
+        overflow-y: auto;
     }
 }
 
@@ -762,57 +762,39 @@ header.header-footer-bg {
 ==========================================================================
 */
 
-
-
 .services-grid {
     display: grid;
-    /* Мы создаем очень гибкую сетку из 6 колонок */
     grid-template-columns: repeat(6, 1fr);
     gap: 1.5rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
-/* Заголовок по-прежнему занимает всю ширину */
 .services-grid .grid-title {
-    grid-column: 1 / -1; /* Растянуть от 1-й до последней колонки */
+    grid-column: 1 / -1;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--subtle-border);
 }
 
-/* --- Главный трюк для идеального баланса --- */
-
-/* Первые 3 карточки (Стандартная, Генеральная, После ремонта) */
-/* nth-child(-n+4) выбирает элементы со 2-го по 4-й (т.к. заголовок - первый) */
 .services-grid .service-card:nth-child(-n+4) {
-    /* Каждая из них занимает 2 из 6 колонок (2+2+2 = 6) */
     grid-column: span 2;
 }
 
-/* Последние 2 карточки (Организация, Уборка кухни) */
-/* nth-child(n+5) выбирает элементы с 5-го и далее */
 .services-grid .service-card:nth-child(n+5) {
-    /* Каждая из них занимает 3 из 6 колонок (3+3 = 6) */
     grid-column: span 3;
 }
 
-
-/* --- Адаптивность --- */
-
-/* Для планшетов: 2 карточки в ряд */
 @media (max-width: 992px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    /* Все карточки становятся одинаковой ширины */
     .services-grid .service-card:nth-child(-n+4),
     .services-grid .service-card:nth-child(n+5) {
         grid-column: span 1;
     }
 }
 
-/* Для мобильных: 1 карточка в ряд */
 @media (max-width: 768px) {
     .services-grid {
         grid-template-columns: 1fr;
@@ -826,14 +808,14 @@ header.header-footer-bg {
 */
 .payment-option-label {
     display: flex;
-    align-items: center; /* Это идеально выровняет иконку и текст по вертикали */
-    gap: 0.5rem;         /* Это добавит небольшой отступ между иконкой и текстом */
-    font-size: 1.1rem;   /* Сделаем текст чуть крупнее */
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
 }
 
 .payment-option-label i {
-    font-size: 1.3rem; /* Сделаем иконку чуть больше текста */
-    color: var(--primary-gold); /* Используем ваш фирменный золотой цвет */
+    font-size: 1.3rem;
+    color: var(--primary-gold);
 }
 
 /*
@@ -844,26 +826,25 @@ header.header-footer-bg {
 
 .price-unit-label {
     font-size: 0.9rem;
-    color: var(--dark-charcoal); /* Используем темный цвет для контраста */
-    font-weight: 600;            /* Жирнее, чем обычный текст */
-    font-style: italic;          /* Курсив для стиля */
+    color: var(--dark-charcoal);
+    font-weight: 600;
+    font-style: italic;
     margin-left: 0.4rem;
     opacity: 0.9;
 }
 
 /*
 ==========================================================================
-   27. Payment Method Cards Styling (UPDATED V2)
+   27. Payment Method Cards Styling
 ==========================================================================
 */
 
 .payment-methods-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem; /* Больше расстояние между карточками */
+    gap: 1.5rem;
 }
 
-/* Скрываем стандартный input */
 .payment-method-input {
     position: absolute;
     opacity: 0;
@@ -871,125 +852,182 @@ header.header-footer-bg {
     height: 0;
 }
 
-/* Стили самой карточки */
 .payment-method-card {
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1rem; /* Увеличенный вертикальный отступ */
+    padding: 2rem 1rem;
     border: 2px solid var(--header-border);
     border-radius: 0.75rem;
     background-color: #fff;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
     color: var(--dark-text);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02); /* Легкая тень по умолчанию */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
-/* Стили иконки */
 .payment-method-card i {
-    font-size: 3.5rem; /* ОЧЕНЬ КРУПНЫЕ иконки */
+    font-size: 3.5rem;
     margin-bottom: 1rem;
-    color: #6c757d; /* Темно-серый цвет для неактивного состояния */
+    color: #6c757d;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Текст */
 .payment-method-card span {
     font-weight: 600;
     font-size: 1.1rem;
     text-align: center;
 }
 
-/* --- АКТИВНОЕ СОСТОЯНИЕ (ВЫБРАНО) --- */
 .payment-method-input:checked + .payment-method-card {
     border-color: var(--primary-gold);
-    background-color: rgba(184, 158, 64, 0.1); /* Более насыщенный золотой фон */
-    box-shadow: 0 8px 20px rgba(184, 158, 64, 0.15); /* Золотистое свечение */
-    transform: translateY(-2px); /* Легкое приподнятие */
+    background-color: rgba(184, 158, 64, 0.1);
+    box-shadow: 0 8px 20px rgba(184, 158, 64, 0.15);
+    transform: translateY(-2px);
 }
 
 .payment-method-input:checked + .payment-method-card i {
     color: var(--primary-gold);
-    transform: scale(1.1); /* Иконка чуть увеличивается */
+    transform: scale(1.1);
 }
 
-/* Ховер эффект */
 .payment-method-card:hover {
     border-color: var(--hover-gold);
     background-color: #fdfdfd;
 }
 
-/* =========================================
-   MOBILE RESPONSIVENESS FIXES
-   ========================================= */
+/*
+==========================================================================
+   28. Global Mobile Responsiveness
+==========================================================================
+*/
 
-/* 1. Глобальный запрет на горизонтальный скролл */
-html, body {
+html {
     overflow-x: hidden;
     width: 100%;
-    position: relative;
 }
 
-/* 2. Адаптация списка дополнительных услуг */
-.additional-services-list .service-icon {
-    /* На мобильных делаем иконки маленькими */
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    flex-shrink: 0; /* Запрещаем иконке сжиматься */
+/*
+==========================================================================
+   29. Cookie Banner (with Safari support)
+==========================================================================
+*/
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(30, 30, 30, 0.97);
+    color: #fff;
+    padding: 15px 20px;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Обертка элемента списка */
-.additional-services-list .d-flex.align-items-center {
-    /* Разрешаем элементам внутри строки сжиматься */
-    max-width: 100%;
+.cookie-content {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
 }
 
-/* Текст названия услуги */
-.additional-services-list .service-name {
+.cookie-content p {
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
     font-size: 0.95rem;
-    white-space: normal; /* Разрешаем перенос текста */
-    word-wrap: break-word;
-    margin-right: 0.5rem;
 }
 
-/* Цена и описание */
-.additional-services-list .fw-bold.text-nowrap {
-    font-size: 0.9rem;
-    /* На очень узких экранах разрешаем цене перенестись, если нужно, 
-       но text-nowrap обычно держит цену цельной. 
-       Оставим как есть, но уменьшим шрифт. */
+.cookie-content a {
+    color: var(--primary-gold);
+    text-decoration: underline;
 }
 
-/* 3. Медиа-запрос для Планшетов и Десктопов (возвращаем крупный размер) */
-@media (min-width: 768px) {
-    .additional-services-list .service-icon {
-        width: 120px; /* На десктопе побольше, но 240px было перебором */
-        height: 120px;
+.cookie-content a:hover {
+    color: var(--hover-gold);
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 576px) {
+    .cookie-banner {
+        padding: 15px;
     }
     
-    .additional-services-list .service-name {
-        font-size: 1.1rem;
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cookie-buttons {
+        width: 100%;
+        justify-content: center;
     }
 }
 
-/* 4. Исправление слогана (чтобы не улетал) */
-.slogan-heading {
-    white-space: normal; /* Текст может переноситься */
-    font-size: 1.5rem;   /* Чуть меньше на мобильных */
+/*
+==========================================================================
+   30. Legal Pages Styling
+==========================================================================
+*/
+.legal-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0 40px;
 }
 
-@media (min-width: 992px) {
-    .slogan-heading {
-        white-space: nowrap; /* На больших экранах в одну строку */
-        font-size: 2rem;
-    }
+.legal-title {
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+    font-size: 2rem;
 }
 
-/* 5. Отступ снизу для контента, чтобы Липкий Футер не перекрывал его */
-body {
-    padding-bottom: 100px !important;
+.legal-subtitle {
+    color: #888;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+.legal-section {
+    margin-bottom: 30px;
+}
+
+.legal-section h2 {
+    color: var(--primary-gold);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(184, 158, 64, 0.3);
+}
+
+.legal-section p,
+.legal-section li {
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.legal-section ul,
+.legal-section ol {
+    padding-left: 25px;
+}
+
+.legal-section a {
+    color: var(--primary-gold);
+}
+
+.legal-section a:hover {
+    text-decoration: underline;
 }

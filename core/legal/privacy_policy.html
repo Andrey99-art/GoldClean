@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Privacy Policy" %} - Gold Clean{% endblock %}
+{% block meta_description %}{% trans "Privacy Policy of Gold Clean cleaning services in Warsaw." %}{% endblock %}
+
+{% block content %}
+<div class="legal-page">
+    <h1 class="legal-title">{% trans "Privacy Policy" %}</h1>
+    <p class="legal-subtitle">{% trans "Last updated" %}: {% now "j F Y" %}</p>
+
+    <section class="legal-section">
+        <h2>1. {% trans "Data Controller" %}</h2>
+        <p>{% blocktrans %}The controller of your personal data is ANNA SYDOROVA, NIP: 5223353123, based in Warsaw, Poland (hereinafter referred to as "Gold Clean", "we", "us").{% endblocktrans %}</p>
+        <p>{% trans "Contact email" %}: <a href="mailto:goldclean2026@gmail.com">goldclean2026@gmail.com</a></p>
+        <p>{% trans "Phone" %}: <a href="tel:+48781628269">+48 781 628 269</a></p>
+    </section>
+
+    <section class="legal-section">
+        <h2>2. {% trans "What Data We Collect" %}</h2>
+        <p>{% trans "We collect the following personal data when you place an order:" %}</p>
+        <ul>
+            <li>{% trans "First and last name" %}</li>
+            <li>{% trans "Email address" %}</li>
+            <li>{% trans "Phone number" %}</li>
+            <li>{% trans "Address (for service delivery)" %}</li>
+        </ul>
+        <p>{% trans "We also automatically collect:" %}</p>
+        <ul>
+            <li>{% trans "Cookies necessary for the website to function" %}</li>
+            <li>{% trans "Session data" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>3. {% trans "Purpose of Data Processing" %}</h2>
+        <p>{% trans "Your personal data is processed for the following purposes:" %}</p>
+        <ul>
+            <li>{% trans "Execution of the cleaning service order (Article 6(1)(b) GDPR)" %}</li>
+            <li>{% trans "Contact regarding your order (Article 6(1)(b) GDPR)" %}</li>
+            <li>{% trans "Compliance with legal obligations, e.g., tax documentation (Article 6(1)(c) GDPR)" %}</li>
+            <li>{% trans "Legitimate interests, e.g., handling complaints (Article 6(1)(f) GDPR)" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>4. {% trans "Data Retention Period" %}</h2>
+        <p>{% trans "We store your personal data:" %}</p>
+        <ul>
+            <li>{% trans "Order data: for the duration of the contract and 5 years thereafter (tax requirements)" %}</li>
+            <li>{% trans "Contact data: until you withdraw your consent or request deletion" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>5. {% trans "Your Rights" %}</h2>
+        <p>{% trans "Under GDPR (RODO), you have the right to:" %}</p>
+        <ul>
+            <li>{% trans "Access your personal data" %}</li>
+            <li>{% trans "Rectify (correct) your data" %}</li>
+            <li>{% trans "Erase your data ('right to be forgotten')" %}</li>
+            <li>{% trans "Restrict processing" %}</li>
+            <li>{% trans "Data portability" %}</li>
+            <li>{% trans "Object to processing" %}</li>
+            <li>{% trans "Lodge a complaint with the supervisory authority (UODO in Poland)" %}</li>
+        </ul>
+        <p>{% trans "To exercise these rights, contact us at" %}: <a href="mailto:goldclean2026@gmail.com">goldclean2026@gmail.com</a></p>
+    </section>
+
+    <section class="legal-section">
+        <h2>6. {% trans "Cookies" %}</h2>
+        <p>{% trans "Our website uses cookies for:" %}</p>
+        <ul>
+            <li>{% trans "Essential cookies: necessary for the website to function (session, CSRF protection, language preferences)" %}</li>
+        </ul>
+        <p>{% trans "We do not use marketing or analytics cookies." %}</p>
+        <p>{% trans "You can manage cookies through your browser settings." %}</p>
+    </section>
+
+    <section class="legal-section">
+        <h2>7. {% trans "Data Security" %}</h2>
+        <p>{% trans "We implement appropriate technical and organizational measures to protect your personal data, including:" %}</p>
+        <ul>
+            <li>{% trans "SSL/TLS encryption" %}</li>
+            <li>{% trans "Secure server infrastructure" %}</li>
+            <li>{% trans "Access control to personal data" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>8. {% trans "Changes to This Policy" %}</h2>
+        <p>{% trans "We reserve the right to update this Privacy Policy. Changes will be posted on this page with an updated date." %}</p>
+    </section>
+</div>
+{% endblock %}

@@ -296,3 +296,12 @@ def start_order_from_list(request):
             messages.error(request, _("An unexpected error occurred while starting your order."))
         return redirect(request.META.get('HTTP_REFERER', 'index'))
     return redirect('index')
+
+def privacy_policy_view(request):
+    """Страница политики конфиденциальности."""
+    return render(request, 'core/legal/privacy_policy.html')
+
+
+def terms_view(request):
+    """Страница правил и условий."""
+    return render(request, 'core/legal/terms.html')    

@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Terms and Conditions" %} - Gold Clean{% endblock %}
+{% block meta_description %}{% trans "Terms and Conditions of Gold Clean cleaning services in Warsaw." %}{% endblock %}
+
+{% block content %}
+<div class="legal-page">
+    <h1 class="legal-title">{% trans "Terms and Conditions" %}</h1>
+    <p class="legal-subtitle">{% trans "Last updated" %}: {% now "j F Y" %}</p>
+
+    <section class="legal-section">
+        <h2>1. {% trans "General Provisions" %}</h2>
+        <p>{% blocktrans %}These Terms and Conditions define the rules for using the services offered by ANNA SYDOROVA, operating under the trade name Gold Clean, NIP: 5223353123, based in Warsaw, Poland.{% endblocktrans %}</p>
+        <p>{% trans "Contact" %}: <a href="mailto:goldclean2026@gmail.com">goldclean2026@gmail.com</a>, tel: +48 781 628 269</p>
+    </section>
+
+    <section class="legal-section">
+        <h2>2. {% trans "Definitions" %}</h2>
+        <ul>
+            <li><strong>{% trans "Service Provider" %}</strong> – ANNA SYDOROVA (Gold Clean)</li>
+            <li><strong>{% trans "Client" %}</strong> – {% trans "a natural or legal person placing an order" %}</li>
+            <li><strong>{% trans "Service" %}</strong> – {% trans "cleaning services offered by Gold Clean" %}</li>
+            <li><strong>{% trans "Order" %}</strong> – {% trans "a request for services submitted via the website or phone" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>3. {% trans "Services" %}</h2>
+        <p>{% trans "Gold Clean provides the following services:" %}</p>
+        <ul>
+            <li>{% trans "Standard apartment and house cleaning" %}</li>
+            <li>{% trans "Deep cleaning" %}</li>
+            <li>{% trans "Post-renovation cleaning" %}</li>
+            <li>{% trans "Window cleaning" %}</li>
+            <li>{% trans "Kitchen cleaning" %}</li>
+            <li>{% trans "Additional services as listed on the website" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>4. {% trans "Ordering Process" %}</h2>
+        <ol>
+            <li>{% trans "Select the desired service and options on the website" %}</li>
+            <li>{% trans "Provide your contact details and address" %}</li>
+            <li>{% trans "Choose a convenient date and time" %}</li>
+            <li>{% trans "Confirm the order" %}</li>
+            <li>{% trans "Receive confirmation via email" %}</li>
+        </ol>
+        <p>{% trans "By placing an order, the Client accepts these Terms and Conditions." %}</p>
+    </section>
+
+    <section class="legal-section">
+        <h2>5. {% trans "Prices and Payment" %}</h2>
+        <ul>
+            <li>{% trans "All prices on the website are in Polish Zloty (PLN) and include VAT" %}</li>
+            <li>{% trans "The final price is calculated based on the selected services and options" %}</li>
+            <li>{% trans "Payment is made after the service is completed, unless otherwise agreed" %}</li>
+            <li>{% trans "We accept cash and bank transfers" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>6. {% trans "Cancellation Policy" %}</h2>
+        <ul>
+            <li>{% trans "Cancellation more than 24 hours before the scheduled service: free of charge" %}</li>
+            <li>{% blocktrans with fee=site_config.cancellation_fee %}Cancellation less than 24 hours before the scheduled service: a fee of {{ fee }} PLN may apply{% endblocktrans %}</li>
+            <li>{% trans "To cancel, contact us by phone or email" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>7. {% trans "Client Obligations" %}</h2>
+        <p>{% trans "The Client agrees to:" %}</p>
+        <ul>
+            <li>{% trans "Provide accurate contact and address information" %}</li>
+            <li>{% trans "Ensure access to the premises at the agreed time" %}</li>
+            <li>{% trans "Inform about any pets or special conditions" %}</li>
+            <li>{% trans "Secure valuable and fragile items" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>8. {% trans "Service Provider Obligations" %}</h2>
+        <p>{% trans "Gold Clean commits to:" %}</p>
+        <ul>
+            <li>{% trans "Provide services with due diligence and professionalism" %}</li>
+            <li>{% trans "Arrive at the agreed time" %}</li>
+            <li>{% trans "Use appropriate cleaning supplies and equipment" %}</li>
+            <li>{% trans "Respect the Client's property" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>9. {% trans "Complaints" %}</h2>
+        <ul>
+            <li>{% trans "Complaints should be submitted within 24 hours of service completion" %}</li>
+            <li>{% trans "Contact us at goldclean2026@gmail.com or by phone" %}</li>
+            <li>{% trans "We will respond to complaints within 14 business days" %}</li>
+            <li>{% trans "If the complaint is justified, we will rectify the issue free of charge" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>10. {% trans "Liability" %}</h2>
+        <ul>
+            <li>{% trans "Gold Clean is not liable for damage caused by the Client's failure to secure fragile items" %}</li>
+            <li>{% trans "We are insured against civil liability (OC)" %}</li>
+            <li>{% trans "Any damage should be reported immediately upon discovery" %}</li>
+        </ul>
+    </section>
+
+    <section class="legal-section">
+        <h2>11. {% trans "Final Provisions" %}</h2>
+        <ul>
+            <li>{% trans "These Terms are governed by Polish law" %}</li>
+            <li>{% trans "Any disputes will be resolved by the competent court in Warsaw" %}</li>
+            <li>{% trans "We reserve the right to amend these Terms; changes will be published on the website" %}</li>
+        </ul>
+    </section>
+</div>
+{% endblock %}

@@ -191,6 +191,8 @@
                 <li class="nav-item"><a href="{% url 'kitchen_cleaning' %}" class="nav-link px-2 text-body-secondary">{% trans "Kitchen Cleaning" %}</a></li>
                 <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link px-2 text-body-secondary">{% trans "Pricing" %}</a></li>
                 <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-body-secondary">{% trans "About us" %}</a></li>
+                <li class="nav-item"><a href="{% url 'privacy_policy' %}" class="nav-link px-2 text-body-secondary">{% trans "Privacy Policy" %}</a></li>
+                <li class="nav-item"><a href="{% url 'terms' %}" class="nav-link px-2 text-body-secondary">{% trans "Terms" %}</a></li>
             </ul>
             <div class="text-center mb-3">
                 {% if site_config and site_config.telegram_link %}
@@ -208,6 +210,22 @@
             <p class="text-center text-body-secondary small mb-0">ANNA SYDOROVA · NIP: 5223353123 · Warszawa</p>
         </div>
     </footer>
+
+    <!-- ======================================================= -->
+    <!--                    COOKIE BANNER                        -->
+    <!-- ======================================================= -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>
+                {% trans "We use cookies to ensure the proper functioning of our website." %}
+                <a href="{% url 'privacy_policy' %}">{% trans "Privacy Policy" %}</a>
+            </p>
+            <div class="cookie-buttons">
+                <button id="cookie-accept" class="btn btn-primary btn-sm">{% trans "Accept" %}</button>
+                <button id="cookie-decline" class="btn btn-outline-secondary btn-sm">{% trans "Decline" %}</button>
+            </div>
+        </div>
+    </div>
 
     <!-- ======================================================= -->
     <!--                    SCRIPTS (JS)                         -->
@@ -251,6 +269,30 @@
             detectRetina: true,
         });
     });
+    </script>
+
+    <!-- Cookie Banner Script -->
+    <script>
+    (function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('cookie-accept');
+        const declineBtn = document.getElementById('cookie-decline');
+        
+        // Check if user already made a choice
+        if (!localStorage.getItem('cookieConsent')) {
+            banner.style.display = 'flex';
+        }
+        
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            banner.style.display = 'none';
+        });
+        
+        declineBtn.addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'declined');
+            banner.style.display = 'none';
+        });
+    })();
     </script>
 
     {% block extra_js %}{% endblock %}
