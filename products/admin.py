@@ -19,13 +19,13 @@ class ServiceAdmin(TabbedTranslationAdmin):
     fieldsets = (
         (None, {'fields': ('name', 'short_description', 'slug', 'base_price', 'order')}),
         ('Pricing Details', {'fields': ('price_per_room', 'price_per_bathroom', 'is_sqm_based', 'price_per_sqm')}),
-        ('Configuration', {'fields': ('base_duration_minutes', 'is_window_service')}),
+        # ИЗМЕНЕНИЕ: Добавлено поле duration_per_sqm
+        ('Configuration', {'fields': ('base_duration_minutes', 'duration_per_sqm', 'is_window_service')}),
     )
     inlines = [ServiceFeatureInline]
 
 @admin.register(AdditionalService)
 class AdditionalServiceAdmin(TabbedTranslationAdmin):
-    # ИЗМЕНЕНИЕ: Добавляем новое поле в отображение и редактирование
     list_display = ('name', 'price', 'is_active', 'order', 'is_for_kitchen', 'is_quantity_based')
     list_filter = ('is_active', 'is_for_kitchen', 'is_quantity_based')
     list_editable = ('price', 'order', 'is_active', 'is_for_kitchen', 'is_quantity_based')
