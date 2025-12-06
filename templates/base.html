@@ -78,67 +78,26 @@
     <!-- ======================================================= -->
     <!--                 HEADER (RESPONSIVE)                     -->
     <!-- ======================================================= -->
-    <header class="header-footer-bg border-bottom">
-        <div id="tsparticles"></div>
-        <nav class="navbar navbar-expand-xl">
+<header class="header-footer-bg border-bottom">
+    <div id="tsparticles"></div>
+    
+    <!-- ДЕСКТОП: Двухуровневый хедер -->
+    <div class="d-none d-xl-block">
+        <!-- Верхняя строка: Контакты и соцсети -->
+        <div class="header-top-bar border-bottom">
             <div class="container">
-                
-                <!-- Лого -->
-                <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
-                    <img src="{% static 'images/logo.png' %}" alt="Gold Clean Logo" class="header-logo">
-                </a>
-
-                <!-- Слоган (виден на средних+ экранах, на мобильных в меню) -->
-                <div class="header-slogan d-none d-md-flex align-items-center ms-3">
-                    <p class="mb-0">{% trans "An individual approach to the cleanliness of your space." %}</p>
-                </div>
-
-                <!-- Кнопка бургер-меню -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Десктоп меню (скрыто на мобильных) -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <!-- Навигация -->
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">{% trans "Home" %}</a></li>
-                        {% if site_config.services_page_enabled %}
-                        <li class="nav-item"><a href="{% url 'services' %}" class="nav-link">{% trans "Services" %}</a></li>
-                        {% endif %}
-                        <li class="nav-item"><a href="{% url 'window_cleaning' %}" class="nav-link">{% trans "Window Cleaning" %}</a></li>
-                        <li class="nav-item"><a href="{% url 'kitchen_cleaning' %}" class="nav-link">{% trans "Kitchen Cleaning" %}</a></li>
-                        <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">{% trans "Pricing" %}</a></li>
-                        <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">{% trans "About us" %}</a></li>
-                    </ul>
-
-                    <!-- Правая часть -->
-                    <div class="d-flex align-items-center gap-2">
-                        <!-- Язык -->
-                        <form action="{% url 'set_language' %}" method="post" class="mb-0">
-                            {% csrf_token %}
-                            <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
-                            <div class="dropdown">
-                                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="fi fi-{% if request.LANGUAGE_CODE == 'en' %}gb{% elif request.LANGUAGE_CODE == 'uk' %}ua{% else %}{{ request.LANGUAGE_CODE }}{% endif %}"></span>
-                                    {{ request.LANGUAGE_CODE|upper }}
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    {% get_available_languages as LANGUAGES %}
-                                    {% for lang_code, lang_name in LANGUAGES %}
-                                    <li>
-                                        <button type="submit" name="language" value="{{ lang_code }}" class="dropdown-item">
-                                            <span class="fi fi-{% if lang_code == 'en' %}gb{% elif lang_code == 'uk' %}ua{% else %}{{ lang_code }}{% endif %}"></span> {{ lang_name }}
-                                        </button>
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </form>
-
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <!-- Слева: Слоган -->
+                    <div class="header-slogan-desktop">
+                        <i class="bi bi-stars text-gold me-2"></i>
+                        <span>{% trans "An individual approach to the cleanliness of your space." %}</span>
+                    </div>
+                    
+                    <!-- Справа: Контакты -->
+                    <div class="d-flex align-items-center gap-3">
                         <!-- Телефон -->
-                        <a href="tel:+48781628269" class="btn btn-outline-primary btn-sm text-nowrap">
-                            <i class="bi bi-telephone"></i> +48 781 628 269
+                        <a href="tel:+48781628269" class="header-contact-link">
+                            <i class="bi bi-telephone-fill me-1"></i>+48 781 628 269
                         </a>
                         
                         <!-- Соцсети -->
@@ -153,33 +112,104 @@
                         </a>
                         {% endif %}
                         
-                        <!-- Пользователь -->
+                        <!-- Язык -->
+                        <form action="{% url 'set_language' %}" method="post" class="mb-0">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+                            <div class="dropdown">
+                                <a href="#" class="header-lang-toggle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="fi fi-{% if request.LANGUAGE_CODE == 'en' %}gb{% elif request.LANGUAGE_CODE == 'uk' %}ua{% else %}{{ request.LANGUAGE_CODE }}{% endif %} me-1"></span>
+                                    {{ request.LANGUAGE_CODE|upper }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    {% get_available_languages as LANGUAGES %}
+                                    {% for lang_code, lang_name in LANGUAGES %}
+                                    <li>
+                                        <button type="submit" name="language" value="{{ lang_code }}" class="dropdown-item">
+                                            <span class="fi fi-{% if lang_code == 'en' %}gb{% elif lang_code == 'uk' %}ua{% else %}{{ lang_code }}{% endif %} me-2"></span>{{ lang_name }}
+                                        </button>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Нижняя строка: Лого + Меню + Аккаунт -->
+        <div class="header-main-bar">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <!-- Лого -->
+                    <a href="{% url 'index' %}" class="header-logo-link">
+                        <img src="{% static 'images/logo.png' %}" alt="Gold Clean Logo" class="header-logo-desktop">
+                    </a>
+                    
+                    <!-- Меню -->
+                    <nav class="header-nav-desktop">
+                        <ul class="nav">
+                            <li class="nav-item"><a href="{% url 'index' %}" class="nav-link">{% trans "Home" %}</a></li>
+                            {% if site_config.services_page_enabled %}
+                            <li class="nav-item"><a href="{% url 'services' %}" class="nav-link">{% trans "Services" %}</a></li>
+                            {% endif %}
+                            <li class="nav-item"><a href="{% url 'window_cleaning' %}" class="nav-link">{% trans "Window Cleaning" %}</a></li>
+                            <li class="nav-item"><a href="{% url 'kitchen_cleaning' %}" class="nav-link">{% trans "Kitchen Cleaning" %}</a></li>
+                            <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">{% trans "Pricing" %}</a></li>
+                            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">{% trans "About us" %}</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Аккаунт -->
+                    <div class="header-account">
                         {% if user.is_authenticated %}
                         <div class="dropdown">
-                            <a href="#" class="btn btn-outline-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
-                                <i class="bi bi-person-circle"></i> {{ user.username }}
+                            <a href="#" class="btn btn-outline-gold dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="bi bi-person-circle me-1"></i>{{ user.username }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="{% url 'order_list' %}"><i class="bi bi-bag"></i> {% trans "My Orders" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'order_list' %}"><i class="bi bi-bag me-2"></i>{% trans "My Orders" %}</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form action="{% url 'logout' %}" method="post" class="mb-0">
                                         {% csrf_token %}
-                                        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> {% trans "Logout" %}</button>
+                                        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right me-2"></i>{% trans "Logout" %}</button>
                                     </form>
                                 </li>
                             </ul>
                         </div>
                         {% else %}
-                        <a href="{% url 'login' %}" class="btn btn-outline-primary btn-sm">{% trans "Login" %}</a>
-                        <a href="{% url 'register' %}" class="btn btn-primary btn-sm">{% trans "Register" %}</a>
+                        <a href="{% url 'login' %}" class="btn btn-outline-gold me-2">{% trans "Login" %}</a>
+                        <a href="{% url 'register' %}" class="btn btn-gold">{% trans "Register" %}</a>
                         {% endif %}
                     </div>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </div>
 
+    <!-- МОБИЛЬНЫЙ: Компактный хедер -->
+    <nav class="navbar d-xl-none">
+        <div class="container">
+            <!-- Лого и слоган -->
+            <div class="d-flex flex-column">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img src="{% static 'images/logo.png' %}" alt="Gold Clean Logo" class="header-logo-mobile">
+                </a>
+                <!-- Слоган под лого на мобильном -->
+                <div class="header-slogan-mobile">
+                    <p class="mb-0">{% trans "An individual approach to the cleanliness of your space." %}</p>
+                </div>
+            </div>
+
+            <!-- Кнопка бургер-меню -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>
     <!-- ======================================================= -->
     <!--              MOBILE OFFCANVAS MENU                      -->
     <!-- ======================================================= -->
