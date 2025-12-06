@@ -1438,7 +1438,7 @@ msgstr "Дата обновления"
 
 #: .\templates\core\legal\privacy_policy.html:13
 msgid "Data Controller"
-msgstr "контроллер данных"
+msgstr "Контроллер данных"
 
 #: .\templates\core\legal\privacy_policy.html:14
 msgid ""
@@ -1883,7 +1883,7 @@ msgstr "Любой ущерб должен быть сообщен сразу ж
 
 #: .\templates\core\legal\terms.html:114
 msgid "Final Provisions"
-msgstr "заключительные положения"
+msgstr "Заключительные положения"
 
 #: .\templates\core\legal\terms.html:116
 msgid "These Terms are governed by Polish law"
