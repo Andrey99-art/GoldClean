@@ -112,6 +112,10 @@ def calculate_price(request):
                 sqm_price = Decimal(sqm) * base_service.price_per_sqm
                 total_price += sqm_price
                 details.update({'sqm': sqm, 'sqm_price': float(sqm_price)})
+                if base_service.duration_per_sqm > 0:
+                    total_duration += sqm * base_service.duration_per_sqm
+                    
+                details.update({'sqm': sqm, 'sqm_price': float(sqm_price)})
             else:
                 rooms_count = int(data.get('rooms') or 1)
                 bathrooms_count = int(data.get('bathrooms') or 1)

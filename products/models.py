@@ -12,6 +12,7 @@ class Service(models.Model):
     price_per_room = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Price per extra room"))
     price_per_bathroom = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Price per extra bathroom"))
     base_duration_minutes = models.PositiveIntegerField(default=60, verbose_name=_("Base duration (minutes)"))
+    duration_per_sqm = models.PositiveIntegerField(default=0, verbose_name=_("Duration per m² (minutes)"),help_text=_("Additional minutes per square meter. Only used if 'Is Sqm Based' is checked. E.g., 5 means 100m² adds 500 minutes."))
     is_sqm_based = models.BooleanField(default=False, verbose_name=_("Is Sqm Based?"))
     price_per_sqm = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name=_("Price Per Sqm / Per Window"))
     is_window_service = models.BooleanField(default=False, verbose_name=_("Is Window Cleaning Service?"))
