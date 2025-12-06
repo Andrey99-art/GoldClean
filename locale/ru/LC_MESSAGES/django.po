@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-06 13:17+0300\n"
+"POT-Creation-Date: 2025-12-06 13:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -100,7 +100,7 @@ msgstr "Украинский"
 msgid "Website Content"
 msgstr "Содержимое сайта"
 
-#: .\core\models.py:8 .\products\models.py:60
+#: .\core\models.py:8 .\products\models.py:61
 msgid "Title"
 msgstr "Название"
 
@@ -113,8 +113,8 @@ msgstr "например, 'Ванная', 'Кухня'"
 msgid "Image"
 msgstr "Изображение"
 
-#: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:18
-#: .\products\models.py:47 .\products\models.py:63 .\reviews\models.py:27
+#: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:19
+#: .\products\models.py:48 .\products\models.py:64 .\reviews\models.py:27
 msgid "Display Order"
 msgstr "Порядок отображения"
 
@@ -130,7 +130,7 @@ msgstr "Зона уборки"
 msgid "Cleaning Areas"
 msgstr "Зоны уборки"
 
-#: .\core\models.py:27 .\products\models.py:73
+#: .\core\models.py:27 .\products\models.py:74
 msgid "Description"
 msgstr "Описание"
 
@@ -210,19 +210,19 @@ msgstr "часов "
 msgid "min"
 msgstr "мин"
 
-#: .\core\views.py:189 .\core\views.py:228
+#: .\core\views.py:193 .\core\views.py:232
 msgid "Произошла непредвиденная ошибка."
 msgstr ""
 
-#: .\core\views.py:200
+#: .\core\views.py:204
 msgid "Window cleaning service is currently unavailable."
 msgstr "Услуга 'Уборка кухни' в данный момент недоступна."
 
-#: .\core\views.py:268
+#: .\core\views.py:272
 msgid "Please select a main cleaning service."
 msgstr "Выберите основную услугу по уборке."
 
-#: .\core\views.py:296
+#: .\core\views.py:300
 msgid "An unexpected error occurred while starting your order."
 msgstr "При запуске вашего заказа произошла непредвиденная ошибка."
 
@@ -324,7 +324,7 @@ msgstr "Плата за выезд"
 msgid "Cities"
 msgstr "Города"
 
-#: .\orders\models.py:26 .\products\models.py:72
+#: .\orders\models.py:26 .\products\models.py:73
 #: .\templates\accounts\order_detail.html:29
 #: .\templates\core\legal\terms.html:23
 msgid "Service"
@@ -460,7 +460,7 @@ msgstr "Дата создания"
 msgid "Update date"
 msgstr "Дата обновления"
 
-#: .\orders\models.py:83 .\products\models.py:74
+#: .\orders\models.py:83 .\products\models.py:75
 #: .\templates\core\legal\terms.html:24
 #: .\venv\Lib\site-packages\django\forms\formsets.py:484
 #: .\venv\Lib\site-packages\django\forms\formsets.py:491
@@ -521,7 +521,7 @@ msgstr "Выберите основную услугу по уборке."
 msgid "Services and Products"
 msgstr "Услуги и продукты"
 
-#: .\products\models.py:8 .\products\models.py:29
+#: .\products\models.py:8 .\products\models.py:30
 msgid "Service Name"
 msgstr "Название услуги"
 
@@ -558,111 +558,122 @@ msgid "Base duration (minutes)"
 msgstr "Базовая продолжительность (минуты)"
 
 #: .\products\models.py:15
+msgid "Duration per m² (minutes)"
+msgstr "Продолжительность за квадратный метр (минуты)"
+
+#: .\products\models.py:15
+msgid ""
+"Additional minutes per square meter. Only used if 'Is Sqm Based' is checked. "
+"E.g., 5 means 100m² adds 500 minutes."
+msgstr ""
+"Дополнительные минуты за квадратный метр. Используется только если активен флаг 'зависит от м^2'. "
+
+#: .\products\models.py:16
 msgid "Is Sqm Based?"
 msgstr "Зависит от м²?"
 
-#: .\products\models.py:16
+#: .\products\models.py:17
 msgid "Price Per Sqm / Per Window"
 msgstr "Цена за м² / за окно"
 
-#: .\products\models.py:17
+#: .\products\models.py:18
 msgid "Is Window Cleaning Service?"
 msgstr "Это услуга мытья окон?"
 
-#: .\products\models.py:19 .\products\models.py:48 .\reviews\models.py:26
+#: .\products\models.py:20 .\products\models.py:49 .\reviews\models.py:26
 msgid "Is Active"
 msgstr "Активно"
 
-#: .\products\models.py:23
+#: .\products\models.py:24
 msgid "Основная услуга"
 msgstr "Основная услуга"
 
-#: .\products\models.py:24
+#: .\products\models.py:25
 msgid "Основные услуги"
 msgstr "Основные услуги"
 
-#: .\products\models.py:30
+#: .\products\models.py:31
 msgid "Price"
 msgstr "Цена"
 
-#: .\products\models.py:36
+#: .\products\models.py:37
 msgid "Price Description"
 msgstr "Описание"
 
-#: .\products\models.py:37
+#: .\products\models.py:38
 msgid "Ex: 'per item', 'per hour'. Leave empty if not needed."
 msgstr "Например: 'за штуку', 'за час'. Оставьте пустым если не нужно."
 
-#: .\products\models.py:42
+#: .\products\models.py:43
 msgid "Is quantity-based?"
 msgstr "Количественная услуга?"
 
-#: .\products\models.py:43
+#: .\products\models.py:44
 msgid "If checked, a quantity selector will be shown instead of a checkbox."
 msgstr ""
 "Если выбрано, будет отображаться количественный выбор вместе обычной коробки "
 "для галочки."
 
-#: .\products\models.py:46
+#: .\products\models.py:47
 msgid "For Kitchen Cleaning Page"
 msgstr "Уборка кухни"
 
-#: .\products\models.py:46
+#: .\products\models.py:47
 msgid ""
 "Check this if the service should be displayed on the Kitchen Cleaning page."
 msgstr ""
 "Установите этот флажок, если услуга должна отображаться на странице «Уборка "
 "кухни»."
 
-#: .\products\models.py:47
+#: .\products\models.py:48
 msgid "Services with a lower number will be displayed first."
 msgstr "Меньшие номера отображаются первыми."
 
-#: .\products\models.py:49
+#: .\products\models.py:50
 msgid "Duration (minutes)"
 msgstr "Продолжительность (минуты)"
 
-#: .\products\models.py:49
+#: .\products\models.py:50
 msgid "How many minutes does this service add to the total cleaning time?"
 msgstr "Сколько минут эта услуга добавляет к общему времени уборки?"
 
-#: .\products\models.py:50 .\products\models.py:61
+#: .\products\models.py:51 .\products\models.py:62
 msgid "Icon"
 msgstr "Иконка"
 
-#: .\products\models.py:53
+#: .\products\models.py:54
 msgid "Дополнительная услуга"
 msgstr "Дополнительная услуга"
 
-#: .\products\models.py:54
+#: .\products\models.py:55
 msgid "Дополнительные услуги"
 msgstr "Дополнительные услуги"
 
-#: .\products\models.py:59
+#: .\products\models.py:60
 msgid "Wash inside and out"
 msgstr "Мойка внутри и снаружи"
 
-#: .\products\models.py:59
+#: .\products\models.py:60
 msgid "Wipe and clean"
 msgstr "Протереть и очистить"
 
-#: .\products\models.py:62
+#: .\products\models.py:63
 msgid "Category"
 msgstr "Категория"
 
-#: .\products\models.py:66
+#: .\products\models.py:67
 msgid "Kitchen Cleaning Feature"
 msgstr "Особенность уборки кухни"
 
-#: .\products\models.py:67
+#: .\products\models.py:68
 msgid "Kitchen Cleaning Features"
 msgstr "Особенности уборки кухни"
 
-#: .\products\models.py:77
+#: .\products\models.py:78
 msgid "Service Feature"
 msgstr "Название услуги"
 
-#: .\products\models.py:78
+#: .\products\models.py:79
 msgid "Service Features"
 msgstr "Название услуги"
 
