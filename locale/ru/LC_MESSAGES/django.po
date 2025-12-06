@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-06 10:58+0300\n"
+"POT-Creation-Date: 2025-12-06 13:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -214,7 +214,6 @@ msgid "Произошла непредвиденная ошибка."
 msgstr ""
 
 #: .\core\views.py:200
-#| msgid "Kitchen Cleaning service is not available at the moment."
 msgid "Window cleaning service is currently unavailable."
 msgstr "Услуга 'Уборка кухни' в данный момент недоступна."
 
@@ -347,7 +346,6 @@ msgid "Number of windows"
 msgstr "Количество окон"
 
 #: .\orders\models.py:34
-#| msgid "Additional Services"
 msgid "Additional Services Details"
 msgstr "Дополнительные услуги"
 
@@ -421,7 +419,6 @@ msgid "Canceled"
 msgstr "Отменено"
 
 #: .\orders\models.py:56
-#| msgid "Order Details"
 msgid "Order Status"
 msgstr "Детали заказа"
 
@@ -506,8 +503,7 @@ msgstr "Этот заказ больше нельзя редактировать
 #: .\orders\views.py:247
 msgid ""
 "An error occurred while creating the payment session. Please try again later."
-msgstr ""
-"Ошибка при создании платежного сеанса. Попробуйте позже."
+msgstr "Ошибка при создании платежного сеанса. Попробуйте позже."
 
 #: .\orders\views.py:260
 msgid "Please select a service."
@@ -659,12 +655,10 @@ msgid "Kitchen Cleaning Features"
 msgstr "Особенности уборки кухни"
 
 #: .\products\models.py:77
-#| msgid "Service Name"
 msgid "Service Feature"
 msgstr "Название услуги"
 
 #: .\products\models.py:78
-#| msgid "Service Name"
 msgid "Service Features"
 msgstr "Название услуги"
 
@@ -725,7 +719,6 @@ msgid "Date Created"
 msgstr "Дата создания"
 
 #: .\reviews\models.py:32
-#| msgid "Creation date"
 msgid "Show Creation Date on Site"
 msgstr "Дата создания"
 
@@ -1038,7 +1031,6 @@ msgid "Write to us on Telegram"
 msgstr "Напишите нам в Telegram"
 
 #: .\templates\base.html:142 .\templates\base.html:205
-#| msgid "Write to us on Telegram"
 msgid "Write to us on WhatsApp"
 msgstr "Напишите нам в Telegram"
 
@@ -1062,7 +1054,9 @@ msgstr "Условия"
 
 #: .\templates\base.html:221
 msgid "We use cookies to ensure the proper functioning of our website."
-msgstr "Мы используем файлы cookie для обеспечения надлежащего функционирования нашего веб-сайта."
+msgstr ""
+"Мы используем файлы cookie для обеспечения надлежащего функционирования "
+"нашего веб-сайта."
 
 #: .\templates\base.html:225
 msgid "Accept"
@@ -1417,13 +1411,11 @@ msgid "Total:"
 msgstr "Общая стоимость"
 
 #: .\templates\core\legal\privacy_policy.html:5
-#| msgid "Cleaning Services in Warsaw"
 msgid "Privacy Policy of Gold Clean cleaning services in Warsaw."
 msgstr "Зоны уборки"
 
 #: .\templates\core\legal\privacy_policy.html:10
 #: .\templates\core\legal\terms.html:10
-#| msgid "Update date"
 msgid "Last updated"
 msgstr "Дата обновления"
 
@@ -1432,16 +1424,21 @@ msgid "Data Controller"
 msgstr "контроллер данных"
 
 #: .\templates\core\legal\privacy_policy.html:14
+#, fuzzy
+#| msgid ""
+#| "The controller of your personal data is ANNA SYDOROVA, NIP: 5223353123, "
+#| "based in Warsaw, Poland (hereinafter referred to as \"Gold Clean\", "
+#| "\"we\", \"us\")."
 msgid ""
 "The controller of your personal data is ANNA SYDOROVA, NIP: 5223353123, "
-"based in Warsaw, Poland (hereinafter referred to as \"Gold Clean\", \"we\", "
-"\"us\")."
+"based in Warsaw, Poland (hereinafter referred to as 'Gold Clean', 'we', "
+"'us')."
 msgstr ""
-"Ответственным за ваши персональные данные является ANNA SYDOROVA, NIP: 5223353123, "
-"базирующаяся в Варшаве, Польша(далее именуемая как \"Gold Clean\", \"we\", \"us\")."
+"Ответственным за ваши персональные данные является ANNA SYDOROVA, NIP: "
+"5223353123, базирующаяся в Варшаве, Польша(далее именуемая как \"Gold "
+"Clean\", \"we\", \"us\")."
 
 #: .\templates\core\legal\privacy_policy.html:15
-#| msgid "Contact details"
 msgid "Contact email"
 msgstr "Контактные данные"
 
@@ -1474,7 +1471,6 @@ msgid "Cookies necessary for the website to function"
 msgstr "Файлы cookie, необходимые для функционирования веб-сайта"
 
 #: .\templates\core\legal\privacy_policy.html:31
-#| msgid "Creation date"
 msgid "Session data"
 msgstr "Дата создания"
 
@@ -1499,7 +1495,8 @@ msgid ""
 "Compliance with legal obligations, e.g., tax documentation (Article 6(1)(c) "
 "GDPR)"
 msgstr ""
-"Соблюдение юридических обязательств, например, налоговая документация (статья 6(1)(c) GDPR)"
+"Соблюдение юридических обязательств, например, налоговая документация "
+"(статья 6(1)(c) GDPR)"
 
 #: .\templates\core\legal\privacy_policy.html:42
 msgid "Legitimate interests, e.g., handling complaints (Article 6(1)(f) GDPR)"
@@ -1518,14 +1515,16 @@ msgid ""
 "Order data: for the duration of the contract and 5 years thereafter (tax "
 "requirements)"
 msgstr ""
-"Данные по заказам: на срок действия контракта и 5 лет после этого (налоговые требования)"
+"Данные по заказам: на срок действия контракта и 5 лет после этого (налоговые "
+"требования)"
 
 #: .\templates\core\legal\privacy_policy.html:51
 msgid "Contact data: until you withdraw your consent or request deletion"
-msgstr "Контактные данные: до тех пор, пока вы не отзовете свое согласие или не запросите удаление"
+msgstr ""
+"Контактные данные: до тех пор, пока вы не отзовете свое согласие или не "
+"запросите удаление"
 
 #: .\templates\core\legal\privacy_policy.html:56
-#| msgid "Your Rating"
 msgid "Your Rights"
 msgstr "Ваша оценка"
 
@@ -1578,7 +1577,8 @@ msgid ""
 "Essential cookies: necessary for the website to function (session, CSRF "
 "protection, language preferences)"
 msgstr ""
-"Основные файлы cookie: необходимые для функционирования веб-сайта (сеанс, защита CSRF, языковые предпочтения)"
+"Основные файлы cookie: необходимые для функционирования веб-сайта (сеанс, "
+"защита CSRF, языковые предпочтения)"
 
 #: .\templates\core\legal\privacy_policy.html:76
 msgid "We do not use marketing or analytics cookies."
@@ -1597,7 +1597,9 @@ msgid ""
 "We implement appropriate technical and organizational measures to protect "
 "your personal data, including:"
 msgstr ""
-"Мы применяем соответствующие технические и организационные меры для защиты Ваших персональных данных, включая:"
+"Мы применяем соответствующие технические и организационные меры для защиты "
+"Ваших персональных данных, включая:"
+
 #: .\templates\core\legal\privacy_policy.html:84
 msgid "SSL/TLS encryption"
 msgstr "SSL/TLS шифрование"
@@ -1619,7 +1621,8 @@ msgid ""
 "We reserve the right to update this Privacy Policy. Changes will be posted "
 "on this page with an updated date."
 msgstr ""
-"Мы оставляем за собой право обновлять эту Политику конфиденциальности. Изменения будут опубликованы на этой странице с обновленной датой."
+"Мы оставляем за собой право обновлять эту Политику конфиденциальности. "
+"Изменения будут опубликованы на этой странице с обновленной датой."
 
 #: .\templates\core\legal\terms.html:4 .\templates\core\legal\terms.html:9
 msgid "Terms and Conditions"
@@ -1639,21 +1642,19 @@ msgid ""
 "by ANNA SYDOROVA, operating under the trade name Gold Clean, NIP: "
 "5223353123, based in Warsaw, Poland."
 msgstr ""
-"Настоящие Условия определяют правила использования услуг, предлагаемых компанией ANNA SYDOROVA, действующей под торговой маркой Gold Clean, NIP: 5223353123, базирующейся в Варшаве, Польша."
-
+"Настоящие Условия определяют правила использования услуг, предлагаемых "
+"компанией ANNA SYDOROVA, действующей под торговой маркой Gold Clean, NIP: "
+"5223353123, базирующейся в Варшаве, Польша."
 
 #: .\templates\core\legal\terms.html:15
-#| msgid "Contact details"
 msgid "Contact"
 msgstr "Контактные данные"
 
 #: .\templates\core\legal\terms.html:19
-#| msgid "Description"
 msgid "Definitions"
 msgstr "Описание"
 
 #: .\templates\core\legal\terms.html:21
-#| msgid "Services and Products"
 msgid "Service Provider"
 msgstr "Услуги и продукты"
 
@@ -1678,12 +1679,10 @@ msgid "Gold Clean provides the following services:"
 msgstr "Gold Clean предоставляет следующие услуги:"
 
 #: .\templates\core\legal\terms.html:32
-#| msgid "Standard cleaning"
 msgid "Standard apartment and house cleaning"
 msgstr "Стандартная уборка"
 
 #: .\templates\core\legal\terms.html:33
-#| msgid "General cleaning"
 msgid "Deep cleaning"
 msgstr "Генеральная уборка"
 
@@ -1692,17 +1691,14 @@ msgid "Post-renovation cleaning"
 msgstr "Уборка после ремонта"
 
 #: .\templates\core\legal\terms.html:35
-#| msgid "Window Cleaning"
 msgid "Window cleaning"
 msgstr "Мытье окон"
 
 #: .\templates\core\legal\terms.html:36
-#| msgid "Kitchen Cleaning"
 msgid "Kitchen cleaning"
 msgstr "Уборка кухни"
 
 #: .\templates\core\legal\terms.html:37
-#| msgid "Additional Services"
 msgid "Additional services as listed on the website"
 msgstr "Дополнительные услуги"
 
@@ -1723,7 +1719,6 @@ msgid "Choose a convenient date and time"
 msgstr "Выберите удобную дату и время"
 
 #: .\templates\core\legal\terms.html:47
-#| msgid "Confirm and order"
 msgid "Confirm the order"
 msgstr "Подтвердить и заказать"
 
@@ -1736,7 +1731,6 @@ msgid "By placing an order, the Client accepts these Terms and Conditions."
 msgstr "Размещая заказ, клиент принимает эти условия."
 
 #: .\templates\core\legal\terms.html:54
-#| msgid "Orders Management"
 msgid "Prices and Payment"
 msgstr "Управление заказами"
 
@@ -1751,21 +1745,18 @@ msgstr "Окончательная цена рассчитывается на о
 
 #: .\templates\core\legal\terms.html:58
 msgid "Payment is made after the service is completed, unless otherwise agreed"
-msgstr "Оплата производится после завершения обслуживания, если не согласовано иное"
+msgstr ""
+"Оплата производится после завершения обслуживания, если не согласовано иное"
 
 #: .\templates\core\legal\terms.html:59
 msgid "We accept cash and bank transfers"
 msgstr "Мы принимаем наличные и банковские переводы"
 
 #: .\templates\core\legal\terms.html:64
-#| msgid "Cancellation Fee (zł)"
 msgid "Cancellation Policy"
 msgstr "Плата за отмену (zł)"
 
 #: .\templates\core\legal\terms.html:66
-#| msgid ""
-#| "Since you are canceling less than 24 hours before the scheduled time, a "
-#| "cancellation fee of"
 msgid ""
 "Cancellation more than 24 hours before the scheduled service: free of charge"
 msgstr ""
@@ -1774,9 +1765,6 @@ msgstr ""
 
 #: .\templates\core\legal\terms.html:67
 #, python-format
-#| msgid ""
-#| "Since you are canceling less than 24 hours before the scheduled time, a "
-#| "cancellation fee of"
 msgid ""
 "Cancellation less than 24 hours before the scheduled service: a fee of "
 "%(fee)s PLN may apply"
@@ -1813,12 +1801,10 @@ msgid "Secure valuable and fragile items"
 msgstr "Обезопасить ценные и хрупкие предметы"
 
 #: .\templates\core\legal\terms.html:84
-#| msgid "Service Information"
 msgid "Service Provider Obligations"
 msgstr "Информация об услуге"
 
 #: .\templates\core\legal\terms.html:85
-#| msgid "Gold Clean, Inc"
 msgid "Gold Clean commits to:"
 msgstr "Gold Clean, Inc"
 
@@ -1839,13 +1825,14 @@ msgid "Respect the Client's property"
 msgstr "Уважать имущество клиента"
 
 #: .\templates\core\legal\terms.html:95
-#| msgid "Completed"
 msgid "Complaints"
 msgstr "Завершено"
 
 #: .\templates\core\legal\terms.html:97
 msgid "Complaints should be submitted within 24 hours of service completion"
-msgstr "Жалобы должны быть представлены в течение 24 часов после завершения обслуживания"
+msgstr ""
+"Жалобы должны быть представлены в течение 24 часов после завершения "
+"обслуживания"
 
 #: .\templates\core\legal\terms.html:98
 msgid "Contact us at goldclean2026@gmail.com or by phone"
@@ -1860,7 +1847,6 @@ msgid "If the complaint is justified, we will rectify the issue free of charge"
 msgstr "Если жалоба обоснована, мы исправим проблему бесплатно"
 
 #: .\templates\core\legal\terms.html:105
-#| msgid "Reliability"
 msgid "Liability"
 msgstr "Надежность"
 
@@ -1869,7 +1855,8 @@ msgid ""
 "Gold Clean is not liable for damage caused by the Client's failure to secure "
 "fragile items"
 msgstr ""
-"Gold Clean не несет ответственности за ущерб, вызванный неспособностью клиента закрепить хрупкие предметы"
+"Gold Clean не несет ответственности за ущерб, вызванный неспособностью "
+"клиента закрепить хрупкие предметы"
 
 #: .\templates\core\legal\terms.html:108
 msgid "We are insured against civil liability (OC)"
@@ -1896,7 +1883,8 @@ msgid ""
 "We reserve the right to amend these Terms; changes will be published on the "
 "website"
 msgstr ""
-"Мы оставляем за собой право вносить поправки в настоящие Условия; изменения будут опубликованы на веб-сайте"
+"Мы оставляем за собой право вносить поправки в настоящие Условия; изменения "
+"будут опубликованы на веб-сайте"
 
 #: .\templates\core\pricing.html:6
 msgid ""
@@ -1923,7 +1911,6 @@ msgid "start"
 msgstr "старт"
 
 #: .\templates\core\pricing.html:36
-#| msgid "Description"
 msgid "Description coming soon."
 msgstr "Описание"
 
@@ -1936,7 +1923,8 @@ msgid ""
 "Comprehensive cleaning services: regular maintenance, deep cleaning, moving "
 "in/out cleaning, and dry cleaning of furniture. High quality guaranteed."
 msgstr ""
-"Комплексные услуги по уборке: регулярное обслуживание, глубокая очистка, переезд в / из очистки и химчистки мебели. Высокое качество гарантировано."
+"Комплексные услуги по уборке: регулярное обслуживание, глубокая очистка, "
+"переезд в / из очистки и химчистки мебели. Высокое качество гарантировано."
 
 #: .\templates\core\services.html:16
 msgid ""
