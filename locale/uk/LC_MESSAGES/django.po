@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-06 13:00+0300\n"
+"POT-Creation-Date: 2025-12-06 16:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME EMAIL@ADDRESS\n"
 "Language-Team: Ukrainian uk@li.org\n"
@@ -95,7 +95,7 @@ msgstr "Українська"
 msgid "Website Content"
 msgstr "Вміст сайту"
 
-#: .\core\models.py:8 .\products\models.py:60
+#: .\core\models.py:8 .\products\models.py:61
 msgid "Title"
 msgstr "Назва"
 
@@ -107,8 +107,8 @@ msgstr "наприклад, 'Ванна', 'Кухня'"
 msgid "Image"
 msgstr "Зображення"
 
-#: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:18
-#: .\products\models.py:47 .\products\models.py:63 .\reviews\models.py:27
+#: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:19
+#: .\products\models.py:48 .\products\models.py:64 .\reviews\models.py:27
 msgid "Display Order"
 msgstr "Порядок відображення"
 
@@ -124,7 +124,7 @@ msgstr "Зона прибирання"
 msgid "Cleaning Areas"
 msgstr "Зони прибирання"
 
-#: .\core\models.py:27 .\products\models.py:73
+#: .\core\models.py:27 .\products\models.py:74
 msgid "Description"
 msgstr "Опис"
 
@@ -206,19 +206,19 @@ msgstr "годин"
 msgid "min"
 msgstr "хв."
 
-#: .\core\views.py:189 .\core\views.py:228
+#: .\core\views.py:193 .\core\views.py:232
 msgid "Произошла непредвиденная ошибка."
 msgstr "Виникла непередбачувана помилка."
 
-#: .\core\views.py:200
+#: .\core\views.py:204
 msgid "Window cleaning service is currently unavailable."
 msgstr "Послуга миття вікон на даний момент недоступна."
 
-#: .\core\views.py:268
+#: .\core\views.py:272
 msgid "Please select a main cleaning service."
 msgstr "Будь ласка, оберіть основну послугу прибирання."
 
-#: .\core\views.py:296
+#: .\core\views.py:300
 msgid "An unexpected error occurred while starting your order."
 msgstr "Під час оформлення замовлення виникла непередбачувана помилка."
 
@@ -320,7 +320,7 @@ msgstr "Плата за виїзд"
 msgid "Cities"
 msgstr "Міста"
 
-#: .\orders\models.py:26 .\products\models.py:72
+#: .\orders\models.py:26 .\products\models.py:73
 #: .\templates\accounts\order_detail.html:29
 #: .\templates\core\legal\terms.html:23
 msgid "Service"
@@ -455,7 +455,7 @@ msgstr "Дата створення"
 msgid "Update date"
 msgstr "Дата оновлення"
 
-#: .\orders\models.py:83 .\products\models.py:74
+#: .\orders\models.py:83 .\products\models.py:75
 #: .\templates\core\legal\terms.html:24
 msgid "Order"
 msgstr "Замовлення"
@@ -517,7 +517,7 @@ msgstr "Будь ласка, оберіть основну послугу, що�
 msgid "Services and Products"
 msgstr "Послуги та продукти"
 
-#: .\products\models.py:8 .\products\models.py:29
+#: .\products\models.py:8 .\products\models.py:30
 msgid "Service Name"
 msgstr "Назва послуги"
 
@@ -555,109 +555,121 @@ msgid "Base duration (minutes)"
 msgstr "Базова тривалість (хвилини)"
 
 #: .\products\models.py:15
+#, fuzzy
+#| msgid "Duration (minutes)"
+msgid "Duration per m² (minutes)"
+msgstr "Тривалість (хвилини)"
+
+#: .\products\models.py:15
+msgid ""
+"Additional minutes per square meter. Only used if 'Is Sqm Based' is checked. "
+"E.g., 5 means 100m² adds 500 minutes."
+msgstr ""
+
+#: .\products\models.py:16
 msgid "Is Sqm Based?"
 msgstr "Чи залежить від м²?"
 
-#: .\products\models.py:16
+#: .\products\models.py:17
 msgid "Price Per Sqm / Per Window"
 msgstr "Ціна за м² / за вікно"
 
-#: .\products\models.py:17
+#: .\products\models.py:18
 msgid "Is Window Cleaning Service?"
 msgstr "Це послуга миття вікон?"
 
-#: .\products\models.py:19 .\products\models.py:48 .\reviews\models.py:26
+#: .\products\models.py:20 .\products\models.py:49 .\reviews\models.py:26
 msgid "Is Active"
 msgstr "Активно"
 
-#: .\products\models.py:23
+#: .\products\models.py:24
 msgid "Основная услуга"
 msgstr "Основна послуга"
 
-#: .\products\models.py:24
+#: .\products\models.py:25
 msgid "Основные услуги"
 msgstr "Основні послуги"
 
-#: .\products\models.py:30
+#: .\products\models.py:31
 msgid "Price"
 msgstr "Ціна"
 
-#: .\products\models.py:36
+#: .\products\models.py:37
 msgid "Price Description"
 msgstr "Опис ціни"
 
-#: .\products\models.py:37
+#: .\products\models.py:38
 msgid "Ex: 'per item', 'per hour'. Leave empty if not needed."
 msgstr ""
 "Наприклад: 'за штуку', 'за годину'. Залиште порожнім, якщо не потрібно."
 
-#: .\products\models.py:42
+#: .\products\models.py:43
 msgid "Is quantity-based?"
 msgstr "Чи базується на кількості?"
 
-#: .\products\models.py:43
+#: .\products\models.py:44
 msgid "If checked, a quantity selector will be shown instead of a checkbox."
 msgstr "Якщо позначено, замість прапорця буде показано вибір кількості."
 
-#: .\products\models.py:46
+#: .\products\models.py:47
 msgid "For Kitchen Cleaning Page"
 msgstr "Для сторінки прибирання кухні"
 
-#: .\products\models.py:46
+#: .\products\models.py:47
 msgid ""
 "Check this if the service should be displayed on the Kitchen Cleaning page."
 msgstr ""
 "Позначте це, якщо послуга повинна відображатися на сторінці прибирання кухні."
 
-#: .\products\models.py:47
+#: .\products\models.py:48
 msgid "Services with a lower number will be displayed first."
 msgstr "Менші номери відображаються першими."
 
-#: .\products\models.py:49
+#: .\products\models.py:50
 msgid "Duration (minutes)"
 msgstr "Тривалість (хвилини)"
 
-#: .\products\models.py:49
+#: .\products\models.py:50
 msgid "How many minutes does this service add to the total cleaning time?"
 msgstr "Скільки хвилин ця послуга додає до загального часу прибирання?"
 
-#: .\products\models.py:50 .\products\models.py:61
+#: .\products\models.py:51 .\products\models.py:62
 msgid "Icon"
 msgstr "Іконка"
 
-#: .\products\models.py:53
+#: .\products\models.py:54
 msgid "Дополнительная услуга"
 msgstr "Додаткова послуга"
 
-#: .\products\models.py:54
+#: .\products\models.py:55
 msgid "Дополнительные услуги"
 msgstr "Додаткові послуги"
 
-#: .\products\models.py:59
+#: .\products\models.py:60
 msgid "Wash inside and out"
 msgstr "Миття всередині та зовні"
 
-#: .\products\models.py:59
+#: .\products\models.py:60
 msgid "Wipe and clean"
 msgstr "Протерти та очистити"
 
-#: .\products\models.py:62
+#: .\products\models.py:63
 msgid "Category"
 msgstr "Категорія"
 
-#: .\products\models.py:66
+#: .\products\models.py:67
 msgid "Kitchen Cleaning Feature"
 msgstr "Особливість прибирання кухні"
 
-#: .\products\models.py:67
+#: .\products\models.py:68
 msgid "Kitchen Cleaning Features"
 msgstr "Особливості прибирання кухні"
 
-#: .\products\models.py:77
+#: .\products\models.py:78
 msgid "Service Feature"
 msgstr "Особливість послуги"
 
-#: .\products\models.py:78
+#: .\products\models.py:79
 msgid "Service Features"
 msgstr "Особливості послуги"
 
@@ -807,7 +819,8 @@ msgid "No, Go Back"
 msgstr "Ні, повернутися"
 
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:10
-#: .\templates\accounts\login.html:30 .\templates\base.html:156
+#: .\templates\accounts\login.html:30 .\templates\base.html:184
+#: .\templates\base.html:297
 msgid "Login"
 msgstr "Увійти"
 
@@ -934,7 +947,8 @@ msgid "bathroom(s)"
 msgstr "ванна(і)"
 
 #: .\templates\accounts\order_list.html:4
-#: .\templates\accounts\order_list.html:8 .\templates\base.html:150
+#: .\templates\accounts\order_list.html:8 .\templates\base.html:173
+#: .\templates\base.html:287
 msgid "My Orders"
 msgstr "Мої замовлення"
 
@@ -969,7 +983,7 @@ msgid "You don't have any orders yet."
 msgstr "У вас ще немає замовлень."
 
 #: .\templates\accounts\register.html:4 .\templates\accounts\register.html:50
-#: .\templates\base.html:157
+#: .\templates\base.html:185 .\templates\base.html:298
 msgid "Register"
 msgstr "Зареєструватися"
 
@@ -997,77 +1011,80 @@ msgstr ""
 msgid "Professional cleaning services. Click to calculate price."
 msgstr "Професійні клінінгові послуги. Натисніть, щоб розрахувати вартість."
 
-#: .\templates\base.html:91 .\templates\core\index.html:217
+#: .\templates\base.html:94 .\templates\base.html:203 .\templates\base.html:227
+#: .\templates\core\index.html:217
 msgid "An individual approach to the cleanliness of your space."
 msgstr "Індивідуальний підхід до чистоти вашого простору."
 
-#: .\templates\base.html:97 .\templates\base.html:187
-#: .\templates\core\index.html:5
+#: .\templates\base.html:154 .\templates\base.html:232
+#: .\templates\base.html:328 .\templates\core\index.html:5
 msgid "Home"
 msgstr "Головна"
 
-#: .\templates\base.html:99 .\templates\base.html:189
-#: .\templates\core\legal\terms.html:29
+#: .\templates\base.html:156 .\templates\base.html:234
+#: .\templates\base.html:330 .\templates\core\legal\terms.html:29
 msgid "Services"
 msgstr "Послуги"
 
-#: .\templates\base.html:101 .\templates\base.html:191
-#: .\templates\core\windows.html:7 .\templates\core\windows.html:21
+#: .\templates\base.html:158 .\templates\base.html:236
+#: .\templates\base.html:332 .\templates\core\windows.html:7
+#: .\templates\core\windows.html:21
 msgid "Window Cleaning"
 msgstr "Миття вікон"
 
-#: .\templates\base.html:102 .\templates\base.html:192
-#: .\templates\core\kitchen_cleaning.html:6
+#: .\templates\base.html:159 .\templates\base.html:237
+#: .\templates\base.html:333 .\templates\core\kitchen_cleaning.html:6
 msgid "Kitchen Cleaning"
 msgstr "Прибирання кухні"
 
-#: .\templates\base.html:103 .\templates\base.html:193
-#: .\templates\core\pricing.html:5 .\templates\core\pricing.html:14
+#: .\templates\base.html:160 .\templates\base.html:238
+#: .\templates\base.html:334 .\templates\core\pricing.html:5
+#: .\templates\core\pricing.html:14
 msgid "Pricing"
 msgstr "Ціни"
 
-#: .\templates\base.html:104 .\templates\base.html:194
-#: .\templates\core\about.html:4
+#: .\templates\base.html:161 .\templates\base.html:239
+#: .\templates\base.html:335 .\templates\core\about.html:4
 msgid "About us"
 msgstr "Про нас"
 
-#: .\templates\base.html:137 .\templates\base.html:200
-msgid "Write to us on Telegram"
-msgstr "Напишіть нам у Telegram"
-
-#: .\templates\base.html:142 .\templates\base.html:205
-msgid "Write to us on WhatsApp"
-msgstr "Напишіть нам у WhatsApp"
-
-#: .\templates\base.html:149
-msgid "Welcome"
-msgstr "Ласкаво просимо"
-
-#: .\templates\base.html:153
+#: .\templates\base.html:178 .\templates\base.html:292
 msgid "Logout"
 msgstr "Вийти"
 
-#: .\templates\base.html:195 .\templates\base.html:222
+#: .\templates\base.html:244 .\templates\core\legal\terms.html:15
+msgid "Contact"
+msgstr "Контакт"
+
+#: .\templates\base.html:264
+msgid "Language"
+msgstr "Мова"
+
+#: .\templates\base.html:283
+msgid "Account"
+msgstr "Рахунок"
+
+#: .\templates\base.html:336 .\templates\base.html:363
 #: .\templates\core\legal\privacy_policy.html:4
 #: .\templates\core\legal\privacy_policy.html:9
 msgid "Privacy Policy"
 msgstr "Політика конфіденційності"
 
-#: .\templates\base.html:196
+#: .\templates\base.html:337
 msgid "Terms"
 msgstr "Умови користування"
 
-#: .\templates\base.html:221
+#: .\templates\base.html:362
 msgid "We use cookies to ensure the proper functioning of our website."
 msgstr ""
 "Ми використовуємо файли cookie для забезпечення належної роботи нашого веб-"
 "сайту."
 
-#: .\templates\base.html:225
+#: .\templates\base.html:366
 msgid "Accept"
 msgstr "Прийняти"
 
-#: .\templates\base.html:226
+#: .\templates\base.html:367
 msgid "Decline"
 msgstr "Відхилити"
 
@@ -1431,7 +1448,9 @@ msgstr "Володілець даних"
 
 #: .\templates\core\legal\privacy_policy.html:14
 msgid ""
-"The controller of your personal data is ANNA SYDOROVA, NIP: 5223353123, based in Warsaw, Poland (hereinafter referred to as 'Gold Clean', 'we', 'us')."
+"The controller of your personal data is ANNA SYDOROVA, NIP: 5223353123, "
+"based in Warsaw, Poland (hereinafter referred to as 'Gold Clean', 'we', "
+"'us')."
 msgstr ""
 "Володільцем ваших персональних даних є ANNA SYDOROVA, NIP: 5223353123, з "
 "місцезнаходженням у Варшаві, Польща (далі — «Gold Clean», «ми», «нас»)."
@@ -1643,10 +1662,6 @@ msgstr ""
 "Ці Правила та умови визначають правила користування послугами, що "
 "пропонуються ANNA SYDOROVA, яка діє під торговою назвою Gold Clean, NIP: "
 "5223353123, з місцезнаходженням у Варшаві, Польща."
-
-#: .\templates\core\legal\terms.html:15
-msgid "Contact"
-msgstr "Контакт"
 
 #: .\templates\core\legal\terms.html:19
 msgid "Definitions"
@@ -2180,6 +2195,15 @@ msgstr ""
 #: .\templates\registration\password_reset_form.html:14
 msgid "Send Instructions"
 msgstr "Надіслати інструкції"
+
+#~ msgid "Write to us on Telegram"
+#~ msgstr "Напишіть нам у Telegram"
+
+#~ msgid "Write to us on WhatsApp"
+#~ msgstr "Напишіть нам у WhatsApp"
+
+#~ msgid "Welcome"
+#~ msgstr "Ласкаво просимо"
 
 #~ msgid "© "
 #~ msgstr "© "

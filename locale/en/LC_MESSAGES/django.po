@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-06 13:00+0300\n"
+"POT-Creation-Date: 2025-12-06 16:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,7 +99,7 @@ msgstr "Ukrainian"
 msgid "Website Content"
 msgstr "Website Content"
 
-#: .\core\models.py:8 .\products\models.py:60
+#: .\core\models.py:8 .\products\models.py:61
 msgid "Title"
 msgstr "Title"
 
@@ -111,8 +111,8 @@ msgstr "e.g., 'Bathroom', 'Kitchen'"
 msgid "Image"
 msgstr "Image"
 
-#: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:18
-#: .\products\models.py:47 .\products\models.py:63 .\reviews\models.py:27
+#: .\core\models.py:10 .\gallery\models.py:8 .\products\models.py:19
+#: .\products\models.py:48 .\products\models.py:64 .\reviews\models.py:27
 msgid "Display Order"
 msgstr "Display Order"
 
@@ -128,7 +128,7 @@ msgstr "Cleaning Area"
 msgid "Cleaning Areas"
 msgstr "Cleaning Areas"
 
-#: .\core\models.py:27 .\products\models.py:73
+#: .\core\models.py:27 .\products\models.py:74
 msgid "Description"
 msgstr "Description"
 
@@ -207,19 +207,19 @@ msgstr "hours"
 msgid "min"
 msgstr "min"
 
-#: .\core\views.py:189 .\core\views.py:228
+#: .\core\views.py:193 .\core\views.py:232
 msgid "Произошла непредвиденная ошибка."
 msgstr "An unexpected error occurred."
 
-#: .\core\views.py:200
+#: .\core\views.py:204
 msgid "Window cleaning service is currently unavailable."
 msgstr "Window cleaning service is currently unavailable."
 
-#: .\core\views.py:268
+#: .\core\views.py:272
 msgid "Please select a main cleaning service."
 msgstr "Please select a main cleaning service."
 
-#: .\core\views.py:296
+#: .\core\views.py:300
 msgid "An unexpected error occurred while starting your order."
 msgstr "An unexpected error occurred while starting your order."
 
@@ -321,7 +321,7 @@ msgstr "Delivery charge"
 msgid "Cities"
 msgstr "Cities"
 
-#: .\orders\models.py:26 .\products\models.py:72
+#: .\orders\models.py:26 .\products\models.py:73
 #: .\templates\accounts\order_detail.html:29
 #: .\templates\core\legal\terms.html:23
 msgid "Service"
@@ -456,7 +456,7 @@ msgstr "Creation date"
 msgid "Update date"
 msgstr "Update date"
 
-#: .\orders\models.py:83 .\products\models.py:74
+#: .\orders\models.py:83 .\products\models.py:75
 #: .\templates\core\legal\terms.html:24
 msgid "Order"
 msgstr "Order"
@@ -518,7 +518,7 @@ msgstr "Please select a main service to proceed."
 msgid "Services and Products"
 msgstr "Services and Products"
 
-#: .\products\models.py:8 .\products\models.py:29
+#: .\products\models.py:8 .\products\models.py:30
 msgid "Service Name"
 msgstr "Service Name"
 
@@ -555,108 +555,120 @@ msgid "Base duration (minutes)"
 msgstr "Base duration (minutes)"
 
 #: .\products\models.py:15
+#, fuzzy
+#| msgid "Duration (minutes)"
+msgid "Duration per m² (minutes)"
+msgstr "Duration (minutes)"
+
+#: .\products\models.py:15
+msgid ""
+"Additional minutes per square meter. Only used if 'Is Sqm Based' is checked. "
+"E.g., 5 means 100m² adds 500 minutes."
+msgstr ""
+
+#: .\products\models.py:16
 msgid "Is Sqm Based?"
 msgstr "Is Sqm Based?"
 
-#: .\products\models.py:16
+#: .\products\models.py:17
 msgid "Price Per Sqm / Per Window"
 msgstr "Price Per Sqm / Per Window"
 
-#: .\products\models.py:17
+#: .\products\models.py:18
 msgid "Is Window Cleaning Service?"
 msgstr "Is Window Cleaning Service?"
 
-#: .\products\models.py:19 .\products\models.py:48 .\reviews\models.py:26
+#: .\products\models.py:20 .\products\models.py:49 .\reviews\models.py:26
 msgid "Is Active"
 msgstr "Is Active"
 
-#: .\products\models.py:23
+#: .\products\models.py:24
 msgid "Основная услуга"
 msgstr "Main service"
 
-#: .\products\models.py:24
+#: .\products\models.py:25
 msgid "Основные услуги"
 msgstr "Main services"
 
-#: .\products\models.py:30
+#: .\products\models.py:31
 msgid "Price"
 msgstr "Price"
 
-#: .\products\models.py:36
+#: .\products\models.py:37
 msgid "Price Description"
 msgstr "Price Description"
 
-#: .\products\models.py:37
+#: .\products\models.py:38
 msgid "Ex: 'per item', 'per hour'. Leave empty if not needed."
 msgstr "Ex: 'per item', 'per hour'. Leave empty if not needed."
 
-#: .\products\models.py:42
+#: .\products\models.py:43
 msgid "Is quantity-based?"
 msgstr "Is quantity-based?"
 
-#: .\products\models.py:43
+#: .\products\models.py:44
 msgid "If checked, a quantity selector will be shown instead of a checkbox."
 msgstr "If checked, a quantity selector will be shown instead of a checkbox."
 
-#: .\products\models.py:46
+#: .\products\models.py:47
 msgid "For Kitchen Cleaning Page"
 msgstr "For Kitchen Cleaning Page"
 
-#: .\products\models.py:46
+#: .\products\models.py:47
 msgid ""
 "Check this if the service should be displayed on the Kitchen Cleaning page."
 msgstr ""
 "Check this if the service should be displayed on the Kitchen Cleaning page."
 
-#: .\products\models.py:47
+#: .\products\models.py:48
 msgid "Services with a lower number will be displayed first."
 msgstr "Services with a lower number will be displayed first."
 
-#: .\products\models.py:49
+#: .\products\models.py:50
 msgid "Duration (minutes)"
 msgstr "Duration (minutes)"
 
-#: .\products\models.py:49
+#: .\products\models.py:50
 msgid "How many minutes does this service add to the total cleaning time?"
 msgstr "How many minutes does this service add to the total cleaning time?"
 
-#: .\products\models.py:50 .\products\models.py:61
+#: .\products\models.py:51 .\products\models.py:62
 msgid "Icon"
 msgstr "Icon"
 
-#: .\products\models.py:53
+#: .\products\models.py:54
 msgid "Дополнительная услуга"
 msgstr "Additional service"
 
-#: .\products\models.py:54
+#: .\products\models.py:55
 msgid "Дополнительные услуги"
 msgstr "Additional services"
 
-#: .\products\models.py:59
+#: .\products\models.py:60
 msgid "Wash inside and out"
 msgstr "Wash inside and out"
 
-#: .\products\models.py:59
+#: .\products\models.py:60
 msgid "Wipe and clean"
 msgstr "Wipe and clean"
 
-#: .\products\models.py:62
+#: .\products\models.py:63
 msgid "Category"
 msgstr "Category"
 
-#: .\products\models.py:66
+#: .\products\models.py:67
 msgid "Kitchen Cleaning Feature"
 msgstr "Kitchen Cleaning Feature"
 
-#: .\products\models.py:67
+#: .\products\models.py:68
 msgid "Kitchen Cleaning Features"
 msgstr "Kitchen Cleaning Features"
 
-#: .\products\models.py:77
+#: .\products\models.py:78
 msgid "Service Feature"
 msgstr "Service Feature"
 
-#: .\products\models.py:78
+#: .\products\models.py:79
 msgid "Service Features"
 msgstr "Service Features"
 
@@ -801,7 +813,8 @@ msgid "No, Go Back"
 msgstr "No, Go Back"
 
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:10
-#: .\templates\accounts\login.html:30 .\templates\base.html:156
+#: .\templates\accounts\login.html:30 .\templates\base.html:184
+#: .\templates\base.html:297
 msgid "Login"
 msgstr "Login"
 
@@ -928,7 +941,8 @@ msgid "bathroom(s)"
 msgstr "bathroom(s)"
 
 #: .\templates\accounts\order_list.html:4
-#: .\templates\accounts\order_list.html:8 .\templates\base.html:150
+#: .\templates\accounts\order_list.html:8 .\templates\base.html:173
+#: .\templates\base.html:287
 msgid "My Orders"
 msgstr "My Orders"
 
@@ -962,7 +976,7 @@ msgid "You don't have any orders yet."
 msgstr "You don't have any orders yet."
 
 #: .\templates\accounts\register.html:4 .\templates\accounts\register.html:50
-#: .\templates\base.html:157
+#: .\templates\base.html:185 .\templates\base.html:298
 msgid "Register"
 msgstr "Register"
 
@@ -990,77 +1004,80 @@ msgstr ""
 msgid "Professional cleaning services. Click to calculate price."
 msgstr ""
 
-#: .\templates\base.html:91 .\templates\core\index.html:217
+#: .\templates\base.html:94 .\templates\base.html:203 .\templates\base.html:227
+#: .\templates\core\index.html:217
 msgid "An individual approach to the cleanliness of your space."
 msgstr "An individual approach to the cleanliness of your space."
 
-#: .\templates\base.html:97 .\templates\base.html:187
-#: .\templates\core\index.html:5
+#: .\templates\base.html:154 .\templates\base.html:232
+#: .\templates\base.html:328 .\templates\core\index.html:5
 msgid "Home"
 msgstr "Home"
 
-#: .\templates\base.html:99 .\templates\base.html:189
-#: .\templates\core\legal\terms.html:29
+#: .\templates\base.html:156 .\templates\base.html:234
+#: .\templates\base.html:330 .\templates\core\legal\terms.html:29
 msgid "Services"
 msgstr "Services"
 
-#: .\templates\base.html:101 .\templates\base.html:191
-#: .\templates\core\windows.html:7 .\templates\core\windows.html:21
+#: .\templates\base.html:158 .\templates\base.html:236
+#: .\templates\base.html:332 .\templates\core\windows.html:7
+#: .\templates\core\windows.html:21
 msgid "Window Cleaning"
 msgstr "Window Cleaning"
 
-#: .\templates\base.html:102 .\templates\base.html:192
-#: .\templates\core\kitchen_cleaning.html:6
+#: .\templates\base.html:159 .\templates\base.html:237
+#: .\templates\base.html:333 .\templates\core\kitchen_cleaning.html:6
 msgid "Kitchen Cleaning"
 msgstr "Kitchen Cleaning"
 
-#: .\templates\base.html:103 .\templates\base.html:193
-#: .\templates\core\pricing.html:5 .\templates\core\pricing.html:14
+#: .\templates\base.html:160 .\templates\base.html:238
+#: .\templates\base.html:334 .\templates\core\pricing.html:5
+#: .\templates\core\pricing.html:14
 msgid "Pricing"
 msgstr "Pricing"
 
-#: .\templates\base.html:104 .\templates\base.html:194
-#: .\templates\core\about.html:4
+#: .\templates\base.html:161 .\templates\base.html:239
+#: .\templates\base.html:335 .\templates\core\about.html:4
 msgid "About us"
 msgstr "About us"
 
-#: .\templates\base.html:137 .\templates\base.html:200
-msgid "Write to us on Telegram"
-msgstr "Write to us on Telegram"
-
-#: .\templates\base.html:142 .\templates\base.html:205
-#, fuzzy
-#| msgid "Write to us on Telegram"
-msgid "Write to us on WhatsApp"
-msgstr "Write to us on Telegram"
-
-#: .\templates\base.html:149
-msgid "Welcome"
-msgstr "Welcome"
-
-#: .\templates\base.html:153
+#: .\templates\base.html:178 .\templates\base.html:292
 msgid "Logout"
 msgstr "Logout"
 
-#: .\templates\base.html:195 .\templates\base.html:222
+#: .\templates\base.html:244 .\templates\core\legal\terms.html:15
+#, fuzzy
+#| msgid "Contact details"
+msgid "Contact"
+msgstr "Contact details"
+
+#: .\templates\base.html:264
+msgid "Language"
+msgstr ""
+
+#: .\templates\base.html:283
+msgid "Account"
+msgstr ""
+
+#: .\templates\base.html:336 .\templates\base.html:363
 #: .\templates\core\legal\privacy_policy.html:4
 #: .\templates\core\legal\privacy_policy.html:9
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\templates\base.html:196
+#: .\templates\base.html:337
 msgid "Terms"
 msgstr ""
 
-#: .\templates\base.html:221
+#: .\templates\base.html:362
 msgid "We use cookies to ensure the proper functioning of our website."
 msgstr ""
 
-#: .\templates\base.html:225
+#: .\templates\base.html:366
 msgid "Accept"
 msgstr ""
 
-#: .\templates\base.html:226
+#: .\templates\base.html:367
 msgid "Decline"
 msgstr ""
 
@@ -1626,12 +1643,6 @@ msgid ""
 "5223353123, based in Warsaw, Poland."
 msgstr ""
 
-#: .\templates\core\legal\terms.html:15
-#, fuzzy
-#| msgid "Contact details"
-msgid "Contact"
-msgstr "Contact details"
-
 #: .\templates\core\legal\terms.html:19
 #, fuzzy
 #| msgid "Description"
@@ -2178,6 +2189,17 @@ msgstr ""
 #: .\templates\registration\password_reset_form.html:14
 msgid "Send Instructions"
 msgstr "Send Instructions"
+
+#~ msgid "Write to us on Telegram"
+#~ msgstr "Write to us on Telegram"
+
+#, fuzzy
+#~| msgid "Write to us on Telegram"
+#~ msgid "Write to us on WhatsApp"
+#~ msgstr "Write to us on Telegram"
+
+#~ msgid "Welcome"
+#~ msgstr "Welcome"
 
 #~ msgid "© "
 #~ msgstr "© "
