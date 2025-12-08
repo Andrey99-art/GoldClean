@@ -208,9 +208,9 @@
                 <!-- ======================================================= -->
                 <!--     ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ + ПРОМО-БАННЕР (ДЕСКТОП)      -->
                 <!-- ======================================================= -->
-                <div class="row mt-4">
+                <div class="additional-services-banner-row mt-4">
                     <!-- Дополнительные услуги (левая колонка) -->
-                    <div class="col-lg-8">
+                    <div class="additional-services-column">
                         <div class="additional-services-list">
                             <h4 class="form-section-title">{% trans "Additional services" %}</h4>
                             
@@ -248,8 +248,8 @@
                     </div>
                     
                     <!-- Промо-баннер (правая колонка - только десктоп) -->
-                    <div class="col-lg-4 d-none d-lg-block">
-                        {% if promo_banner %}
+                    {% if promo_banner %}
+                    <div class="promo-banner-column">
                         <div class="promo-banner-wrapper promo-border-{{ promo_banner.border_style }} {% if promo_banner.content_type == 'text_only' %}text-only-banner{% endif %}" {% if promo_banner.background_color %}style="background-color: {{ promo_banner.background_color }};"{% endif %}>
                             
                             {% if promo_banner.link %}<a href="{{ promo_banner.link }}" target="_blank" rel="noopener noreferrer" class="promo-banner-link">{% endif %}
@@ -286,8 +286,9 @@
                             
                             {% if promo_banner.link %}</a>{% endif %}
                         </div>
-                        {% endif %}
                     </div>
+                    {% endif %}
+                </div>
                 </div>
             </div>
         </div>
