@@ -69,11 +69,9 @@
             </ul>
             <button id="submit-order-btn" class="w-100 btn btn-primary btn-lg" type="submit" disabled>{% trans "Proceed to order" %}</button>
             
-            <!-- ======================================================= -->
-            <!--     ПРОМО-БАННЕР ПОД КАЛЬКУЛЯТОРОМ (МОБИЛЬНЫЙ)          -->
-            <!-- ======================================================= -->
+            <!-- ПРОМО-БАННЕР ПОД КАЛЬКУЛЯТОРОМ (МОБИЛЬНЫЙ) -->
             {% if promo_banner %}
-            <div class="promo-banner-mobile d-lg-none mt-4">
+            <div class="promo-banner-mobile mt-4">
                 <div class="promo-banner-wrapper promo-border-{{ promo_banner.border_style }} {% if promo_banner.content_type == 'text_only' %}text-only-banner{% endif %}" {% if promo_banner.background_color %}style="background-color: {{ promo_banner.background_color }};"{% endif %}>
                     
                     {% if promo_banner.link %}<a href="{{ promo_banner.link }}" target="_blank" rel="noopener noreferrer" class="promo-banner-link">{% endif %}
@@ -113,6 +111,7 @@
             </div>
             {% endif %}
         </div>
+        
         <div class="col-md-7 col-lg-8">
             <h1 class="mb-4">{% trans "Calculate cleaning cost" %}</h1>
             <div id="calculator-form" data-calculate-url="{% url 'calculate_price' %}" data-select-service="{% trans 'Select cleaning type' %}">
@@ -147,7 +146,7 @@
                 </div>
 
                 <h4 class="form-section-title">{% trans "Object Type" %}</h4>
-                 <div class="form-check d-flex align-items-center p-3 border rounded mb-4">
+                <div class="form-check d-flex align-items-center p-3 border rounded mb-4">
                     <input class="form-check-input me-3" type="checkbox" id="is-private-house" name="is_private_house" style="width: 1.5em; height: 1.5em;">
                     <label class="form-check-label d-flex justify-content-between align-items-center w-100" for="is-private-house">
                         <div class="d-flex align-items-center">
@@ -205,11 +204,9 @@
                     </label>
                 </div>
                 
-                <!-- ======================================================= -->
-                <!--     ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ + ПРОМО-БАННЕР (ДЕСКТОП)      -->
-                <!-- ======================================================= -->
+                <!-- ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ + ПРОМО-БАННЕР -->
                 <div class="additional-services-banner-row mt-4">
-                    <!-- Дополнительные услуги (левая колонка) -->
+                    <!-- Дополнительные услуги -->
                     <div class="additional-services-column">
                         <div class="additional-services-list">
                             <h4 class="form-section-title">{% trans "Additional services" %}</h4>
@@ -247,7 +244,7 @@
                         </div>
                     </div>
                     
-                    <!-- Промо-баннер (правая колонка - только десктоп) -->
+                    <!-- Промо-баннер (только десктоп) -->
                     {% if promo_banner %}
                     <div class="promo-banner-column">
                         <div class="promo-banner-wrapper promo-border-{{ promo_banner.border_style }} {% if promo_banner.content_type == 'text_only' %}text-only-banner{% endif %}" {% if promo_banner.background_color %}style="background-color: {{ promo_banner.background_color }};"{% endif %}>
@@ -289,15 +286,12 @@
                     </div>
                     {% endif %}
                 </div>
-                </div>
             </div>
         </div>
     </div>
 </form>
 
-<!-- ======================================================= -->
-<!--                    ЛИПКИЙ ФУТЕР                         -->
-<!-- ======================================================= -->
+<!-- ЛИПКИЙ ФУТЕР -->
 <div class="order-footer-bar">
     <div class="total-price-display">
         {% trans "Total" %}: <span id="footer-total-price">0.00 zł</span>
@@ -313,27 +307,18 @@
     </h2>
 </div>
 
-{# --- НАЧАЛО НОВОГО БЛОКА С КЛАССОМ "services-grid" --- #}
 <div class="services-grid" id="services-section">
     <h2 class="grid-title">{% trans "Our services" %}</h2>
     
     {% for service in main_services %}
     <div class="service-card"> 
-        {# Логика выбора цвета карточки #}
-        
         {% if service.slug == 'post-renovation-cleaning' %}
-            {# Золотая карточка для "Уборки после ремонта" #}
             <div class="h-100 p-5 service-card-gold rounded-3 d-flex flex-column">
-        
         {% elif forloop.counter0|divisibleby:2 %}
-            {# Черная карточка для четных #}
             <div class="h-100 p-5 text-bg-dark rounded-3 d-flex flex-column">
-        
         {% else %}
-            {# Светлая карточка для нечетных #}
             <div class="h-100 p-5 bg-body-tertiary border rounded-3 d-flex flex-column">
         {% endif %}
-
             <h3>{{ service.name }}</h3>
             {% if service.short_description %}
                 <p class="mt-auto">{{ service.short_description }}</p>
@@ -342,7 +327,6 @@
     </div>
     {% endfor %}
 </div>
-{# --- КОНЕЦ НОВОГО БЛОКА --- #}
 
 <div class="container px-4 py-5">
     <h2 class="pb-2 border-bottom">{% trans "How we work" %}</h2>
@@ -418,7 +402,6 @@
             {% endfor %}
         </div>
         
-        <!-- ИСПРАВЛЕННЫЕ КНОПКИ НАВИГАЦИИ -->
         <button class="carousel-control-prev" type="button" data-bs-target="#beforeAfterCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">{% trans "Previous" %}</span>
@@ -661,7 +644,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Плавная прокрутка для кнопки в липком футере
 document.addEventListener('DOMContentLoaded', function() {
     const footerButton = document.querySelector('.order-footer-bar .btn');
     if (footerButton) {
@@ -681,7 +663,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
-    // --- СКРИПТЫ ДЛЯ ГАЛЕРЕИ И СЛАЙДЕРА ---
     const lightbox = GLightbox({ selector: '.glightbox' });
     const swiper = new Swiper('.swiper', {
         loop: true,
