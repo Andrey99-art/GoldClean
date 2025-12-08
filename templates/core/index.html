@@ -68,6 +68,50 @@
                 </li>
             </ul>
             <button id="submit-order-btn" class="w-100 btn btn-primary btn-lg" type="submit" disabled>{% trans "Proceed to order" %}</button>
+            
+            <!-- ======================================================= -->
+            <!--     ПРОМО-БАННЕР ПОД КАЛЬКУЛЯТОРОМ (МОБИЛЬНЫЙ)          -->
+            <!-- ======================================================= -->
+            {% if promo_banner %}
+            <div class="promo-banner-mobile d-lg-none mt-4">
+                <div class="promo-banner-wrapper promo-border-{{ promo_banner.border_style }} {% if promo_banner.content_type == 'text_only' %}text-only-banner{% endif %}" {% if promo_banner.background_color %}style="background-color: {{ promo_banner.background_color }};"{% endif %}>
+                    
+                    {% if promo_banner.link %}<a href="{{ promo_banner.link }}" target="_blank" rel="noopener noreferrer" class="promo-banner-link">{% endif %}
+                    
+                    {% if promo_banner.content_type == 'image' and promo_banner.image %}
+                        <div class="promo-media">
+                            <img src="{{ promo_banner.image.url }}" alt="{{ promo_banner.title }}" class="promo-image">
+                        </div>
+                    {% elif promo_banner.content_type == 'video' and promo_banner.video_file %}
+                        <div class="promo-media">
+                            <video autoplay loop muted playsinline class="promo-video">
+                                <source src="{{ promo_banner.video_file.url }}" type="video/mp4">
+                            </video>
+                        </div>
+                    {% elif promo_banner.content_type == 'lottie' and promo_banner.lottie_json %}
+                        <div class="promo-media">
+                            <lottie-player src="{{ promo_banner.lottie_json.url }}" background="transparent" speed="1" loop autoplay class="promo-lottie"></lottie-player>
+                        </div>
+                    {% endif %}
+                    
+                    {% if promo_banner.title or promo_banner.description %}
+                    <div class="promo-content">
+                        {% if promo_banner.title %}
+                            <h4 class="promo-title">{{ promo_banner.title }}</h4>
+                        {% endif %}
+                        {% if promo_banner.description %}
+                            <p class="promo-description">{{ promo_banner.description }}</p>
+                        {% endif %}
+                        {% if promo_banner.link and promo_banner.link_text %}
+                            <span class="promo-btn">{{ promo_banner.link_text }}</span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                    {% if promo_banner.link %}</a>{% endif %}
+                </div>
+            </div>
+            {% endif %}
         </div>
         <div class="col-md-7 col-lg-8">
             <h1 class="mb-4">{% trans "Calculate cleaning cost" %}</h1>
@@ -161,39 +205,89 @@
                     </label>
                 </div>
                 
-                <div class="additional-services-list">
-                    <h4 class="form-section-title">{% trans "Additional services" %}</h4>
-                    
-                    {% for add_service in additional_services %}
-                    <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
-                        <div class="d-flex align-items-center">
-                            {% if not add_service.is_quantity_based %}
-                                <input class="form-check-input" type="checkbox" id="add-service-{{ add_service.id }}" data-service-id="{{ add_service.id }}">
-                            {% endif %}
-                            <label class="form-check-label" for="add-service-{{ add_service.id }}">
-                                {% if add_service.icon %}
-                                    <img src="{{ add_service.icon.url }}" alt="{{ add_service.name }}" class="service-icon">
+                <!-- ======================================================= -->
+                <!--     ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ + ПРОМО-БАННЕР (ДЕСКТОП)      -->
+                <!-- ======================================================= -->
+                <div class="row mt-4">
+                    <!-- Дополнительные услуги (левая колонка) -->
+                    <div class="col-lg-8">
+                        <div class="additional-services-list">
+                            <h4 class="form-section-title">{% trans "Additional services" %}</h4>
+                            
+                            {% for add_service in additional_services %}
+                            <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+                                <div class="d-flex align-items-center">
+                                    {% if not add_service.is_quantity_based %}
+                                        <input class="form-check-input" type="checkbox" id="add-service-{{ add_service.id }}" data-service-id="{{ add_service.id }}">
+                                    {% endif %}
+                                    <label class="form-check-label" for="add-service-{{ add_service.id }}">
+                                        {% if add_service.icon %}
+                                            <img src="{{ add_service.icon.url }}" alt="{{ add_service.name }}" class="service-icon">
+                                        {% endif %}
+                                        <span class="service-name">{{ add_service.name }}</span>
+                                    </label>
+                                </div>
+                                
+                                {% if add_service.is_quantity_based %}
+                                <div class="quantity-widget d-flex align-items-center">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="decrease">-</button>
+                                    <input type="number" class="form-control form-control-sm text-center quantity-input" value="0" min="0" max="10" data-service-id="{{ add_service.id }}" style="width: 60px;">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="increase">+</button>
+                                </div>
                                 {% endif %}
-                                <span class="service-name">{{ add_service.name }}</span>
-                            </label>
+
+                                <span class="fw-bold text-nowrap">
+                                    + {{ add_service.price|floatformat:0 }} zł
+                                    {% if add_service.price_description %}
+                                        <span class="price-unit-label">{{ add_service.price_description }}</span>
+                                    {% endif %}
+                                </span>
+                            </div>
+                            {% endfor %}
                         </div>
-                        
-                        {% if add_service.is_quantity_based %}
-                        <div class="quantity-widget d-flex align-items-center">
-                            <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="decrease">-</button>
-                            <input type="number" class="form-control form-control-sm text-center quantity-input" value="0" min="0" max="10" data-service-id="{{ add_service.id }}" style="width: 60px;">
-                            <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="increase">+</button>
+                    </div>
+                    
+                    <!-- Промо-баннер (правая колонка - только десктоп) -->
+                    <div class="col-lg-4 d-none d-lg-block">
+                        {% if promo_banner %}
+                        <div class="promo-banner-wrapper promo-border-{{ promo_banner.border_style }} {% if promo_banner.content_type == 'text_only' %}text-only-banner{% endif %}" {% if promo_banner.background_color %}style="background-color: {{ promo_banner.background_color }};"{% endif %}>
+                            
+                            {% if promo_banner.link %}<a href="{{ promo_banner.link }}" target="_blank" rel="noopener noreferrer" class="promo-banner-link">{% endif %}
+                            
+                            {% if promo_banner.content_type == 'image' and promo_banner.image %}
+                                <div class="promo-media">
+                                    <img src="{{ promo_banner.image.url }}" alt="{{ promo_banner.title }}" class="promo-image">
+                                </div>
+                            {% elif promo_banner.content_type == 'video' and promo_banner.video_file %}
+                                <div class="promo-media">
+                                    <video autoplay loop muted playsinline class="promo-video">
+                                        <source src="{{ promo_banner.video_file.url }}" type="video/mp4">
+                                    </video>
+                                </div>
+                            {% elif promo_banner.content_type == 'lottie' and promo_banner.lottie_json %}
+                                <div class="promo-media">
+                                    <lottie-player src="{{ promo_banner.lottie_json.url }}" background="transparent" speed="1" loop autoplay class="promo-lottie"></lottie-player>
+                                </div>
+                            {% endif %}
+                            
+                            {% if promo_banner.title or promo_banner.description %}
+                            <div class="promo-content">
+                                {% if promo_banner.title %}
+                                    <h4 class="promo-title">{{ promo_banner.title }}</h4>
+                                {% endif %}
+                                {% if promo_banner.description %}
+                                    <p class="promo-description">{{ promo_banner.description }}</p>
+                                {% endif %}
+                                {% if promo_banner.link and promo_banner.link_text %}
+                                    <span class="promo-btn">{{ promo_banner.link_text }}</span>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            
+                            {% if promo_banner.link %}</a>{% endif %}
                         </div>
                         {% endif %}
-
-                        <span class="fw-bold text-nowrap">
-                            + {{ add_service.price|floatformat:0 }} zł
-                            {% if add_service.price_description %}
-                                <span class="price-unit-label">{{ add_service.price_description }}</span>
-                            {% endif %}
-                        </span>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -446,7 +540,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!serviceId) {
                 submitBtn.disabled = true;
                 totalPriceEl.textContent = '0 zł';
-                footerTotalPriceEl.textContent = '0.00 zł'; // Обновляем футер
+                footerTotalPriceEl.textContent = '0.00 zł';
                 baseServiceNameEl.textContent = selectServiceText;
                 basePriceEl.textContent = '0 zł';
                 roomsBathroomsPriceEl.textContent = '0 zł';
@@ -490,7 +584,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const result = await response.json();
 
-                // Обновляем оба поля с ценой
                 totalPriceEl.textContent = result.total_price.toFixed(2) + ' zł';
                 footerTotalPriceEl.textContent = result.total_price.toFixed(2) + ' zł';
 

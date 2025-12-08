@@ -1354,3 +1354,155 @@ html {
         width: 50px !important;
     }
 }
+
+/*
+==========================================================================
+   32. Promo Banner Styles
+==========================================================================
+*/
+
+.promo-banner-wrapper {
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promo-banner-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(184, 158, 64, 0.2);
+}
+
+.promo-banner-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Border Styles */
+.promo-border-gold {
+    border: 3px solid var(--primary-gold);
+    box-shadow: 0 0 20px rgba(184, 158, 64, 0.15);
+}
+
+.promo-border-festive {
+    border: 3px solid transparent;
+    background: linear-gradient(var(--panel-bg), var(--panel-bg)) padding-box,
+                linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff, #ff6b6b) border-box;
+    background-size: 100% 100%, 300% 300%;
+    animation: festive-border 3s ease infinite;
+}
+
+@keyframes festive-border {
+    0%, 100% { background-position: 0% 50%, 0% 50%; }
+    50% { background-position: 0% 50%, 100% 50%; }
+}
+
+.promo-border-minimal {
+    border: 1px solid #e0e0e0;
+}
+
+.promo-border-none {
+    border: none;
+}
+
+/* Media Styles */
+.promo-media {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    min-height: 200px;
+}
+
+.promo-image {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.promo-video {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 0.5rem;
+}
+
+.promo-lottie {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+}
+
+/* Content Styles */
+.promo-content {
+    padding: 1rem 1.5rem 1.5rem;
+    text-align: center;
+}
+
+.promo-title {
+    color: var(--primary-gold);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.promo-description {
+    color: var(--dark-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.promo-btn {
+    display: inline-block;
+    background: var(--primary-gold);
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.promo-btn:hover {
+    background: var(--hover-gold);
+    transform: scale(1.05);
+}
+
+/* Mobile: Banner under calculator */
+@media (max-width: 991.98px) {
+    .promo-banner-wrapper {
+        margin-top: 2rem;
+        min-height: 200px;
+    }
+    
+    .promo-media {
+        min-height: 150px;
+    }
+    
+    .promo-image,
+    .promo-video {
+        max-height: 180px;
+    }
+}
+
+/* Text-only banner */
+.promo-banner-wrapper.text-only-banner {
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(184, 158, 64, 0.1) 0%, rgba(184, 158, 64, 0.05) 100%);
+}
+
+.promo-banner-wrapper.text-only-banner .promo-content {
+    padding: 2rem;
+}
+
+.promo-banner-wrapper.text-only-banner .promo-title {
+    font-size: 1.5rem;
+}
