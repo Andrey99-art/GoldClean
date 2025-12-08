@@ -2,6 +2,7 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 from solo.models import SingletonModel
 
 class CleaningArea(models.Model):
@@ -16,6 +17,7 @@ class CleaningArea(models.Model):
         verbose_name = _("Cleaning Area")
         verbose_name_plural = _("Cleaning Areas")
         ordering = ['order']
+
 
 class FeaturePoint(models.Model):
     area = models.ForeignKey(
@@ -39,6 +41,7 @@ class FeaturePoint(models.Model):
     def __str__(self):
         return self.description
 
+
 class SiteConfiguration(SingletonModel):
     cancellation_fee = models.DecimalField(
         _("Cancellation Fee (zł)"),
@@ -59,7 +62,6 @@ class SiteConfiguration(SingletonModel):
         null=True, 
         help_text=_("Full URL to the Telegram account, e.g., https://t.me/your_account")
     )
-
     whatsapp_link = models.URLField(
        _("WhatsApp Link"),
        max_length=255,
@@ -69,9 +71,162 @@ class SiteConfiguration(SingletonModel):
     )
 
     def __str__(self):
-        # --- ИСПРАВЛЕНИЕ ---
-        # Оборачиваем ленивый перевод в str(), чтобы вернуть реальную строку
         return str(_("Site Configuration"))
 
     class Meta:
         verbose_name = _("Site Configuration")
+
+
+class PromoBanner(models.Model):
+    """Промо-баннер для праздников и акций"""
+    
+    CONTENT_TYPE_CHOICES = [
+        ('image', _('Image (PNG, JPG, GIF)')),
+        ('video', _('Video (MP4, WebM)')),
+        ('lottie', _('Lottie Animation (JSON)')),
+        ('text_only', _('Text Only')),
+    ]
+    
+    # Основные поля
+    name = models.CharField(
+        _("Banner Name"),
+        max_length=100,
+        help_text=_("Internal name for admin, e.g., 'New Year 2026'")
+    )
+    content_type = models.CharField(
+        _("Content Type"),
+        max_length=20,
+        choices=CONTENT_TYPE_CHOICES,
+        default='image'
+    )
+    
+    # Медиа контент
+    image = models.ImageField(
+        _("Image / GIF"),
+        upload_to='promo_banners/',
+        blank=True,
+        null=True,
+        help_text=_("Upload image or animated GIF")
+    )
+    video_file = models.FileField(
+        _("Video File"),
+        upload_to='promo_banners/videos/',
+        blank=True,
+        null=True,
+        help_text=_("Upload MP4 or WebM video")
+    )
+    lottie_json = models.FileField(
+        _("Lottie Animation"),
+        upload_to='promo_banners/lottie/',
+        blank=True,
+        null=True,
+        help_text=_("Upload Lottie JSON file")
+    )
+    
+    # Текстовый контент
+    title = models.CharField(
+        _("Title"),
+        max_length=200,
+        blank=True,
+        help_text=_("Holiday greeting or promo title")
+    )
+    description = models.TextField(
+        _("Description"),
+        blank=True,
+        help_text=_("Additional text or message")
+    )
+    
+    # Ссылка
+    link = models.URLField(
+        _("Link URL"),
+        blank=True,
+        null=True,
+        help_text=_("Optional: URL to open when banner is clicked")
+    )
+    link_text = models.CharField(
+        _("Link Button Text"),
+        max_length=50,
+        blank=True,
+        default="",
+        help_text=_("Text for the button, e.g., 'Learn more'")
+    )
+    
+    # Период показа
+    start_date = models.DateTimeField(
+        _("Start Date"),
+        blank=True,
+        null=True,
+        help_text=_("When to start showing the banner. Leave empty to show immediately.")
+    )
+    end_date = models.DateTimeField(
+        _("End Date"),
+        blank=True,
+        null=True,
+        help_text=_("When to stop showing the banner. Leave empty to show indefinitely.")
+    )
+    
+    # Настройки отображения
+    is_active = models.BooleanField(
+        _("Active"),
+        default=True,
+        help_text=_("Enable or disable this banner")
+    )
+    show_border = models.BooleanField(
+        _("Show Border"),
+        default=True,
+        help_text=_("Show decorative border around the banner")
+    )
+    border_style = models.CharField(
+        _("Border Style"),
+        max_length=20,
+        choices=[
+            ('gold', _('Gold (default)')),
+            ('festive', _('Festive (animated)')),
+            ('minimal', _('Minimal')),
+            ('none', _('No border')),
+        ],
+        default='gold'
+    )
+    background_color = models.CharField(
+        _("Background Color"),
+        max_length=20,
+        blank=True,
+        default='',
+        help_text=_("CSS color, e.g., '#ffffff' or 'transparent'")
+    )
+    
+    # Приоритет (если несколько баннеров активны)
+    priority = models.PositiveIntegerField(
+        _("Priority"),
+        default=0,
+        help_text=_("Higher number = higher priority. Banner with highest priority will be shown.")
+    )
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = _("Promo Banner")
+        verbose_name_plural = _("Promo Banners")
+        ordering = ['-priority', '-created_at']
+
+    def __str__(self):
+        return self.name
+
+    def is_visible(self):
+        """Проверяет, должен ли баннер отображаться сейчас"""
+        if not self.is_active:
+            return False
+        
+        now = timezone.now()
+        
+        if self.start_date and now < self.start_date:
+            return False
+        
+        if self.end_date and now > self.end_date:
+            return False
+        
+        return True
+    
+    is_visible.boolean = True
+    is_visible.short_description = _("Currently Visible")

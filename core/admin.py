@@ -2,13 +2,15 @@
 
 from django.contrib import admin
 from django.utils.html import format_html
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from solo.admin import SingletonModelAdmin
-from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline # Используем специальные классы
+from modeltranslation.admin import TabbedTranslationAdmin, TranslationTabularInline
 from modeltranslation.translator import translator
 from django.conf import settings
 from deep_translator import GoogleTranslator
 
-from .models import CleaningArea, FeaturePoint, SiteConfiguration
+from .models import CleaningArea, FeaturePoint, SiteConfiguration, PromoBanner
 
 # Используем TranslationTabularInline для правильного отображения вкладок
 class FeaturePointInline(TranslationTabularInline):
@@ -118,3 +120,66 @@ class CleaningAreaAdmin(TabbedTranslationAdmin):
 @admin.register(SiteConfiguration)
 class SiteConfigurationAdmin(SingletonModelAdmin):
     pass
+
+@admin.register(PromoBanner)
+class PromoBannerAdmin(TabbedTranslationAdmin):
+    list_display = ('name', 'content_type', 'is_active', 'is_currently_visible', 'priority', 'date_range', 'preview_thumbnail')
+    list_filter = ('is_active', 'content_type', 'border_style')
+    list_editable = ('is_active', 'priority')
+    search_fields = ('name', 'title', 'description')
+    ordering = ['-priority', '-created_at']
+    
+    fieldsets = (
+        (_('Basic Info'), {
+            'fields': ('name', 'is_active', 'priority')
+        }),
+        (_('Content Type'), {
+            'fields': ('content_type',),
+            'description': _('Choose what type of content to display')
+        }),
+        (_('Media Content'), {
+            'fields': ('image', 'video_file', 'lottie_json'),
+            'classes': ('collapse',),
+            'description': _('Upload media based on selected content type')
+        }),
+        (_('Text Content'), {
+            'fields': ('title', 'description'),
+        }),
+        (_('Link Settings'), {
+            'fields': ('link', 'link_text'),
+            'classes': ('collapse',),
+        }),
+        (_('Display Period'), {
+            'fields': ('start_date', 'end_date'),
+            'description': _('Leave empty to show always (when active)')
+        }),
+        (_('Appearance'), {
+            'fields': ('show_border', 'border_style', 'background_color'),
+            'classes': ('collapse',),
+        }),
+    )
+    
+    @admin.display(description=_("Currently Visible"), boolean=True)
+    def is_currently_visible(self, obj):
+        return obj.is_visible()
+    
+    @admin.display(description=_("Display Period"))
+    def date_range(self, obj):
+        start = obj.start_date.strftime('%d.%m.%Y') if obj.start_date else '∞'
+        end = obj.end_date.strftime('%d.%m.%Y') if obj.end_date else '∞'
+        return f"{start} — {end}"
+    
+    @admin.display(description=_("Preview"))
+    def preview_thumbnail(self, obj):
+        if obj.image:
+            return format_html(
+                '<img src="{}" style="max-width: 100px; max-height: 60px; object-fit: contain; border-radius: 4px;" />',
+                obj.image.url
+            )
+        elif obj.content_type == 'video':
+            return format_html('<span style="color: #666;">🎬 Video</span>')
+        elif obj.content_type == 'lottie':
+            return format_html('<span style="color: #666;">✨ Lottie</span>')
+        elif obj.content_type == 'text_only':
+            return format_html('<span style="color: #666;">📝 Text</span>')
+        return '-'

@@ -1,19 +1,33 @@
-# Файл: core/context_processors.py 
+# File: core/context_processors.py 
 
-from .models import SiteConfiguration
+from .models import SiteConfiguration, PromoBanner
+
 
 def site_settings(request):
     """
     Добавляет объект настроек сайта в контекст каждого шаблона.
-    Это позволяет глобально получать доступ ко всем настройкам, таким как 
-    TELEGRAM_LINK, services_page_enabled и т.д.
     """
     try:
-        # get_solo() получает единственный экземпляр настроек
         config = SiteConfiguration.get_solo()
-        # Возвращаем весь объект в контекст под именем 'site_config'
         return {'site_config': config}
     except SiteConfiguration.DoesNotExist:
-        # Если настроек еще нет (например, после миграций), 
-        # возвращаем пустой словарь, чтобы сайт не падал.
         return {}
+
+
+def promo_banner(request):
+    """
+    Добавляет активный промо-баннер в контекст.
+    Выбирает баннер с наивысшим приоритетом, который сейчас должен отображаться.
+    """
+    try:
+        # Получаем все активные баннеры, отсортированные по приоритету
+        banners = PromoBanner.objects.filter(is_active=True).order_by('-priority', '-created_at')
+        
+        # Находим первый видимый баннер
+        for banner in banners:
+            if banner.is_visible():
+                return {'promo_banner': banner}
+        
+        return {'promo_banner': None}
+    except:
+        return {'promo_banner': None}

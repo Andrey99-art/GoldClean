@@ -87,6 +87,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                # 'core.context_processors.site_configuration',
                 'core.context_processors.site_settings',
+                'core.context_processors.promo_banner',
             ],
         },
     },
