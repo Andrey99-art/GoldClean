@@ -1269,3 +1269,88 @@ html {
         max-height: 160px;
     }
 }
+
+/*
+==========================================================================
+   31. Additional Services - Mobile Responsive Fix
+==========================================================================
+*/
+
+/* Мобильная версия дополнительных услуг */
+@media (max-width: 576px) {
+    .additional-services-list .d-flex.justify-content-between {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .additional-services-list .d-flex.align-items-center {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .additional-services-list .form-check-input {
+        flex-shrink: 0;
+        width: 1.2em;
+        height: 1.2em;
+    }
+    
+    .additional-services-list .form-check-label {
+        gap: 0.5rem;
+        margin-left: 0.5rem;
+    }
+    
+    .additional-services-list .service-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .additional-services-list .service-name {
+        font-size: 0.85rem;
+        line-height: 1.2;
+    }
+    
+    /* Виджет количества компактнее */
+    .additional-services-list .quantity-widget {
+        flex-shrink: 0;
+    }
+    
+    .additional-services-list .quantity-widget .btn {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .additional-services-list .quantity-widget .quantity-input {
+        width: 40px !important;
+        padding: 0.2rem;
+        font-size: 0.85rem;
+    }
+    
+    /* Цена на новой строке справа */
+    .additional-services-list .fw-bold.text-nowrap {
+        flex-basis: 100%;
+        text-align: right;
+        font-size: 0.85rem;
+        padding-left: 50px;
+        margin-top: -0.5rem;
+    }
+    
+    .additional-services-list .price-unit-label {
+        font-size: 0.75rem;
+    }
+}
+
+/* Средние экраны (планшеты) */
+@media (min-width: 577px) and (max-width: 767px) {
+    .additional-services-list .service-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .additional-services-list .service-name {
+        font-size: 0.9rem;
+    }
+    
+    .additional-services-list .quantity-widget .quantity-input {
+        width: 50px !important;
+    }
+}
