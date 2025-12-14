@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-14 17:01+0300\n"
+"POT-Creation-Date: 2025-12-14 19:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1115,7 +1115,7 @@ msgstr "Bring a vacuum cleaner"
 
 #: .\templates\accounts\order_edit.html:54
 #: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:136
-#: .\templates\core\index.html:254
+#: .\templates\core\index.html:254 .\templates\core\index.html:389
 msgid "Additional services"
 msgstr "Additional services"
 
@@ -1136,11 +1136,12 @@ msgid "New Cost"
 msgstr "New Cost"
 
 #: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:210
+#: .\templates\core\index.html:341
 msgid "Base cost"
 msgstr "Base cost"
 
 #: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:117
-#: .\templates\core\index.html:228
+#: .\templates\core\index.html:228 .\templates\core\index.html:377
 msgid "Equipment"
 msgstr "Equipment"
 
@@ -1150,6 +1151,7 @@ msgid "Object Type"
 msgstr "Object Type"
 
 #: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:246
+#: .\templates\core\index.html:365
 msgid "Private House"
 msgstr "Private House"
 
@@ -1157,20 +1159,24 @@ msgstr "Private House"
 msgid "The final price will be recalculated upon saving."
 msgstr "The final price will be recalculated upon saving."
 
-#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:668
+#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:760
+#: .\templates\core\index.html:842
 msgid "Area"
 msgstr "Area"
 
 #: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:219
-#: .\templates\core\index.html:672
+#: .\templates\core\index.html:353 .\templates\core\index.html:764
+#: .\templates\core\index.html:846
 msgid "Rooms and bathrooms"
 msgstr "Rooms and bathrooms"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:673
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
+#: .\templates\core\index.html:847
 msgid "room(s)"
 msgstr "room(s)"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:673
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
+#: .\templates\core\index.html:847
 msgid "bathroom(s)"
 msgstr "bathroom(s)"
 
@@ -1239,7 +1245,7 @@ msgid "Professional cleaning services. Click to calculate price."
 msgstr ""
 
 #: .\templates\base.html:107 .\templates\base.html:216
-#: .\templates\base.html:240 .\templates\core\index.html:347
+#: .\templates\base.html:240 .\templates\core\index.html:436
 msgid "An individual approach to the cleanliness of your space."
 msgstr "An individual approach to the cleanliness of your space."
 
@@ -1432,6 +1438,7 @@ msgid "Calculate cleaning cost"
 msgstr "Calculate cleaning cost"
 
 #: .\templates\core\index.html:23 .\templates\core\index.html:211
+#: .\templates\core\index.html:342
 msgid "Select cleaning type"
 msgstr "Select cleaning type"
 
@@ -1521,7 +1528,7 @@ msgstr "1 room, 1 bathroom"
 msgid "Approximate operating time"
 msgstr "Approximate operating time"
 
-#: .\templates\core\index.html:263
+#: .\templates\core\index.html:263 .\templates\core\index.html:413
 msgid "Subscription Discount"
 msgstr "Subscription Discount"
 
@@ -1542,106 +1549,124 @@ msgstr "Contact details"
 msgid "Calculator"
 msgstr "Go to calculator"
 
-#: .\templates\core\index.html:317 .\templates\core\index.html:764
+#: .\templates\core\index.html:317 .\templates\core\index.html:423
 #: .\templates\core\pricing.html:84 .\templates\core\services.html:54
 msgid "Total"
 msgstr "Total"
 
-#: .\templates\core\index.html:352
-msgid "Our services"
-msgstr "Our services"
+#: .\templates\core\index.html:354
+#, fuzzy
+#| msgid "room(s)"
+msgid "room"
+msgstr "room(s)"
 
-#: .\templates\core\index.html:373
-msgid "How we work"
-msgstr "How we work"
+#: .\templates\core\index.html:354
+#, fuzzy
+#| msgid "bathroom(s)"
+msgid "bathroom"
+msgstr "bathroom(s)"
 
-#: .\templates\core\index.html:376
-msgid "1. Make a request"
-msgstr "1. Make a request"
-
-#: .\templates\core\index.html:377
-msgid ""
-"Fill out the form on the website or give us a call. We will clarify the "
-"details and calculate the cost."
+#: .\templates\core\index.html:366
+msgid "Coefficient applied"
 msgstr ""
-"Fill out the form on the website or give us a call. We will clarify the "
-"details and calculate the cost."
 
-#: .\templates\core\index.html:380
-msgid "2. We arrive on time"
-msgstr "2. We arrive on time"
-
-#: .\templates\core\index.html:381
-msgid ""
-"Our cleaners will arrive at the appointed time with all the necessary "
-"equipment and supplies."
-msgstr ""
-"Our cleaners will arrive at the appointed time with all the necessary "
-"equipment and supplies."
-
-#: .\templates\core\index.html:384
-msgid "3. Enjoy the cleanliness"
-msgstr "3. Enjoy the cleanliness"
-
-#: .\templates\core\index.html:385
-msgid ""
-"You accept the work and pay for the result. Your home shines with "
-"cleanliness!"
-msgstr ""
-"You accept the work and pay for the result. Your home shines with "
-"cleanliness!"
-
-#: .\templates\core\index.html:392
-msgid "What's included in apartment cleaning"
-msgstr "What's included in apartment cleaning"
-
-#: .\templates\core\index.html:413
-msgid "Our Work in Action"
-msgstr "Our Work in Action"
-
-#: .\templates\core\index.html:414
-msgid "See the difference we make with your own eyes."
-msgstr "See the difference we make with your own eyes."
-
-#: .\templates\core\index.html:427 .\templates\core\index.html:428
-#: .\templates\core\index.html:430
-msgid "Before"
-msgstr "Before"
-
-#: .\templates\core\index.html:435 .\templates\core\index.html:436
-#: .\templates\core\index.html:438
-msgid "After"
-msgstr "After"
-
-#: .\templates\core\index.html:448
-msgid "Previous"
-msgstr "Previous"
-
-#: .\templates\core\index.html:452
-msgid "Next"
-msgstr "Next"
-
-#: .\templates\core\index.html:460
-msgid "What Our Clients Say"
-msgstr "What Our Clients Say"
-
-#: .\templates\core\index.html:476
-msgid "Posted on"
-msgstr "Posted on"
-
-#: .\templates\core\index.html:490
-msgid "Leave your own review"
-msgstr "Leave your own review"
-
-#: .\templates\core\index.html:737
+#: .\templates\core\index.html:378
 #, fuzzy
 #| msgid "Vacuum cleaner icon"
 msgid "Vacuum cleaner"
 msgstr "Vacuum cleaner icon"
 
-#: .\templates\core\index.html:755
-msgid "Discount"
+#: .\templates\core\index.html:401
+#, fuzzy
+#| msgid "Approximate operating time"
+msgid "Approximate time"
+msgstr "Approximate operating time"
+
+#: .\templates\core\index.html:441
+msgid "Our services"
+msgstr "Our services"
+
+#: .\templates\core\index.html:462
+msgid "How we work"
+msgstr "How we work"
+
+#: .\templates\core\index.html:465
+msgid "1. Make a request"
+msgstr "1. Make a request"
+
+#: .\templates\core\index.html:466
+msgid ""
+"Fill out the form on the website or give us a call. We will clarify the "
+"details and calculate the cost."
 msgstr ""
+"Fill out the form on the website or give us a call. We will clarify the "
+"details and calculate the cost."
+
+#: .\templates\core\index.html:469
+msgid "2. We arrive on time"
+msgstr "2. We arrive on time"
+
+#: .\templates\core\index.html:470
+msgid ""
+"Our cleaners will arrive at the appointed time with all the necessary "
+"equipment and supplies."
+msgstr ""
+"Our cleaners will arrive at the appointed time with all the necessary "
+"equipment and supplies."
+
+#: .\templates\core\index.html:473
+msgid "3. Enjoy the cleanliness"
+msgstr "3. Enjoy the cleanliness"
+
+#: .\templates\core\index.html:474
+msgid ""
+"You accept the work and pay for the result. Your home shines with "
+"cleanliness!"
+msgstr ""
+"You accept the work and pay for the result. Your home shines with "
+"cleanliness!"
+
+#: .\templates\core\index.html:481
+msgid "What's included in apartment cleaning"
+msgstr "What's included in apartment cleaning"
+
+#: .\templates\core\index.html:502
+msgid "Our Work in Action"
+msgstr "Our Work in Action"
+
+#: .\templates\core\index.html:503
+msgid "See the difference we make with your own eyes."
+msgstr "See the difference we make with your own eyes."
+
+#: .\templates\core\index.html:516 .\templates\core\index.html:517
+#: .\templates\core\index.html:519
+msgid "Before"
+msgstr "Before"
+
+#: .\templates\core\index.html:524 .\templates\core\index.html:525
+#: .\templates\core\index.html:527
+msgid "After"
+msgstr "After"
+
+#: .\templates\core\index.html:537
+msgid "Previous"
+msgstr "Previous"
+
+#: .\templates\core\index.html:541
+msgid "Next"
+msgstr "Next"
+
+#: .\templates\core\index.html:549
+msgid "What Our Clients Say"
+msgstr "What Our Clients Say"
+
+#: .\templates\core\index.html:565
+msgid "Posted on"
+msgstr "Posted on"
+
+#: .\templates\core\index.html:579
+msgid "Leave your own review"
+msgstr "Leave your own review"
 
 #: .\templates\core\kitchen_cleaning.html:7
 msgid ""

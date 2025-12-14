@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-14 17:00+0300\n"
+"POT-Creation-Date: 2025-12-14 19:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -101,7 +101,6 @@ msgid "Basic Info"
 msgstr ""
 
 #: .\core\admin.py:136 .\core\models.py:97
-#, fuzzy
 #| msgid "Cleaning Type"
 msgid "Content Type"
 msgstr "Тип уборки"
@@ -111,7 +110,6 @@ msgid "Choose what type of content to display"
 msgstr ""
 
 #: .\core\admin.py:140
-#, fuzzy
 #| msgid "Website Content"
 msgid "Media Content"
 msgstr "Содержимое сайта"
@@ -121,7 +119,6 @@ msgid "Upload media based on selected content type"
 msgstr ""
 
 #: .\core\admin.py:145
-#, fuzzy
 #| msgid "Website Content"
 msgid "Text Content"
 msgstr "Содержимое сайта"
@@ -131,7 +128,6 @@ msgid "Link Settings"
 msgstr ""
 
 #: .\core\admin.py:152 .\core\admin.py:166
-#, fuzzy
 #| msgid "Display Order"
 msgid "Display Period"
 msgstr "Порядок отображения"
@@ -145,13 +141,11 @@ msgid "Appearance"
 msgstr ""
 
 #: .\core\admin.py:162 .\core\models.py:232
-#, fuzzy
 #| msgid "Currently"
 msgid "Currently Visible"
 msgstr "В настоящее время"
 
 #: .\core\admin.py:172
-#, fuzzy
 #| msgid "Review"
 msgid "Preview"
 msgstr "Отзыв"
@@ -263,13 +257,11 @@ msgid "Lottie Animation (JSON)"
 msgstr ""
 
 #: .\core\models.py:87
-#, fuzzy
 #| msgid "Text"
 msgid "Text Only"
 msgstr "Текст"
 
 #: .\core\models.py:92
-#, fuzzy
 #| msgid "Service Name"
 msgid "Banner Name"
 msgstr "Название услуги"
@@ -279,7 +271,6 @@ msgid "Internal name for admin, e.g., 'New Year 2026'"
 msgstr ""
 
 #: .\core\models.py:105
-#, fuzzy
 #| msgid "Image"
 msgid "Image / GIF"
 msgstr "Изображение"
@@ -297,10 +288,9 @@ msgid "Upload MP4 or WebM video"
 msgstr ""
 
 #: .\core\models.py:119
-#, fuzzy
 #| msgid "Attention!"
 msgid "Lottie Animation"
-msgstr "Внимание!"
+msgstr "Lottie анимация"
 
 #: .\core\models.py:123
 msgid "Upload Lottie JSON file"
@@ -311,7 +301,6 @@ msgid "Holiday greeting or promo title"
 msgstr ""
 
 #: .\core\models.py:136
-#, fuzzy
 #| msgid "Additional Services"
 msgid "Additional text or message"
 msgstr "Дополнительные услуги"
@@ -341,7 +330,6 @@ msgid "When to start showing the banner. Leave empty to show immediately."
 msgstr ""
 
 #: .\core\models.py:162
-#, fuzzy
 #| msgid "Date"
 msgid "End Date"
 msgstr "Дата"
@@ -351,7 +339,6 @@ msgid "When to stop showing the banner. Leave empty to show indefinitely."
 msgstr ""
 
 #: .\core\models.py:170
-#, fuzzy
 #| msgid "Is Active"
 msgid "Active"
 msgstr "Активно"
@@ -361,7 +348,6 @@ msgid "Enable or disable this banner"
 msgstr ""
 
 #: .\core\models.py:175
-#, fuzzy
 #| msgid "Your order"
 msgid "Show Border"
 msgstr "Ваш заказ"
@@ -379,7 +365,6 @@ msgid "Gold (default)"
 msgstr ""
 
 #: .\core\models.py:184
-#, fuzzy
 #| msgid "String (unlimited)"
 msgid "Festive (animated)"
 msgstr "Строка (неограниченная)"
@@ -389,7 +374,6 @@ msgid "Minimal"
 msgstr ""
 
 #: .\core\models.py:186
-#, fuzzy
 #| msgid "Your order"
 msgid "No border"
 msgstr "Ваш заказ"
@@ -1116,7 +1100,7 @@ msgstr "Привезти пылесос"
 
 #: .\templates\accounts\order_edit.html:54
 #: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:136
-#: .\templates\core\index.html:254
+#: .\templates\core\index.html:254 .\templates\core\index.html:389
 msgid "Additional services"
 msgstr "Дополнительные услуги"
 
@@ -1137,11 +1121,12 @@ msgid "New Cost"
 msgstr "Новая стоимость"
 
 #: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:210
+#: .\templates\core\index.html:341
 msgid "Base cost"
 msgstr "Базовая стоимость"
 
 #: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:117
-#: .\templates\core\index.html:228
+#: .\templates\core\index.html:228 .\templates\core\index.html:377
 msgid "Equipment"
 msgstr "Оборудование"
 
@@ -1151,6 +1136,7 @@ msgid "Object Type"
 msgstr "Тип объекта"
 
 #: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:246
+#: .\templates\core\index.html:365
 msgid "Private House"
 msgstr "Частный дом"
 
@@ -1158,20 +1144,24 @@ msgstr "Частный дом"
 msgid "The final price will be recalculated upon saving."
 msgstr "Окончательная цена будет пересчитана после сохранения."
 
-#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:668
+#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:760
+#: .\templates\core\index.html:842
 msgid "Area"
 msgstr "Площадь"
 
 #: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:219
-#: .\templates\core\index.html:672
+#: .\templates\core\index.html:353 .\templates\core\index.html:764
+#: .\templates\core\index.html:846
 msgid "Rooms and bathrooms"
 msgstr "Комнаты и ванные"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:673
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
+#: .\templates\core\index.html:847
 msgid "room(s)"
 msgstr "комната(ы)"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:673
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
+#: .\templates\core\index.html:847
 msgid "bathroom(s)"
 msgstr "ванная(ые)"
 
@@ -1241,7 +1231,7 @@ msgid "Professional cleaning services. Click to calculate price."
 msgstr "Профессиональные клининговые услуги. Нажмите чтобы посчитать цену."
 
 #: .\templates\base.html:107 .\templates\base.html:216
-#: .\templates\base.html:240 .\templates\core\index.html:347
+#: .\templates\base.html:240 .\templates\core\index.html:436
 msgid "An individual approach to the cleanliness of your space."
 msgstr "Индивидуальный подход к чистоте вашего пространства."
 
@@ -1439,6 +1429,7 @@ msgid "Calculate cleaning cost"
 msgstr "Рассчитать стоимость уборки"
 
 #: .\templates\core\index.html:23 .\templates\core\index.html:211
+#: .\templates\core\index.html:342
 msgid "Select cleaning type"
 msgstr "Выберите тип уборки"
 
@@ -1506,7 +1497,7 @@ msgstr "Площадь в м²"
 
 #: .\templates\core\index.html:122
 msgid "Vacuum cleaner icon"
-msgstr "Иконка пылесоса"
+msgstr "Пылесос"
 
 #: .\templates\core\index.html:124
 msgid "You need a vacuum cleaner on the order"
@@ -1528,7 +1519,7 @@ msgstr "1 комната, 1 ванная"
 msgid "Approximate operating time"
 msgstr "Примерное время работы"
 
-#: .\templates\core\index.html:263
+#: .\templates\core\index.html:263 .\templates\core\index.html:413
 msgid "Subscription Discount"
 msgstr "Скидка по подписке"
 
@@ -1538,35 +1529,58 @@ msgid "Proceed to order"
 msgstr "Перейти к заказу"
 
 #: .\templates\core\index.html:307
-#, fuzzy
 #| msgid "Contact details"
 msgid "Show details"
 msgstr "Контактные данные"
 
 #: .\templates\core\index.html:313
-#, fuzzy
 #| msgid "Go to calculator"
 msgid "Calculator"
 msgstr "Перейти к калькулятору"
 
-#: .\templates\core\index.html:317 .\templates\core\index.html:764
+#: .\templates\core\index.html:317 .\templates\core\index.html:423
 #: .\templates\core\pricing.html:84 .\templates\core\services.html:54
 msgid "Total"
 msgstr "Общая стоимость"
 
-#: .\templates\core\index.html:352
+#: .\templates\core\index.html:354
+#| msgid "room(s)"
+msgid "room"
+msgstr "комната(ы)"
+
+#: .\templates\core\index.html:354
+#| msgid "bathroom(s)"
+msgid "bathroom"
+msgstr "ванная(ые)"
+
+#: .\templates\core\index.html:366
+#| msgid "Coefficient applies for larger area"
+msgid "Coefficient applied"
+msgstr "Коэффициент применяется для больших площадей"
+
+#: .\templates\core\index.html:378
+#| msgid "Vacuum cleaner icon"
+msgid "Vacuum cleaner"
+msgstr "Пылесос"
+
+#: .\templates\core\index.html:401
+#| msgid "Approximate operating time"
+msgid "Approximate time"
+msgstr "Примерное время работы"
+
+#: .\templates\core\index.html:441
 msgid "Our services"
 msgstr "Наши услуги"
 
-#: .\templates\core\index.html:373
+#: .\templates\core\index.html:462
 msgid "How we work"
 msgstr "Как мы работаем"
 
-#: .\templates\core\index.html:376
+#: .\templates\core\index.html:465
 msgid "1. Make a request"
 msgstr "1. Оставьте заявку"
 
-#: .\templates\core\index.html:377
+#: .\templates\core\index.html:466
 msgid ""
 "Fill out the form on the website or give us a call. We will clarify the "
 "details and calculate the cost."
@@ -1574,11 +1588,11 @@ msgstr ""
 "Заполните форму на сайте или позвоните нам. Мы уточним детали и рассчитаем "
 "стоимость."
 
-#: .\templates\core\index.html:380
+#: .\templates\core\index.html:469
 msgid "2. We arrive on time"
 msgstr "2. Мы приезжаем вовремя"
 
-#: .\templates\core\index.html:381
+#: .\templates\core\index.html:470
 msgid ""
 "Our cleaners will arrive at the appointed time with all the necessary "
 "equipment and supplies."
@@ -1586,69 +1600,57 @@ msgstr ""
 "Наши уборщики приедут в назначенное время со всем необходимым оборудованием "
 "и средствами."
 
-#: .\templates\core\index.html:384
+#: .\templates\core\index.html:473
 msgid "3. Enjoy the cleanliness"
 msgstr "3. Наслаждайтесь чистотой"
 
-#: .\templates\core\index.html:385
+#: .\templates\core\index.html:474
 msgid ""
 "You accept the work and pay for the result. Your home shines with "
 "cleanliness!"
 msgstr "Вы принимаете работу и платите за результат. Ваш дом сияет чистотой!"
 
-#: .\templates\core\index.html:392
+#: .\templates\core\index.html:481
 msgid "What's included in apartment cleaning"
 msgstr "Что входит в уборку квартиры"
 
-#: .\templates\core\index.html:413
+#: .\templates\core\index.html:502
 msgid "Our Work in Action"
 msgstr "Наша работа в действии"
 
-#: .\templates\core\index.html:414
+#: .\templates\core\index.html:503
 msgid "See the difference we make with your own eyes."
 msgstr "Увидьте разницу, которую мы создаем, своими глазами."
 
-#: .\templates\core\index.html:427 .\templates\core\index.html:428
-#: .\templates\core\index.html:430
+#: .\templates\core\index.html:516 .\templates\core\index.html:517
+#: .\templates\core\index.html:519
 msgid "Before"
 msgstr "До"
 
-#: .\templates\core\index.html:435 .\templates\core\index.html:436
-#: .\templates\core\index.html:438
+#: .\templates\core\index.html:524 .\templates\core\index.html:525
+#: .\templates\core\index.html:527
 msgid "After"
 msgstr "После"
 
-#: .\templates\core\index.html:448
+#: .\templates\core\index.html:537
 msgid "Previous"
 msgstr "Предыдущий"
 
-#: .\templates\core\index.html:452
+#: .\templates\core\index.html:541
 msgid "Next"
 msgstr "Следующий"
 
-#: .\templates\core\index.html:460
+#: .\templates\core\index.html:549
 msgid "What Our Clients Say"
 msgstr "Что говорят наши клиенты"
 
-#: .\templates\core\index.html:476
+#: .\templates\core\index.html:565
 msgid "Posted on"
 msgstr "Опубликовано"
 
-#: .\templates\core\index.html:490
+#: .\templates\core\index.html:579
 msgid "Leave your own review"
 msgstr "Оставить свой отзыв"
-
-#: .\templates\core\index.html:737
-#, fuzzy
-#| msgid "Vacuum cleaner icon"
-msgid "Vacuum cleaner"
-msgstr "Иконка пылесоса"
-
-#: .\templates\core\index.html:755
-#, fuzzy
-#| msgid "Account"
-msgid "Discount"
-msgstr "Аккаунт"
 
 #: .\templates\core\kitchen_cleaning.html:7
 msgid ""
@@ -2031,7 +2033,7 @@ msgstr ""
 "будет взиматься плата за отмену в размере"
 
 #: .\templates\core\legal\terms.html:67
-#, fuzzy, python-format
+#,  python-format
 #| msgid ""
 #| "Cancellation less than 24 hours before the scheduled service: a fee of "
 #| "%(fee)s PLN may apply"
@@ -3903,6 +3905,10 @@ msgstr "Извините, перевод недоступен."
 #: .\venv\Lib\site-packages\modeltranslation\widgets.py:32
 msgid "None"
 msgstr "Нет"
+
+#~| msgid "Account"
+#~ msgid "Discount"
+#~ msgstr "Аккаунт"
 
 #~ msgid "Write to us on Telegram"
 #~ msgstr "Напишите нам в Telegram"

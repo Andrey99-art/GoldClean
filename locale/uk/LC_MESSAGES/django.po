@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-14 17:01+0300\n"
+"POT-Creation-Date: 2025-12-14 19:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME EMAIL@ADDRESS\n"
 "Language-Team: Ukrainian uk@li.org\n"
@@ -260,13 +260,11 @@ msgid "Lottie Animation (JSON)"
 msgstr ""
 
 #: .\core\models.py:87
-#, fuzzy
 #| msgid "Text"
 msgid "Text Only"
 msgstr "Текст"
 
 #: .\core\models.py:92
-#, fuzzy
 #| msgid "Service Name"
 msgid "Banner Name"
 msgstr "Назва послуги"
@@ -276,7 +274,6 @@ msgid "Internal name for admin, e.g., 'New Year 2026'"
 msgstr ""
 
 #: .\core\models.py:105
-#, fuzzy
 #| msgid "Image"
 msgid "Image / GIF"
 msgstr "Зображення"
@@ -1121,7 +1118,7 @@ msgstr "Привезти пилосос"
 
 #: .\templates\accounts\order_edit.html:54
 #: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:136
-#: .\templates\core\index.html:254
+#: .\templates\core\index.html:254 .\templates\core\index.html:389
 msgid "Additional services"
 msgstr "Додаткові послуги"
 
@@ -1142,11 +1139,12 @@ msgid "New Cost"
 msgstr "Нова вартість"
 
 #: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:210
+#: .\templates\core\index.html:341
 msgid "Base cost"
 msgstr "Базова вартість"
 
 #: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:117
-#: .\templates\core\index.html:228
+#: .\templates\core\index.html:228 .\templates\core\index.html:377
 msgid "Equipment"
 msgstr "Обладнання"
 
@@ -1156,6 +1154,7 @@ msgid "Object Type"
 msgstr "Тип об'єкта"
 
 #: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:246
+#: .\templates\core\index.html:365
 msgid "Private House"
 msgstr "Приватний будинок"
 
@@ -1163,20 +1162,24 @@ msgstr "Приватний будинок"
 msgid "The final price will be recalculated upon saving."
 msgstr "Остаточна ціна буде перерахована після збереження."
 
-#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:668
+#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:760
+#: .\templates\core\index.html:842
 msgid "Area"
 msgstr "Площа"
 
 #: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:219
-#: .\templates\core\index.html:672
+#: .\templates\core\index.html:353 .\templates\core\index.html:764
+#: .\templates\core\index.html:846
 msgid "Rooms and bathrooms"
 msgstr "Кімнати та ванні"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:673
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
+#: .\templates\core\index.html:847
 msgid "room(s)"
 msgstr "кімната(и)"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:673
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
+#: .\templates\core\index.html:847
 msgid "bathroom(s)"
 msgstr "ванна(і)"
 
@@ -1246,7 +1249,7 @@ msgid "Professional cleaning services. Click to calculate price."
 msgstr "Професійні клінінгові послуги. Натисніть, щоб розрахувати вартість."
 
 #: .\templates\base.html:107 .\templates\base.html:216
-#: .\templates\base.html:240 .\templates\core\index.html:347
+#: .\templates\base.html:240 .\templates\core\index.html:436
 msgid "An individual approach to the cleanliness of your space."
 msgstr "Індивідуальний підхід до чистоти вашого простору."
 
@@ -1445,6 +1448,7 @@ msgid "Calculate cleaning cost"
 msgstr "Розрахувати вартість прибирання"
 
 #: .\templates\core\index.html:23 .\templates\core\index.html:211
+#: .\templates\core\index.html:342
 msgid "Select cleaning type"
 msgstr "Виберіть тип прибирання"
 
@@ -1534,7 +1538,7 @@ msgstr "1 кімната, 1 ванна"
 msgid "Approximate operating time"
 msgstr "Приблизний час роботи"
 
-#: .\templates\core\index.html:263
+#: .\templates\core\index.html:263 .\templates\core\index.html:413
 msgid "Subscription Discount"
 msgstr "Знижка за підпискою"
 
@@ -1555,24 +1559,51 @@ msgstr "Контактні дані"
 msgid "Calculator"
 msgstr "Перейти до калькулятора"
 
-#: .\templates\core\index.html:317 .\templates\core\index.html:764
+#: .\templates\core\index.html:317 .\templates\core\index.html:423
 #: .\templates\core\pricing.html:84 .\templates\core\services.html:54
 msgid "Total"
 msgstr "Загальна вартість"
 
-#: .\templates\core\index.html:352
+#: .\templates\core\index.html:354
+#, fuzzy
+#| msgid "room(s)"
+msgid "room"
+msgstr "кімната(и)"
+
+#: .\templates\core\index.html:354
+#, fuzzy
+#| msgid "bathroom(s)"
+msgid "bathroom"
+msgstr "ванна(і)"
+
+#: .\templates\core\index.html:366
+#| msgid "Coefficient applies for larger area"
+msgid "Coefficient applied"
+msgstr "Коефіцієнт застосовується для більшої площі"
+
+#: .\templates\core\index.html:378
+#| msgid "Vacuum cleaner icon"
+msgid "Vacuum cleaner"
+msgstr "Пилосос"
+
+#: .\templates\core\index.html:401
+#| msgid "Approximate operating time"
+msgid "Approximate time"
+msgstr "Приблизний час роботи"
+
+#: .\templates\core\index.html:441
 msgid "Our services"
 msgstr "Наші послуги"
 
-#: .\templates\core\index.html:373
+#: .\templates\core\index.html:462
 msgid "How we work"
 msgstr "Як ми працюємо"
 
-#: .\templates\core\index.html:376
+#: .\templates\core\index.html:465
 msgid "1. Make a request"
 msgstr "1. Залиште заявку"
 
-#: .\templates\core\index.html:377
+#: .\templates\core\index.html:466
 msgid ""
 "Fill out the form on the website or give us a call. We will clarify the "
 "details and calculate the cost."
@@ -1580,11 +1611,11 @@ msgstr ""
 "Заповніть форму на сайті або зателефонуйте нам. Ми уточнимо деталі та "
 "розрахуємо вартість."
 
-#: .\templates\core\index.html:380
+#: .\templates\core\index.html:469
 msgid "2. We arrive on time"
 msgstr "2. Ми приїжджаємо вчасно"
 
-#: .\templates\core\index.html:381
+#: .\templates\core\index.html:470
 msgid ""
 "Our cleaners will arrive at the appointed time with all the necessary "
 "equipment and supplies."
@@ -1592,69 +1623,57 @@ msgstr ""
 "Наші прибиральники приїдуть у призначений час з усім необхідним обладнанням "
 "та засобами."
 
-#: .\templates\core\index.html:384
+#: .\templates\core\index.html:473
 msgid "3. Enjoy the cleanliness"
 msgstr "3. Насолоджуйтесь чистотою"
 
-#: .\templates\core\index.html:385
+#: .\templates\core\index.html:474
 msgid ""
 "You accept the work and pay for the result. Your home shines with "
 "cleanliness!"
 msgstr "Ви приймаєте роботу та платите за результат. Ваш дім сяє чистотою!"
 
-#: .\templates\core\index.html:392
+#: .\templates\core\index.html:481
 msgid "What's included in apartment cleaning"
 msgstr "Що входить у вартість прибирання квартири"
 
-#: .\templates\core\index.html:413
+#: .\templates\core\index.html:502
 msgid "Our Work in Action"
 msgstr "Наша робота в дії"
 
-#: .\templates\core\index.html:414
+#: .\templates\core\index.html:503
 msgid "See the difference we make with your own eyes."
 msgstr "Побачте різницю, яку ми робимо, на власні очі."
 
-#: .\templates\core\index.html:427 .\templates\core\index.html:428
-#: .\templates\core\index.html:430
+#: .\templates\core\index.html:516 .\templates\core\index.html:517
+#: .\templates\core\index.html:519
 msgid "Before"
 msgstr "До"
 
-#: .\templates\core\index.html:435 .\templates\core\index.html:436
-#: .\templates\core\index.html:438
+#: .\templates\core\index.html:524 .\templates\core\index.html:525
+#: .\templates\core\index.html:527
 msgid "After"
 msgstr "Після"
 
-#: .\templates\core\index.html:448
+#: .\templates\core\index.html:537
 msgid "Previous"
 msgstr "Попередній"
 
-#: .\templates\core\index.html:452
+#: .\templates\core\index.html:541
 msgid "Next"
 msgstr "Наступний"
 
-#: .\templates\core\index.html:460
+#: .\templates\core\index.html:549
 msgid "What Our Clients Say"
 msgstr "Що кажуть наші клієнти"
 
-#: .\templates\core\index.html:476
+#: .\templates\core\index.html:565
 msgid "Posted on"
 msgstr "Опубліковано"
 
-#: .\templates\core\index.html:490
+#: .\templates\core\index.html:579
 msgid "Leave your own review"
 msgstr "Залишити свій відгук"
-
-#: .\templates\core\index.html:737
-#, fuzzy
-#| msgid "Vacuum cleaner icon"
-msgid "Vacuum cleaner"
-msgstr "Іконка пилососа"
-
-#: .\templates\core\index.html:755
-#, fuzzy
-#| msgid "Account"
-msgid "Discount"
-msgstr "Рахунок"
 
 #: .\templates\core\kitchen_cleaning.html:7
 msgid ""
@@ -3891,6 +3910,11 @@ msgstr "Вибачте, переклад недоступний."
 #: .\venv\Lib\site-packages\modeltranslation\widgets.py:32
 msgid "None"
 msgstr "Немає"
+
+#, fuzzy
+#~| msgid "Account"
+#~ msgid "Discount"
+#~ msgstr "Рахунок"
 
 #~ msgid "Write to us on Telegram"
 #~ msgstr "Напишіть нам у Telegram"

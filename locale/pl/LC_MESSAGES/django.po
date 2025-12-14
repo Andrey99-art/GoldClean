@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-14 17:01+0300\n"
+"POT-Creation-Date: 2025-12-14 19:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME EMAIL@ADDRESS\n"
 "Language-Team: Polish pl@li.org\n"
@@ -97,7 +97,6 @@ msgid "Basic Info"
 msgstr ""
 
 #: .\core\admin.py:136 .\core\models.py:97
-#, fuzzy
 #| msgid "Cleaning Type"
 msgid "Content Type"
 msgstr "Rodzaj sprzątania"
@@ -107,7 +106,6 @@ msgid "Choose what type of content to display"
 msgstr ""
 
 #: .\core\admin.py:140
-#, fuzzy
 #| msgid "Website Content"
 msgid "Media Content"
 msgstr "Zawartość Witryny"
@@ -117,7 +115,6 @@ msgid "Upload media based on selected content type"
 msgstr ""
 
 #: .\core\admin.py:145
-#, fuzzy
 #| msgid "Website Content"
 msgid "Text Content"
 msgstr "Zawartość Witryny"
@@ -127,7 +124,6 @@ msgid "Link Settings"
 msgstr ""
 
 #: .\core\admin.py:152 .\core\admin.py:166
-#, fuzzy
 #| msgid "Display Order"
 msgid "Display Period"
 msgstr "Kolejność wyświetlania"
@@ -141,13 +137,11 @@ msgid "Appearance"
 msgstr ""
 
 #: .\core\admin.py:162 .\core\models.py:232
-#, fuzzy
 #| msgid "Currently"
 msgid "Currently Visible"
 msgstr "Aktualnie"
 
 #: .\core\admin.py:172
-#, fuzzy
 #| msgid "Review"
 msgid "Preview"
 msgstr "Recenzja"
@@ -1123,7 +1117,7 @@ msgstr "Przynieś odkurzacz"
 
 #: .\templates\accounts\order_edit.html:54
 #: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:136
-#: .\templates\core\index.html:254
+#: .\templates\core\index.html:254 .\templates\core\index.html:389
 msgid "Additional services"
 msgstr "Usługi dodatkowe"
 
@@ -1144,11 +1138,12 @@ msgid "New Cost"
 msgstr "Nowy Koszt"
 
 #: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:210
+#: .\templates\core\index.html:341
 msgid "Base cost"
 msgstr "Koszt podstawowy"
 
 #: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:117
-#: .\templates\core\index.html:228
+#: .\templates\core\index.html:228 .\templates\core\index.html:377
 msgid "Equipment"
 msgstr "Sprzęt"
 
@@ -1158,6 +1153,7 @@ msgid "Object Type"
 msgstr "Typ Obiektu"
 
 #: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:246
+#: .\templates\core\index.html:365
 msgid "Private House"
 msgstr "Dom Prywatny"
 
@@ -1165,20 +1161,24 @@ msgstr "Dom Prywatny"
 msgid "The final price will be recalculated upon saving."
 msgstr "Ostateczna cena zostanie przeliczona po zapisaniu."
 
-#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:668
+#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:760
+#: .\templates\core\index.html:842
 msgid "Area"
 msgstr "Powierzchnia"
 
 #: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:219
-#: .\templates\core\index.html:672
+#: .\templates\core\index.html:353 .\templates\core\index.html:764
+#: .\templates\core\index.html:846
 msgid "Rooms and bathrooms"
 msgstr "Pokoje i łazienki"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:673
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
+#: .\templates\core\index.html:847
 msgid "room(s)"
 msgstr "pokój/pokoje"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:673
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
+#: .\templates\core\index.html:847
 msgid "bathroom(s)"
 msgstr "łazienka/łazienki"
 
@@ -1248,7 +1248,7 @@ msgid "Professional cleaning services. Click to calculate price."
 msgstr "Profesjonalne usługi sprzątania. Kliknij, aby obliczyć cenę. "
 
 #: .\templates\base.html:107 .\templates\base.html:216
-#: .\templates\base.html:240 .\templates\core\index.html:347
+#: .\templates\base.html:240 .\templates\core\index.html:436
 msgid "An individual approach to the cleanliness of your space."
 msgstr "Indywidualne podejście do czystości Twojej przestrzeni."
 
@@ -1446,6 +1446,7 @@ msgid "Calculate cleaning cost"
 msgstr "Oblicz koszt sprzątania"
 
 #: .\templates\core\index.html:23 .\templates\core\index.html:211
+#: .\templates\core\index.html:342
 msgid "Select cleaning type"
 msgstr "Wybierz rodzaj sprzątania"
 
@@ -1535,7 +1536,7 @@ msgstr "1 pokój, 1 łazienka"
 msgid "Approximate operating time"
 msgstr "Przybliżony czas pracy"
 
-#: .\templates\core\index.html:263
+#: .\templates\core\index.html:263 .\templates\core\index.html:413
 msgid "Subscription Discount"
 msgstr "Zniżka subskrypcyjna"
 
@@ -1545,35 +1546,58 @@ msgid "Proceed to order"
 msgstr "Przejdź do zamówienia"
 
 #: .\templates\core\index.html:307
-#, fuzzy
 #| msgid "Contact details"
 msgid "Show details"
 msgstr "Dane kontaktowe"
 
 #: .\templates\core\index.html:313
-#, fuzzy
 #| msgid "Go to calculator"
 msgid "Calculator"
 msgstr "Przejdź do kalkulatora"
 
-#: .\templates\core\index.html:317 .\templates\core\index.html:764
+#: .\templates\core\index.html:317 .\templates\core\index.html:423
 #: .\templates\core\pricing.html:84 .\templates\core\services.html:54
 msgid "Total"
 msgstr "Całkowity Koszt"
 
-#: .\templates\core\index.html:352
+#: .\templates\core\index.html:354
+#| msgid "room(s)"
+msgid "room"
+msgstr "pokój/pokoje"
+
+#: .\templates\core\index.html:354
+#| msgid "bathroom(s)"
+msgid "bathroom"
+msgstr "łazienka/łazienki"
+
+#: .\templates\core\index.html:366
+#| msgid "Coefficient applies for larger area"
+msgid "Coefficient applied"
+msgstr "Współczynnik dla większej powierzchni"
+
+#: .\templates\core\index.html:378
+#| msgid "Vacuum cleaner icon"
+msgid "Vacuum cleaner"
+msgstr "Odkurzacz"
+
+#: .\templates\core\index.html:401
+#| msgid "Approximate operating time"
+msgid "Approximate time"
+msgstr "Przybliżony czas pracy"
+
+#: .\templates\core\index.html:441
 msgid "Our services"
 msgstr "Nasze usługi"
 
-#: .\templates\core\index.html:373
+#: .\templates\core\index.html:462
 msgid "How we work"
 msgstr "Jak pracujemy"
 
-#: .\templates\core\index.html:376
+#: .\templates\core\index.html:465
 msgid "1. Make a request"
 msgstr "1. Złóż zapytanie"
 
-#: .\templates\core\index.html:377
+#: .\templates\core\index.html:466
 msgid ""
 "Fill out the form on the website or give us a call. We will clarify the "
 "details and calculate the cost."
@@ -1581,11 +1605,11 @@ msgstr ""
 "Wypełnij formularz na stronie lub zadzwoń do nas. Ustalimy szczegóły i "
 "obliczymy koszt."
 
-#: .\templates\core\index.html:380
+#: .\templates\core\index.html:469
 msgid "2. We arrive on time"
 msgstr "2. Przyjeżdżamy na czas"
 
-#: .\templates\core\index.html:381
+#: .\templates\core\index.html:470
 msgid ""
 "Our cleaners will arrive at the appointed time with all the necessary "
 "equipment and supplies."
@@ -1593,70 +1617,58 @@ msgstr ""
 "Nasi specjaliści przybędą o umówionej godzinie z całym niezbędnym sprzętem i "
 "środkami."
 
-#: .\templates\core\index.html:384
+#: .\templates\core\index.html:473
 msgid "3. Enjoy the cleanliness"
 msgstr "3. Ciesz się czystością"
 
-#: .\templates\core\index.html:385
+#: .\templates\core\index.html:474
 msgid ""
 "You accept the work and pay for the result. Your home shines with "
 "cleanliness!"
 msgstr ""
 "Akceptujesz wykonaną pracę i płacisz za rezultat. Twój dom lśni czystością!"
 
-#: .\templates\core\index.html:392
+#: .\templates\core\index.html:481
 msgid "What's included in apartment cleaning"
 msgstr "Co obejmuje sprzątanie mieszkania"
 
-#: .\templates\core\index.html:413
+#: .\templates\core\index.html:502
 msgid "Our Work in Action"
 msgstr "Nasza praca w praktyce"
 
-#: .\templates\core\index.html:414
+#: .\templates\core\index.html:503
 msgid "See the difference we make with your own eyes."
 msgstr "Zobacz na własne oczy, jaką różnicę robimy."
 
-#: .\templates\core\index.html:427 .\templates\core\index.html:428
-#: .\templates\core\index.html:430
+#: .\templates\core\index.html:516 .\templates\core\index.html:517
+#: .\templates\core\index.html:519
 msgid "Before"
 msgstr "Przed"
 
-#: .\templates\core\index.html:435 .\templates\core\index.html:436
-#: .\templates\core\index.html:438
+#: .\templates\core\index.html:524 .\templates\core\index.html:525
+#: .\templates\core\index.html:527
 msgid "After"
 msgstr "Po"
 
-#: .\templates\core\index.html:448
+#: .\templates\core\index.html:537
 msgid "Previous"
 msgstr "Poprzedni"
 
-#: .\templates\core\index.html:452
+#: .\templates\core\index.html:541
 msgid "Next"
 msgstr "Następny"
 
-#: .\templates\core\index.html:460
+#: .\templates\core\index.html:549
 msgid "What Our Clients Say"
 msgstr "Co mówią nasi klienci"
 
-#: .\templates\core\index.html:476
+#: .\templates\core\index.html:565
 msgid "Posted on"
 msgstr "Opublikowano"
 
-#: .\templates\core\index.html:490
+#: .\templates\core\index.html:579
 msgid "Leave your own review"
 msgstr "Dodaj swoją recenzję"
-
-#: .\templates\core\index.html:737
-#, fuzzy
-#| msgid "Vacuum cleaner icon"
-msgid "Vacuum cleaner"
-msgstr "Ikona odkurzacza"
-
-#: .\templates\core\index.html:755
-#, fuzzy
-#| msgid "Account"
-msgid "Discount"
-msgstr "Konto"
 
 #: .\templates\core\kitchen_cleaning.html:7
 msgid ""
@@ -3747,7 +3759,6 @@ msgid "Django Documentation"
 msgstr "Dokumentacja Django"
 
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:230
-#, fuzzy
 #| msgid "Topics, references, & how-to’s"
 msgid "Topics, references, &amp; how-to’s"
 msgstr "Tematy, referencje i poradniki"
@@ -3917,6 +3928,10 @@ msgstr "Przepraszamy, tłumaczenie jest niedostępne."
 #: .\venv\Lib\site-packages\modeltranslation\widgets.py:32
 msgid "None"
 msgstr "Brak"
+
+#~| msgid "Account"
+#~ msgid "Discount"
+#~ msgstr "Konto"
 
 #~ msgid "Write to us on Telegram"
 #~ msgstr "Napisz do nas na Telegramie"
