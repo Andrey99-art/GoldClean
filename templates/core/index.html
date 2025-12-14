@@ -331,8 +331,97 @@
 <div class="calculator-bottom-sheet" id="calc-bottom-sheet">
     <div class="sheet-handle"></div>
     <h5 class="sheet-title">{% trans "Order Details" %}</h5>
-    <div id="mobile-summary-content">
-        <!-- Динамически заполняется из JS -->
+    
+    <ul class="mobile-summary-list" id="mobile-summary-list">
+        <!-- Base Service -->
+        <li class="mobile-summary-item" id="mobile-base-service">
+            <div class="item-info">
+                <span class="item-icon"><i class="bi bi-check-circle"></i></span>
+                <div class="item-text">
+                    <span class="item-label">{% trans "Base cost" %}</span>
+                    <span class="item-description" id="mobile-base-service-name">{% trans "Select cleaning type" %}</span>
+                </div>
+            </div>
+            <span class="item-price" id="mobile-base-price">0 zł</span>
+        </li>
+        
+        <!-- Rooms & Bathrooms -->
+        <li class="mobile-summary-item" id="mobile-rooms-bathrooms">
+            <div class="item-info">
+                <span class="item-icon"><i class="bi bi-door-open"></i></span>
+                <div class="item-text">
+                    <span class="item-label" id="mobile-rooms-heading">{% trans "Rooms and bathrooms" %}</span>
+                    <span class="item-description" id="mobile-rooms-summary">1 {% trans "room" %}, 1 {% trans "bathroom" %}</span>
+                </div>
+            </div>
+            <span class="item-price" id="mobile-rooms-price">0 zł</span>
+        </li>
+        
+        <!-- Private House (Hidden by default) -->
+        <li class="mobile-summary-item mobile-animated-item" id="mobile-house-summary" style="display: none;">
+            <div class="item-info">
+                <span class="item-icon"><i class="bi bi-house"></i></span>
+                <div class="item-text">
+                    <span class="item-label">{% trans "Private House" %}</span>
+                    <span class="item-description">{% trans "Coefficient applied" %}</span>
+                </div>
+            </div>
+            <span class="item-price" id="mobile-house-multiplier">×1.2</span>
+        </li>
+        
+        <!-- Vacuum (Hidden by default) -->
+        <li class="mobile-summary-item mobile-animated-item" id="mobile-vacuum-summary" style="display: none;">
+            <div class="item-info">
+                <span class="item-icon"><i class="bi bi-stars"></i></span>
+                <div class="item-text">
+                    <span class="item-label">{% trans "Equipment" %}</span>
+                    <span class="item-description">{% trans "Vacuum cleaner" %}</span>
+                </div>
+            </div>
+            <span class="item-price" id="mobile-vacuum-price">+ 0 zł</span>
+        </li>
+        
+        <!-- Additional Services (Hidden by default) -->
+        <li class="mobile-summary-item mobile-animated-item" id="mobile-additional-summary" style="display: none;">
+            <div class="item-info">
+                <span class="item-icon"><i class="bi bi-plus-circle"></i></span>
+                <div class="item-text">
+                    <span class="item-label">{% trans "Additional services" %}</span>
+                    <span class="item-description" id="mobile-additional-list"></span>
+                </div>
+            </div>
+            <span class="item-price" id="mobile-additional-price">+ 0 zł</span>
+        </li>
+        
+        <!-- Duration (Hidden by default) -->
+        <li class="mobile-summary-item mobile-animated-item" id="mobile-duration-summary" style="display: none;">
+            <div class="item-info">
+                <span class="item-icon"><i class="bi bi-clock"></i></span>
+                <div class="item-text">
+                    <span class="item-label">{% trans "Approximate time" %}</span>
+                    <span class="item-description" id="mobile-duration-text"></span>
+                </div>
+            </div>
+            <span class="item-price">—</span>
+        </li>
+        
+        <!-- Discount (Hidden by default) -->
+        <li class="mobile-summary-item mobile-animated-item mobile-discount-item" id="mobile-discount-summary" style="display: none;">
+            <div class="item-info">
+                <span class="item-icon"><i class="bi bi-tag"></i></span>
+                <div class="item-text">
+                    <span class="item-label">{% trans "Subscription Discount" %}</span>
+                    <span class="item-description" id="mobile-base-total"></span>
+                </div>
+            </div>
+            <span class="item-price item-discount" id="mobile-discount-amount">− 0 zł</span>
+        </li>
+    </ul>
+    
+    <!-- Итого -->
+    <div class="mobile-summary-total">
+        <span class="total-label">{% trans "Total" %}</span>
+        <span class="total-price" id="mobile-sheet-total">0 zł</span>
     </div>
 </div>
 
@@ -618,6 +707,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 animateSummaryItem(vacuumSummaryEl, false);
                 animateSummaryItem(durationBlock, false);
                 animateSummaryItem(houseSummaryEl, false);
+                
+                // Reset mobile summary
+                resetMobileSummary();
                 return;
             }
             submitBtn.disabled = false;
@@ -721,52 +813,144 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         function updateMobileSummary(result) {
-            const mobileContent = document.getElementById('mobile-summary-content');
-            if (!mobileContent) return;
+            // Mobile Summary Elements
+            const mobileBaseServiceName = document.getElementById('mobile-base-service-name');
+            const mobileBasePrice = document.getElementById('mobile-base-price');
+            const mobileRoomsHeading = document.getElementById('mobile-rooms-heading');
+            const mobileRoomsSummary = document.getElementById('mobile-rooms-summary');
+            const mobileRoomsPrice = document.getElementById('mobile-rooms-price');
+            const mobileHouseSummary = document.getElementById('mobile-house-summary');
+            const mobileHouseMultiplier = document.getElementById('mobile-house-multiplier');
+            const mobileVacuumSummary = document.getElementById('mobile-vacuum-summary');
+            const mobileVacuumPrice = document.getElementById('mobile-vacuum-price');
+            const mobileAdditionalSummary = document.getElementById('mobile-additional-summary');
+            const mobileAdditionalList = document.getElementById('mobile-additional-list');
+            const mobileAdditionalPrice = document.getElementById('mobile-additional-price');
+            const mobileDurationSummary = document.getElementById('mobile-duration-summary');
+            const mobileDurationText = document.getElementById('mobile-duration-text');
+            const mobileDiscountSummary = document.getElementById('mobile-discount-summary');
+            const mobileDiscountAmount = document.getElementById('mobile-discount-amount');
+            const mobileBaseTotal = document.getElementById('mobile-base-total');
+            const mobileSheetTotal = document.getElementById('mobile-sheet-total');
             
-            let html = `
-                <div class="d-flex justify-content-between mb-2">
-                    <span>${result.details.base_service_name}</span>
-                    <span>${result.details.base_price.toFixed(2)} zł</span>
-                </div>
-            `;
+            // Update base service
+            if (mobileBaseServiceName) mobileBaseServiceName.textContent = result.details.base_service_name;
+            if (mobileBasePrice) mobileBasePrice.textContent = result.details.base_price.toFixed(2) + ' zł';
             
-            if (result.details.vacuum_price > 0) {
-                html += `
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>{% trans "Vacuum cleaner" %}</span>
-                        <span>+ ${result.details.vacuum_price.toFixed(2)} zł</span>
-                    </div>
-                `;
+            // Update rooms/bathrooms or sqm
+            if (result.details.is_sqm_based) {
+                if (mobileRoomsHeading) mobileRoomsHeading.textContent = `{% trans "Area" %}`;
+                if (mobileRoomsSummary) mobileRoomsSummary.textContent = `${result.details.sqm} m²`;
+                if (mobileRoomsPrice) mobileRoomsPrice.textContent = result.details.sqm_price.toFixed(2) + ' zł';
+            } else {
+                if (mobileRoomsHeading) mobileRoomsHeading.textContent = `{% trans "Rooms and bathrooms" %}`;
+                if (mobileRoomsSummary) mobileRoomsSummary.textContent = `${result.details.rooms_count} {% trans "room(s)" %}, ${result.details.bathrooms_count} {% trans "bathroom(s)" %}`;
+                if (mobileRoomsPrice) mobileRoomsPrice.textContent = result.details.rooms_bathrooms_price.toFixed(2) + ' zł';
             }
             
-            if (result.details.additional_services_price > 0) {
-                html += `
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>${result.details.additional_services_names.join(', ')}</span>
-                        <span>+ ${result.details.additional_services_price.toFixed(2)} zł</span>
-                    </div>
-                `;
+            // Animate Private House
+            if (mobileHouseSummary) {
+                if (result.details.house_multiplier > 1.0) {
+                    animateMobileItem(mobileHouseSummary, true);
+                    if (mobileHouseMultiplier) mobileHouseMultiplier.textContent = `×${result.details.house_multiplier}`;
+                } else {
+                    animateMobileItem(mobileHouseSummary, false);
+                }
             }
             
-            if (result.discount_amount && result.discount_amount > 0) {
-                html += `
-                    <div class="d-flex justify-content-between mb-2" style="color: #2E7D32;">
-                        <span>{% trans "Discount" %}</span>
-                        <span>− ${result.discount_amount.toFixed(2)} zł</span>
-                    </div>
-                `;
+            // Animate Vacuum
+            if (mobileVacuumSummary) {
+                if (result.details.vacuum_price > 0) {
+                    animateMobileItem(mobileVacuumSummary, true);
+                    if (mobileVacuumPrice) mobileVacuumPrice.textContent = `+ ${result.details.vacuum_price.toFixed(2)} zł`;
+                } else {
+                    animateMobileItem(mobileVacuumSummary, false);
+                }
             }
             
-            html += `
-                <hr>
-                <div class="d-flex justify-content-between">
-                    <strong>{% trans "Total" %}</strong>
-                    <strong>${result.total_price.toFixed(2)} zł</strong>
-                </div>
-            `;
+            // Animate Additional Services
+            if (mobileAdditionalSummary) {
+                if (result.details.additional_services_price > 0) {
+                    animateMobileItem(mobileAdditionalSummary, true);
+                    if (mobileAdditionalList) mobileAdditionalList.textContent = result.details.additional_services_names.join(', ');
+                    if (mobileAdditionalPrice) mobileAdditionalPrice.textContent = `+ ${result.details.additional_services_price.toFixed(2)} zł`;
+                } else {
+                    animateMobileItem(mobileAdditionalSummary, false);
+                }
+            }
             
-            mobileContent.innerHTML = html;
+            // Animate Duration
+            if (mobileDurationSummary) {
+                if (result.details.formatted_duration) {
+                    animateMobileItem(mobileDurationSummary, true);
+                    if (mobileDurationText) mobileDurationText.textContent = result.details.formatted_duration;
+                } else {
+                    animateMobileItem(mobileDurationSummary, false);
+                }
+            }
+            
+            // Animate Discount
+            if (mobileDiscountSummary) {
+                if (result.discount_amount && result.discount_amount > 0) {
+                    animateMobileItem(mobileDiscountSummary, true);
+                    if (mobileDiscountAmount) mobileDiscountAmount.textContent = `− ${result.discount_amount.toFixed(2)} zł`;
+                    if (mobileBaseTotal) mobileBaseTotal.innerHTML = `<del>${result.base_total.toFixed(2)} zł</del>`;
+                } else {
+                    animateMobileItem(mobileDiscountSummary, false);
+                }
+            }
+            
+            // Update total
+            if (mobileSheetTotal) mobileSheetTotal.textContent = result.total_price.toFixed(2) + ' zł';
+        }
+        
+        // Animation function for mobile items
+        function animateMobileItem(element, show) {
+            if (!element) return;
+            
+            if (show) {
+                if (element.style.display === 'none' || element.style.display === '') {
+                    element.style.display = 'flex';
+                    element.classList.remove('mobile-item-exit');
+                    element.classList.add('mobile-item-enter');
+                }
+            } else {
+                if (element.style.display !== 'none') {
+                    element.classList.remove('mobile-item-enter');
+                    element.classList.add('mobile-item-exit');
+                    setTimeout(() => {
+                        element.style.display = 'none';
+                        element.classList.remove('mobile-item-exit');
+                    }, 300);
+                }
+            }
+        }
+        
+        // Reset mobile summary to initial state
+        function resetMobileSummary() {
+            const mobileBaseServiceName = document.getElementById('mobile-base-service-name');
+            const mobileBasePrice = document.getElementById('mobile-base-price');
+            const mobileRoomsPrice = document.getElementById('mobile-rooms-price');
+            const mobileSheetTotal = document.getElementById('mobile-sheet-total');
+            
+            if (mobileBaseServiceName) mobileBaseServiceName.textContent = selectServiceText;
+            if (mobileBasePrice) mobileBasePrice.textContent = '0 zł';
+            if (mobileRoomsPrice) mobileRoomsPrice.textContent = '0 zł';
+            if (mobileSheetTotal) mobileSheetTotal.textContent = '0 zł';
+            
+            // Hide all animated items
+            const animatedItems = [
+                'mobile-house-summary',
+                'mobile-vacuum-summary',
+                'mobile-additional-summary',
+                'mobile-duration-summary',
+                'mobile-discount-summary'
+            ];
+            
+            animatedItems.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) animateMobileItem(el, false);
+            });
         }
         
         function toggleInputFields() {
