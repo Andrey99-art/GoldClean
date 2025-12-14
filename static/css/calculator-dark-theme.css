@@ -1,0 +1,890 @@
+/*
+==========================================================================
+   CALCULATOR DARK THEME - Deus Ex: Human Revolution Style
+   Эволюционный апгрейд с Glassmorphism и технологичным дизайном
+==========================================================================
+*/
+
+/* --- Google Font: Orbitron для технологичного вида --- */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+/* --- Расширенные CSS переменные для калькулятора --- */
+:root {
+    /* Основные цвета калькулятора */
+    --calc-bg-primary: #0a0a0b;
+    --calc-bg-secondary: #111113;
+    --calc-bg-card: rgba(20, 20, 22, 0.85);
+    --calc-bg-glass: rgba(30, 30, 35, 0.6);
+    
+    /* Золотые акценты */
+    --calc-gold: #D4AF37;
+    --calc-gold-light: #F4D160;
+    --calc-gold-dark: #A68B2A;
+    --calc-gold-glow: rgba(212, 175, 55, 0.3);
+    
+    /* Текст */
+    --calc-text-primary: #FFFFFF;
+    --calc-text-secondary: #B8B8B8;
+    --calc-text-muted: #6B6B6B;
+    
+    /* Бордеры и линии */
+    --calc-border: rgba(212, 175, 55, 0.2);
+    --calc-border-active: rgba(212, 175, 55, 0.6);
+    --calc-border-subtle: rgba(255, 255, 255, 0.08);
+    
+    /* Тени и эффекты */
+    --calc-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --calc-shadow-gold: 0 0 20px rgba(212, 175, 55, 0.15);
+    --calc-glow: 0 0 30px rgba(212, 175, 55, 0.1);
+    
+    /* Технологичные шрифты */
+    --font-tech: 'Orbitron', sans-serif;
+    --font-tech-body: 'Rajdhani', sans-serif;
+}
+
+/*
+==========================================================================
+   1. Обёртка калькулятора - тёмная секция
+==========================================================================
+*/
+
+.calculator-section {
+    background: var(--calc-bg-primary);
+    background-image: 
+        /* Тонкая сетка */
+        linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+        /* Виньетка */
+        radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    background-size: 50px 50px, 50px 50px, 100% 100%;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    margin: -2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Декоративная золотая линия сверху */
+.calculator-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--calc-gold) 20%, 
+        var(--calc-gold-light) 50%, 
+        var(--calc-gold) 80%, 
+        transparent 100%);
+    box-shadow: var(--calc-shadow-gold);
+}
+
+/* Угловые акценты */
+.calculator-section::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border-left: 2px solid var(--calc-gold);
+    border-top: 2px solid var(--calc-gold);
+    opacity: 0.5;
+}
+
+/*
+==========================================================================
+   2. Заголовок калькулятора
+==========================================================================
+*/
+
+.calculator-section h1,
+.calculator-section .calculator-title {
+    font-family: var(--font-tech);
+    color: var(--calc-text-primary);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.calculator-section h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--calc-gold), transparent);
+}
+
+/*
+==========================================================================
+   3. Заголовки секций (form-section-title) в калькуляторе
+==========================================================================
+*/
+
+.calculator-section .form-section-title {
+    font-family: var(--font-tech);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--calc-gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--calc-border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.calculator-section .form-section-title::before {
+    content: '//';
+    color: var(--calc-gold-dark);
+    font-weight: 400;
+}
+
+/*
+==========================================================================
+   4. Glassmorphism карточки для опций
+==========================================================================
+*/
+
+.calculator-section .glass-card {
+    background: var(--calc-bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--calc-border-subtle);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-section .glass-card:hover {
+    border-color: var(--calc-border);
+    transform: translateY(-2px);
+    box-shadow: var(--calc-shadow-gold);
+}
+
+.calculator-section .glass-card.active,
+.calculator-section .glass-card:has(input:checked) {
+    border-color: var(--calc-gold);
+    background: rgba(212, 175, 55, 0.08);
+    box-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.15),
+        inset 0 0 30px rgba(212, 175, 55, 0.05);
+}
+
+/* Левая золотая полоска для активных карточек */
+.calculator-section .glass-card.active::before,
+.calculator-section .glass-card:has(input:checked)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--calc-gold-light), var(--calc-gold));
+}
+
+/*
+==========================================================================
+   5. Checkbox и Radio стили
+==========================================================================
+*/
+
+.calculator-section .form-check-input {
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--calc-bg-secondary);
+    border: 2px solid var(--calc-border);
+    transition: all 0.2s ease;
+}
+
+.calculator-section .form-check-input:checked {
+    background-color: var(--calc-gold);
+    border-color: var(--calc-gold);
+    box-shadow: 0 0 10px var(--calc-gold-glow);
+}
+
+.calculator-section .form-check-input:focus {
+    border-color: var(--calc-gold);
+    box-shadow: 0 0 0 0.2rem var(--calc-gold-glow);
+}
+
+.calculator-section .form-check-label {
+    color: var(--calc-text-secondary);
+    font-family: var(--font-tech-body);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.calculator-section .form-check:hover .form-check-label {
+    color: var(--calc-text-primary);
+}
+
+.calculator-section .form-check-input:checked + .form-check-label {
+    color: var(--calc-text-primary);
+}
+
+/*
+==========================================================================
+   6. Select и Input стили
+==========================================================================
+*/
+
+.calculator-section .form-select,
+.calculator-section .form-control {
+    background-color: var(--calc-bg-secondary);
+    border: 1px solid var(--calc-border-subtle);
+    color: var(--calc-text-primary);
+    font-family: var(--font-tech-body);
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.calculator-section .form-select:focus,
+.calculator-section .form-control:focus {
+    background-color: var(--calc-bg-secondary);
+    border-color: var(--calc-gold);
+    color: var(--calc-text-primary);
+    box-shadow: 0 0 0 3px var(--calc-gold-glow), var(--calc-shadow-gold);
+}
+
+.calculator-section .form-select option {
+    background-color: var(--calc-bg-primary);
+    color: var(--calc-text-primary);
+}
+
+.calculator-section .form-label {
+    color: var(--calc-text-secondary);
+    font-family: var(--font-tech-body);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/*
+==========================================================================
+   7. Карточка "Частный дом" и "Пылесос"
+==========================================================================
+*/
+
+.calculator-section .option-card {
+    background: var(--calc-bg-glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--calc-border-subtle);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.calculator-section .option-card:hover {
+    border-color: var(--calc-border);
+    box-shadow: var(--calc-glow);
+}
+
+.calculator-section .option-card:has(input:checked) {
+    border-color: var(--calc-gold);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: var(--calc-shadow-gold);
+}
+
+.calculator-section .option-card strong {
+    color: var(--calc-text-primary);
+    font-family: var(--font-tech-body);
+    font-weight: 600;
+}
+
+.calculator-section .option-card small {
+    color: var(--calc-text-muted);
+}
+
+.calculator-section .option-card .badge {
+    font-family: var(--font-tech);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/*
+==========================================================================
+   8. Дополнительные услуги
+==========================================================================
+*/
+
+.calculator-section .additional-services-list {
+    background: var(--calc-bg-glass);
+    backdrop-filter: blur(10px);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid var(--calc-border-subtle);
+}
+
+.calculator-section .additional-services-list .service-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--calc-border-subtle);
+    transition: all 0.2s ease;
+}
+
+.calculator-section .additional-services-list .service-item:last-child {
+    border-bottom: none;
+}
+
+.calculator-section .additional-services-list .service-item:hover {
+    background: rgba(212, 175, 55, 0.05);
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.calculator-section .additional-services-list .service-name {
+    color: var(--calc-text-secondary);
+    font-family: var(--font-tech-body);
+    font-weight: 500;
+}
+
+.calculator-section .additional-services-list .service-icon {
+    filter: brightness(0.9) contrast(1.1);
+    border-radius: 0.5rem;
+}
+
+.calculator-section .additional-services-list .fw-bold {
+    color: var(--calc-gold);
+    font-family: var(--font-tech);
+    font-weight: 600;
+}
+
+/*
+==========================================================================
+   9. Quantity Widget (кнопки +/-)
+==========================================================================
+*/
+
+.calculator-section .quantity-widget .btn {
+    background: var(--calc-bg-secondary);
+    border: 1px solid var(--calc-border);
+    color: var(--calc-gold);
+    font-family: var(--font-tech);
+    font-weight: 700;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.calculator-section .quantity-widget .btn:hover {
+    background: var(--calc-gold);
+    color: var(--calc-bg-primary);
+    border-color: var(--calc-gold);
+    box-shadow: 0 0 15px var(--calc-gold-glow);
+}
+
+.calculator-section .quantity-widget .quantity-input {
+    background: var(--calc-bg-secondary);
+    border: 1px solid var(--calc-border-subtle);
+    color: var(--calc-text-primary);
+    font-family: var(--font-tech);
+    font-weight: 600;
+    text-align: center;
+}
+
+/*
+==========================================================================
+   10. Order Summary Panel (Правая колонка)
+==========================================================================
+*/
+
+.calculator-section .order-summary {
+    background: linear-gradient(145deg, 
+        rgba(20, 20, 22, 0.95) 0%, 
+        rgba(15, 15, 17, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--calc-border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    position: sticky;
+    top: 100px;
+    box-shadow: var(--calc-shadow);
+}
+
+/* Заголовок Summary */
+.calculator-section .order-summary h4,
+.calculator-section .order-summary .summary-title {
+    font-family: var(--font-tech);
+    color: var(--calc-gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--calc-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Badge с ценой */
+.calculator-section .order-summary .badge.bg-primary,
+.calculator-section .order-summary #total-price {
+    font-family: var(--font-tech);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--calc-gold) 0%, var(--calc-gold-light) 100%) !important;
+    color: var(--calc-bg-primary) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px var(--calc-gold-glow);
+    letter-spacing: 0.5px;
+}
+
+/* Список деталей заказа */
+.calculator-section .order-summary .list-group {
+    background: transparent;
+    border: none;
+}
+
+.calculator-section .order-summary .list-group-item {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--calc-border-subtle);
+    color: var(--calc-text-secondary);
+    padding: 0.75rem 0;
+    font-family: var(--font-tech-body);
+    transition: all 0.3s ease;
+}
+
+.calculator-section .order-summary .list-group-item:last-child {
+    border-bottom: none;
+}
+
+.calculator-section .order-summary .list-group-item h6 {
+    color: var(--calc-text-primary);
+    font-family: var(--font-tech-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.calculator-section .order-summary .list-group-item small {
+    color: var(--calc-text-muted);
+    font-size: 0.8rem;
+}
+
+.calculator-section .order-summary .list-group-item .text-muted {
+    color: var(--calc-gold) !important;
+    font-family: var(--font-tech);
+    font-weight: 600;
+}
+
+/* Скидка */
+.calculator-section .order-summary .list-group-item.bg-light {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.calculator-section .order-summary .text-success {
+    color: #10B981 !important;
+    font-family: var(--font-tech);
+}
+
+/*
+==========================================================================
+   11. Кнопка "Оформить заказ"
+==========================================================================
+*/
+
+.calculator-section .btn-order,
+.calculator-section #submit-order-btn {
+    font-family: var(--font-tech);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--calc-gold) 0%, var(--calc-gold-dark) 100%);
+    border: none;
+    color: var(--calc-bg-primary);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px var(--calc-gold-glow);
+}
+
+.calculator-section .btn-order:hover,
+.calculator-section #submit-order-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+}
+
+.calculator-section .btn-order:disabled,
+.calculator-section #submit-order-btn:disabled {
+    background: var(--calc-bg-secondary);
+    color: var(--calc-text-muted);
+    box-shadow: none;
+    transform: none;
+}
+
+/* Shine эффект */
+.calculator-section .btn-order::before,
+.calculator-section #submit-order-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.calculator-section .btn-order:hover::before,
+.calculator-section #submit-order-btn:hover::before {
+    left: 100%;
+}
+
+/*
+==========================================================================
+   12. Rolling Numbers Animation для цены
+==========================================================================
+*/
+
+.price-rolling {
+    display: inline-block;
+    transition: transform 0.3s ease-out;
+}
+
+.price-rolling.updating {
+    animation: priceUpdate 0.4s ease-out;
+}
+
+@keyframes priceUpdate {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Glow pulse для обновления цены */
+@keyframes pricePulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px var(--calc-gold-glow);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(212, 175, 55, 0.5);
+    }
+}
+
+.price-updated {
+    animation: pricePulse 0.5s ease;
+}
+
+/*
+==========================================================================
+   13. Анимации появления/исчезновения элементов Summary
+==========================================================================
+*/
+
+.summary-item-enter {
+    animation: slideInFade 0.3s ease forwards;
+}
+
+.summary-item-exit {
+    animation: slideOutFade 0.3s ease forwards;
+}
+
+@keyframes slideInFade {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        max-height: 100px;
+    }
+}
+
+@keyframes slideOutFade {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+        max-height: 100px;
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+        max-height: 0;
+    }
+}
+
+/*
+==========================================================================
+   14. Alert стили в калькуляторе
+==========================================================================
+*/
+
+.calculator-section .alert-info {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #93C5FD;
+    border-radius: 0.5rem;
+    font-family: var(--font-tech-body);
+}
+
+.calculator-section .alert-info a {
+    color: var(--calc-gold);
+    font-weight: 600;
+}
+
+/*
+==========================================================================
+   15. Mobile Sticky Bottom Bar
+==========================================================================
+*/
+
+.calculator-sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1040;
+    background: linear-gradient(180deg, 
+        rgba(10, 10, 11, 0.95) 0%, 
+        rgba(15, 15, 17, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 2px solid var(--calc-gold);
+    padding: 1rem 1.5rem;
+    display: none;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 991.98px) {
+    .calculator-sticky-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Скрываем десктопный summary на мобильных */
+    .calculator-section .order-summary-desktop {
+        display: none;
+    }
+}
+
+.calculator-sticky-footer .sticky-price {
+    font-family: var(--font-tech);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--calc-gold);
+}
+
+.calculator-sticky-footer .sticky-price-label {
+    font-family: var(--font-tech-body);
+    font-size: 0.8rem;
+    color: var(--calc-text-muted);
+    display: block;
+}
+
+.calculator-sticky-footer .btn-order-mobile {
+    font-family: var(--font-tech);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--calc-gold) 0%, var(--calc-gold-dark) 100%);
+    border: none;
+    color: var(--calc-bg-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+}
+
+/* Кнопка раскрытия деталей */
+.calculator-sticky-footer .expand-details-btn {
+    background: transparent;
+    border: 1px solid var(--calc-border);
+    color: var(--calc-text-secondary);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    transition: all 0.2s ease;
+}
+
+.calculator-sticky-footer .expand-details-btn:hover {
+    border-color: var(--calc-gold);
+    color: var(--calc-gold);
+}
+
+.calculator-sticky-footer .expand-details-btn i {
+    transition: transform 0.3s ease;
+}
+
+.calculator-sticky-footer .expand-details-btn.expanded i {
+    transform: rotate(180deg);
+}
+
+/*
+==========================================================================
+   16. Bottom Sheet для деталей (Mobile)
+==========================================================================
+*/
+
+.calculator-bottom-sheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1035;
+    background: var(--calc-bg-primary);
+    border-top: 1px solid var(--calc-border);
+    border-radius: 1.5rem 1.5rem 0 0;
+    padding: 1.5rem;
+    padding-bottom: calc(80px + 1.5rem); /* Учитываем высоту sticky footer */
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.calculator-bottom-sheet.open {
+    transform: translateY(0);
+}
+
+.calculator-bottom-sheet .sheet-handle {
+    width: 40px;
+    height: 4px;
+    background: var(--calc-border);
+    border-radius: 2px;
+    margin: 0 auto 1rem;
+}
+
+.calculator-bottom-sheet .sheet-title {
+    font-family: var(--font-tech);
+    color: var(--calc-gold);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/*
+==========================================================================
+   17. Backdrop для Bottom Sheet
+==========================================================================
+*/
+
+.calculator-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1030;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.calculator-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*
+==========================================================================
+   18. Адаптивность
+==========================================================================
+*/
+
+@media (max-width: 767.98px) {
+    .calculator-section {
+        padding: 1.5rem;
+        margin: -1rem;
+        border-radius: 1rem;
+    }
+    
+    .calculator-section h1 {
+        font-size: 1.25rem;
+        letter-spacing: 1px;
+    }
+    
+    .calculator-section .form-section-title {
+        font-size: 0.9rem;
+    }
+    
+    .calculator-section .glass-card {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/*
+==========================================================================
+   19. Специальные эффекты
+==========================================================================
+*/
+
+/* Scanline эффект (опционально, можно включить) */
+.calculator-section.with-scanlines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Hover glow для иконок */
+.calculator-section img[alt*="icon"],
+.calculator-section .service-icon {
+    transition: filter 0.3s ease;
+}
+
+.calculator-section img[alt*="icon"]:hover,
+.calculator-section .service-icon:hover {
+    filter: drop-shadow(0 0 8px var(--calc-gold-glow));
+}

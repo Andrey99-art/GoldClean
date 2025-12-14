@@ -8,296 +8,329 @@
 {% block content %}
 
 <!-- ======================================================= -->
-<!--      ОРИГИНАЛЬНЫЙ СТАТИЧНЫЙ КАЛЬКУЛЯТОР (СОХРАНЕН)      -->
+<!--      КАЛЬКУЛЯТОР - DEUS EX DARK THEME                   -->
 <!-- ======================================================= -->
-<form action="{% url 'orders:order_create' %}" method="GET" id="calculator-section" style="scroll-margin-top: 100px;">
-    <div class="row g-5">
-        <div class="col-md-5 col-lg-4 order-md-last">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-primary">{% trans "Cost" %}</span>
-                <span class="badge bg-primary rounded-pill fs-4" id="total-price">0 zł</span>
-            </h4>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">{% trans "Base cost" %}</h6>
-                        <small class="text-muted" id="base-service-name">{% trans "Select cleaning type" %}</small>
-                    </div>
-                    <span class="text-muted" id="base-price">0 zł</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0" id="rooms-bathrooms-heading">{% trans "Rooms and bathrooms" %}</h6>
-                        <small class="text-muted" id="rooms-bathrooms-summary">{% blocktrans %}1 room, 1 bathroom{% endblocktrans %}</small>
-                    </div>
-                    <span class="text-muted" id="rooms-bathrooms-price">0 zł</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm" id="vacuum-summary" style="display: none;">
-                    <div>
-                        <h6 class="my-0">{% trans "Equipment" %}</h6>
-                        <small class="text-muted">{% trans "Bring a vacuum cleaner" %}</small>
-                    </div>
-                    <span class="text-muted" id="vacuum-price">0 zł</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm" id="duration-summary-block" style="display: none;">
-                    <div>
-                        <h6 class="my-0">{% trans "Approximate operating time" %}</h6>
-                    </div>
-                    <span class="text-muted" id="duration-summary"></span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm" id="house-summary" style="display: none;">
-                   <div>
-                        <h6 class="my-0">{% trans "Object Type" %}</h6>
-                        <small class="text-muted">{% trans "Private House" %}</small>
-                   </div>
-                   <span class="text-muted" id="house-multiplier-summary">x1.2</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm" id="additional-services-summary" style="display: none;">
-                    <div>
-                        <h6 class="my-0">{% trans "Additional services" %}</h6>
-                        <small class="text-muted" id="additional-services-list"></small>
-                    </div>
-                    <span class="text-muted" id="additional-services-price">0 zł</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm bg-light" id="discount-summary" style="display: none;">
-                    <div>
-                        <h6 class="my-0 text-success">{% trans "Subscription Discount" %}</h6>
-                        <small class="text-muted" id="base-total-price"></small>
-                    </div>
-                    <span class="text-success" id="discount-amount">- 0 zł</span>
-                </li>
-            </ul>
-            <button id="submit-order-btn" class="w-100 btn btn-primary btn-lg" type="submit" disabled>{% trans "Proceed to order" %}</button>
+<div class="calculator-section" id="calculator-section" style="scroll-margin-top: 100px;">
+    <form action="{% url 'orders:order_create' %}" method="GET" id="calculator-form-wrapper">
+        <div class="row g-4 g-lg-5">
             
-            <!-- ПРОМО-БАННЕР ПОД КАЛЬКУЛЯТОРОМ (МОБИЛЬНЫЙ) -->
-            {% if promo_banner %}
-            <div class="promo-banner-mobile mt-4">
-                <div class="promo-banner-wrapper promo-border-{{ promo_banner.border_style }} {% if promo_banner.content_type == 'text_only' %}text-only-banner{% endif %}" {% if promo_banner.background_color %}style="background-color: {{ promo_banner.background_color }};"{% endif %}>
-                    
-                    {% if promo_banner.link %}<a href="{{ promo_banner.link }}" target="_blank" rel="noopener noreferrer" class="promo-banner-link">{% endif %}
-                    
-                    {% if promo_banner.content_type == 'image' and promo_banner.image %}
-                        <div class="promo-media">
-                            <img src="{{ promo_banner.image.url }}" alt="{{ promo_banner.title }}" class="promo-image">
-                        </div>
-                    {% elif promo_banner.content_type == 'video' and promo_banner.video_file %}
-                        <div class="promo-media">
-                            <video autoplay loop muted playsinline class="promo-video">
-                                <source src="{{ promo_banner.video_file.url }}" type="video/mp4">
-                            </video>
-                        </div>
-                    {% elif promo_banner.content_type == 'lottie' and promo_banner.lottie_json %}
-                        <div class="promo-media">
-                            <lottie-player src="{{ promo_banner.lottie_json.url }}" background="transparent" speed="1" loop autoplay class="promo-lottie"></lottie-player>
-                        </div>
-                    {% endif %}
-                    
-                    {% if promo_banner.title or promo_banner.description %}
-                    <div class="promo-content">
-                        {% if promo_banner.title %}
-                            <h4 class="promo-title">{{ promo_banner.title }}</h4>
-                        {% endif %}
-                        {% if promo_banner.description %}
-                            <p class="promo-description">{{ promo_banner.description }}</p>
-                        {% endif %}
-                        {% if promo_banner.link and promo_banner.link_text %}
-                            <span class="promo-btn">{{ promo_banner.link_text }}</span>
-                        {% endif %}
-                    </div>
-                    {% endif %}
-                    
-                    {% if promo_banner.link %}</a>{% endif %}
-                </div>
-            </div>
-            {% endif %}
-        </div>
-        
-        <div class="col-md-7 col-lg-8">
-            <h1 class="mb-4">{% trans "Calculate cleaning cost" %}</h1>
-            <div id="calculator-form" data-calculate-url="{% url 'calculate_price' %}" data-select-service="{% trans 'Select cleaning type' %}">
-                {% csrf_token %}
-
-                <h4 class="form-section-title">{% trans "Cleaning Frequency" %}</h4>
-                <div class="my-3">
-                    <div class="form-check">
-                        <input id="one_time" name="frequency" type="radio" class="form-check-input" value="one_time" checked required>
-                        <label class="form-check-label" for="one_time">{% trans "One-time cleaning" %}</label>
-                    </div>
-                    {% if user.is_authenticated %}
-                        <div class="form-check">
-                            <input id="monthly" name="frequency" type="radio" class="form-check-input" value="monthly" required>
-                            <label class="form-check-label" for="monthly">{% trans "Once a month" %} (-10%)</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="bi_weekly" name="frequency" type="radio" class="form-check-input" value="bi_weekly" required>
-                            <label class="form-check-label" for="bi_weekly">{% trans "Every 2 weeks" %} (-15%)</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="weekly" name="frequency" type="radio" class="form-check-input" value="weekly" required>
-                            <label class="form-check-label" for="weekly">{% trans "Once a week" %} (-20%)</label>
-                        </div>
-                    {% else %}
-                        <div class="alert alert-info mt-3">
-                            <p class="mb-0">
-                                <a href="{% url 'login' %}">{% trans "Log in" %}</a> {% trans "or" %} <a href="{% url 'register' %}">{% trans "register" %}</a> {% trans "to access subscription discounts!" %}
-                            </p>
-                        </div>
-                    {% endif %}
-                </div>
-
-                <h4 class="form-section-title">{% trans "Object Type" %}</h4>
-                <div class="form-check d-flex align-items-center p-3 border rounded mb-4">
-                    <input class="form-check-input me-3" type="checkbox" id="is-private-house" name="is_private_house" style="width: 1.5em; height: 1.5em;">
-                    <label class="form-check-label d-flex justify-content-between align-items-center w-100" for="is-private-house">
-                        <div class="d-flex align-items-center">
-                            <img src="{% static 'images/house_icon.png' %}" alt="{% trans 'House icon' %}" width="120" height="120" class="me-3">
-                            <div>
-                                <strong class="d-block">{% trans "Private house" %}</strong>
-                            </div>
-                        </div>
-                        <span class="badge bg-warning text-dark fs-6">x1.2</span>
-                    </label>
-                </div>
-
-                <h4 class="form-section-title">{% trans "Cleaning type" %}</h4>
-                <div class="col-12">
-                    <select class="form-select form-select-lg" id="service" name="service" required title="Select a cleaning type">
-                        <option value="">{% trans "Select..." %}</option>
-                        {% for service in services %}
-                        <option value="{{ service.id }}" data-is-sqm-based="{{ service.is_sqm_based|yesno:'true,false' }}">
-                            {{ service.name }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                </div>
-
-                <h4 class="form-section-title">{% trans "Cleaning Parameters" %}</h4>
-                <div id="rooms-bathrooms-container" class="row g-3">
-                    <div class="col-sm-6">
-                        <label for="rooms" class="form-label">{% trans "Number of rooms" %}</label>
-                        <input type="number" class="form-control" id="rooms" name="rooms" value="1" min="1" max="10">
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="bathrooms" class="form-label">{% trans "Number of bathrooms" %}</label>
-                        <input type="number" class="form-control" id="bathrooms" name="bathrooms" value="1" min="1" max="5">
-                    </div>
-                </div>
-                <div id="sqm-container" class="row g-3" style="display: none;">
-                    <div class="col-12">
-                        <label for="sqm" class="form-label">{% trans "Area in m²" %}</label>
-                        <input type="number" class="form-control" id="sqm" name="sqm" value="40" min="10">
-                    </div>
-                </div>
+            <!-- ============================================ -->
+            <!--          LEFT PANEL - INPUTS                 -->
+            <!-- ============================================ -->
+            <div class="col-lg-8">
+                <h1 class="calculator-title mb-4">{% trans "Calculate cleaning cost" %}</h1>
                 
-                <h4 class="form-section-title">{% trans "Equipment" %}</h4>
-                <div class="form-check d-flex align-items-center p-3 border rounded">
-                    <input class="form-check-input me-3" type="checkbox" id="bring-vacuum" name="bring_vacuum" style="width: 1.5em; height: 1.5em;">
-                    <label class="form-check-label d-flex justify-content-between align-items-center w-100" for="bring-vacuum">
-                        <div class="d-flex align-items-center">
-                            <img src="{% static 'images/vacuum_cleaner.png' %}" alt="{% trans 'Vacuum cleaner icon' %}" width="70" height="70" class="me-3">
-                            <div>
-                                <strong class="d-block">{% trans "You need a vacuum cleaner on the order" %}</strong>
-                                <small class="text-muted">{% trans "We will bring a small vacuum cleaner" %}</small>
-                            </div>
-                        </div>
-                        <span class="badge bg-warning text-dark fs-6">+ {{ vacuum_price|floatformat:2 }} zł</span>
-                    </label>
-                </div>
-                
-                <!-- ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ + ПРОМО-БАННЕР -->
-                <div class="additional-services-banner-row mt-4">
-                    <!-- Дополнительные услуги -->
-                    <div class="additional-services-column">
-                        <div class="additional-services-list">
-                            <h4 class="form-section-title">{% trans "Additional services" %}</h4>
-                            
-                            {% for add_service in additional_services %}
-                            <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
-                                <div class="d-flex align-items-center">
-                                    {% if not add_service.is_quantity_based %}
-                                        <input class="form-check-input" type="checkbox" id="add-service-{{ add_service.id }}" data-service-id="{{ add_service.id }}">
-                                    {% endif %}
-                                    <label class="form-check-label" for="add-service-{{ add_service.id }}">
-                                        {% if add_service.icon %}
-                                            <img src="{{ add_service.icon.url }}" alt="{{ add_service.name }}" class="service-icon">
-                                        {% endif %}
-                                        <span class="service-name">{{ add_service.name }}</span>
-                                    </label>
+                <div id="calculator-form" data-calculate-url="{% url 'calculate_price' %}" data-select-service="{% trans 'Select cleaning type' %}">
+                    {% csrf_token %}
+
+                    <!-- ЧАСТОТА УБОРКИ -->
+                    <h4 class="form-section-title">{% trans "Cleaning Frequency" %}</h4>
+                    <div class="glass-card mb-4">
+                        <div class="row g-3">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="form-check">
+                                    <input id="one_time" name="frequency" type="radio" class="form-check-input" value="one_time" checked required>
+                                    <label class="form-check-label" for="one_time">{% trans "One-time cleaning" %}</label>
                                 </div>
-                                
-                                {% if add_service.is_quantity_based %}
-                                <div class="quantity-widget d-flex align-items-center">
-                                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="decrease">-</button>
-                                    <input type="number" class="form-control form-control-sm text-center quantity-input" value="0" min="0" max="10" data-service-id="{{ add_service.id }}" style="width: 60px;">
-                                    <button type="button" class="btn btn-outline-secondary btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="increase">+</button>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="form-check">
+                                    <input id="monthly" name="frequency" type="radio" class="form-check-input" value="monthly" required>
+                                    <label class="form-check-label" for="monthly">{% trans "Once a month" %} <span class="text-success">(-10%)</span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="form-check">
+                                    <input id="bi_weekly" name="frequency" type="radio" class="form-check-input" value="bi_weekly" required>
+                                    <label class="form-check-label" for="bi_weekly">{% trans "Every 2 weeks" %} <span class="text-success">(-15%)</span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="form-check">
+                                    <input id="weekly" name="frequency" type="radio" class="form-check-input" value="weekly" required>
+                                    <label class="form-check-label" for="weekly">{% trans "Once a week" %} <span class="text-success">(-20%)</span></label>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="col-12">
+                                <div class="alert alert-info mt-2 mb-0">
+                                    <i class="bi bi-info-circle me-2"></i>
+                                    <a href="{% url 'login' %}">{% trans "Log in" %}</a> {% trans "or" %} <a href="{% url 'register' %}">{% trans "register" %}</a> {% trans "to access subscription discounts!" %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- ТИП ОБЪЕКТА -->
+                    <h4 class="form-section-title">{% trans "Object Type" %}</h4>
+                    <div class="option-card mb-4">
+                        <label class="d-flex align-items-center w-100 cursor-pointer" for="is-private-house">
+                            <input class="form-check-input me-3" type="checkbox" id="is-private-house" name="is_private_house" style="width: 1.5em; height: 1.5em;">
+                            <div class="d-flex align-items-center flex-grow-1">
+                                <img src="{% static 'images/house_icon.png' %}" alt="{% trans 'House icon' %}" width="80" height="80" class="me-3">
+                                <div>
+                                    <strong class="d-block mb-1">{% trans "Private house" %}</strong>
+                                    <small>{% trans "Coefficient applies for larger area" %}</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-warning text-dark fs-6 ms-auto">×1.2</span>
+                        </label>
+                    </div>
+
+                    <!-- ТИП УБОРКИ -->
+                    <h4 class="form-section-title">{% trans "Cleaning type" %}</h4>
+                    <div class="mb-4">
+                        <select class="form-select form-select-lg" id="service" name="service" required title="Select a cleaning type">
+                            <option value="">{% trans "Select..." %}</option>
+                            {% for service in services %}
+                            <option value="{{ service.id }}" data-is-sqm-based="{{ service.is_sqm_based|yesno:'true,false' }}">
+                                {{ service.name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- ПАРАМЕТРЫ УБОРКИ -->
+                    <h4 class="form-section-title">{% trans "Cleaning Parameters" %}</h4>
+                    <div class="glass-card mb-4">
+                        <div id="rooms-bathrooms-container" class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="rooms" class="form-label">{% trans "Number of rooms" %}</label>
+                                <input type="number" class="form-control" id="rooms" name="rooms" value="1" min="1" max="10">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="bathrooms" class="form-label">{% trans "Number of bathrooms" %}</label>
+                                <input type="number" class="form-control" id="bathrooms" name="bathrooms" value="1" min="1" max="5">
+                            </div>
+                        </div>
+                        <div id="sqm-container" class="row g-3" style="display: none;">
+                            <div class="col-12">
+                                <label for="sqm" class="form-label">{% trans "Area in m²" %}</label>
+                                <input type="number" class="form-control" id="sqm" name="sqm" value="40" min="10">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ОБОРУДОВАНИЕ -->
+                    <h4 class="form-section-title">{% trans "Equipment" %}</h4>
+                    <div class="option-card mb-4">
+                        <label class="d-flex align-items-center w-100 cursor-pointer" for="bring-vacuum">
+                            <input class="form-check-input me-3" type="checkbox" id="bring-vacuum" name="bring_vacuum" style="width: 1.5em; height: 1.5em;">
+                            <div class="d-flex align-items-center flex-grow-1">
+                                <img src="{% static 'images/vacuum_cleaner.png' %}" alt="{% trans 'Vacuum cleaner icon' %}" width="60" height="60" class="me-3">
+                                <div>
+                                    <strong class="d-block mb-1">{% trans "You need a vacuum cleaner on the order" %}</strong>
+                                    <small>{% trans "We will bring a small vacuum cleaner" %}</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-warning text-dark fs-6 ms-auto">+ {{ vacuum_price|floatformat:0 }} zł</span>
+                        </label>
+                    </div>
+                    
+                    <!-- ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ + ПРОМО-БАННЕР -->
+                    <div class="additional-services-banner-row">
+                        <!-- Дополнительные услуги -->
+                        <div class="additional-services-column">
+                            <h4 class="form-section-title">{% trans "Additional services" %}</h4>
+                            <div class="additional-services-list">
+                                {% for add_service in additional_services %}
+                                <div class="service-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        {% if not add_service.is_quantity_based %}
+                                            <input class="form-check-input me-2" type="checkbox" id="add-service-{{ add_service.id }}" data-service-id="{{ add_service.id }}">
+                                        {% endif %}
+                                        <label class="form-check-label d-flex align-items-center" for="add-service-{{ add_service.id }}">
+                                            {% if add_service.icon %}
+                                                <img src="{{ add_service.icon.url }}" alt="{{ add_service.name }}" class="service-icon me-2" width="50" height="50">
+                                            {% endif %}
+                                            <span class="service-name">{{ add_service.name }}</span>
+                                        </label>
+                                    </div>
+                                    
+                                    {% if add_service.is_quantity_based %}
+                                    <div class="quantity-widget d-flex align-items-center me-3">
+                                        <button type="button" class="btn btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="decrease">−</button>
+                                        <input type="number" class="form-control form-control-sm text-center quantity-input mx-1" value="0" min="0" max="10" data-service-id="{{ add_service.id }}" style="width: 50px;">
+                                        <button type="button" class="btn btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="increase">+</button>
+                                    </div>
+                                    {% endif %}
+
+                                    <span class="fw-bold text-nowrap">
+                                        + {{ add_service.price|floatformat:0 }} zł
+                                        {% if add_service.price_description %}
+                                            <small class="d-block text-muted">{{ add_service.price_description }}</small>
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <!-- Промо-баннер (только десктоп) -->
+                        {% if promo_banner %}
+                        <div class="promo-banner-column d-none d-lg-block">
+                            <div class="promo-banner-wrapper promo-border-{{ promo_banner.border_style }} {% if promo_banner.content_type == 'text_only' %}text-only-banner{% endif %}" {% if promo_banner.background_color %}style="background-color: {{ promo_banner.background_color }};"{% endif %}>
+                                {% if promo_banner.link %}<a href="{{ promo_banner.link }}" target="_blank" rel="noopener noreferrer" class="promo-banner-link">{% endif %}
+                                {% if promo_banner.content_type == 'image' and promo_banner.image %}
+                                    <div class="promo-media">
+                                        <img src="{{ promo_banner.image.url }}" alt="{{ promo_banner.title }}" class="promo-image">
+                                    </div>
+                                {% endif %}
+                                {% if promo_banner.title or promo_banner.description %}
+                                <div class="promo-content">
+                                    {% if promo_banner.title %}<h4 class="promo-title">{{ promo_banner.title }}</h4>{% endif %}
+                                    {% if promo_banner.description %}<p class="promo-description">{{ promo_banner.description }}</p>{% endif %}
+                                    {% if promo_banner.link and promo_banner.link_text %}<span class="promo-btn">{{ promo_banner.link_text }}</span>{% endif %}
                                 </div>
                                 {% endif %}
-
-                                <span class="fw-bold text-nowrap">
-                                    + {{ add_service.price|floatformat:0 }} zł
-                                    {% if add_service.price_description %}
-                                        <span class="price-unit-label">{{ add_service.price_description }}</span>
-                                    {% endif %}
-                                </span>
+                                {% if promo_banner.link %}</a>{% endif %}
                             </div>
-                            {% endfor %}
                         </div>
+                        {% endif %}
                     </div>
+                </div>
+            </div>
+            
+            <!-- ============================================ -->
+            <!--          RIGHT PANEL - ORDER SUMMARY         -->
+            <!-- ============================================ -->
+            <div class="col-lg-4 order-summary-desktop">
+                <div class="order-summary">
+                    <h4 class="d-flex justify-content-between align-items-center">
+                        <span>{% trans "Cost" %}</span>
+                        <span class="badge bg-primary rounded-pill price-rolling" id="total-price">0 zł</span>
+                    </h4>
                     
-                    <!-- Промо-баннер (только десктоп) -->
+                    <ul class="list-group" id="summary-list">
+                        <!-- Base Service -->
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">{% trans "Base cost" %}</h6>
+                                <small id="base-service-name">{% trans "Select cleaning type" %}</small>
+                            </div>
+                            <span class="text-muted" id="base-price">0 zł</span>
+                        </li>
+                        
+                        <!-- Rooms & Bathrooms -->
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0" id="rooms-bathrooms-heading">{% trans "Rooms and bathrooms" %}</h6>
+                                <small id="rooms-bathrooms-summary">{% blocktrans %}1 room, 1 bathroom{% endblocktrans %}</small>
+                            </div>
+                            <span class="text-muted" id="rooms-bathrooms-price">0 zł</span>
+                        </li>
+                        
+                        <!-- Vacuum (Hidden by default) -->
+                        <li class="list-group-item d-flex justify-content-between lh-sm summary-item" id="vacuum-summary" style="display: none;">
+                            <div>
+                                <h6 class="my-0"><i class="bi bi-check-circle-fill text-success me-1"></i>{% trans "Equipment" %}</h6>
+                                <small>{% trans "Bring a vacuum cleaner" %}</small>
+                            </div>
+                            <span class="text-muted" id="vacuum-price">0 zł</span>
+                        </li>
+                        
+                        <!-- Duration (Hidden by default) -->
+                        <li class="list-group-item d-flex justify-content-between lh-sm summary-item" id="duration-summary-block" style="display: none;">
+                            <div>
+                                <h6 class="my-0"><i class="bi bi-clock me-1"></i>{% trans "Approximate operating time" %}</h6>
+                            </div>
+                            <span class="text-muted" id="duration-summary"></span>
+                        </li>
+                        
+                        <!-- Private House (Hidden by default) -->
+                        <li class="list-group-item d-flex justify-content-between lh-sm summary-item" id="house-summary" style="display: none;">
+                           <div>
+                                <h6 class="my-0"><i class="bi bi-house-check me-1"></i>{% trans "Object Type" %}</h6>
+                                <small>{% trans "Private House" %}</small>
+                           </div>
+                           <span class="text-muted" id="house-multiplier-summary">×1.2</span>
+                        </li>
+                        
+                        <!-- Additional Services (Hidden by default) -->
+                        <li class="list-group-item d-flex justify-content-between lh-sm summary-item" id="additional-services-summary" style="display: none;">
+                            <div>
+                                <h6 class="my-0"><i class="bi bi-plus-circle me-1"></i>{% trans "Additional services" %}</h6>
+                                <small id="additional-services-list"></small>
+                            </div>
+                            <span class="text-muted" id="additional-services-price">0 zł</span>
+                        </li>
+                        
+                        <!-- Discount (Hidden by default) -->
+                        <li class="list-group-item d-flex justify-content-between lh-sm bg-light summary-item" id="discount-summary" style="display: none;">
+                            <div>
+                                <h6 class="my-0 text-success"><i class="bi bi-tag-fill me-1"></i>{% trans "Subscription Discount" %}</h6>
+                                <small id="base-total-price"></small>
+                            </div>
+                            <span class="text-success" id="discount-amount">− 0 zł</span>
+                        </li>
+                    </ul>
+                    
+                    <button id="submit-order-btn" class="w-100 btn btn-order btn-lg mt-4" type="submit" disabled>
+                        <i class="bi bi-arrow-right-circle me-2"></i>{% trans "Proceed to order" %}
+                    </button>
+                    
+                    <!-- Промо-баннер под кнопкой (мобильный) -->
                     {% if promo_banner %}
-                    <div class="promo-banner-column">
-                        <div class="promo-banner-wrapper promo-border-{{ promo_banner.border_style }} {% if promo_banner.content_type == 'text_only' %}text-only-banner{% endif %}" {% if promo_banner.background_color %}style="background-color: {{ promo_banner.background_color }};"{% endif %}>
-                            
+                    <div class="promo-banner-mobile d-lg-none mt-4">
+                        <div class="promo-banner-wrapper promo-border-{{ promo_banner.border_style }}">
                             {% if promo_banner.link %}<a href="{{ promo_banner.link }}" target="_blank" rel="noopener noreferrer" class="promo-banner-link">{% endif %}
-                            
                             {% if promo_banner.content_type == 'image' and promo_banner.image %}
                                 <div class="promo-media">
                                     <img src="{{ promo_banner.image.url }}" alt="{{ promo_banner.title }}" class="promo-image">
                                 </div>
-                            {% elif promo_banner.content_type == 'video' and promo_banner.video_file %}
-                                <div class="promo-media">
-                                    <video autoplay loop muted playsinline class="promo-video">
-                                        <source src="{{ promo_banner.video_file.url }}" type="video/mp4">
-                                    </video>
-                                </div>
-                            {% elif promo_banner.content_type == 'lottie' and promo_banner.lottie_json %}
-                                <div class="promo-media">
-                                    <lottie-player src="{{ promo_banner.lottie_json.url }}" background="transparent" speed="1" loop autoplay class="promo-lottie"></lottie-player>
-                                </div>
                             {% endif %}
-                            
                             {% if promo_banner.title or promo_banner.description %}
                             <div class="promo-content">
-                                {% if promo_banner.title %}
-                                    <h4 class="promo-title">{{ promo_banner.title }}</h4>
-                                {% endif %}
-                                {% if promo_banner.description %}
-                                    <p class="promo-description">{{ promo_banner.description }}</p>
-                                {% endif %}
-                                {% if promo_banner.link and promo_banner.link_text %}
-                                    <span class="promo-btn">{{ promo_banner.link_text }}</span>
-                                {% endif %}
+                                {% if promo_banner.title %}<h4 class="promo-title">{{ promo_banner.title }}</h4>{% endif %}
+                                {% if promo_banner.description %}<p class="promo-description">{{ promo_banner.description }}</p>{% endif %}
                             </div>
                             {% endif %}
-                            
                             {% if promo_banner.link %}</a>{% endif %}
                         </div>
                     </div>
                     {% endif %}
                 </div>
             </div>
+            
+        </div>
+    </form>
+</div>
+
+<!-- ======================================================= -->
+<!--          MOBILE STICKY FOOTER                           -->
+<!-- ======================================================= -->
+<div class="calculator-sticky-footer" id="calc-sticky-footer">
+    <div class="d-flex align-items-center">
+        <button type="button" class="expand-details-btn" id="expand-details-btn" aria-label="{% trans 'Show details' %}">
+            <i class="bi bi-chevron-up"></i>
+        </button>
+        <div>
+            <span class="sticky-price-label">{% trans "Total" %}</span>
+            <span class="sticky-price" id="sticky-total-price">0 zł</span>
         </div>
     </div>
-</form>
-
-<!-- ЛИПКИЙ ФУТЕР -->
-<div class="order-footer-bar">
-    <div class="total-price-display">
-        {% trans "Total" %}: <span id="footer-total-price">0.00 zł</span>
-    </div>
-    <a href="#calculator-section" class="btn btn-primary">{% trans "Go to calculator" %}</a>
+    <button type="button" class="btn-order-mobile" id="mobile-order-btn" disabled>
+        {% trans "Order" %} <i class="bi bi-arrow-right ms-1"></i>
+    </button>
 </div>
+
+<!-- ======================================================= -->
+<!--          MOBILE BOTTOM SHEET                            -->
+<!-- ======================================================= -->
+<div class="calculator-backdrop" id="calc-backdrop"></div>
+<div class="calculator-bottom-sheet" id="calc-bottom-sheet">
+    <div class="sheet-handle"></div>
+    <h5 class="sheet-title">{% trans "Order Details" %}</h5>
+    <div id="mobile-summary-content">
+        <!-- Динамически заполняется из JS -->
+    </div>
+</div>
+
+<!-- ======================================================= -->
+<!--          ОСТАЛЬНОЙ КОНТЕНТ СТРАНИЦЫ                     -->
+<!-- ======================================================= -->
 
 <hr class="my-5">
 
@@ -455,10 +488,14 @@
 {% block extra_js %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // =====================================================
+    //          CALCULATOR LOGIC
+    // =====================================================
     const calculatorForm = document.getElementById('calculator-form');
-    const footerTotalPriceEl = document.getElementById('footer-total-price');
+    const stickyTotalPrice = document.getElementById('sticky-total-price');
+    const mobileOrderBtn = document.getElementById('mobile-order-btn');
 
-    if (calculatorForm && footerTotalPriceEl) {
+    if (calculatorForm) {
         const calculateUrl = calculatorForm.dataset.calculateUrl;
         const selectServiceText = calculatorForm.dataset.selectService;
         const serviceSelect = document.getElementById('service');
@@ -484,6 +521,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const roomsBathroomsContainer = document.getElementById('rooms-bathrooms-container');
         const sqmContainer = document.getElementById('sqm-container');
 
+        // Previous price for animation
+        let previousPrice = 0;
+
         function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -499,6 +539,42 @@ document.addEventListener('DOMContentLoaded', function() {
             return cookieValue;
         }
         const csrftoken = getCookie('csrftoken');
+
+        // Animate summary item
+        function animateSummaryItem(element, show) {
+            if (show) {
+                element.style.display = 'flex';
+                element.classList.remove('summary-item-exit');
+                element.classList.add('summary-item-enter');
+            } else {
+                element.classList.remove('summary-item-enter');
+                element.classList.add('summary-item-exit');
+                setTimeout(() => {
+                    element.style.display = 'none';
+                }, 300);
+            }
+        }
+
+        // Animate price update
+        function animatePrice(element, newPrice) {
+            const newPriceText = newPrice.toFixed(2) + ' zł';
+            
+            if (previousPrice !== newPrice) {
+                element.classList.add('updating');
+                element.classList.add('price-updated');
+                
+                setTimeout(() => {
+                    element.textContent = newPriceText;
+                    element.classList.remove('updating');
+                }, 200);
+                
+                setTimeout(() => {
+                    element.classList.remove('price-updated');
+                }, 500);
+                
+                previousPrice = newPrice;
+            }
+        }
 
         function handleQuantityButtons() {
             calculatorForm.addEventListener('click', function(event) {
@@ -523,19 +599,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const serviceId = serviceSelect.value;
             if (!serviceId) {
                 submitBtn.disabled = true;
+                mobileOrderBtn.disabled = true;
                 totalPriceEl.textContent = '0 zł';
-                footerTotalPriceEl.textContent = '0.00 zł';
+                if (stickyTotalPrice) stickyTotalPrice.textContent = '0 zł';
                 baseServiceNameEl.textContent = selectServiceText;
                 basePriceEl.textContent = '0 zł';
                 roomsBathroomsPriceEl.textContent = '0 zł';
-                additionalServicesSummaryEl.style.display = 'none';
-                discountSummaryEl.style.display = 'none';
-                vacuumSummaryEl.style.display = 'none';
-                durationBlock.style.display = 'none';
-                houseSummaryEl.style.display = 'none';
+                animateSummaryItem(additionalServicesSummaryEl, false);
+                animateSummaryItem(discountSummaryEl, false);
+                animateSummaryItem(vacuumSummaryEl, false);
+                animateSummaryItem(durationBlock, false);
+                animateSummaryItem(houseSummaryEl, false);
                 return;
             }
             submitBtn.disabled = false;
+            mobileOrderBtn.disabled = false;
+            
             const additionalServicesData = [];
             const serviceElements = calculatorForm.querySelectorAll('[data-service-id]');
             serviceElements.forEach(el => {
@@ -568,11 +647,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const result = await response.json();
 
-                totalPriceEl.textContent = result.total_price.toFixed(2) + ' zł';
-                footerTotalPriceEl.textContent = result.total_price.toFixed(2) + ' zł';
+                // Animate price updates
+                animatePrice(totalPriceEl, result.total_price);
+                if (stickyTotalPrice) {
+                    stickyTotalPrice.textContent = result.total_price.toFixed(2) + ' zł';
+                }
 
                 baseServiceNameEl.textContent = result.details.base_service_name;
                 basePriceEl.textContent = result.details.base_price.toFixed(2) + ' zł';
+                
                 if (result.details.is_sqm_based) {
                     roomsBathroomsHeadingEl.textContent = `{% trans "Area" %}`;
                     roomsBathroomsSummaryEl.textContent = `${result.details.sqm} m²`;
@@ -582,41 +665,100 @@ document.addEventListener('DOMContentLoaded', function() {
                     roomsBathroomsSummaryEl.textContent = `${result.details.rooms_count} {% trans "room(s)" %}, ${result.details.bathrooms_count} {% trans "bathroom(s)" %}`;
                     roomsBathroomsPriceEl.textContent = result.details.rooms_bathrooms_price.toFixed(2) + ' zł';
                 }
+                
+                // Animated show/hide for summary items
                 if (result.details.vacuum_price > 0) {
-                    vacuumSummaryEl.style.display = 'flex';
+                    animateSummaryItem(vacuumSummaryEl, true);
                     vacuumPriceEl.textContent = `+ ${result.details.vacuum_price.toFixed(2)} zł`;
                 } else {
-                    vacuumSummaryEl.style.display = 'none';
+                    animateSummaryItem(vacuumSummaryEl, false);
                 }
+                
                 if (result.details.additional_services_price > 0) {
-                    additionalServicesSummaryEl.style.display = 'flex';
+                    animateSummaryItem(additionalServicesSummaryEl, true);
                     additionalServicesListEl.textContent = result.details.additional_services_names.join(', ');
                     additionalServicesPriceEl.textContent = `+ ${result.details.additional_services_price.toFixed(2)} zł`;
                 } else {
-                    additionalServicesSummaryEl.style.display = 'none';
+                    animateSummaryItem(additionalServicesSummaryEl, false);
                 }
+                
                 if (result.details.house_multiplier > 1.0) {
-                    houseSummaryEl.style.display = 'flex';
-                    houseMultiplierSummaryEl.textContent = `x${result.details.house_multiplier}`;
+                    animateSummaryItem(houseSummaryEl, true);
+                    houseMultiplierSummaryEl.textContent = `×${result.details.house_multiplier}`;
                 } else {
-                    houseSummaryEl.style.display = 'none';
+                    animateSummaryItem(houseSummaryEl, false);
                 }
+                
                 if (result.details.formatted_duration) {
-                    durationBlock.style.display = 'flex';
+                    animateSummaryItem(durationBlock, true);
                     durationEl.textContent = result.details.formatted_duration;
                 } else {
-                    durationBlock.style.display = 'none';
+                    animateSummaryItem(durationBlock, false);
                 }
+                
                 if (result.discount_amount && result.discount_amount > 0) {
-                    discountAmountEl.textContent = `- ${result.discount_amount.toFixed(2)} zł`;
+                    discountAmountEl.textContent = `− ${result.discount_amount.toFixed(2)} zł`;
                     baseTotalPriceEl.innerHTML = `<del>${result.base_total.toFixed(2)} zł</del>`;
-                    discountSummaryEl.style.display = 'flex';
+                    animateSummaryItem(discountSummaryEl, true);
                 } else {
-                    discountSummaryEl.style.display = 'none';
+                    animateSummaryItem(discountSummaryEl, false);
                 }
+                
+                // Update mobile summary
+                updateMobileSummary(result);
+                
             } catch (error) {
                 console.error('Calculation error:', error);
             }
+        }
+        
+        function updateMobileSummary(result) {
+            const mobileContent = document.getElementById('mobile-summary-content');
+            if (!mobileContent) return;
+            
+            let html = `
+                <div class="d-flex justify-content-between mb-2">
+                    <span style="color: #B8B8B8;">${result.details.base_service_name}</span>
+                    <span style="color: #D4AF37;">${result.details.base_price.toFixed(2)} zł</span>
+                </div>
+            `;
+            
+            if (result.details.vacuum_price > 0) {
+                html += `
+                    <div class="d-flex justify-content-between mb-2">
+                        <span style="color: #B8B8B8;">{% trans "Vacuum cleaner" %}</span>
+                        <span style="color: #D4AF37;">+ ${result.details.vacuum_price.toFixed(2)} zł</span>
+                    </div>
+                `;
+            }
+            
+            if (result.details.additional_services_price > 0) {
+                html += `
+                    <div class="d-flex justify-content-between mb-2">
+                        <span style="color: #B8B8B8;">${result.details.additional_services_names.join(', ')}</span>
+                        <span style="color: #D4AF37;">+ ${result.details.additional_services_price.toFixed(2)} zł</span>
+                    </div>
+                `;
+            }
+            
+            if (result.discount_amount && result.discount_amount > 0) {
+                html += `
+                    <div class="d-flex justify-content-between mb-2" style="color: #10B981;">
+                        <span>{% trans "Discount" %}</span>
+                        <span>− ${result.discount_amount.toFixed(2)} zł</span>
+                    </div>
+                `;
+            }
+            
+            html += `
+                <hr style="border-color: rgba(212, 175, 55, 0.3);">
+                <div class="d-flex justify-content-between">
+                    <strong style="color: #fff;">{% trans "Total" %}</strong>
+                    <strong style="color: #D4AF37; font-family: 'Orbitron', sans-serif;">${result.total_price.toFixed(2)} zł</strong>
+                </div>
+            `;
+            
+            mobileContent.innerHTML = html;
         }
         
         function toggleInputFields() {
@@ -641,42 +783,62 @@ document.addEventListener('DOMContentLoaded', function() {
         handleQuantityButtons();
         serviceSelect.addEventListener('change', toggleInputFields);
         toggleInputFields();
+        
+        // Mobile order button click
+        if (mobileOrderBtn) {
+            mobileOrderBtn.addEventListener('click', function() {
+                document.getElementById('calculator-form-wrapper').submit();
+            });
+        }
     }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const footerButton = document.querySelector('.order-footer-bar .btn');
-    if (footerButton) {
-        footerButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+    
+    // =====================================================
+    //          MOBILE BOTTOM SHEET
+    // =====================================================
+    const expandBtn = document.getElementById('expand-details-btn');
+    const bottomSheet = document.getElementById('calc-bottom-sheet');
+    const backdrop = document.getElementById('calc-backdrop');
+    
+    if (expandBtn && bottomSheet && backdrop) {
+        expandBtn.addEventListener('click', function() {
+            const isOpen = bottomSheet.classList.contains('open');
+            
+            if (isOpen) {
+                bottomSheet.classList.remove('open');
+                backdrop.classList.remove('show');
+                expandBtn.classList.remove('expanded');
+            } else {
+                bottomSheet.classList.add('open');
+                backdrop.classList.add('show');
+                expandBtn.classList.add('expanded');
             }
+        });
+        
+        backdrop.addEventListener('click', function() {
+            bottomSheet.classList.remove('open');
+            backdrop.classList.remove('show');
+            expandBtn.classList.remove('expanded');
         });
     }
 });
-</script>
 
-<script>
-    const lightbox = GLightbox({ selector: '.glightbox' });
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 30,
-        autoHeight: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            768: { slidesPerView: 2 },
-            992: { slidesPerView: 3 }
-        }
-    });
+// =====================================================
+//          GALLERY & SLIDER SCRIPTS
+// =====================================================
+const lightbox = GLightbox({ selector: '.glightbox' });
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    autoHeight: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        768: { slidesPerView: 2 },
+        992: { slidesPerView: 3 }
+    }
+});
 </script>
 {% endblock %}
