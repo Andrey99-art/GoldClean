@@ -11,10 +11,10 @@
 /* --- Расширенные CSS переменные для калькулятора --- */
 :root {
     /* Основные цвета калькулятора */
-    --calc-bg-primary: #0a0a0b;
-    --calc-bg-secondary: #111113;
-    --calc-bg-card: rgba(20, 20, 22, 0.85);
-    --calc-bg-glass: rgba(30, 30, 35, 0.6);
+    --calc-bg-primary: #1a1b1e;
+    --calc-bg-secondary: #25262b;
+    --calc-bg-card: rgba(37, 38, 43, 0.85);
+    --calc-bg-glass: rgba(255, 255, 255, 0.03);
     
     /* Золотые акценты */
     --calc-gold: #D4AF37;
@@ -24,8 +24,8 @@
     
     /* Текст */
     --calc-text-primary: #FFFFFF;
-    --calc-text-secondary: #B8B8B8;
-    --calc-text-muted: #6B6B6B;
+    --calc-text-secondary: #C1C2C5;
+    --calc-text-muted: #909296;
     
     /* Бордеры и линии */
     --calc-border: rgba(212, 175, 55, 0.2);
@@ -33,7 +33,7 @@
     --calc-border-subtle: rgba(255, 255, 255, 0.08);
     
     /* Тени и эффекты */
-    --calc-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --calc-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     --calc-shadow-gold: 0 0 20px rgba(212, 175, 55, 0.15);
     --calc-glow: 0 0 30px rgba(212, 175, 55, 0.1);
     
@@ -51,12 +51,13 @@
 .calculator-section {
     background: var(--calc-bg-primary);
     background-image: 
-        /* Тонкая сетка */
-        linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px),
-        /* Виньетка */
-        radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+        /* Сетка стала чуть заметнее, но прозрачнее */
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        /* Виньетка стала мягче (0.2 вместо 0.4) */
+        radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
     background-size: 50px 50px, 50px 50px, 100% 100%;
+    /* Остальные свойства без изменений... */
     border-radius: 1.5rem;
     padding: 2.5rem;
     margin: -2rem;
