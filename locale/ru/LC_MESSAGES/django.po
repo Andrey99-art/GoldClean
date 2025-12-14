@@ -2042,7 +2042,7 @@ msgid ""
 "%(fee)s PLN may apply"
 msgstr ""
 "Поскольку вы отменяете заказ менее чем за 24 часа до назначенного времени, "
-"будет взиматься плата за отмену в размере %(fee)"
+"будет взиматься плата за отмену в размере %(fee)s"
 
 #: .\templates\core\legal\terms.html:68
 msgid "To cancel, contact us by phone or email"
