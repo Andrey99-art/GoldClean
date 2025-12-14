@@ -299,18 +299,26 @@
 </div>
 
 <!-- ======================================================= -->
-<!--          MOBILE STICKY FOOTER                           -->
+<!--          STICKY FOOTER (Desktop & Mobile)               -->
 <!-- ======================================================= -->
 <div class="calculator-sticky-footer" id="calc-sticky-footer">
     <div class="d-flex align-items-center">
+        <!-- Кнопка раскрытия деталей (только мобильный) -->
         <button type="button" class="expand-details-btn" id="expand-details-btn" aria-label="{% trans 'Show details' %}">
             <i class="bi bi-chevron-up"></i>
         </button>
+        
+        <!-- Кнопка "К калькулятору" -->
+        <a href="#calculator-section" class="btn-go-calculator" id="go-to-calculator-btn">
+            <i class="bi bi-calculator"></i> {% trans "Calculator" %}
+        </a>
+        
         <div>
             <span class="sticky-price-label">{% trans "Total" %}</span>
             <span class="sticky-price" id="sticky-total-price">0 zł</span>
         </div>
     </div>
+    
     <button type="button" class="btn-order-mobile" id="mobile-order-btn" disabled>
         {% trans "Order" %} <i class="bi bi-arrow-right ms-1"></i>
     </button>
@@ -821,6 +829,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+    // =====================================================
+    //          SMOOTH SCROLL TO CALCULATOR
+    // =====================================================
+    const goToCalcBtn = document.getElementById('go-to-calculator-btn');
+    if (goToCalcBtn) {
+        goToCalcBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.getElementById('calculator-section');
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
 
 // =====================================================
 //          GALLERY & SLIDER SCRIPTS
