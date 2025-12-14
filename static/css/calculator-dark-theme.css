@@ -1,69 +1,67 @@
 /*
 ==========================================================================
-   CALCULATOR DARK THEME - Deus Ex: Human Revolution Style
-   Эволюционный апгрейд с Glassmorphism и технологичным дизайном
+   CALCULATOR ELEGANT LIGHT THEME
+   "An idiot admires complexity, a genius admires simplicity"
+   
+   Шрифт: Merriweather (заголовки) + Source Sans Pro (текст)
+   Палитра: Тёплый крем + золото + мягкие тени
 ==========================================================================
 */
 
-/* --- Google Font: Orbitron для технологичного вида --- */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 
-/* --- Расширенные CSS переменные для калькулятора --- */
+/* --- CSS переменные для калькулятора --- */
 :root {
-    /* Основные цвета калькулятора */
-    --calc-bg-primary: #1a1b1e;
-    --calc-bg-secondary: #25262b;
-    --calc-bg-card: rgba(37, 38, 43, 0.85);
-    --calc-bg-glass: rgba(255, 255, 255, 0.03);
+    /* Фоны */
+    --calc-bg-cream: #FDFBF7;
+    --calc-bg-white: #FFFFFF;
+    --calc-bg-soft: #F8F6F1;
+    --calc-bg-card: #FFFFFF;
     
     /* Золотые акценты */
-    --calc-gold: #D4AF37;
-    --calc-gold-light: #F4D160;
-    --calc-gold-dark: #A68B2A;
-    --calc-gold-glow: rgba(212, 175, 55, 0.3);
+    --calc-gold: #B89E40;
+    --calc-gold-light: #D4BC5E;
+    --calc-gold-dark: #96812F;
+    --calc-gold-soft: rgba(184, 158, 64, 0.1);
+    --calc-gold-border: rgba(184, 158, 64, 0.3);
     
     /* Текст */
-    --calc-text-primary: #FFFFFF;
-    --calc-text-secondary: #C1C2C5;
-    --calc-text-muted: #909296;
+    --calc-text-dark: #2C2C2C;
+    --calc-text-medium: #5A5A5A;
+    --calc-text-light: #8A8A8A;
+    --calc-text-gold: #96812F;
     
-    /* Бордеры и линии */
-    --calc-border: rgba(212, 175, 55, 0.2);
-    --calc-border-active: rgba(212, 175, 55, 0.6);
-    --calc-border-subtle: rgba(255, 255, 255, 0.08);
+    /* Бордеры */
+    --calc-border-light: #E8E4DC;
+    --calc-border-medium: #D4CFC2;
+    --calc-border-gold: rgba(184, 158, 64, 0.4);
     
-    /* Тени и эффекты */
-    --calc-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    --calc-shadow-gold: 0 0 20px rgba(212, 175, 55, 0.15);
-    --calc-glow: 0 0 30px rgba(212, 175, 55, 0.1);
+    /* Тени */
+    --calc-shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --calc-shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.06);
+    --calc-shadow-gold: 0 4px 20px rgba(184, 158, 64, 0.15);
     
-    /* Технологичные шрифты */
-    --font-tech: 'Orbitron', sans-serif;
-    --font-tech-body: 'Rajdhani', sans-serif;
+    /* Шрифты */
+    --font-heading: 'Merriweather', Georgia, serif;
+    --font-body: 'Source Sans Pro', -apple-system, sans-serif;
 }
 
 /*
 ==========================================================================
-   1. Обёртка калькулятора - тёмная секция
+   1. Обёртка калькулятора
 ==========================================================================
 */
 
 .calculator-section {
-    background: var(--calc-bg-primary);
-    background-image: 
-        /* Сетка стала чуть заметнее, но прозрачнее */
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        /* Виньетка стала мягче (0.2 вместо 0.4) */
-        radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
-    background-size: 50px 50px, 50px 50px, 100% 100%;
-    /* Остальные свойства без изменений... */
-    border-radius: 1.5rem;
+    background: var(--calc-bg-cream);
+    border-radius: 1.25rem;
     padding: 2.5rem;
     margin: -2rem;
     margin-bottom: 2rem;
     position: relative;
-    overflow: hidden;
+    border: 1px solid var(--calc-border-light);
+    box-shadow: var(--calc-shadow-soft);
 }
 
 /* Декоративная золотая линия сверху */
@@ -73,28 +71,15 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60%;
-    height: 2px;
+    width: 120px;
+    height: 3px;
     background: linear-gradient(90deg, 
         transparent 0%, 
-        var(--calc-gold) 20%, 
+        var(--calc-gold) 30%, 
         var(--calc-gold-light) 50%, 
-        var(--calc-gold) 80%, 
+        var(--calc-gold) 70%, 
         transparent 100%);
-    box-shadow: var(--calc-shadow-gold);
-}
-
-/* Угловые акценты */
-.calculator-section::after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 40px;
-    height: 40px;
-    border-left: 2px solid var(--calc-gold);
-    border-top: 2px solid var(--calc-gold);
-    opacity: 0.5;
+    border-radius: 0 0 3px 3px;
 }
 
 /*
@@ -105,97 +90,55 @@
 
 .calculator-section h1,
 .calculator-section .calculator-title {
-    font-family: var(--font-tech);
-    color: var(--calc-text-primary);
+    font-family: var(--font-heading);
+    color: var(--calc-text-dark);
     font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
     margin-bottom: 2rem;
-    position: relative;
-    display: inline-block;
-}
-
-.calculator-section h1::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--calc-gold), transparent);
 }
 
 /*
 ==========================================================================
-   3. Заголовки секций (form-section-title) в калькуляторе
+   3. Заголовки секций
 ==========================================================================
 */
 
 .calculator-section .form-section-title {
-    font-family: var(--font-tech);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--calc-gold);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--calc-text-dark);
     margin-top: 2rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--calc-border);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    border-bottom: 2px solid var(--calc-gold);
+    display: inline-block;
 }
 
+/* Убираем технический префикс // */
 .calculator-section .form-section-title::before {
-    content: '//';
-    color: var(--calc-gold-dark);
-    font-weight: 400;
+    display: none;
 }
 
 /*
 ==========================================================================
-   4. Glassmorphism карточки для опций
+   4. Карточки для опций (glass-card)
 ==========================================================================
 */
 
 .calculator-section .glass-card {
-    background: var(--calc-bg-glass);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--calc-border-subtle);
+    background: var(--calc-bg-white);
+    border: 1px solid var(--calc-border-light);
     border-radius: 0.75rem;
-    padding: 1rem 1.25rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+    padding: 1.25rem;
+    transition: all 0.25s ease;
+    box-shadow: var(--calc-shadow-soft);
 }
 
 .calculator-section .glass-card:hover {
-    border-color: var(--calc-border);
-    transform: translateY(-2px);
-    box-shadow: var(--calc-shadow-gold);
-}
-
-.calculator-section .glass-card.active,
-.calculator-section .glass-card:has(input:checked) {
-    border-color: var(--calc-gold);
-    background: rgba(212, 175, 55, 0.08);
-    box-shadow: 
-        0 0 20px rgba(212, 175, 55, 0.15),
-        inset 0 0 30px rgba(212, 175, 55, 0.05);
-}
-
-/* Левая золотая полоска для активных карточек */
-.calculator-section .glass-card.active::before,
-.calculator-section .glass-card:has(input:checked)::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(180deg, var(--calc-gold-light), var(--calc-gold));
+    border-color: var(--calc-border-medium);
+    box-shadow: var(--calc-shadow-medium);
 }
 
 /*
@@ -207,35 +150,44 @@
 .calculator-section .form-check-input {
     width: 1.25rem;
     height: 1.25rem;
-    background-color: var(--calc-bg-secondary);
-    border: 2px solid var(--calc-border);
+    background-color: var(--calc-bg-white);
+    border: 2px solid var(--calc-border-medium);
     transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 .calculator-section .form-check-input:checked {
     background-color: var(--calc-gold);
     border-color: var(--calc-gold);
-    box-shadow: 0 0 10px var(--calc-gold-glow);
 }
 
 .calculator-section .form-check-input:focus {
     border-color: var(--calc-gold);
-    box-shadow: 0 0 0 0.2rem var(--calc-gold-glow);
+    box-shadow: 0 0 0 3px var(--calc-gold-soft);
 }
 
 .calculator-section .form-check-label {
-    color: var(--calc-text-secondary);
-    font-family: var(--font-tech-body);
-    font-weight: 500;
+    color: var(--calc-text-medium);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.95rem;
+    cursor: pointer;
     transition: color 0.2s ease;
 }
 
 .calculator-section .form-check:hover .form-check-label {
-    color: var(--calc-text-primary);
+    color: var(--calc-text-dark);
 }
 
 .calculator-section .form-check-input:checked + .form-check-label {
-    color: var(--calc-text-primary);
+    color: var(--calc-text-dark);
+    font-weight: 600;
+}
+
+/* Скидки зелёным */
+.calculator-section .form-check-label .text-success {
+    color: #2E7D32 !important;
+    font-weight: 600;
 }
 
 /*
@@ -246,34 +198,35 @@
 
 .calculator-section .form-select,
 .calculator-section .form-control {
-    background-color: var(--calc-bg-secondary);
-    border: 1px solid var(--calc-border-subtle);
-    color: var(--calc-text-primary);
-    font-family: var(--font-tech-body);
-    font-weight: 500;
+    background-color: var(--calc-bg-white);
+    border: 1px solid var(--calc-border-light);
+    color: var(--calc-text-dark);
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1rem;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
+}
+
+.calculator-section .form-select:hover,
+.calculator-section .form-control:hover {
+    border-color: var(--calc-border-medium);
 }
 
 .calculator-section .form-select:focus,
 .calculator-section .form-control:focus {
-    background-color: var(--calc-bg-secondary);
+    background-color: var(--calc-bg-white);
     border-color: var(--calc-gold);
-    color: var(--calc-text-primary);
-    box-shadow: 0 0 0 3px var(--calc-gold-glow), var(--calc-shadow-gold);
-}
-
-.calculator-section .form-select option {
-    background-color: var(--calc-bg-primary);
-    color: var(--calc-text-primary);
+    color: var(--calc-text-dark);
+    box-shadow: 0 0 0 3px var(--calc-gold-soft);
 }
 
 .calculator-section .form-label {
-    color: var(--calc-text-secondary);
-    font-family: var(--font-tech-body);
-    font-weight: 500;
-    font-size: 0.9rem;
+    color: var(--calc-text-medium);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.875rem;
     margin-bottom: 0.5rem;
 }
 
@@ -284,41 +237,54 @@
 */
 
 .calculator-section .option-card {
-    background: var(--calc-bg-glass);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--calc-border-subtle);
+    background: var(--calc-bg-white);
+    border: 1px solid var(--calc-border-light);
     border-radius: 0.75rem;
-    padding: 1rem;
-    transition: all 0.3s ease;
+    padding: 1rem 1.25rem;
+    transition: all 0.25s ease;
     cursor: pointer;
+    box-shadow: var(--calc-shadow-soft);
 }
 
 .calculator-section .option-card:hover {
-    border-color: var(--calc-border);
-    box-shadow: var(--calc-glow);
+    border-color: var(--calc-gold-border);
+    box-shadow: var(--calc-shadow-medium);
 }
 
 .calculator-section .option-card:has(input:checked) {
     border-color: var(--calc-gold);
-    background: rgba(212, 175, 55, 0.1);
+    background: linear-gradient(135deg, var(--calc-bg-white) 0%, var(--calc-gold-soft) 100%);
     box-shadow: var(--calc-shadow-gold);
 }
 
 .calculator-section .option-card strong {
-    color: var(--calc-text-primary);
-    font-family: var(--font-tech-body);
+    color: var(--calc-text-dark);
+    font-family: var(--font-body);
     font-weight: 600;
+    font-size: 1rem;
 }
 
 .calculator-section .option-card small {
-    color: var(--calc-text-muted);
+    color: var(--calc-text-light);
+    font-size: 0.85rem;
 }
 
 .calculator-section .option-card .badge {
-    font-family: var(--font-tech);
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 0;
+    background: var(--calc-gold) !important;
+    color: white !important;
+}
+
+/* Иконки в карточках */
+.calculator-section .option-card img {
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.calculator-section .option-card:hover img {
+    opacity: 1;
 }
 
 /*
@@ -328,62 +294,59 @@
 */
 
 .calculator-section .additional-services-list {
-    background: var(--calc-bg-glass);
-    backdrop-filter: blur(10px);
+    background: var(--calc-bg-white);
+    border: 1px solid var(--calc-border-light);
     border-radius: 0.75rem;
-    padding: 1rem;
-    border: 1px solid var(--calc-border-subtle);
+    padding: 0.5rem;
+    box-shadow: var(--calc-shadow-soft);
 }
 
 .calculator-section .additional-services-list .service-item {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--calc-border-subtle);
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--calc-border-light);
     transition: all 0.2s ease;
+    border-radius: 0.5rem;
+    margin-bottom: 2px;
 }
 
 .calculator-section .additional-services-list .service-item:last-child {
     border-bottom: none;
+    margin-bottom: 0;
 }
 
 .calculator-section .additional-services-list .service-item:hover {
-    background: rgba(212, 175, 55, 0.05);
-    margin: 0 -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    background: var(--calc-bg-soft);
 }
 
 .calculator-section .additional-services-list .service-name {
-    color: var(--calc-text-secondary);
-    font-family: var(--font-tech-body);
+    color: var(--calc-text-dark);
+    font-family: var(--font-body);
     font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .calculator-section .additional-services-list .service-icon {
     border-radius: 0.5rem;
-    background: transparent;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
 }
 
+/* Цена услуги */
 .calculator-section .additional-services-list .fw-bold {
-    color: var(--calc-gold);
-    font-family: var(--font-tech);
-    font-weight: 600;
+    color: var(--calc-gold-dark);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
 }
 
-/* Описание цены (За штуку, За 30 минут и т.д.) */
+/* Описание цены (За штуку, За 30 минут) */
 .calculator-section .additional-services-list .text-muted,
-.calculator-section .additional-services-list small,
-.calculator-section .additional-services-list .price-unit-label {
-    color: var(--calc-text-secondary) !important;
-    font-family: var(--font-tech-body);
+.calculator-section .additional-services-list small {
+    color: var(--calc-text-light) !important;
+    font-family: var(--font-body);
     font-size: 0.8rem;
-    opacity: 0.9;
-}
-
-/* Убираем белый фон у иконок */
-.calculator-section .additional-services-list .service-icon,
-.calculator-section .additional-services-list img {
-    background: transparent !important;
-    mix-blend-mode: normal;
+    font-weight: 400;
 }
 
 /*
@@ -392,35 +355,46 @@
 ==========================================================================
 */
 
+.calculator-section .quantity-widget {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
 .calculator-section .quantity-widget .btn {
-    background: var(--calc-bg-secondary);
-    border: 1px solid var(--calc-border);
-    color: var(--calc-gold);
-    font-family: var(--font-tech);
-    font-weight: 700;
-    width: 32px;
-    height: 32px;
+    background: var(--calc-bg-soft);
+    border: 1px solid var(--calc-border-light);
+    color: var(--calc-text-dark);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    width: 36px;
+    height: 36px;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 0.375rem;
     transition: all 0.2s ease;
 }
 
 .calculator-section .quantity-widget .btn:hover {
     background: var(--calc-gold);
-    color: var(--calc-bg-primary);
     border-color: var(--calc-gold);
-    box-shadow: 0 0 15px var(--calc-gold-glow);
+    color: white;
 }
 
 .calculator-section .quantity-widget .quantity-input {
-    background: var(--calc-bg-secondary);
-    border: 1px solid var(--calc-border-subtle);
-    color: var(--calc-text-primary);
-    font-family: var(--font-tech);
+    background: var(--calc-bg-white);
+    border: 1px solid var(--calc-border-light);
+    color: var(--calc-text-dark);
+    font-family: var(--font-body);
     font-weight: 600;
+    font-size: 1rem;
     text-align: center;
+    width: 48px;
+    height: 36px;
+    border-radius: 0.375rem;
 }
 
 /*
@@ -430,30 +404,24 @@
 */
 
 .calculator-section .order-summary {
-    background: linear-gradient(145deg, 
-        rgba(20, 20, 22, 0.95) 0%, 
-        rgba(15, 15, 17, 0.98) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--calc-border);
+    background: var(--calc-bg-white);
+    border: 1px solid var(--calc-border-light);
     border-radius: 1rem;
     padding: 1.5rem;
     position: sticky;
     top: 100px;
-    box-shadow: var(--calc-shadow);
+    box-shadow: var(--calc-shadow-medium);
 }
 
 /* Заголовок Summary */
-.calculator-section .order-summary h4,
-.calculator-section .order-summary .summary-title {
-    font-family: var(--font-tech);
-    color: var(--calc-gold);
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 1rem;
+.calculator-section .order-summary h4 {
+    font-family: var(--font-heading);
+    color: var(--calc-text-dark);
+    font-weight: 700;
+    font-size: 1.125rem;
     margin-bottom: 1rem;
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--calc-border);
+    border-bottom: 2px solid var(--calc-gold);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -462,15 +430,14 @@
 /* Badge с ценой */
 .calculator-section .order-summary .badge.bg-primary,
 .calculator-section .order-summary #total-price {
-    font-family: var(--font-tech);
+    font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--calc-gold) 0%, var(--calc-gold-light) 100%) !important;
-    color: var(--calc-bg-primary) !important;
+    background: linear-gradient(135deg, var(--calc-gold) 0%, var(--calc-gold-dark) 100%) !important;
+    color: white !important;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 15px var(--calc-gold-glow);
-    letter-spacing: 0.5px;
+    box-shadow: var(--calc-shadow-gold);
 }
 
 /* Список деталей заказа */
@@ -482,11 +449,10 @@
 .calculator-section .order-summary .list-group-item {
     background: transparent;
     border: none;
-    border-bottom: 1px solid var(--calc-border-subtle);
-    color: var(--calc-text-secondary);
+    border-bottom: 1px solid var(--calc-border-light);
+    color: var(--calc-text-medium);
     padding: 0.75rem 0;
-    font-family: var(--font-tech-body);
-    transition: all 0.3s ease;
+    font-family: var(--font-body);
 }
 
 .calculator-section .order-summary .list-group-item:last-child {
@@ -494,36 +460,36 @@
 }
 
 .calculator-section .order-summary .list-group-item h6 {
-    color: var(--calc-text-primary);
-    font-family: var(--font-tech-body);
+    color: var(--calc-text-dark);
+    font-family: var(--font-body);
     font-weight: 600;
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
 }
 
 .calculator-section .order-summary .list-group-item small {
-    color: var(--calc-text-muted);
+    color: var(--calc-text-light);
     font-size: 0.8rem;
 }
 
 .calculator-section .order-summary .list-group-item .text-muted {
-    color: var(--calc-gold) !important;
-    font-family: var(--font-tech);
-    font-weight: 600;
+    color: var(--calc-gold-dark) !important;
+    font-family: var(--font-body);
+    font-weight: 700;
 }
 
 /* Скидка */
 .calculator-section .order-summary .list-group-item.bg-light {
-    background: rgba(16, 185, 129, 0.1) !important;
+    background: rgba(46, 125, 50, 0.08) !important;
     border-radius: 0.5rem;
     margin-top: 0.5rem;
     padding: 0.75rem;
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(46, 125, 50, 0.2) !important;
 }
 
 .calculator-section .order-summary .text-success {
-    color: #10B981 !important;
-    font-family: var(--font-tech);
+    color: #2E7D32 !important;
+    font-weight: 700;
 }
 
 /*
@@ -534,32 +500,31 @@
 
 .calculator-section .btn-order,
 .calculator-section #submit-order-btn {
-    font-family: var(--font-tech);
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: 1rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
     background: linear-gradient(135deg, var(--calc-gold) 0%, var(--calc-gold-dark) 100%);
     border: none;
-    color: var(--calc-bg-primary);
+    color: white;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px var(--calc-gold-glow);
+    box-shadow: var(--calc-shadow-gold);
 }
 
 .calculator-section .btn-order:hover,
 .calculator-section #submit-order-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 8px 25px rgba(184, 158, 64, 0.35);
 }
 
 .calculator-section .btn-order:disabled,
 .calculator-section #submit-order-btn:disabled {
-    background: var(--calc-bg-secondary);
-    color: var(--calc-text-muted);
+    background: var(--calc-border-medium);
+    color: var(--calc-text-light);
     box-shadow: none;
     transform: none;
 }
@@ -576,7 +541,7 @@
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.25),
         transparent
     );
     transition: left 0.5s ease;
@@ -589,7 +554,7 @@
 
 /*
 ==========================================================================
-   12. Rolling Numbers Animation для цены
+   12. Анимации цены
 ==========================================================================
 */
 
@@ -604,11 +569,11 @@
 
 @keyframes priceUpdate {
     0% {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
         opacity: 0.5;
     }
     50% {
-        transform: translateY(5px);
+        transform: translateY(3px);
     }
     100% {
         transform: translateY(0);
@@ -616,13 +581,12 @@
     }
 }
 
-/* Glow pulse для обновления цены */
 @keyframes pricePulse {
     0%, 100% {
-        box-shadow: 0 4px 15px var(--calc-gold-glow);
+        box-shadow: var(--calc-shadow-gold);
     }
     50% {
-        box-shadow: 0 4px 25px rgba(212, 175, 55, 0.5);
+        box-shadow: 0 4px 30px rgba(184, 158, 64, 0.4);
     }
 }
 
@@ -647,7 +611,7 @@
 @keyframes slideInFade {
     from {
         opacity: 0;
-        transform: translateX(-20px);
+        transform: translateX(-15px);
         max-height: 0;
     }
     to {
@@ -665,33 +629,39 @@
     }
     to {
         opacity: 0;
-        transform: translateX(20px);
+        transform: translateX(15px);
         max-height: 0;
     }
 }
 
 /*
 ==========================================================================
-   14. Alert стили в калькуляторе
+   14. Alert стили
 ==========================================================================
 */
 
 .calculator-section .alert-info {
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    color: #93C5FD;
+    background: rgba(184, 158, 64, 0.08);
+    border: 1px solid var(--calc-gold-border);
+    color: var(--calc-text-dark);
     border-radius: 0.5rem;
-    font-family: var(--font-tech-body);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
 }
 
 .calculator-section .alert-info a {
-    color: var(--calc-gold);
+    color: var(--calc-gold-dark);
     font-weight: 600;
+    text-decoration: underline;
+}
+
+.calculator-section .alert-info a:hover {
+    color: var(--calc-gold);
 }
 
 /*
 ==========================================================================
-   15. Sticky Footer Bar (Desktop & Mobile)
+   15. Sticky Footer Bar
 ==========================================================================
 */
 
@@ -701,74 +671,66 @@
     left: 0;
     right: 0;
     z-index: 1040;
-    background: linear-gradient(180deg, 
-        rgba(10, 10, 11, 0.95) 0%, 
-        rgba(15, 15, 17, 0.98) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--calc-bg-white);
     border-top: 2px solid var(--calc-gold);
-    padding: 1rem 1.5rem;
+    padding: 0.875rem 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
     transform: translateY(100%);
     animation: slideUpFooter 0.5s 0.3s ease-out forwards;
 }
 
 @keyframes slideUpFooter {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: translateY(0);
-    }
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
 }
 
 .calculator-sticky-footer .sticky-price {
-    font-family: var(--font-tech);
-    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
     font-weight: 700;
-    color: var(--calc-gold);
+    color: var(--calc-gold-dark);
 }
 
 .calculator-sticky-footer .sticky-price-label {
-    font-family: var(--font-tech-body);
-    font-size: 0.8rem;
-    color: var(--calc-text-muted);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--calc-text-light);
     display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 /* Кнопка "К калькулятору" */
 .calculator-sticky-footer .btn-go-calculator {
-    font-family: var(--font-tech-body);
+    font-family: var(--font-body);
     font-weight: 600;
     font-size: 0.85rem;
     background: transparent;
-    border: 1px solid var(--calc-border);
-    color: var(--calc-text-secondary);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    border: 1px solid var(--calc-border-medium);
+    color: var(--calc-text-medium);
+    padding: 0.5rem 0.875rem;
+    border-radius: 0.375rem;
     margin-right: 0.75rem;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .calculator-sticky-footer .btn-go-calculator:hover {
     border-color: var(--calc-gold);
-    color: var(--calc-gold);
+    color: var(--calc-gold-dark);
+    background: var(--calc-gold-soft);
 }
 
-.calculator-sticky-footer .btn-go-calculator i {
-    margin-right: 0.25rem;
-}
-
-/* Кнопка раскрытия деталей (Mobile) */
+/* Кнопка раскрытия деталей */
 .calculator-sticky-footer .expand-details-btn {
     background: transparent;
-    border: 1px solid var(--calc-border);
-    color: var(--calc-text-secondary);
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+    border: 1px solid var(--calc-border-medium);
+    color: var(--calc-text-medium);
+    padding: 0.5rem 0.625rem;
+    border-radius: 0.375rem;
     margin-right: 0.75rem;
     transition: all 0.2s ease;
     display: none;
@@ -784,7 +746,7 @@
 
 .calculator-sticky-footer .expand-details-btn:hover {
     border-color: var(--calc-gold);
-    color: var(--calc-gold);
+    color: var(--calc-gold-dark);
 }
 
 .calculator-sticky-footer .expand-details-btn i {
@@ -797,46 +759,33 @@
 
 /* Кнопка "Заказать" */
 .calculator-sticky-footer .btn-order-mobile {
-    font-family: var(--font-tech);
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: 0.9rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     background: linear-gradient(135deg, var(--calc-gold) 0%, var(--calc-gold-dark) 100%);
     border: none;
-    color: var(--calc-bg-primary);
+    color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
+    box-shadow: var(--calc-shadow-gold);
 }
 
 .calculator-sticky-footer .btn-order-mobile:hover {
-    box-shadow: 0 0 20px var(--calc-gold-glow);
-    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(184, 158, 64, 0.4);
+    transform: translateY(-1px);
 }
 
 .calculator-sticky-footer .btn-order-mobile:disabled {
-    background: var(--calc-bg-secondary);
-    color: var(--calc-text-muted);
+    background: var(--calc-border-medium);
+    color: var(--calc-text-light);
     box-shadow: none;
     transform: none;
 }
 
-/* Desktop: скрываем десктопный summary при скролле мимо калькулятора */
-@media (max-width: 991.98px) {
-    .calculator-section .order-summary-desktop {
-        display: none;
-    }
-}
-
-/* Добавляем отступ снизу для body чтобы footer не перекрывал контент */
-body {
-    padding-bottom: 80px;
-}
-
 /*
 ==========================================================================
-   16. Bottom Sheet для деталей (Mobile)
+   16. Bottom Sheet (Mobile)
 ==========================================================================
 */
 
@@ -846,15 +795,16 @@ body {
     left: 0;
     right: 0;
     z-index: 1035;
-    background: var(--calc-bg-primary);
-    border-top: 1px solid var(--calc-border);
-    border-radius: 1.5rem 1.5rem 0 0;
-    padding: 1.5rem;
-    padding-bottom: calc(80px + 1.5rem); /* Учитываем высоту sticky footer */
+    background: var(--calc-bg-white);
+    border-top: 1px solid var(--calc-border-light);
+    border-radius: 1.25rem 1.25rem 0 0;
+    padding: 1.25rem;
+    padding-bottom: calc(70px + 1.25rem);
     transform: translateY(100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    max-height: 60vh;
+    max-height: 55vh;
     overflow-y: auto;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
 }
 
 .calculator-bottom-sheet.open {
@@ -862,25 +812,58 @@ body {
 }
 
 .calculator-bottom-sheet .sheet-handle {
-    width: 40px;
+    width: 36px;
     height: 4px;
-    background: var(--calc-border);
+    background: var(--calc-border-medium);
     border-radius: 2px;
     margin: 0 auto 1rem;
 }
 
 .calculator-bottom-sheet .sheet-title {
-    font-family: var(--font-tech);
-    color: var(--calc-gold);
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-family: var(--font-heading);
+    color: var(--calc-text-dark);
+    font-size: 1rem;
+    font-weight: 700;
     margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--calc-border-light);
+}
+
+/* Контент в Bottom Sheet */
+#mobile-summary-content {
+    font-family: var(--font-body);
+}
+
+#mobile-summary-content .d-flex {
+    padding: 0.5rem 0;
+}
+
+#mobile-summary-content span {
+    color: var(--calc-text-medium) !important;
+}
+
+#mobile-summary-content span:last-child {
+    color: var(--calc-gold-dark) !important;
+    font-weight: 600;
+}
+
+#mobile-summary-content hr {
+    border-color: var(--calc-border-light) !important;
+    margin: 0.75rem 0;
+}
+
+#mobile-summary-content strong {
+    color: var(--calc-text-dark) !important;
+}
+
+#mobile-summary-content strong:last-child {
+    color: var(--calc-gold-dark) !important;
+    font-family: var(--font-heading);
 }
 
 /*
 ==========================================================================
-   17. Backdrop для Bottom Sheet
+   17. Backdrop
 ==========================================================================
 */
 
@@ -890,7 +873,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1030;
     opacity: 0;
     visibility: hidden;
@@ -904,63 +887,173 @@ body {
 
 /*
 ==========================================================================
-   18. Адаптивность
+   18. Desktop: Скрываем Summary на мобильных
+==========================================================================
+*/
+
+@media (max-width: 991.98px) {
+    .calculator-section .order-summary-desktop {
+        display: none;
+    }
+}
+
+/* Отступ снизу для контента */
+body {
+    padding-bottom: 75px;
+}
+
+/*
+==========================================================================
+   19. Мобильная адаптация
 ==========================================================================
 */
 
 @media (max-width: 767.98px) {
     .calculator-section {
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
         margin: -1rem;
         border-radius: 1rem;
     }
     
-    .calculator-section h1 {
-        font-size: 1.25rem;
-        letter-spacing: 1px;
+    .calculator-section h1,
+    .calculator-section .calculator-title {
+        font-size: 1.375rem;
     }
     
     .calculator-section .form-section-title {
         font-size: 0.9rem;
+        margin-top: 1.5rem;
     }
     
+    /* Компактные карточки */
     .calculator-section .glass-card {
+        padding: 1rem;
+    }
+    
+    .calculator-section .option-card {
+        padding: 0.875rem 1rem;
+    }
+    
+    .calculator-section .option-card img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .calculator-section .option-card strong {
+        font-size: 0.9rem;
+    }
+    
+    .calculator-section .option-card small {
+        font-size: 0.75rem;
+    }
+    
+    /* Компактные услуги */
+    .calculator-section .additional-services-list {
+        padding: 0.25rem;
+    }
+    
+    .calculator-section .additional-services-list .service-item {
+        padding: 0.75rem;
+    }
+    
+    .calculator-section .additional-services-list .service-icon {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .calculator-section .additional-services-list .service-name {
+        font-size: 0.875rem;
+    }
+    
+    /* Quantity Widget компактнее */
+    .calculator-section .quantity-widget .btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+    
+    .calculator-section .quantity-widget .quantity-input {
+        width: 40px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+    
+    /* Цены */
+    .calculator-section .additional-services-list .fw-bold {
+        font-size: 0.9rem;
+    }
+    
+    /* Частота уборки - вертикально */
+    .calculator-section .glass-card .row.g-3 {
+        gap: 0.5rem !important;
+    }
+    
+    .calculator-section .glass-card .col-sm-6.col-lg-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .calculator-section .form-check {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--calc-border-light);
+    }
+    
+    .calculator-section .form-check:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 375px) {
+    .calculator-section {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .calculator-section h1,
+    .calculator-section .calculator-title {
+        font-size: 1.25rem;
+    }
+    
+    .calculator-sticky-footer {
         padding: 0.75rem 1rem;
+    }
+    
+    .calculator-sticky-footer .sticky-price {
+        font-size: 1.25rem;
+    }
+    
+    .calculator-sticky-footer .btn-order-mobile {
+        padding: 0.625rem 1rem;
+        font-size: 0.85rem;
     }
 }
 
 /*
 ==========================================================================
-   19. Специальные эффекты
+   20. Промо-баннер адаптация
 ==========================================================================
 */
 
-/* Scanline эффект (опционально, можно включить) */
-.calculator-section.with-scanlines::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.1) 2px,
-        rgba(0, 0, 0, 0.1) 4px
-    );
-    pointer-events: none;
-    z-index: 1;
+.calculator-section .promo-banner-wrapper {
+    background: var(--calc-bg-white);
+    border: 1px solid var(--calc-border-light);
 }
 
-/* Hover glow для иконок */
-.calculator-section img[alt*="icon"],
-.calculator-section .service-icon {
-    transition: filter 0.3s ease;
+.calculator-section .promo-banner-wrapper.promo-border-gold {
+    border: 2px solid var(--calc-gold);
 }
 
-.calculator-section img[alt*="icon"]:hover,
-.calculator-section .service-icon:hover {
-    filter: drop-shadow(0 0 8px var(--calc-gold-glow));
+.calculator-section .promo-title {
+    font-family: var(--font-heading);
+    color: var(--calc-gold-dark);
+}
+
+.calculator-section .promo-description {
+    font-family: var(--font-body);
+    color: var(--calc-text-medium);
+}
+
+.calculator-section .promo-btn {
+    background: var(--calc-gold);
+    font-family: var(--font-body);
 }

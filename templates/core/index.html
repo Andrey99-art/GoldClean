@@ -8,7 +8,7 @@
 {% block content %}
 
 <!-- ======================================================= -->
-<!--      КАЛЬКУЛЯТОР - DEUS EX DARK THEME                   -->
+<!--      КАЛЬКУЛЯТОР - ELEGANT LIGHT THEME                  -->
 <!-- ======================================================= -->
 <div class="calculator-section" id="calculator-section" style="scroll-margin-top: 100px;">
     <form action="{% url 'orders:order_create' %}" method="GET" id="calculator-form-wrapper">
@@ -69,7 +69,7 @@
                         <label class="d-flex align-items-center w-100 cursor-pointer" for="is-private-house">
                             <input class="form-check-input me-3" type="checkbox" id="is-private-house" name="is_private_house" style="width: 1.5em; height: 1.5em;">
                             <div class="d-flex align-items-center flex-grow-1">
-                                <img src="{% static 'images/house_icon.png' %}" alt="{% trans 'House icon' %}" width="80" height="80" class="me-3">
+                                <img src="{% static 'images/house_icon.png' %}" alt="{% trans 'House icon' %}" width="70" height="70" class="me-3">
                                 <div>
                                     <strong class="d-block mb-1">{% trans "Private house" %}</strong>
                                     <small>{% trans "Coefficient applies for larger area" %}</small>
@@ -119,7 +119,7 @@
                         <label class="d-flex align-items-center w-100 cursor-pointer" for="bring-vacuum">
                             <input class="form-check-input me-3" type="checkbox" id="bring-vacuum" name="bring_vacuum" style="width: 1.5em; height: 1.5em;">
                             <div class="d-flex align-items-center flex-grow-1">
-                                <img src="{% static 'images/vacuum_cleaner.png' %}" alt="{% trans 'Vacuum cleaner icon' %}" width="60" height="60" class="me-3">
+                                <img src="{% static 'images/vacuum_cleaner.png' %}" alt="{% trans 'Vacuum cleaner icon' %}" width="55" height="55" class="me-3">
                                 <div>
                                     <strong class="d-block mb-1">{% trans "You need a vacuum cleaner on the order" %}</strong>
                                     <small>{% trans "We will bring a small vacuum cleaner" %}</small>
@@ -143,7 +143,7 @@
                                         {% endif %}
                                         <label class="form-check-label d-flex align-items-center" for="add-service-{{ add_service.id }}">
                                             {% if add_service.icon %}
-                                                <img src="{{ add_service.icon.url }}" alt="{{ add_service.name }}" class="service-icon me-2" width="50" height="50">
+                                                <img src="{{ add_service.icon.url }}" alt="{{ add_service.name }}" class="service-icon me-2" width="48" height="48">
                                             {% endif %}
                                             <span class="service-name">{{ add_service.name }}</span>
                                         </label>
@@ -152,7 +152,7 @@
                                     {% if add_service.is_quantity_based %}
                                     <div class="quantity-widget d-flex align-items-center me-3">
                                         <button type="button" class="btn btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="decrease">−</button>
-                                        <input type="number" class="form-control form-control-sm text-center quantity-input mx-1" value="0" min="0" max="10" data-service-id="{{ add_service.id }}" style="width: 50px;">
+                                        <input type="number" class="form-control form-control-sm text-center quantity-input mx-1" value="0" min="0" max="10" data-service-id="{{ add_service.id }}" style="width: 48px;">
                                         <button type="button" class="btn btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="increase">+</button>
                                     </div>
                                     {% endif %}
@@ -726,16 +726,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let html = `
                 <div class="d-flex justify-content-between mb-2">
-                    <span style="color: #B8B8B8;">${result.details.base_service_name}</span>
-                    <span style="color: #D4AF37;">${result.details.base_price.toFixed(2)} zł</span>
+                    <span>${result.details.base_service_name}</span>
+                    <span>${result.details.base_price.toFixed(2)} zł</span>
                 </div>
             `;
             
             if (result.details.vacuum_price > 0) {
                 html += `
                     <div class="d-flex justify-content-between mb-2">
-                        <span style="color: #B8B8B8;">{% trans "Vacuum cleaner" %}</span>
-                        <span style="color: #D4AF37;">+ ${result.details.vacuum_price.toFixed(2)} zł</span>
+                        <span>{% trans "Vacuum cleaner" %}</span>
+                        <span>+ ${result.details.vacuum_price.toFixed(2)} zł</span>
                     </div>
                 `;
             }
@@ -743,15 +743,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (result.details.additional_services_price > 0) {
                 html += `
                     <div class="d-flex justify-content-between mb-2">
-                        <span style="color: #B8B8B8;">${result.details.additional_services_names.join(', ')}</span>
-                        <span style="color: #D4AF37;">+ ${result.details.additional_services_price.toFixed(2)} zł</span>
+                        <span>${result.details.additional_services_names.join(', ')}</span>
+                        <span>+ ${result.details.additional_services_price.toFixed(2)} zł</span>
                     </div>
                 `;
             }
             
             if (result.discount_amount && result.discount_amount > 0) {
                 html += `
-                    <div class="d-flex justify-content-between mb-2" style="color: #10B981;">
+                    <div class="d-flex justify-content-between mb-2" style="color: #2E7D32;">
                         <span>{% trans "Discount" %}</span>
                         <span>− ${result.discount_amount.toFixed(2)} zł</span>
                     </div>
@@ -759,10 +759,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             html += `
-                <hr style="border-color: rgba(212, 175, 55, 0.3);">
+                <hr>
                 <div class="d-flex justify-content-between">
-                    <strong style="color: #fff;">{% trans "Total" %}</strong>
-                    <strong style="color: #D4AF37; font-family: 'Orbitron', sans-serif;">${result.total_price.toFixed(2)} zł</strong>
+                    <strong>{% trans "Total" %}</strong>
+                    <strong>${result.total_price.toFixed(2)} zł</strong>
                 </div>
             `;
             
@@ -828,8 +828,7 @@ document.addEventListener('DOMContentLoaded', function() {
             expandBtn.classList.remove('expanded');
         });
     }
-});
-
+    
     // =====================================================
     //          SMOOTH SCROLL TO CALCULATOR
     // =====================================================
@@ -846,6 +845,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+});
 
 // =====================================================
 //          GALLERY & SLIDER SCRIPTS
