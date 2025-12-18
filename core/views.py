@@ -5,6 +5,13 @@ import logging
 from decimal import Decimal
 from datetime import datetime, timedelta
 
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_protect
+from django.core.mail import send_mail
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.utils.translation import gettext as _
 from django.conf import settings
 from django.contrib import messages
 from django.http import JsonResponse
@@ -30,6 +37,157 @@ DISCOUNT_MONTHLY = Decimal('0.10')
 ADDITIONAL_ROOM_DURATION_MINUTES = 30
 ADDITIONAL_BATHROOM_DURATION_MINUTES = 60
 PRIVATE_HOUSE_MULTIPLIER = Decimal('1.2')
+
+@require_POST
+@csrf_protect
+def submit_lead_form(request):
+    """
+    Обработка pop-up формы захвата лидов.
+    Отправляет данные на email администратора.
+    """
+    try:
+        data = json.loads(request.body)
+        
+        phone = data.get('phone', '').strip()
+        name = data.get('name', '').strip()
+        email = data.get('email', '').strip()
+        message = data.get('message', '').strip()
+        
+        # Валидация
+        if not phone or not name or not email:
+            return JsonResponse({
+                'success': False,
+                'error': _('Please fill in all required fields.')
+            }, status=400)
+        
+        # Формируем email
+        subject = f'🔔 Новая заявка с сайта Gold Clean - {name}'
+        
+        # Текстовая версия
+        text_content = f"""
+Новая заявка с сайта Gold Clean!
+
+📞 Телефон: {phone}
+👤 Имя: {name}
+📧 Email: {email}
+
+💬 Сообщение:
+{message if message else 'Не указано'}
+
+---
+Эта заявка отправлена через pop-up форму на сайте.
+Клиент имеет право на скидку 25% как новый клиент!
+        """
+        
+        # HTML версия
+        html_content = f"""
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9;">
+            <div style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
+                <h1 style="color: #B89E40; margin: 0; font-size: 24px;">🔔 Новая заявка</h1>
+                <p style="color: #fff; margin: 10px 0 0; opacity: 0.8;">Gold Clean Website</p>
+            </div>
+            
+            <div style="background: #fff; padding: 25px; border: 1px solid #e0e0e0; border-top: none;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                            <strong style="color: #666;">📞 Телефон:</strong>
+                        </td>
+                        <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; text-align: right;">
+                            <a href="tel:{phone}" style="color: #B89E40; text-decoration: none; font-weight: bold;">{phone}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                            <strong style="color: #666;">👤 Имя:</strong>
+                        </td>
+                        <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; text-align: right;">
+                            {name}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                            <strong style="color: #666;">📧 Email:</strong>
+                        </td>
+                        <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; text-align: right;">
+                            <a href="mailto:{email}" style="color: #B89E40; text-decoration: none;">{email}</a>
+                        </td>
+                    </tr>
+                </table>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #f8f8f8; border-radius: 8px;">
+                    <strong style="color: #666;">💬 Сообщение:</strong>
+                    <p style="margin: 10px 0 0; color: #333; line-height: 1.6;">
+                        {message if message else '<em style="color: #999;">Не указано</em>'}
+                    </p>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%); border-radius: 8px; text-align: center;">
+                    <span style="color: #fff; font-weight: bold; font-size: 14px;">
+                        🎁 Клиент имеет право на скидку 25% как новый клиент!
+                    </span>
+                </div>
+            </div>
+            
+            <div style="background: #1a1a1a; padding: 15px; border-radius: 0 0 10px 10px; text-align: center;">
+                <p style="color: #888; margin: 0; font-size: 12px;">
+                    Заявка отправлена через pop-up форму на сайте goldclean2026.pl
+                </p>
+            </div>
+        </div>
+        """
+        
+        # Отправляем email
+        send_mail(
+            subject=subject,
+            message=text_content,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.ADMIN_EMAIL],
+            html_message=html_content,
+            fail_silently=False,
+        )
+        
+        # Можно также отправить копию клиенту
+        client_subject = _('Thank you for your inquiry - Gold Clean')
+        client_text = f"""
+{_('Dear')} {name},
+
+{_('Thank you for contacting Gold Clean!')}
+
+{_('We have received your inquiry and will contact you shortly.')}
+
+{_('As a new client, you are entitled to a 25% discount on your first order!')}
+
+{_('Your contact details:')}
+📞 {phone}
+📧 {email}
+
+{_('Best regards,')}
+Gold Clean Team
++48 781 628 269
+        """
+        
+        send_mail(
+            subject=client_subject,
+            message=client_text,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[email],
+            fail_silently=True,  # Не критично если не отправится
+        )
+        
+        return JsonResponse({'success': True})
+        
+    except json.JSONDecodeError:
+        return JsonResponse({
+            'success': False,
+            'error': _('Invalid data format.')
+        }, status=400)
+    except Exception as e:
+        print(f"Lead form error: {e}")
+        return JsonResponse({
+            'success': False,
+            'error': _('An error occurred. Please try again.')
+        }, status=500)
 
 
 def _get_base_context_data():

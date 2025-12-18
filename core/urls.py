@@ -8,6 +8,7 @@ urlpatterns = [
     path('kitchen-cleaning/', views.kitchen_cleaning_view, name='kitchen_cleaning'),
     path('start-order-from-list/', views.start_order_from_list, name='start_order_from_list'),
     path('calculate/', views.calculate_price, name='calculate_price'),
+    path('submit-lead/', views.submit_lead_form, name='submit_lead_form'),
     
     path('window-cleaning/', views.window_cleaning_view, name='window_cleaning'),
     path('calculate-windows/', views.calculate_window_price, name='calculate_window_price'),
