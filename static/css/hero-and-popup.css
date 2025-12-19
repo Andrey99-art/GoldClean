@@ -1,0 +1,662 @@
+/*
+==========================================================================
+   HERO SECTION & GOLD POP-UP FORM
+   Gold Clean - Premium Gold Style
+==========================================================================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+.hero-section {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: -1rem -0.75rem 2rem;
+    padding: 2rem;
+}
+
+/* Background Image */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/static/images/hero-banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/* Dark Overlay for better text readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 2;
+}
+
+/* Content Container */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+    padding: 3rem 2rem;
+}
+
+/* Main Title */
+.hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #B89E40;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+}
+
+/* Subtitle */
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 500;
+    color: #D4BC5E;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Benefits List */
+.hero-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-benefit {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-benefit-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    background: linear-gradient(135deg, #B89E40 0%, #D4BC5E 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(184, 158, 64, 0.3);
+}
+
+.hero-benefit-text {
+    font-weight: 400;
+}
+
+/* CTA Button */
+.hero-cta {
+    display: inline-block;
+    padding: 1.25rem 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    background: linear-gradient(135deg, #B89E40 0%, #D4BC5E 50%, #B89E40 100%);
+    background-size: 200% 200%;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 
+        0 6px 25px rgba(184, 158, 64, 0.4),
+        0 0 40px rgba(184, 158, 64, 0.2);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-cta:hover {
+    background-position: 100% 100%;
+    transform: translateY(-3px);
+    box-shadow: 
+        0 10px 35px rgba(184, 158, 64, 0.5),
+        0 0 60px rgba(184, 158, 64, 0.3);
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.hero-cta:active {
+    transform: translateY(-1px);
+}
+
+/* Shine effect */
+.hero-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.hero-cta:hover::before {
+    left: 100%;
+}
+
+/* Scroll indicator */
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: #B89E40;
+    font-size: 1.5rem;
+    animation: bounceDown 2s infinite;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.hero-scroll-indicator:hover {
+    opacity: 1;
+}
+
+@keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 90vh;
+        padding: 1.5rem;
+    }
+    
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-title {
+        letter-spacing: 1px;
+    }
+    
+    .hero-benefits {
+        gap: 0.75rem;
+    }
+    
+    .hero-benefit {
+        font-size: 0.9rem;
+    }
+    
+    .hero-benefit-icon {
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+        font-size: 1rem;
+    }
+    
+    .hero-cta {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* ==========================================================================
+   GOLD POP-UP FORM
+   ========================================================================== */
+
+/* Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Pop-up Container - GOLD STYLE */
+.popup-container {
+    background: linear-gradient(145deg, #B89E40 0%, #D4BC5E 30%, #C9AD4A 70%, #B89E40 100%);
+    border-radius: 1.5rem;
+    max-width: 450px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.4),
+        0 0 50px rgba(184, 158, 64, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.popup-overlay.active .popup-container {
+    transform: scale(1) translateY(0);
+}
+
+/* Close Button */
+.popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(26, 26, 26, 0.2);
+    border: 1px solid rgba(26, 26, 26, 0.3);
+    border-radius: 50%;
+    color: #1a1a1a;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.popup-close:hover {
+    background: rgba(26, 26, 26, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Header */
+.popup-header {
+    text-align: center;
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+}
+
+.popup-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(0.1);
+}
+
+.popup-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.popup-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(26, 26, 26, 0.8);
+    margin: 0;
+}
+
+/* Form */
+.popup-form {
+    padding: 1.5rem 2rem 2rem;
+}
+
+.popup-form-group {
+    margin-bottom: 1rem;
+}
+
+.popup-input {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #1a1a1a;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(26, 26, 26, 0.1);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.popup-input::placeholder {
+    color: rgba(26, 26, 26, 0.5);
+}
+
+.popup-input:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+}
+
+.popup-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Checkbox */
+.popup-checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+}
+
+.popup-checkbox {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: #1a1a1a;
+    cursor: pointer;
+}
+
+.popup-checkbox-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(26, 26, 26, 0.8);
+    line-height: 1.4;
+}
+
+.popup-checkbox-label a {
+    color: #1a1a1a;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.popup-checkbox-label a:hover {
+    text-decoration: none;
+}
+
+/* Submit Button */
+.popup-submit {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #B89E40;
+    background: #1a1a1a;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.popup-submit:hover {
+    background: #2d2d2d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.popup-submit:active {
+    transform: translateY(0);
+}
+
+.popup-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Discount Badge */
+.popup-discount-badge {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #B89E40;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(26, 26, 26, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(26, 26, 26, 0);
+    }
+}
+
+/* Footer note */
+.popup-footer {
+    text-align: center;
+    padding: 0 2rem 1.5rem;
+}
+
+.popup-footer-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(26, 26, 26, 0.7);
+}
+
+.popup-footer-text a {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Success State */
+.popup-success {
+    display: none;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.popup-success.show {
+    display: block;
+}
+
+.popup-success-icon {
+    width: 80px;
+    height: 80px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2.5rem;
+    color: #B89E40;
+    animation: success-bounce 0.6s ease;
+}
+
+@keyframes success-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.popup-success-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.popup-success-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: rgba(26, 26, 26, 0.8);
+    margin-bottom: 1.5rem;
+}
+
+.popup-success-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #B89E40;
+    background: #1a1a1a;
+    border: none;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.popup-success-btn:hover {
+    background: #2d2d2d;
+    color: #D4BC5E;
+    text-decoration: none;
+}
+
+/* Hide form when success */
+.popup-form.hidden,
+.popup-header.hidden {
+    display: none;
+}
+
+/* Error State */
+.popup-error {
+    background: rgba(220, 53, 69, 0.2);
+    border: 1px solid rgba(220, 53, 69, 0.5);
+    color: #721c24;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.popup-error.show {
+    display: block;
+}
+
+/* Loading State */
+.popup-submit.loading {
+    pointer-events: none;
+}
+
+.popup-submit.loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #B89E40;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 0.5rem;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .popup-container {
+        margin: 0.5rem;
+        border-radius: 1rem;
+    }
+    
+    .popup-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+    
+    .popup-title {
+        font-size: 1.25rem;
+    }
+    
+    .popup-form {
+        padding: 1.25rem 1.5rem 1.5rem;
+    }
+    
+    .popup-input {
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .popup-submit {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Highlight animation for service select */
+@keyframes highlightPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(184, 158, 64, 0.4);
+        border-color: #B89E40;
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(184, 158, 64, 0);
+        border-color: #D4BC5E;
+    }
+}
+
+.highlight-pulse {
+    animation: highlightPulse 0.8s ease-in-out 3;
+    border-color: #B89E40 !important;
+    background-color: rgba(184, 158, 64, 0.1) !important;
+}

@@ -469,3 +469,21 @@
 .popup-overlay.permanently-closed {
     display: none !important;
 }
+
+/* Highlight animation for service select */
+@keyframes highlightPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(184, 158, 64, 0.4);
+        border-color: #B89E40;
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(184, 158, 64, 0);
+        border-color: #D4BC5E;
+    }
+}
+
+.highlight-pulse {
+    animation: highlightPulse 0.8s ease-in-out 3;
+    border-color: #B89E40 !important;
+    background-color: rgba(184, 158, 64, 0.1) !important;
+}

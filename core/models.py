@@ -230,3 +230,50 @@ class PromoBanner(models.Model):
     
     is_visible.boolean = True
     is_visible.short_description = _("Currently Visible")
+
+    class Lead(models.Model):
+     """
+     Модель для хранения заявок с pop-up формы.
+     """
+    STATUS_CHOICES = [
+        ('new', _('New')),
+        ('contacted', _('Contacted')),
+        ('converted', _('Converted to Order')),
+        ('cancelled', _('Cancelled')),
+    ]
+    
+    name = models.CharField(_('Name'), max_length=100)
+    phone = models.CharField(_('Phone'), max_length=20)
+    email = models.EmailField(_('Email'))
+    message = models.TextField(_('Message'), blank=True)
+    
+    status = models.CharField(
+        _('Status'),
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='new'
+    )
+    
+    created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
+    updated_at = models.DateTimeField(_('Updated at'), auto_now=True)
+    ip_address = models.GenericIPAddressField(_('IP Address'), blank=True, null=True)
+    user_agent = models.TextField(_('User Agent'), blank=True)
+    
+    converted_user = models.ForeignKey(
+        'auth.User',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='leads',
+        verbose_name=_('Converted User')
+    )
+    
+    admin_notes = models.TextField(_('Admin Notes'), blank=True)
+    
+    class Meta:
+        verbose_name = _('Lead')
+        verbose_name_plural = _('Leads')
+        ordering = ['-created_at']
+    
+    def __str__(self):
+        return f"{self.name} - {self.phone} ({self.get_status_display()})"

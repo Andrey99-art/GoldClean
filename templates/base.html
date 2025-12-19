@@ -384,7 +384,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- ======================================================= -->
-    <!--              POP-UP LEAD CAPTURE FORM                   -->
+    <!--              POP-UP LEAD CAPTURE FORM (GOLD)            -->
     <!-- ======================================================= -->
     <div class="popup-overlay" id="leadPopup">
         <div class="popup-container">
@@ -396,36 +396,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- Header -->
             <div class="popup-header" id="popupHeader">
                 <img src="{% static 'images/logo.png' %}" alt="Gold Clean" class="popup-logo">
-                <h2 class="popup-title">{% trans "Professional Cleaning" %}</h2>
-                <p class="popup-subtitle">{% trans "For home and business in Warsaw" %}</p>
-            </div>
-            
-            <!-- Benefits Icons -->
-            <div class="popup-benefits" id="popupBenefits">
-                <div class="popup-benefit">
-                    <div class="popup-benefit-icon">
-                        <i class="bi bi-house"></i>
-                    </div>
-                    <span class="popup-benefit-text">{% trans "Apartments" %}</span>
-                </div>
-                <div class="popup-benefit">
-                    <div class="popup-benefit-icon">
-                        <i class="bi bi-building"></i>
-                    </div>
-                    <span class="popup-benefit-text">{% trans "Offices" %}</span>
-                </div>
-                <div class="popup-benefit">
-                    <div class="popup-benefit-icon">
-                        <i class="bi bi-tools"></i>
-                    </div>
-                    <span class="popup-benefit-text">{% trans "Post-renovation" %}</span>
-                </div>
-                <div class="popup-benefit">
-                    <div class="popup-benefit-icon">
-                        <i class="bi bi-plus-circle"></i>
-                    </div>
-                    <span class="popup-benefit-text">{% trans "Additional services" %}</span>
-                </div>
+                <h2 class="popup-title">{% trans "Zostaw swoje dane" %}</h2>
+                <p class="popup-subtitle">{% trans "Skontaktujemy się z Tobą w ciągu 15 minut" %}</p>
             </div>
             
             <!-- Form -->
@@ -440,7 +412,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         class="popup-input" 
                         name="phone" 
                         id="popupPhone"
-                        placeholder="{% trans 'Your phone number' %}" 
+                        placeholder="{% trans 'Twój numer telefonu' %}" 
                         required
                     >
                 </div>
@@ -451,7 +423,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         class="popup-input" 
                         name="name" 
                         id="popupName"
-                        placeholder="{% trans 'Your name' %}" 
+                        placeholder="{% trans 'Twoje imię' %}" 
                         required
                     >
                 </div>
@@ -462,7 +434,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         class="popup-input" 
                         name="email" 
                         id="popupEmail"
-                        placeholder="{% trans 'Your email' %}" 
+                        placeholder="{% trans 'Twój email' %}" 
                         required
                     >
                 </div>
@@ -472,25 +444,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         class="popup-input popup-textarea" 
                         name="message" 
                         id="popupMessage"
-                        placeholder="{% trans 'Message (optional)' %}"
+                        placeholder="{% trans 'Wiadomość (opcjonalnie)' %}"
                     ></textarea>
                 </div>
                 
                 <div class="popup-checkbox-group">
                     <input type="checkbox" class="popup-checkbox" id="popupConsent" required>
                     <label for="popupConsent" class="popup-checkbox-label">
-                        {% trans "I agree to the processing of my personal data." %}
-                        <a href="{% url 'privacy_policy' %}" target="_blank">{% trans "Privacy Policy" %}</a>
+                        {% trans "Wyrażam zgodę na przetwarzanie moich danych osobowych." %}
+                        <a href="{% url 'privacy_policy' %}" target="_blank">{% trans "Polityka Prywatności" %}</a>
                     </label>
                 </div>
                 
                 <button type="submit" class="popup-submit" id="popupSubmit">
-                    {% trans "Order Cleaning" %}
+                    {% trans "WYŚLIJ ZGŁOSZENIE" %}
                 </button>
                 
                 <div class="text-center">
                     <span class="popup-discount-badge">
-                        <i class="bi bi-gift me-1"></i>{% trans "-25% for new clients!" %}
+                        <i class="bi bi-gift me-1"></i>{% trans "-25% dla nowych klientów!" %}
                     </span>
                 </div>
             </form>
@@ -500,18 +472,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="popup-success-icon">
                     <i class="bi bi-check-lg"></i>
                 </div>
-                <h3 class="popup-success-title">{% trans "Thank you!" %}</h3>
-                <p class="popup-success-text">{% trans "We will contact you shortly." %}</p>
+                <h3 class="popup-success-title">{% trans "Dziękujemy!" %}</h3>
+                <p class="popup-success-text">{% trans "Skontaktujemy się z Tobą wkrótce." %}</p>
                 <a href="#calculator-section" class="popup-success-btn" id="popupGoCalculator">
-                    {% trans "Calculate price now" %}
+                    {% trans "Oblicz cenę teraz" %}
                 </a>
             </div>
             
             <!-- Footer -->
             <div class="popup-footer">
                 <p class="popup-footer-text">
-                    {% trans "Or contact us directly:" %} 
-                    <a href="tel:+48781628269" style="color: #B89E40;">+48 781 628 269</a>
+                    {% trans "Lub zadzwoń:" %} 
+                    <a href="tel:+48781628269">+48 781 628 269</a>
                 </p>
             </div>
         </div>
@@ -588,25 +560,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const errorDiv = document.getElementById('popupError');
         const successDiv = document.getElementById('popupSuccess');
         const header = document.getElementById('popupHeader');
-        const benefits = document.getElementById('popupBenefits');
         const goCalculatorBtn = document.getElementById('popupGoCalculator');
-        
-        // Check if popup was already closed in this session
-        const popupClosed = sessionStorage.getItem('leadPopupClosed');
-        
-        // Show popup on page load (with small delay for better UX)
-        if (!popupClosed) {
-            setTimeout(function() {
-                popup.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }, 500);
-        }
         
         // Close popup function
         function closePopup() {
             popup.classList.remove('active');
             document.body.style.overflow = '';
-            sessionStorage.setItem('leadPopupClosed', 'true');
         }
         
         // Close on X button click
@@ -625,6 +584,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 closePopup();
             }
         });
+        
+        // Scroll to service select and focus
+        function scrollToServiceSelect() {
+            const serviceSelect = document.getElementById('service');
+            const calculatorSection = document.getElementById('calculator-section');
+            
+            if (calculatorSection) {
+                calculatorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // После скролла фокусируемся на селекте
+                setTimeout(function() {
+                    if (serviceSelect) {
+                        serviceSelect.focus();
+                        // Добавляем подсветку
+                        serviceSelect.classList.add('highlight-pulse');
+                        setTimeout(function() {
+                            serviceSelect.classList.remove('highlight-pulse');
+                        }, 2000);
+                    }
+                }, 500);
+            }
+        }
         
         // Form submission
         form.addEventListener('submit', async function(e) {
@@ -645,7 +626,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             // Basic validation
             if (!data.phone || !data.name || !data.email) {
-                errorDiv.textContent = "{% trans 'Please fill in all required fields.' %}";
+                errorDiv.textContent = "{% trans 'Proszę wypełnić wszystkie wymagane pola.' %}";
                 errorDiv.classList.add('show');
                 return;
             }
@@ -653,7 +634,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(data.email)) {
-                errorDiv.textContent = "{% trans 'Please enter a valid email address.' %}";
+                errorDiv.textContent = "{% trans 'Proszę podać prawidłowy adres email.' %}";
                 errorDiv.classList.add('show');
                 return;
             }
@@ -678,15 +659,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     // Show success message
                     form.classList.add('hidden');
                     header.classList.add('hidden');
-                    benefits.classList.add('hidden');
                     successDiv.classList.add('show');
+                    
+                    // Сохраняем данные лида в sessionStorage
+                    sessionStorage.setItem('leadData', JSON.stringify({
+                        name: data.name,
+                        phone: data.phone,
+                        email: data.email,
+                        lead_id: result.lead_id
+                    }));
                 } else {
-                    errorDiv.textContent = result.error || "{% trans 'An error occurred. Please try again.' %}";
+                    errorDiv.textContent = result.error || "{% trans 'Wystąpił błąd. Spróbuj ponownie.' %}";
                     errorDiv.classList.add('show');
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
-                errorDiv.textContent = "{% trans 'An error occurred. Please try again.' %}";
+                errorDiv.textContent = "{% trans 'Wystąpił błąd. Spróbuj ponownie.' %}";
                 errorDiv.classList.add('show');
             } finally {
                 submitBtn.classList.remove('loading');
@@ -694,18 +682,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         });
         
-        // Go to calculator button
+        // Go to calculator button - скролл к полю "Тип уборки"
         goCalculatorBtn.addEventListener('click', function(e) {
             e.preventDefault();
             closePopup();
             
-            // Scroll to calculator
-            const calculator = document.getElementById('calculator-section');
-            if (calculator) {
-                setTimeout(function() {
-                    calculator.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 300);
-            }
+            // Scroll to service select with highlight
+            setTimeout(scrollToServiceSelect, 300);
         });
     })();
     </script>

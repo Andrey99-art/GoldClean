@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-14 19:52+0300\n"
+"POT-Creation-Date: 2025-12-19 13:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,23 +21,50 @@ msgstr ""
 msgid "Accounts Management"
 msgstr "Accounts Management"
 
-#: .\accounts\forms.py:10
+#: .\accounts\forms.py:10 .\core\models.py:247
 msgid "Email"
 msgstr "Email"
 
-#: .\accounts\models.py:7 .\orders\models.py:20
+#: .\accounts\models.py:18 .\orders\models.py:20
 msgid "User"
 msgstr "User"
 
-#: .\accounts\models.py:9
+#: .\accounts\models.py:23
 msgid "Penalty Balance"
 msgstr "Penalty Balance"
 
-#: .\accounts\models.py:19
+#: .\accounts\models.py:32
+msgid "Is New Client"
+msgstr "Is New Client"
+
+#: .\accounts\models.py:34
+#, python-format
+msgid "New clients get 25% discount on first order"
+msgstr "New clients get 25% discount on first order"
+
+#: .\accounts\models.py:38
+msgid "First Order Discount Used"
+msgstr "First Order Discount Used"
+
+#: .\accounts\models.py:50
+msgid "Source Lead"
+msgstr "Source Lead"
+
+#: .\accounts\models.py:53 .\core\models.py:257
+#| msgid "Creation date"
+msgid "Created at"
+msgstr "Creation date"
+
+#: .\accounts\models.py:54 .\core\models.py:258
+#| msgid "Update date"
+msgid "Updated at"
+msgstr "Update date"
+
+#: .\accounts\models.py:57
 msgid "Profile"
 msgstr "Profile"
 
-#: .\accounts\models.py:20
+#: .\accounts\models.py:58
 msgid "Profiles"
 msgstr "Profiles"
 
@@ -97,7 +124,7 @@ msgstr "Ukrainian"
 
 #: .\core\admin.py:133
 msgid "Basic Info"
-msgstr ""
+msgstr "Basic Info"
 
 #: .\core\admin.py:136 .\core\models.py:97
 #, fuzzy
@@ -107,10 +134,9 @@ msgstr "Cleaning Type"
 
 #: .\core\admin.py:138
 msgid "Choose what type of content to display"
-msgstr ""
+msgstr "Choose what type of content to display"
 
 #: .\core\admin.py:140
-#, fuzzy
 #| msgid "Website Content"
 msgid "Media Content"
 msgstr "Website Content"
@@ -261,13 +287,11 @@ msgid "Lottie Animation (JSON)"
 msgstr ""
 
 #: .\core\models.py:87
-#, fuzzy
 #| msgid "Text"
 msgid "Text Only"
 msgstr "Text"
 
 #: .\core\models.py:92
-#, fuzzy
 #| msgid "Service Name"
 msgid "Banner Name"
 msgstr "Service Name"
@@ -417,6 +441,74 @@ msgstr ""
 msgid "Promo Banners"
 msgstr ""
 
+#: .\core\models.py:239 .\orders\models.py:55
+msgid "New"
+msgstr "New"
+
+#: .\core\models.py:240
+#, fuzzy
+#| msgid "Contact details"
+msgid "Contacted"
+msgstr "Contact details"
+
+#: .\core\models.py:241
+#, fuzzy
+#| msgid "Proceed to order"
+msgid "Converted to Order"
+msgstr "Proceed to order"
+
+#: .\core\models.py:242
+#, fuzzy
+#| msgid "Canceled"
+msgid "Cancelled"
+msgstr "Canceled"
+
+#: .\core\models.py:245
+msgid "Name"
+msgstr ""
+
+#: .\core\models.py:246 .\templates\core\legal\privacy_policy.html:16
+msgid "Phone"
+msgstr ""
+
+#: .\core\models.py:248
+#, fuzzy
+#| msgid "Messages"
+msgid "Message"
+msgstr "Messages"
+
+#: .\core\models.py:251 .\templates\accounts\order_detail.html:28
+#: .\templates\accounts\order_list.html:24
+#: .\venv\Lib\site-packages\django_apscheduler\admin.py:159
+msgid "Status"
+msgstr "Status"
+
+#: .\core\models.py:259
+#, fuzzy
+#| msgid "IP address"
+msgid "IP Address"
+msgstr "IP address"
+
+#: .\core\models.py:260
+msgid "User Agent"
+msgstr ""
+
+#: .\core\models.py:268
+msgid "Converted User"
+msgstr ""
+
+#: .\core\models.py:271
+msgid "Admin Notes"
+msgstr ""
+
+#: .\core\models.py:274
+msgid "Lead"
+msgstr ""
+
+#: .\core\models.py:275
+msgid "Leads"
+msgstr ""
+
 #: .\core\utils.py:11
 msgid "Not specified"
 msgstr "Not specified"
@@ -437,19 +529,63 @@ msgstr "hours"
 msgid "min"
 msgstr "min"
 
-#: .\core\views.py:193 .\core\views.py:232
+#: .\core\views.py:60
+msgid "Please fill in all required fields."
+msgstr ""
+
+#: .\core\views.py:151
+msgid "Thank you for your inquiry - Gold Clean"
+msgstr ""
+
+#: .\core\views.py:153
+msgid "Dear"
+msgstr ""
+
+#: .\core\views.py:155
+msgid "Thank you for contacting Gold Clean!"
+msgstr ""
+
+#: .\core\views.py:157
+msgid "We have received your inquiry and will contact you shortly."
+msgstr ""
+
+#: .\core\views.py:159
+#, python-format
+msgid ""
+"As a new client, you are entitled to a 25% discount on your first order!"
+msgstr ""
+
+#: .\core\views.py:161
+#| msgid "Contact details"
+msgid "Your contact details:"
+msgstr "Contact details"
+
+#: .\core\views.py:165
+msgid "Best regards,"
+msgstr ""
+
+#: .\core\views.py:183
+msgid "Invalid data format."
+msgstr ""
+
+#: .\core\views.py:189
+#| msgid "An unexpected error occurred. Please try again."
+msgid "An error occurred. Please try again."
+msgstr "An unexpected error occurred. Please try again."
+
+#: .\core\views.py:351 .\core\views.py:390
 msgid "Произошла непредвиденная ошибка."
 msgstr "An unexpected error occurred."
 
-#: .\core\views.py:204
+#: .\core\views.py:362
 msgid "Window cleaning service is currently unavailable."
 msgstr "Window cleaning service is currently unavailable."
 
-#: .\core\views.py:272
+#: .\core\views.py:430
 msgid "Please select a main cleaning service."
 msgstr "Please select a main cleaning service."
 
-#: .\core\views.py:300
+#: .\core\views.py:458
 msgid "An unexpected error occurred while starting your order."
 msgstr "An unexpected error occurred while starting your order."
 
@@ -557,11 +693,11 @@ msgstr "Cities"
 msgid "Service"
 msgstr "Service"
 
-#: .\orders\models.py:30 .\templates\core\index.html:100
+#: .\orders\models.py:30 .\templates\core\index.html:163
 msgid "Number of rooms"
 msgstr "Number of rooms"
 
-#: .\orders\models.py:31 .\templates\core\index.html:104
+#: .\orders\models.py:31 .\templates\core\index.html:167
 msgid "Number of bathrooms"
 msgstr "Number of bathrooms"
 
@@ -590,7 +726,7 @@ msgid "Bring vacuum cleaner"
 msgstr "Bring vacuum cleaner"
 
 #: .\orders\models.py:39 .\templates\accounts\order_edit.html:51
-#: .\templates\core\index.html:74
+#: .\templates\core\index.html:137
 msgid "Private house"
 msgstr "Private house"
 
@@ -630,10 +766,6 @@ msgstr "Desired cleaning date"
 #: .\orders\models.py:54
 msgid "Desired time"
 msgstr "Desired time"
-
-#: .\orders\models.py:55
-msgid "New"
-msgstr "New"
 
 #: .\orders\models.py:55
 msgid "In Progress"
@@ -688,7 +820,7 @@ msgid "Update date"
 msgstr "Update date"
 
 #: .\orders\models.py:83 .\products\models.py:75
-#: .\templates\core\index.html:323 .\templates\core\legal\terms.html:24
+#: .\templates\core\index.html:386 .\templates\core\legal\terms.html:24
 #: .\venv\Lib\site-packages\django\forms\formsets.py:484
 #: .\venv\Lib\site-packages\django\forms\formsets.py:491
 msgid "Order"
@@ -1046,8 +1178,8 @@ msgid "No, Go Back"
 msgstr "No, Go Back"
 
 #: .\templates\accounts\login.html:4 .\templates\accounts\login.html:10
-#: .\templates\accounts\login.html:30 .\templates\base.html:197
-#: .\templates\base.html:310
+#: .\templates\accounts\login.html:30 .\templates\base.html:198
+#: .\templates\base.html:312
 msgid "Login"
 msgstr "Login"
 
@@ -1056,7 +1188,7 @@ msgid "Forgot password?"
 msgstr "Forgot password?"
 
 #: .\templates\accounts\order_detail.html:4
-#: .\templates\accounts\order_detail.html:9 .\templates\core\index.html:333
+#: .\templates\accounts\order_detail.html:9 .\templates\core\index.html:396
 msgid "Order Details"
 msgstr "Order Details"
 
@@ -1077,12 +1209,6 @@ msgstr "Cancel Order"
 #: .\templates\accounts\order_detail.html:25
 msgid "Service Information"
 msgstr "Service Information"
-
-#: .\templates\accounts\order_detail.html:28
-#: .\templates\accounts\order_list.html:24
-#: .\venv\Lib\site-packages\django_apscheduler\admin.py:159
-msgid "Status"
-msgstr "Status"
 
 #: .\templates\accounts\order_detail.html:31
 msgid "Cleaning Date"
@@ -1109,13 +1235,13 @@ msgid "Options"
 msgstr "Options"
 
 #: .\templates\accounts\order_edit.html:47
-#: .\templates\accounts\order_edit.html:124 .\templates\core\index.html:229
+#: .\templates\accounts\order_edit.html:124 .\templates\core\index.html:292
 msgid "Bring a vacuum cleaner"
 msgstr "Bring a vacuum cleaner"
 
 #: .\templates\accounts\order_edit.html:54
-#: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:136
-#: .\templates\core\index.html:254 .\templates\core\index.html:389
+#: .\templates\accounts\order_edit.html:137 .\templates\core\index.html:199
+#: .\templates\core\index.html:317
 msgid "Additional services"
 msgstr "Additional services"
 
@@ -1135,23 +1261,21 @@ msgstr "Cancel"
 msgid "New Cost"
 msgstr "New Cost"
 
-#: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:210
-#: .\templates\core\index.html:341
+#: .\templates\accounts\order_edit.html:109 .\templates\core\index.html:273
 msgid "Base cost"
 msgstr "Base cost"
 
-#: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:117
-#: .\templates\core\index.html:228 .\templates\core\index.html:377
+#: .\templates\accounts\order_edit.html:123 .\templates\core\index.html:180
+#: .\templates\core\index.html:291
 msgid "Equipment"
 msgstr "Equipment"
 
-#: .\templates\accounts\order_edit.html:130 .\templates\core\index.html:67
-#: .\templates\core\index.html:245
+#: .\templates\accounts\order_edit.html:130 .\templates\core\index.html:130
+#: .\templates\core\index.html:308
 msgid "Object Type"
 msgstr "Object Type"
 
-#: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:246
-#: .\templates\core\index.html:365
+#: .\templates\accounts\order_edit.html:131 .\templates\core\index.html:309
 msgid "Private House"
 msgstr "Private House"
 
@@ -1159,30 +1283,26 @@ msgstr "Private House"
 msgid "The final price will be recalculated upon saving."
 msgstr "The final price will be recalculated upon saving."
 
-#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:760
-#: .\templates\core\index.html:842
+#: .\templates\accounts\order_edit.html:220 .\templates\core\index.html:742
 msgid "Area"
 msgstr "Area"
 
-#: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:219
-#: .\templates\core\index.html:353 .\templates\core\index.html:764
-#: .\templates\core\index.html:846
+#: .\templates\accounts\order_edit.html:224 .\templates\core\index.html:282
+#: .\templates\core\index.html:746
 msgid "Rooms and bathrooms"
 msgstr "Rooms and bathrooms"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
-#: .\templates\core\index.html:847
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:747
 msgid "room(s)"
 msgstr "room(s)"
 
-#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:765
-#: .\templates\core\index.html:847
+#: .\templates\accounts\order_edit.html:225 .\templates\core\index.html:747
 msgid "bathroom(s)"
 msgstr "bathroom(s)"
 
 #: .\templates\accounts\order_list.html:4
-#: .\templates\accounts\order_list.html:8 .\templates\base.html:186
-#: .\templates\base.html:300
+#: .\templates\accounts\order_list.html:8 .\templates\base.html:187
+#: .\templates\base.html:302
 msgid "My Orders"
 msgstr "My Orders"
 
@@ -1216,7 +1336,7 @@ msgid "You don't have any orders yet."
 msgstr "You don't have any orders yet."
 
 #: .\templates\accounts\register.html:4 .\templates\accounts\register.html:50
-#: .\templates\base.html:198 .\templates\base.html:311
+#: .\templates\base.html:199 .\templates\base.html:313
 msgid "Register"
 msgstr "Register"
 
@@ -1244,82 +1364,155 @@ msgstr ""
 msgid "Professional cleaning services. Click to calculate price."
 msgstr ""
 
-#: .\templates\base.html:107 .\templates\base.html:216
-#: .\templates\base.html:240 .\templates\core\index.html:436
+#: .\templates\base.html:108 .\templates\base.html:217
+#: .\templates\base.html:242 .\templates\core\index.html:410
 msgid "An individual approach to the cleanliness of your space."
 msgstr "An individual approach to the cleanliness of your space."
 
-#: .\templates\base.html:167 .\templates\base.html:245
-#: .\templates\base.html:341 .\templates\core\index.html:5
+#: .\templates\base.html:168 .\templates\base.html:247
+#: .\templates\base.html:343 .\templates\core\index.html:5
 msgid "Home"
 msgstr "Home"
 
-#: .\templates\base.html:169 .\templates\base.html:247
-#: .\templates\base.html:343 .\templates\core\legal\terms.html:29
+#: .\templates\base.html:170 .\templates\base.html:249
+#: .\templates\base.html:345 .\templates\core\legal\terms.html:29
 msgid "Services"
 msgstr "Services"
 
-#: .\templates\base.html:171 .\templates\base.html:249
-#: .\templates\base.html:345 .\templates\core\windows.html:7
+#: .\templates\base.html:172 .\templates\base.html:251
+#: .\templates\base.html:347 .\templates\core\windows.html:7
 #: .\templates\core\windows.html:21
 msgid "Window Cleaning"
 msgstr "Window Cleaning"
 
-#: .\templates\base.html:172 .\templates\base.html:250
-#: .\templates\base.html:346 .\templates\core\kitchen_cleaning.html:6
+#: .\templates\base.html:173 .\templates\base.html:252
+#: .\templates\base.html:348 .\templates\core\kitchen_cleaning.html:6
 msgid "Kitchen Cleaning"
 msgstr "Kitchen Cleaning"
 
-#: .\templates\base.html:173 .\templates\base.html:251
-#: .\templates\base.html:347 .\templates\core\pricing.html:5
+#: .\templates\base.html:174 .\templates\base.html:253
+#: .\templates\base.html:349 .\templates\core\pricing.html:5
 #: .\templates\core\pricing.html:14
 msgid "Pricing"
 msgstr "Pricing"
 
-#: .\templates\base.html:174 .\templates\base.html:252
-#: .\templates\base.html:348 .\templates\core\about.html:4
+#: .\templates\base.html:175 .\templates\base.html:254
+#: .\templates\base.html:350 .\templates\core\about.html:4
 msgid "About us"
 msgstr "About us"
 
-#: .\templates\base.html:191 .\templates\base.html:305
+#: .\templates\base.html:192 .\templates\base.html:307
 msgid "Logout"
 msgstr "Logout"
 
-#: .\templates\base.html:257 .\templates\core\legal\terms.html:15
+#: .\templates\base.html:259 .\templates\core\legal\terms.html:15
 #, fuzzy
 #| msgid "Contact details"
 msgid "Contact"
 msgstr "Contact details"
 
-#: .\templates\base.html:277
+#: .\templates\base.html:279
 msgid "Language"
 msgstr ""
 
-#: .\templates\base.html:296
+#: .\templates\base.html:298
 msgid "Account"
 msgstr ""
 
-#: .\templates\base.html:349 .\templates\base.html:376
+#: .\templates\base.html:351 .\templates\base.html:378
 #: .\templates\core\legal\privacy_policy.html:4
 #: .\templates\core\legal\privacy_policy.html:9
 msgid "Privacy Policy"
 msgstr ""
 
-#: .\templates\base.html:350
+#: .\templates\base.html:352
 msgid "Terms"
 msgstr ""
 
-#: .\templates\base.html:375
+#: .\templates\base.html:377
 msgid "We use cookies to ensure the proper functioning of our website."
 msgstr ""
 
-#: .\templates\base.html:379
+#: .\templates\base.html:381
 msgid "Accept"
 msgstr ""
 
-#: .\templates\base.html:380
+#: .\templates\base.html:382
 msgid "Decline"
 msgstr ""
+
+#: .\templates\base.html:393
+msgid "Close"
+msgstr ""
+
+#: .\templates\base.html:400
+msgid "Zostaw swoje dane"
+msgstr "Leave your details"
+
+#: .\templates\base.html:401
+msgid "Skontaktujemy się z Tobą w ciągu 15 minut"
+msgstr "We will contact you within 15 minutes."
+
+#: .\templates\base.html:416
+msgid "Twój numer telefonu"
+msgstr "Your phone number"
+
+#: .\templates\base.html:427
+msgid "Twoje imię"
+msgstr "Your name"
+
+#: .\templates\base.html:438
+msgid "Twój email"
+msgstr "Your email"
+
+#: .\templates\base.html:448
+msgid "Wiadomość (opcjonalnie)"
+msgstr "Message (optional)"
+
+#: .\templates\base.html:455
+msgid "Wyrażam zgodę na przetwarzanie moich danych osobowych."
+msgstr "I consent to the processing of my personal data."
+
+#: .\templates\base.html:456
+msgid "Polityka Prywatności"
+msgstr "Privacy Policy"
+
+#: .\templates\base.html:461
+msgid "WYŚLIJ ZGŁOSZENIE"
+msgstr "SUBMIT YOUR APPLICATION"
+
+#: .\templates\base.html:466
+#, python-format
+msgid "-25%% dla nowych klientów!"
+msgstr "-25%% off for new customers!"
+
+#: .\templates\base.html:476
+msgid "Dziękujemy!"
+msgstr "Thank you!"
+
+#: .\templates\base.html:477
+msgid "Skontaktujemy się z Tobą wkrótce."
+msgstr "We will contact you shortly."
+
+#: .\templates\base.html:479
+msgid "Oblicz cenę teraz"
+msgstr "Calculate the price now"
+
+#: .\templates\base.html:486
+msgid "Lub zadzwoń:"
+msgstr "Or call:"
+
+#: .\templates\base.html:630
+msgid "Proszę wypełnić wszystkie wymagane pola."
+msgstr "Please complete all required fields."
+
+#: .\templates\base.html:638
+msgid "Proszę podać prawidłowy adres email."
+msgstr "Please enter a valid email address."
+
+#: .\templates\base.html:673 .\templates\base.html:678
+msgid "Wystąpił błąd. Spróbuj ponownie."
+msgstr "An error has occurred. Please try again."
 
 #: .\templates\core\about.html:5
 msgid ""
@@ -1433,240 +1626,246 @@ msgid ""
 "standard, deep, and post-renovation cleaning. Book online in 1 minute!"
 msgstr ""
 
-#: .\templates\core\index.html:21
+#: .\templates\core\index.html:23
+msgid "Sprzątanie dla domu i biznesu w Warszawie"
+msgstr "Cleaning services for homes and businesses in Warsaw"
+
+#: .\templates\core\index.html:27
+msgid "Dlaczego warto wybrać Gold Clean?"
+msgstr "Why choose Gold Clean?"
+
+#: .\templates\core\index.html:36
+msgid "Doświadczony, sprawdzony personel"
+msgstr "Experienced, proven staff"
+
+#: .\templates\core\index.html:43
+msgid "Ekologiczne i bezpieczne środki czystości"
+msgstr "Eco-friendly and safe cleaning products"
+
+#: .\templates\core\index.html:50
+msgid "Przejrzyste ceny i szybkie terminy"
+msgstr "Transparent prices and quick turnaround times"
+
+#: .\templates\core\index.html:57
+msgid "Gwarancja satysfakcji"
+msgstr "Satisfaction guarantee"
+
+#: .\templates\core\index.html:63
+msgid "ZŁÓŻ ZAMÓWIENIE"
+msgstr "PLACE YOUR ORDER"
+
+#: .\templates\core\index.html:84
 msgid "Calculate cleaning cost"
 msgstr "Calculate cleaning cost"
 
-#: .\templates\core\index.html:23 .\templates\core\index.html:211
-#: .\templates\core\index.html:342
+#: .\templates\core\index.html:86 .\templates\core\index.html:274
 msgid "Select cleaning type"
 msgstr "Select cleaning type"
 
-#: .\templates\core\index.html:27
+#: .\templates\core\index.html:90
 msgid "Cleaning Frequency"
 msgstr "Cleaning Frequency"
 
-#: .\templates\core\index.html:33
+#: .\templates\core\index.html:96
 msgid "One-time cleaning"
 msgstr "One-time cleaning"
 
-#: .\templates\core\index.html:40
+#: .\templates\core\index.html:103
 msgid "Once a month"
 msgstr "Once a month"
 
-#: .\templates\core\index.html:46
+#: .\templates\core\index.html:109
 msgid "Every 2 weeks"
 msgstr "Every 2 weeks"
 
-#: .\templates\core\index.html:52
+#: .\templates\core\index.html:115
 msgid "Once a week"
 msgstr "Once a week"
 
-#: .\templates\core\index.html:59
+#: .\templates\core\index.html:122
 #: .\templates\registration\password_reset_complete.html:8
 msgid "Log in"
 msgstr "Log in"
 
-#: .\templates\core\index.html:59
+#: .\templates\core\index.html:122
 #: .\venv\Lib\site-packages\django\utils\text.py:323
 msgid "or"
 msgstr "or"
 
-#: .\templates\core\index.html:59
+#: .\templates\core\index.html:122
 msgid "register"
 msgstr "register"
 
-#: .\templates\core\index.html:59
+#: .\templates\core\index.html:122
 msgid "to access subscription discounts!"
 msgstr "to access subscription discounts!"
 
-#: .\templates\core\index.html:72
+#: .\templates\core\index.html:135
 msgid "House icon"
 msgstr "House icon"
 
-#: .\templates\core\index.html:75
+#: .\templates\core\index.html:138
 msgid "Coefficient applies for larger area"
 msgstr ""
 
-#: .\templates\core\index.html:83 .\templates\orders\create_order.html:21
+#: .\templates\core\index.html:146 .\templates\orders\create_order.html:21
 msgid "Cleaning type"
 msgstr "Cleaning type"
 
-#: .\templates\core\index.html:86
+#: .\templates\core\index.html:149
 msgid "Select..."
 msgstr "Select..."
 
-#: .\templates\core\index.html:96
+#: .\templates\core\index.html:159
 msgid "Cleaning Parameters"
 msgstr "Cleaning Parameters"
 
-#: .\templates\core\index.html:110
+#: .\templates\core\index.html:173
 msgid "Area in m²"
 msgstr "Area in m²"
 
-#: .\templates\core\index.html:122
+#: .\templates\core\index.html:185
 msgid "Vacuum cleaner icon"
 msgstr "Vacuum cleaner icon"
 
-#: .\templates\core\index.html:124
+#: .\templates\core\index.html:187
 msgid "You need a vacuum cleaner on the order"
 msgstr "You need a vacuum cleaner on the order"
 
-#: .\templates\core\index.html:125
+#: .\templates\core\index.html:188
 msgid "We will bring a small vacuum cleaner"
 msgstr "We will bring a small vacuum cleaner"
 
-#: .\templates\core\index.html:202
+#: .\templates\core\index.html:265
 msgid "Cost"
 msgstr "Cost"
 
-#: .\templates\core\index.html:220
+#: .\templates\core\index.html:283
 msgid "1 room, 1 bathroom"
 msgstr "1 room, 1 bathroom"
 
-#: .\templates\core\index.html:237
+#: .\templates\core\index.html:300
 msgid "Approximate operating time"
 msgstr "Approximate operating time"
 
-#: .\templates\core\index.html:263 .\templates\core\index.html:413
+#: .\templates\core\index.html:326
 msgid "Subscription Discount"
 msgstr "Subscription Discount"
 
-#: .\templates\core\index.html:271 .\templates\core\kitchen_cleaning.html:83
+#: .\templates\core\index.html:334 .\templates\core\kitchen_cleaning.html:83
 #: .\templates\core\pricing.html:87 .\templates\core\services.html:56
 msgid "Proceed to order"
 msgstr "Proceed to order"
 
-#: .\templates\core\index.html:307
-#, fuzzy
+#: .\templates\core\index.html:370
 #| msgid "Contact details"
 msgid "Show details"
 msgstr "Contact details"
 
-#: .\templates\core\index.html:313
-#, fuzzy
+#: .\templates\core\index.html:376
 #| msgid "Go to calculator"
 msgid "Calculator"
 msgstr "Go to calculator"
 
-#: .\templates\core\index.html:317 .\templates\core\index.html:423
+#: .\templates\core\index.html:380 .\templates\core\index.html:836
 #: .\templates\core\pricing.html:84 .\templates\core\services.html:54
 msgid "Total"
 msgstr "Total"
 
-#: .\templates\core\index.html:354
-#, fuzzy
-#| msgid "room(s)"
-msgid "room"
-msgstr "room(s)"
+#: .\templates\core\index.html:415
+msgid "Our services"
+msgstr "Our services"
 
-#: .\templates\core\index.html:354
-#, fuzzy
-#| msgid "bathroom(s)"
-msgid "bathroom"
-msgstr "bathroom(s)"
+#: .\templates\core\index.html:436
+msgid "How we work"
+msgstr "How we work"
 
-#: .\templates\core\index.html:366
-msgid "Coefficient applied"
+#: .\templates\core\index.html:439
+msgid "1. Make a request"
+msgstr "1. Make a request"
+
+#: .\templates\core\index.html:440
+msgid ""
+"Fill out the form on the website or give us a call. We will clarify the "
+"details and calculate the cost."
 msgstr ""
+"Fill out the form on the website or give us a call. We will clarify the "
+"details and calculate the cost."
 
-#: .\templates\core\index.html:378
-#, fuzzy
+#: .\templates\core\index.html:443
+msgid "2. We arrive on time"
+msgstr "2. We arrive on time"
+
+#: .\templates\core\index.html:444
+msgid ""
+"Our cleaners will arrive at the appointed time with all the necessary "
+"equipment and supplies."
+msgstr ""
+"Our cleaners will arrive at the appointed time with all the necessary "
+"equipment and supplies."
+
+#: .\templates\core\index.html:447
+msgid "3. Enjoy the cleanliness"
+msgstr "3. Enjoy the cleanliness"
+
+#: .\templates\core\index.html:448
+msgid ""
+"You accept the work and pay for the result. Your home shines with "
+"cleanliness!"
+msgstr ""
+"You accept the work and pay for the result. Your home shines with "
+"cleanliness!"
+
+#: .\templates\core\index.html:455
+msgid "What's included in apartment cleaning"
+msgstr "What's included in apartment cleaning"
+
+#: .\templates\core\index.html:476
+msgid "Our Work in Action"
+msgstr "Our Work in Action"
+
+#: .\templates\core\index.html:477
+msgid "See the difference we make with your own eyes."
+msgstr "See the difference we make with your own eyes."
+
+#: .\templates\core\index.html:490 .\templates\core\index.html:491
+#: .\templates\core\index.html:493
+msgid "Before"
+msgstr "Before"
+
+#: .\templates\core\index.html:498 .\templates\core\index.html:499
+#: .\templates\core\index.html:501
+msgid "After"
+msgstr "After"
+
+#: .\templates\core\index.html:511
+msgid "Previous"
+msgstr "Previous"
+
+#: .\templates\core\index.html:515
+msgid "Next"
+msgstr "Next"
+
+#: .\templates\core\index.html:523
+msgid "What Our Clients Say"
+msgstr "What Our Clients Say"
+
+#: .\templates\core\index.html:539
+msgid "Posted on"
+msgstr "Posted on"
+
+#: .\templates\core\index.html:553
+msgid "Leave your own review"
+msgstr "Leave your own review"
+
+#: .\templates\core\index.html:809
 #| msgid "Vacuum cleaner icon"
 msgid "Vacuum cleaner"
 msgstr "Vacuum cleaner icon"
 
-#: .\templates\core\index.html:401
-#, fuzzy
-#| msgid "Approximate operating time"
-msgid "Approximate time"
-msgstr "Approximate operating time"
-
-#: .\templates\core\index.html:441
-msgid "Our services"
-msgstr "Our services"
-
-#: .\templates\core\index.html:462
-msgid "How we work"
-msgstr "How we work"
-
-#: .\templates\core\index.html:465
-msgid "1. Make a request"
-msgstr "1. Make a request"
-
-#: .\templates\core\index.html:466
-msgid ""
-"Fill out the form on the website or give us a call. We will clarify the "
-"details and calculate the cost."
+#: .\templates\core\index.html:827
+msgid "Discount"
 msgstr ""
-"Fill out the form on the website or give us a call. We will clarify the "
-"details and calculate the cost."
-
-#: .\templates\core\index.html:469
-msgid "2. We arrive on time"
-msgstr "2. We arrive on time"
-
-#: .\templates\core\index.html:470
-msgid ""
-"Our cleaners will arrive at the appointed time with all the necessary "
-"equipment and supplies."
-msgstr ""
-"Our cleaners will arrive at the appointed time with all the necessary "
-"equipment and supplies."
-
-#: .\templates\core\index.html:473
-msgid "3. Enjoy the cleanliness"
-msgstr "3. Enjoy the cleanliness"
-
-#: .\templates\core\index.html:474
-msgid ""
-"You accept the work and pay for the result. Your home shines with "
-"cleanliness!"
-msgstr ""
-"You accept the work and pay for the result. Your home shines with "
-"cleanliness!"
-
-#: .\templates\core\index.html:481
-msgid "What's included in apartment cleaning"
-msgstr "What's included in apartment cleaning"
-
-#: .\templates\core\index.html:502
-msgid "Our Work in Action"
-msgstr "Our Work in Action"
-
-#: .\templates\core\index.html:503
-msgid "See the difference we make with your own eyes."
-msgstr "See the difference we make with your own eyes."
-
-#: .\templates\core\index.html:516 .\templates\core\index.html:517
-#: .\templates\core\index.html:519
-msgid "Before"
-msgstr "Before"
-
-#: .\templates\core\index.html:524 .\templates\core\index.html:525
-#: .\templates\core\index.html:527
-msgid "After"
-msgstr "After"
-
-#: .\templates\core\index.html:537
-msgid "Previous"
-msgstr "Previous"
-
-#: .\templates\core\index.html:541
-msgid "Next"
-msgstr "Next"
-
-#: .\templates\core\index.html:549
-msgid "What Our Clients Say"
-msgstr "What Our Clients Say"
-
-#: .\templates\core\index.html:565
-msgid "Posted on"
-msgstr "Posted on"
-
-#: .\templates\core\index.html:579
-msgid "Leave your own review"
-msgstr "Leave your own review"
 
 #: .\templates\core\kitchen_cleaning.html:7
 msgid ""
@@ -1703,14 +1902,12 @@ msgid "Total:"
 msgstr "Total:"
 
 #: .\templates\core\legal\privacy_policy.html:5
-#, fuzzy
 #| msgid "Cleaning Areas"
 msgid "Privacy Policy of Gold Clean cleaning services in Warsaw."
 msgstr "Cleaning Areas"
 
 #: .\templates\core\legal\privacy_policy.html:10
 #: .\templates\core\legal\terms.html:10
-#, fuzzy
 #| msgid "Update date"
 msgid "Last updated"
 msgstr "Update date"
@@ -1727,14 +1924,9 @@ msgid ""
 msgstr ""
 
 #: .\templates\core\legal\privacy_policy.html:15
-#, fuzzy
 #| msgid "Contact details"
 msgid "Contact email"
 msgstr "Contact details"
-
-#: .\templates\core\legal\privacy_policy.html:16
-msgid "Phone"
-msgstr ""
 
 #: .\templates\core\legal\privacy_policy.html:20
 msgid "What Data We Collect"
@@ -1761,7 +1953,6 @@ msgid "Cookies necessary for the website to function"
 msgstr ""
 
 #: .\templates\core\legal\privacy_policy.html:31
-#, fuzzy
 #| msgid "Creation date"
 msgid "Session data"
 msgstr "Creation date"
@@ -1811,7 +2002,6 @@ msgid "Contact data: until you withdraw your consent or request deletion"
 msgstr ""
 
 #: .\templates\core\legal\privacy_policy.html:56
-#, fuzzy
 #| msgid "Your Rating"
 msgid "Your Rights"
 msgstr "Your Rating"
@@ -1926,13 +2116,11 @@ msgid ""
 msgstr ""
 
 #: .\templates\core\legal\terms.html:19
-#, fuzzy
 #| msgid "Description"
 msgid "Definitions"
 msgstr "Description"
 
 #: .\templates\core\legal\terms.html:21
-#, fuzzy
 #| msgid "Services and Products"
 msgid "Service Provider"
 msgstr "Services and Products"
@@ -1958,13 +2146,11 @@ msgid "Gold Clean provides the following services:"
 msgstr ""
 
 #: .\templates\core\legal\terms.html:32
-#, fuzzy
 #| msgid "What's included in apartment cleaning"
 msgid "Standard apartment and house cleaning"
 msgstr "What's included in apartment cleaning"
 
 #: .\templates\core\legal\terms.html:33
-#, fuzzy
 #| msgid "Order cleaning"
 msgid "Deep cleaning"
 msgstr "Order cleaning"
@@ -1974,19 +2160,16 @@ msgid "Post-renovation cleaning"
 msgstr ""
 
 #: .\templates\core\legal\terms.html:35
-#, fuzzy
 #| msgid "Window Cleaning"
 msgid "Window cleaning"
 msgstr "Window Cleaning"
 
 #: .\templates\core\legal\terms.html:36
-#, fuzzy
 #| msgid "Kitchen Cleaning"
 msgid "Kitchen cleaning"
 msgstr "Kitchen Cleaning"
 
 #: .\templates\core\legal\terms.html:37
-#, fuzzy
 #| msgid "Additional Services Details"
 msgid "Additional services as listed on the website"
 msgstr "Additional Services Details"
@@ -2008,7 +2191,6 @@ msgid "Choose a convenient date and time"
 msgstr ""
 
 #: .\templates\core\legal\terms.html:47
-#, fuzzy
 #| msgid "Confirm and order"
 msgid "Confirm the order"
 msgstr "Confirm and order"
@@ -2022,7 +2204,6 @@ msgid "By placing an order, the Client accepts these Terms and Conditions."
 msgstr ""
 
 #: .\templates\core\legal\terms.html:54
-#, fuzzy
 #| msgid "Services and Products"
 msgid "Prices and Payment"
 msgstr "Services and Products"
@@ -2045,7 +2226,6 @@ msgid "We accept cash and bank transfers"
 msgstr ""
 
 #: .\templates\core\legal\terms.html:64
-#, fuzzy
 #| msgid "Cancellation Fee (zł)"
 msgid "Cancellation Policy"
 msgstr "Cancellation Fee (zł)"
@@ -2091,13 +2271,11 @@ msgid "Secure valuable and fragile items"
 msgstr ""
 
 #: .\templates\core\legal\terms.html:84
-#, fuzzy
 #| msgid "Service Information"
 msgid "Service Provider Obligations"
 msgstr "Service Information"
 
 #: .\templates\core\legal\terms.html:85
-#, fuzzy
 #| msgid "Gold Clean, Inc"
 msgid "Gold Clean commits to:"
 msgstr "Gold Clean, Inc"
@@ -2119,7 +2297,6 @@ msgid "Respect the Client's property"
 msgstr ""
 
 #: .\templates\core\legal\terms.html:95
-#, fuzzy
 #| msgid "Completed"
 msgid "Complaints"
 msgstr "Completed"
@@ -2141,7 +2318,6 @@ msgid "If the complaint is justified, we will rectify the issue free of charge"
 msgstr ""
 
 #: .\templates\core\legal\terms.html:105
-#, fuzzy
 #| msgid "Reliability"
 msgid "Liability"
 msgstr "Reliability"
@@ -3879,6 +4055,21 @@ msgstr "Sorry, translation is not available."
 #: .\venv\Lib\site-packages\modeltranslation\widgets.py:32
 msgid "None"
 msgstr "None"
+
+#, fuzzy
+#~| msgid "room(s)"
+#~ msgid "room"
+#~ msgstr "room(s)"
+
+#, fuzzy
+#~| msgid "bathroom(s)"
+#~ msgid "bathroom"
+#~ msgstr "bathroom(s)"
+
+#, fuzzy
+#~| msgid "Approximate operating time"
+#~ msgid "Approximate time"
+#~ msgstr "Approximate operating time"
 
 #~ msgid "Write to us on Telegram"
 #~ msgstr "Write to us on Telegram"
