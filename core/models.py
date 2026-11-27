@@ -69,6 +69,57 @@ class SiteConfiguration(SingletonModel):
        null=True,
        help_text=_("Full URL to WhatsApp, e.g., https://wa.me/48781628269")
     )
+    
+    instagram_link = models.URLField(
+        _("Instagram Link"),
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text=_("Full URL to Instagram, e.g., https://www.instagram.com/your_account")
+    )
+    
+    # === СКИДКИ ===
+    new_client_discount_enabled = models.BooleanField(
+        _("Скидка для новых клиентов"),
+        default=False,
+        help_text=_("Включить скидку для первого заказа новых клиентов")
+    )
+    new_client_discount_percent = models.PositiveIntegerField(
+        _("Скидка нового клиента (%)"),
+        default=25,
+        help_text=_("Размер скидки для первого заказа в процентах")
+    )
+    subscription_discount_enabled = models.BooleanField(
+        _("Скидки по подписке"),
+        default=True,
+        help_text=_("Включить скидки за регулярную уборку")
+    )
+    discount_weekly = models.PositiveIntegerField(
+        _("Скидка: еженедельно (%)"),
+        default=20,
+        help_text=_("Скидка за еженедельную уборку")
+    )
+    discount_bi_weekly = models.PositiveIntegerField(
+        _("Скидка: раз в 2 недели (%)"),
+        default=15,
+        help_text=_("Скидка за уборку раз в две недели")
+    )
+    discount_monthly = models.PositiveIntegerField(
+        _("Скидка: ежемесячно (%)"),
+        default=10,
+        help_text=_("Скидка за ежемесячную уборку")
+    )
+    max_combined_discount = models.PositiveIntegerField(
+        _("Макс. комбинированная скидка (%)"),
+        default=30,
+        help_text=_("Максимальная скидка при комбинации нескольких типов")
+    )
+
+    is_new_year_theme = models.BooleanField(
+        _("Новогоднее оформление"),
+        default=False,
+        help_text=_("Включить падающий снег и новогоднюю шапку на логотипе")
+    )
 
     def __str__(self):
         return str(_("Site Configuration"))
@@ -231,10 +282,11 @@ class PromoBanner(models.Model):
     is_visible.boolean = True
     is_visible.short_description = _("Currently Visible")
 
-    class Lead(models.Model):
-     """
-     Модель для хранения заявок с pop-up формы.
-     """
+
+class Lead(models.Model):
+    """
+    Модель для хранения заявок с pop-up формы.
+    """
     STATUS_CHOICES = [
         ('new', _('New')),
         ('contacted', _('Contacted')),
@@ -269,6 +321,38 @@ class PromoBanner(models.Model):
     )
     
     admin_notes = models.TextField(_('Admin Notes'), blank=True)
+    
+    # === Поля из Google Sheets (Instagram Lead Ads) ===
+    SOURCE_CHOICES = [
+        ('website', _('Website')),
+        ('instagram', _('Instagram')),
+        ('facebook', _('Facebook')),
+        ('other', _('Other')),
+    ]
+    
+    PROCESSING_STATUS_CHOICES = [
+        ('not_processed', _('Not Processed')),
+        ('processed', _('Processed')),
+    ]
+    
+    ORDER_STATUS_CHOICES = [
+        ('not_ordered', _('Not Ordered')),
+        ('in_progress', _('In Progress')),
+        ('ordered', _('Ordered')),
+    ]
+    
+    service_name = models.CharField(_('Service'), max_length=255, blank=True)
+    source = models.CharField(_('Source'), max_length=50, choices=SOURCE_CHOICES, default='website')
+    platform = models.CharField(_('Platform'), max_length=50, blank=True, help_text='fb / ig')
+    audience = models.CharField(_('Audience'), max_length=100, blank=True)
+    campaign = models.CharField(_('Campaign'), max_length=255, blank=True)
+    ad_group = models.CharField(_('Ad Group'), max_length=255, blank=True)
+    processing_time = models.CharField(_('Processing Time'), max_length=50, blank=True)
+    processing_status = models.CharField(_('Processing Status'), max_length=20, choices=PROCESSING_STATUS_CHOICES, default='not_processed')
+    order_status = models.CharField(_('Order Status'), max_length=20, choices=ORDER_STATUS_CHOICES, default='not_ordered')
+    order_amount = models.DecimalField(_('Order Amount'), max_digits=10, decimal_places=2, null=True, blank=True)
+    lead_received_at = models.DateTimeField(_('Lead Received At'), null=True, blank=True, help_text='Время поступления из Google Sheets')
+    sheets_row_id = models.PositiveIntegerField(_('Sheets Row ID'), null=True, blank=True, unique=True, help_text='Номер строки в Google Sheets для предотвращения дублей')
     
     class Meta:
         verbose_name = _('Lead')

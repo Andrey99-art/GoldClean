@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию служебных страниц
+Disallow: /admin/
+Disallow: /accounts/
+Disallow: /submit-lead/
+Disallow: /calculate-price/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://goldclean2026.pl/sitemap.xml
+
+# LLMs.txt for AI systems
+Llms-Txt: https://goldclean2026.pl/llms.txt

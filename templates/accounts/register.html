@@ -4,75 +4,156 @@
 {% block title %}{% trans "Register" %}{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-6">
-            <h2 class="text-center mb-4">{% trans "Create an Account" %}</h2>
-            <form method="post">
-                {% csrf_token %}
-
-                <!-- ================================================== -->
-                <!--    НОВЫЙ БЛОК ДЛЯ ОТОБРАЖЕНИЯ ОБЩИХ ОШИБОК        -->
-                <!-- ================================================== -->
-                {% if form.non_field_errors %}
-                    <div class="alert alert-danger">
-                        {% for error in form.non_field_errors %}
-                            <p class="mb-0">{{ error }}</p>
-                        {% endfor %}
+<div class="auth-page">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-5">
+                <div class="auth-card">
+                    <!-- Логотип/иконка -->
+                    <div class="auth-header">
+                        <div class="auth-icon">
+                            <i class="bi bi-person-plus"></i>
+                        </div>
+                        <h2>{% trans "Create an Account" %}</h2>
+                        <p class="text-muted">{% trans "Join us and enjoy our services!" %}</p>
                     </div>
-                {% endif %}
-                <!-- ================================================== -->
-
-                {% for field in form %}
-                    <div class="mb-3">
-                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    
+                    <!-- Форма -->
+                    <form method="post" class="auth-form">
+                        {% csrf_token %}
                         
-                        {% if field.name == 'password' or field.name == 'password2' %}
-                            <div class="password-toggle-container">
-                                {{ field }}
-                                <span class="password-toggle-icon" data-target="{{ field.id_for_label }}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
+                        {% if form.non_field_errors %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            {% for error in form.non_field_errors %}
+                                {{ error }}
+                            {% endfor %}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        {% endif %}
+                        
+                        <!-- Username -->
+                        <div class="mb-3">
+                            <label for="{{ form.username.id_for_label }}" class="form-label">
+                                <i class="bi bi-person me-1"></i>{{ form.username.label }}
+                            </label>
+                            <input type="text" 
+                                   class="form-control {% if form.username.errors %}is-invalid{% endif %}" 
+                                   id="{{ form.username.id_for_label }}" 
+                                   name="{{ form.username.name }}" 
+                                   value="{{ form.username.value|default:'' }}"
+                                   placeholder="{% trans 'Enter username' %}" 
+                                   required>
+                            {% if form.username.help_text %}
+                                <small class="form-text text-muted">{{ form.username.help_text|safe }}</small>
+                            {% endif %}
+                            {% for error in form.username.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">
+                                <i class="bi bi-envelope me-1"></i>{{ form.email.label }}
+                            </label>
+                            <input type="email" 
+                                   class="form-control {% if form.email.errors %}is-invalid{% endif %}" 
+                                   id="{{ form.email.id_for_label }}" 
+                                   name="{{ form.email.name }}" 
+                                   value="{{ form.email.value|default:'' }}"
+                                   placeholder="{% trans 'Enter email' %}" 
+                                   required>
+                            {% for error in form.email.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="{{ form.password1.id_for_label }}" class="form-label">
+                                <i class="bi bi-lock me-1"></i>{{ form.password1.label }}
+                            </label>
+                            <div class="position-relative">
+                                <input type="password" 
+                                       class="form-control {% if form.password1.errors %}is-invalid{% endif %}" 
+                                       id="{{ form.password1.id_for_label }}" 
+                                       name="{{ form.password1.name }}" 
+                                       placeholder="{% trans 'Enter password' %}" 
+                                       required>
+                                <span class="password-toggle" data-target="{{ form.password1.id_for_label }}">
+                                    <i class="bi bi-eye"></i>
                                 </span>
                             </div>
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
-
-                        {% if field.help_text %}
-                            <small class="form-text text-muted">{{ field.help_text|safe }}</small>
-                        {% endif %}
-                        {% for error in field.errors %}
-                            <div class="alert alert-danger mt-2 p-2">{{ error }}</div>
-                        {% endfor %}
+                            {% if form.password1.help_text %}
+                                <small class="form-text text-muted">{{ form.password1.help_text|safe }}</small>
+                            {% endif %}
+                            {% for error in form.password1.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        
+                        <!-- Confirm Password -->
+                        <div class="mb-4">
+                            <label for="{{ form.password2.id_for_label }}" class="form-label">
+                                <i class="bi bi-lock-fill me-1"></i>{{ form.password2.label }}
+                            </label>
+                            <div class="position-relative">
+                                <input type="password" 
+                                       class="form-control {% if form.password2.errors %}is-invalid{% endif %}" 
+                                       id="{{ form.password2.id_for_label }}" 
+                                       name="{{ form.password2.name }}" 
+                                       placeholder="{% trans 'Confirm password' %}" 
+                                       required>
+                                <span class="password-toggle" data-target="{{ form.password2.id_for_label }}">
+                                    <i class="bi bi-eye"></i>
+                                </span>
+                            </div>
+                            {% if form.password2.help_text %}
+                                <small class="form-text text-muted">{{ form.password2.help_text|safe }}</small>
+                            {% endif %}
+                            {% for error in form.password2.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-auth w-100">
+                            <i class="bi bi-person-plus me-2"></i>{% trans "Register" %}
+                        </button>
+                    </form>
+                    
+                    <!-- Разделитель -->
+                    <div class="auth-divider">
+                        <span>{% trans "or" %}</span>
                     </div>
-                {% endfor %}
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-lg">{% trans "Register" %}</button>
+                    
+                    <!-- Вход -->
+                    <div class="auth-footer">
+                        <p>{% trans "Already have an account?" %} 
+                            <a href="{% url 'login' %}" class="auth-link-primary">{% trans "Login" %}</a>
+                        </p>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
-<!-- Скрипт для переключения видимости пароля -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const toggleIcons = document.querySelectorAll('.password-toggle-icon');
-
-        const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>`;
-        const eyeSlashIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16"><path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/><path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"/></svg>`;
-
-        toggleIcons.forEach(icon => {
-            icon.addEventListener('click', function() {
-                const targetInput = document.getElementById(this.dataset.target);
-                if (targetInput.type === 'password') {
-                    targetInput.type = 'text';
-                    this.innerHTML = eyeSlashIcon;
+        const toggles = document.querySelectorAll('.password-toggle');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const input = document.getElementById(this.dataset.target);
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.replace('bi-eye', 'bi-eye-slash');
                 } else {
-                    targetInput.type = 'password';
-                    this.innerHTML = eyeIcon;
+                    input.type = 'password';
+                    icon.classList.replace('bi-eye-slash', 'bi-eye');
                 }
             });
         });

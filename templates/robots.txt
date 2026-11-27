@@ -1,7 +1,13 @@
 User-agent: *
-Disallow: /admin/
-Disallow: /order/
-Disallow: /accounts/
 Allow: /
 
+# Запрещаем индексацию служебных страниц
+Disallow: /admin/
+Disallow: /accounts/
+Disallow: /submit-lead/
+Disallow: /calculate-price/
+Disallow: /api/
+Disallow: /order/
+
+# Sitemap
 Sitemap: https://goldclean2026.pl/sitemap.xml

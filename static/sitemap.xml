@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    
+    <!-- Главная страница -->
+    <url>
+        <loc>https://goldclean2026.pl/pl/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://goldclean2026.pl/pl/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://goldclean2026.pl/ru/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://goldclean2026.pl/uk/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://goldclean2026.pl/en/"/>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Услуги -->
+    <url>
+        <loc>https://goldclean2026.pl/pl/services/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://goldclean2026.pl/pl/services/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://goldclean2026.pl/ru/services/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://goldclean2026.pl/uk/services/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://goldclean2026.pl/en/services/"/>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Мытьё окон -->
+    <url>
+        <loc>https://goldclean2026.pl/pl/window-cleaning/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://goldclean2026.pl/pl/window-cleaning/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://goldclean2026.pl/ru/window-cleaning/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://goldclean2026.pl/uk/window-cleaning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://goldclean2026.pl/en/window-cleaning/"/>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Уборка кухни -->
+    <url>
+        <loc>https://goldclean2026.pl/pl/kitchen-cleaning/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://goldclean2026.pl/pl/kitchen-cleaning/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://goldclean2026.pl/ru/kitchen-cleaning/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://goldclean2026.pl/uk/kitchen-cleaning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://goldclean2026.pl/en/kitchen-cleaning/"/>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Цены -->
+    <url>
+        <loc>https://goldclean2026.pl/pl/pricing/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://goldclean2026.pl/pl/pricing/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://goldclean2026.pl/ru/pricing/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://goldclean2026.pl/uk/pricing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://goldclean2026.pl/en/pricing/"/>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- О нас -->
+    <url>
+        <loc>https://goldclean2026.pl/pl/about/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://goldclean2026.pl/pl/about/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://goldclean2026.pl/ru/about/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://goldclean2026.pl/uk/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://goldclean2026.pl/en/about/"/>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Политика конфиденциальности -->
+    <url>
+        <loc>https://goldclean2026.pl/pl/privacy/</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <!-- Условия -->
+    <url>
+        <loc>https://goldclean2026.pl/pl/terms/</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+</urlset>

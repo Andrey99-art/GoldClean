@@ -1,0 +1,160 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block title %}Календарь уборок{% endblock %}
+{% block content_title %}<h1>📆 Календарь уборок</h1>{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.css" rel="stylesheet">
+<style>
+    #calendar-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .fc-event {
+        cursor: pointer;
+        font-size: 12px;
+        padding: 2px 4px;
+    }
+    .fc-toolbar-title {
+        color: #B89E40 !important;
+    }
+    .fc-button-primary {
+        background-color: #B89E40 !important;
+        border-color: #B89E40 !important;
+    }
+    .fc-button-primary:hover {
+        background-color: #9A8535 !important;
+        border-color: #9A8535 !important;
+    }
+    .fc-button-active {
+        background-color: #7A6A2A !important;
+        border-color: #7A6A2A !important;
+    }
+    .fc-daygrid-day.fc-day-today {
+        background: rgba(184, 158, 64, 0.1) !important;
+    }
+    .fc-popover {
+        z-index: 9999;
+    }
+    #event-tooltip {
+        display: none;
+        position: fixed;
+        background: #333;
+        color: white;
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-size: 13px;
+        z-index: 10000;
+        max-width: 280px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        pointer-events: none;
+    }
+    #event-tooltip .tt-name { font-weight: bold; margin-bottom: 4px; }
+    #event-tooltip .tt-detail { opacity: 0.85; font-size: 12px; }
+    .back-link {
+        display: inline-block;
+        margin-bottom: 15px;
+        color: #B89E40;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .legend {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        font-size: 13px;
+    }
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .legend-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="calendar-container">
+    <a href="/admin/" class="back-link">← Вернуться на главную</a>
+    
+    <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#ffc107;"></div> Новый</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#007bff;"></div> В работе</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#28a745;"></div> Выполнен</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#dc3545;"></div> Отменён</div>
+    </div>
+    
+    <div id="calendar"></div>
+</div>
+
+<div id="event-tooltip">
+    <div class="tt-name"></div>
+    <div class="tt-detail"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var tooltip = document.getElementById('event-tooltip');
+    
+    var calendar = new FullCalendar.Calendar(document.getElementById('calendar'), {
+        initialView: 'dayGridMonth',
+        locale: 'ru',
+        firstDay: 1,
+        height: 'auto',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,listWeek'
+        },
+        buttonText: {
+            today: 'Сегодня',
+            month: 'Месяц',
+            week: 'Неделя',
+            list: 'Список'
+        },
+        events: {
+            url: '/admin/calendar/api/',
+            failure: function() {
+                alert('Ошибка загрузки событий');
+            }
+        },
+        eventClick: function(info) {
+            info.jsEvent.preventDefault();
+            if (info.event.url) {
+                window.location.href = info.event.url;
+            }
+        },
+        eventMouseEnter: function(info) {
+            var props = info.event.extendedProps;
+            tooltip.querySelector('.tt-name').textContent = info.event.title;
+            tooltip.querySelector('.tt-detail').innerHTML = 
+                props.service + ' · ' + props.price + '<br>' +
+                props.status + (props.phone ? ' · ' + props.phone : '');
+            tooltip.style.display = 'block';
+            
+            var rect = info.el.getBoundingClientRect();
+            tooltip.style.left = rect.left + 'px';
+            tooltip.style.top = (rect.bottom + 5) + 'px';
+        },
+        eventMouseLeave: function() {
+            tooltip.style.display = 'none';
+        },
+        dayMaxEvents: 3,
+        moreLinkText: 'ещё',
+        noEventsText: 'Нет событий'
+    });
+    
+    calendar.render();
+});
+</script>
+{% endblock %}

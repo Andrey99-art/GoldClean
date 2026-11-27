@@ -1,0 +1,122 @@
+{% extends "admin/index.html" %}
+{% load i18n %}
+
+{% block content %}
+<!-- Статистика -->
+<div style="margin-bottom: 30px;">
+    <h2 style="color: #B89E40; margin-bottom: 20px;">📊 Статистика Gold Clean</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        <!-- Заказы сегодня -->
+        <a href="/admin/orders/order/?cleaning_date__gte={{ today }}&cleaning_date__lte={{ today }}" style="background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'">
+            <div style="font-size: 32px; font-weight: bold;">{{ stats.orders_today }}</div>
+            <div style="opacity: 0.9;">Заказов сегодня</div>
+        </a>
+        
+        <!-- Новые лиды -->
+        <a href="/admin/core/lead/?status__exact=new" style="background: linear-gradient(135deg, #ffc107, #fd7e14); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'">
+            <div style="font-size: 32px; font-weight: bold;">{{ stats.new_leads }}</div>
+            <div style="opacity: 0.9;">Новых лидов</div>
+        </a>
+        
+        <!-- Выручка за месяц -->
+        <a href="/admin/orders/order/?status__exact=completed" style="background: linear-gradient(135deg, #B89E40, #D4BC5E); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'">
+            <div style="font-size: 32px; font-weight: bold;">{{ stats.revenue_month }} zł</div>
+            <div style="opacity: 0.9;">Выручка за месяц</div>
+        </a>
+        
+        <!-- Всего клиентов -->
+        <a href="/admin/accounts/profile/" style="background: linear-gradient(135deg, #17a2b8, #6f42c1); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'">
+            <div style="font-size: 32px; font-weight: bold;">{{ stats.total_clients }}</div>
+            <div style="opacity: 0.9;">Всего клиентов</div>
+        </a>
+    </div>
+    
+    <!-- Вторая строка статистики -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        <!-- Заказы на этой неделе -->
+        <a href="/admin/orders/order/?cleaning_date__gte={{ week_start }}&cleaning_date__lte={{ week_end }}" style="background: white; border: 2px solid #28a745; padding: 20px; border-radius: 10px; text-decoration: none; display: block; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
+            <div style="font-size: 28px; font-weight: bold; color: #28a745;">{{ stats.orders_week }}</div>
+            <div style="color: #666;">Заказов на этой неделе</div>
+        </a>
+        
+        <!-- Ожидают подтверждения -->
+        <a href="/admin/orders/order/?status__exact=pending" style="background: white; border: 2px solid #ffc107; padding: 20px; border-radius: 10px; text-decoration: none; display: block; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
+            <div style="font-size: 28px; font-weight: bold; color: #ffc107;">{{ stats.pending_orders }}</div>
+            <div style="color: #666;">Ожидают подтверждения</div>
+        </a>
+        
+        <!-- Уборок завтра -->
+        <a href="/admin/orders/order/?cleaning_date__gte={{ tomorrow }}&cleaning_date__lte={{ tomorrow }}" style="background: white; border: 2px solid #17a2b8; padding: 20px; border-radius: 10px; text-decoration: none; display: block; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
+            <div style="font-size: 28px; font-weight: bold; color: #17a2b8;">{{ stats.orders_tomorrow }}</div>
+            <div style="color: #666;">Уборок завтра</div>
+        </a>
+        
+        <!-- Новые клиенты -->
+        <a href="/admin/accounts/profile/?created_at__month={{ current_month }}&created_at__year={{ current_year }}" style="background: white; border: 2px solid #6f42c1; padding: 20px; border-radius: 10px; text-decoration: none; display: block; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
+            <div style="font-size: 28px; font-weight: bold; color: #6f42c1;">{{ stats.new_clients }}</div>
+            <div style="color: #666;">Новых клиентов (месяц)</div>
+        </a>
+    </div>
+</div>
+
+<!-- Быстрые ссылки -->
+<div style="margin-bottom: 30px;">
+    <h3 style="color: #333; margin-bottom: 15px;">⚡ Быстрые действия</h3>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="/admin/orders/order/?status__exact=pending" style="background: #ffc107; color: #000; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 500;">
+            ⏳ Ожидающие заказы ({{ stats.pending_orders }})
+        </a>
+        <a href="/admin/core/lead/?status__exact=new" style="background: #28a745; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 500;">
+            🆕 Новые лиды ({{ stats.new_leads }})
+        </a>
+        <a href="/admin/orders/order/?cleaning_date__gte={{ today }}&cleaning_date__lte={{ today }}" style="background: #17a2b8; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 500;">
+            📅 Заказы на сегодня ({{ stats.orders_today }})
+        </a>
+        <a href="/admin/orders/order/add/" style="background: #B89E40; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 500;">
+            ➕ Новый заказ
+        </a>
+    </div>
+</div>
+
+<!-- Расписание уборок на 7 дней -->
+<div style="margin-bottom: 30px;">
+    <h3 style="color: #333; margin-bottom: 15px;">📅 Расписание уборок (7 дней)</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+        {% for day in upcoming_days %}
+        <div style="background: white; border: 2px solid {% if day.is_today %}#B89E40{% else %}#e0e0e0{% endif %}; border-radius: 10px; overflow: hidden;">
+            <div style="background: {% if day.is_today %}#B89E40{% else %}#f5f5f5{% endif %}; padding: 10px 15px; font-weight: bold; color: {% if day.is_today %}white{% else %}#333{% endif %};">
+                {% if day.is_today %}🔸 {% endif %}{{ day.date|date:"l, d.m" }}
+                {% if day.orders %}
+                <span style="float: right; background: {% if day.is_today %}rgba(255,255,255,0.3){% else %}#B89E40{% endif %}; color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px;">{{ day.orders|length }}</span>
+                {% endif %}
+            </div>
+            <div style="padding: 10px 15px; min-height: 60px;">
+                {% if day.orders %}
+                    {% for order in day.orders %}
+                    <a href="/admin/orders/order/{{ order.pk }}/change/" style="display: block; padding: 8px; margin-bottom: 5px; background: #f9f9f9; border-radius: 5px; text-decoration: none; color: #333; border-left: 3px solid {% if order.status == 'completed' %}#28a745{% elif order.status == 'canceled' %}#dc3545{% elif order.status == 'in_progress' or order.status == 'confirmed' %}#007bff{% else %}#ffc107{% endif %};">
+                        <div style="font-weight: 600; font-size: 13px;">
+                            {{ order.cleaning_time|default:"--:--" }} — {{ order.customer_name }}
+                        </div>
+                        <div style="font-size: 11px; color: #888; margin-top: 2px;">
+                            {{ order.service|default:"-" }} · {{ order.total_price|floatformat:0 }} zł
+                        </div>
+                    </a>
+                    {% endfor %}
+                {% else %}
+                    <div style="color: #ccc; text-align: center; padding: 15px 0; font-size: 13px;">Нет уборок</div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div style="margin-top: 15px; text-align: right;">
+        <a href="/admin/calendar/" style="color: #B89E40; text-decoration: none; font-weight: 500;">📆 Открыть полный календарь →</a>
+    </div>
+</div>
+
+<hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+
+<!-- Стандартный контент админки -->
+{{ block.super }}
+{% endblock %}

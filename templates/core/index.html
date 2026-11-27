@@ -38,7 +38,7 @@
             
             <div class="hero-benefit">
                 <div class="hero-benefit-icon">
-                    <i class="bi bi-leaf"></i>
+                    <i class="bi bi-droplet-half"></i>
                 </div>
                 <span class="hero-benefit-text">{% trans "Ekologiczne i bezpieczne środki czystości" %}</span>
             </div>
@@ -54,7 +54,7 @@
                 <div class="hero-benefit-icon">
                     <i class="bi bi-shield-check"></i>
                 </div>
-                <span class="hero-benefit-text">{% trans "Gwarancja satysfakcji" %}</span>
+                <span class="hero-benefit-text">{% trans "Wszystkie ryzyka ubezpieczamy. Efekt gwarantujemy" %}</span>
             </div>
         </div>
         
@@ -199,33 +199,32 @@
                             <h4 class="form-section-title">{% trans "Additional services" %}</h4>
                             <div class="additional-services-list">
                                 {% for add_service in additional_services %}
-                                <div class="service-item d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        {% if not add_service.is_quantity_based %}
-                                            <input class="form-check-input me-2" type="checkbox" id="add-service-{{ add_service.id }}" data-service-id="{{ add_service.id }}">
-                                        {% endif %}
-                                        <label class="form-check-label d-flex align-items-center" for="add-service-{{ add_service.id }}">
+                                <div class="service-item">
+                                    <div class="service-item-row">
+                                        <div class="service-item-left">
                                             {% if add_service.icon %}
-                                                <img src="{{ add_service.icon.url }}" alt="{{ add_service.name }}" class="service-icon me-2" width="48" height="48">
+                                                <img src="{{ add_service.icon.url }}" alt="{{ add_service.name }}" class="service-icon" width="48" height="48">
                                             {% endif %}
                                             <span class="service-name">{{ add_service.name }}</span>
-                                        </label>
+                                        </div>
+                                        <div class="service-item-right">
+                                            {% if add_service.is_quantity_based %}
+                                            <div class="quantity-widget">
+                                                <button type="button" class="btn btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="decrease">−</button>
+                                                <input type="number" class="form-control form-control-sm text-center quantity-input" value="0" min="0" max="1000" data-service-id="{{ add_service.id }}">
+                                                <button type="button" class="btn btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="increase">+</button>
+                                            </div>
+                                            {% else %}
+                                                <input class="form-check-input service-checkbox" type="checkbox" id="add-service-{{ add_service.id }}" data-service-id="{{ add_service.id }}">
+                                            {% endif %}
+                                            <div class="service-price">
+                                                <span class="fw-bold">+ {{ add_service.price|floatformat:0 }} zl</span>
+                                                {% if add_service.price_description %}
+                                                    <small class="text-muted">{{ add_service.price_description }}</small>
+                                                {% endif %}
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-                                    {% if add_service.is_quantity_based %}
-                                    <div class="quantity-widget d-flex align-items-center me-3">
-                                        <button type="button" class="btn btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="decrease">−</button>
-                                        <input type="number" class="form-control form-control-sm text-center quantity-input mx-1" value="0" min="0" max="10" data-service-id="{{ add_service.id }}" style="width: 48px;">
-                                        <button type="button" class="btn btn-sm quantity-btn" data-service-id="{{ add_service.id }}" data-action="increase">+</button>
-                                    </div>
-                                    {% endif %}
-
-                                    <span class="fw-bold text-nowrap">
-                                        + {{ add_service.price|floatformat:0 }} zł
-                                        {% if add_service.price_description %}
-                                            <small class="d-block text-muted">{{ add_service.price_description }}</small>
-                                        {% endif %}
-                                    </span>
                                 </div>
                                 {% endfor %}
                             </div>
@@ -319,6 +318,16 @@
                             </div>
                             <span class="text-muted" id="additional-services-price">0 zł</span>
                         </li>
+                        <!-- New Client Discount -->
+                        {% if site_config.new_client_discount_enabled %}
+                        <li class="list-group-item d-flex justify-content-between lh-sm summary-item" id="new-client-discount-summary" style="display: none; background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%); border: 1px solid #B89E40;">
+                            <div>
+                                <h6 class="my-0" style="color: #B89E40;"><i class="bi bi-star-fill me-1"></i>{% trans "New Client Discount" %} <span class="badge" style="background: #B89E40; color: #fff;">-25%</span></h6>
+                                <small class="text-muted">{% trans "One-time discount for first order" %}</small>
+                            </div>
+                            <span style="color: #B89E40; font-weight: bold;" id="new-client-discount-amount">- 0 zl</span>
+                        </li>
+                        {% endif %}
                         
                         <!-- Discount (Hidden by default) -->
                         <li class="list-group-item d-flex justify-content-between lh-sm bg-light summary-item" id="discount-summary" style="display: none;">
@@ -393,7 +402,10 @@
 <div class="calculator-backdrop" id="calc-backdrop"></div>
 <div class="calculator-bottom-sheet" id="calc-bottom-sheet">
     <div class="sheet-handle"></div>
-    <h5 class="sheet-title">{% trans "Order Details" %}</h5>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h5 class="sheet-title" style="margin-bottom:0;">{% trans "Order Details" %}</h5>
+        <button type="button" id="close-sheet-btn" style="background:none;border:1px solid #B89E40;border-radius:50%;width:36px;height:36px;font-size:20px;color:#B89E40;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:all 0.2s;" aria-label="{% trans 'Close' %}" onmouseover="this.style.background='#B89E40';this.style.color='white'" onmouseout="this.style.background='none';this.style.color='#B89E40'">&times;</button>
+    </div>
     <div id="mobile-summary-content">
         <!-- Динамически заполняется из JS -->
     </div>
@@ -432,7 +444,7 @@
     {% endfor %}
 </div>
 
-<div class="container px-4 py-5">
+<div class="container-xxl px-4 py-5">
     <h2 class="pb-2 border-bottom">{% trans "How we work" %}</h2>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
       <div class="feature col text-center">
@@ -451,7 +463,7 @@
 </div>
 
 {% if cleaning_areas %}
-<div class="container py-5" id="what-we-clean-section">
+<div class="container-xxl py-5" id="what-we-clean-section">
     <h2 class="pb-2 border-bottom text-center">{% trans "What's included in apartment cleaning" %}</h2>
     <div class="row g-5 mt-3">
         {% for area in cleaning_areas %}
@@ -472,7 +484,7 @@
 {% endif %}
 
 {% if gallery_images %}
-<div class="container py-5" id="gallery-section">
+<div class="container-xxl py-5" id="gallery-section">
     <h2 class="pb-2 border-bottom text-center">{% trans "Our Work in Action" %}</h2>
     <p class="text-center text-muted mb-5">{% trans "See the difference we make with your own eyes." %}</p>
     <div id="beforeAfterCarousel" class="carousel slide shadow-lg" data-bs-ride="carousel">
@@ -519,7 +531,7 @@
 {% endif %}
 
 {% if reviews %}
-<div class="container py-5 reviews-section">
+<div class="container-xxl py-5 reviews-section">
     <h2 class="pb-2 border-bottom text-center">{% trans "What Our Clients Say" %}</h2>
     <div class="swiper mt-5">
         <div class="swiper-wrapper">
@@ -557,6 +569,23 @@
 {% endblock %}
 
 {% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Скролл к центру Hero секции (где кнопка)
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection && window.location.hash === '') {
+        setTimeout(function() {
+            const heroHeight = heroSection.offsetHeight;
+            const windowHeight = window.innerHeight;
+            const scrollTo = heroSection.offsetTop + (heroHeight / 2) - (windowHeight / 2);
+            window.scrollTo({
+                top: Math.max(0, scrollTo),
+                behavior: 'auto'
+            });
+        }, 100);
+    }
+});
+</script>
 <!-- Hero CTA Button - открывает pop-up -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -577,6 +606,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // =====================================================
     //          CALCULATOR LOGIC
     // =====================================================
+    let lastCalcResult = null;
+    let updateMobileSummary = null;
     const calculatorForm = document.getElementById('calculator-form');
     const stickyTotalPrice = document.getElementById('sticky-total-price');
     const mobileOrderBtn = document.getElementById('mobile-order-btn');
@@ -597,6 +628,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const additionalServicesPriceEl = document.getElementById('additional-services-price');
         const discountSummaryEl = document.getElementById('discount-summary');
         const discountAmountEl = document.getElementById('discount-amount');
+        const newClientDiscountEl = document.getElementById('new-client-discount-summary');
+        const newClientDiscountAmountEl = document.getElementById('new-client-discount-amount');
         const baseTotalPriceEl = document.getElementById('base-total-price');
         const vacuumSummaryEl = document.getElementById('vacuum-summary');
         const vacuumPriceEl = document.getElementById('vacuum-price');
@@ -626,6 +659,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const csrftoken = getCookie('csrftoken');
 
         function animateSummaryItem(element, show) {
+            if (!element) return;
             if (show) {
                 element.style.display = 'flex';
                 element.classList.remove('summary-item-exit');
@@ -693,6 +727,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 animateSummaryItem(vacuumSummaryEl, false);
                 animateSummaryItem(durationBlock, false);
                 animateSummaryItem(houseSummaryEl, false);
+                const mobileContent = document.getElementById('mobile-summary-content');
+                if (mobileContent) mobileContent.innerHTML = '<p style="color:#B89E40;text-align:center;padding:1rem 0;">{% trans "Select a service and fill in the parameters" %}</p>';
                 return;
             }
             submitBtn.disabled = false;
@@ -777,6 +813,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     animateSummaryItem(durationBlock, false);
                 }
                 
+                // New client discount
+                if (result.is_new_client) {
+                    const newClientDiscount = result.base_total * 0.25;
+                    newClientDiscountAmountEl.textContent = `− ${newClientDiscount.toFixed(2)} zł`;
+                    animateSummaryItem(newClientDiscountEl, true);
+                } else {
+                    animateSummaryItem(newClientDiscountEl, false);
+                }
                 if (result.discount_amount && result.discount_amount > 0) {
                     discountAmountEl.textContent = `− ${result.discount_amount.toFixed(2)} zł`;
                     baseTotalPriceEl.innerHTML = `<del>${result.base_total.toFixed(2)} zł</del>`;
@@ -785,6 +829,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     animateSummaryItem(discountSummaryEl, false);
                 }
                 
+                lastCalcResult = result;
                 updateMobileSummary(result);
                 
             } catch (error) {
@@ -792,51 +837,109 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        function updateMobileSummary(result) {
+        updateMobileSummary = function(result) {
             const mobileContent = document.getElementById('mobile-summary-content');
             if (!mobileContent) return;
             
-            let html = `
-                <div class="d-flex justify-content-between mb-2">
-                    <span>${result.details.base_service_name}</span>
-                    <span>${result.details.base_price.toFixed(2)} zł</span>
-                </div>
-            `;
+            const freqLabels = {
+                'one_time': "{% trans 'One-time' %}",
+                'weekly': "{% trans 'Weekly' %}",
+                'bi_weekly': "{% trans 'Every 2 weeks' %}",
+                'monthly': "{% trans 'Monthly' %}"
+            };
             
+            let html = '';
+            
+            // Услуга
+            html += '<div style="display:flex;justify-content:space-between;margin-bottom:8px;">';
+            html += '<span style="font-weight:600;">' + result.details.base_service_name + '</span>';
+            html += '<span style="font-weight:600;">' + result.details.base_price.toFixed(2) + ' z\u0142</span>';
+            html += '</div>';
+            
+            // Комнаты и санузлы
+            if (result.details.rooms_count && !result.details.is_sqm_based) {
+                html += '<div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;color:#888;">';
+                html += '<span><i class="bi bi-house-door me-1"></i>{% trans 'Rooms' %}: ' + result.details.rooms_count + ' &nbsp;|&nbsp; {% trans 'Bathrooms' %}: ' + result.details.bathrooms_count + '</span>';
+                if (result.details.rooms_bathrooms_price > 0) {
+                    html += '<span>+ ' + result.details.rooms_bathrooms_price.toFixed(2) + ' z\u0142</span>';
+                }
+                html += '</div>';
+            }
+            
+            // Площадь
+            if (result.details.is_sqm_based && result.details.sqm) {
+                html += '<div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;color:#888;">';
+                html += '<span><i class="bi bi-rulers me-1"></i>{% trans 'Area' %}: ' + result.details.sqm + ' m\u00b2</span>';
+                if (result.details.sqm_price > 0) {
+                    html += '<span>' + result.details.sqm_price.toFixed(2) + ' z\u0142</span>';
+                }
+                html += '</div>';
+            }
+            
+            // Пылесос
             if (result.details.vacuum_price > 0) {
-                html += `
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>{% trans "Vacuum cleaner" %}</span>
-                        <span>+ ${result.details.vacuum_price.toFixed(2)} zł</span>
-                    </div>
-                `;
+                html += '<div style="display:flex;justify-content:space-between;margin-bottom:8px;">';
+                html += '<span>{% trans 'Vacuum cleaner' %}</span>';
+                html += '<span>+ ' + result.details.vacuum_price.toFixed(2) + ' z\u0142</span>';
+                html += '</div>';
             }
             
+            // Доп. услуги
             if (result.details.additional_services_price > 0) {
-                html += `
-                    <div class="d-flex justify-content-between mb-2">
-                        <span>${result.details.additional_services_names.join(', ')}</span>
-                        <span>+ ${result.details.additional_services_price.toFixed(2)} zł</span>
-                    </div>
-                `;
+                html += '<div style="display:flex;justify-content:space-between;margin-bottom:8px;">';
+                html += '<span>' + result.details.additional_services_names.join(', ') + '</span>';
+                html += '<span>+ ' + result.details.additional_services_price.toFixed(2) + ' z\u0142</span>';
+                html += '</div>';
             }
             
+            // Частный дом
+            if (result.details.house_multiplier > 1.0) {
+                html += '<div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;color:#888;">';
+                html += '<span><i class="bi bi-house me-1"></i>{% trans 'Private house' %} (\u00d7' + result.details.house_multiplier + ')</span>';
+                html += '<span></span>';
+                html += '</div>';
+            }
+            
+            // Скидка нового клиента
+            if (result.is_new_client) {
+                const newClientDiscount = result.base_total * 0.25;
+                html += '<div style="display:flex;justify-content:space-between;margin-bottom:8px;color:#B89E40;">';
+                html += '<span><i class="bi bi-star-fill me-1"></i>{% trans 'New Client Discount' %} (-25%)</span>';
+                html += '<span>− ' + newClientDiscount.toFixed(2) + ' z\u0142</span>';
+                html += '</div>';
+            }
+            
+            // Скидка по подписке
             if (result.discount_amount && result.discount_amount > 0) {
-                html += `
-                    <div class="d-flex justify-content-between mb-2" style="color: #2E7D32;">
-                        <span>{% trans "Discount" %}</span>
-                        <span>− ${result.discount_amount.toFixed(2)} zł</span>
-                    </div>
-                `;
+                html += '<div style="display:flex;justify-content:space-between;margin-bottom:8px;color:#2E7D32;">';
+                html += '<span><i class="bi bi-tag me-1"></i>{% trans 'Discount' %}</span>';
+                html += '<span>− ' + result.discount_amount.toFixed(2) + ' z\u0142</span>';
+                html += '</div>';
             }
             
-            html += `
-                <hr>
-                <div class="d-flex justify-content-between">
-                    <strong>{% trans "Total" %}</strong>
-                    <strong>${result.total_price.toFixed(2)} zł</strong>
-                </div>
-            `;
+            html += '<hr style="border-color:#B89E40;opacity:0.3;">';
+            
+            // Длительность
+            if (result.details.formatted_duration) {
+                html += '<div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;color:#888;">';
+                html += '<span><i class="bi bi-clock me-1"></i>{% trans 'Duration' %}</span>';
+                html += '<span>' + result.details.formatted_duration + '</span>';
+                html += '</div>';
+            }
+            
+            // Частота
+            if (result.details.frequency && result.details.frequency !== 'one_time') {
+                html += '<div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;color:#888;">';
+                html += '<span><i class="bi bi-arrow-repeat me-1"></i>{% trans 'Frequency' %}</span>';
+                html += '<span>' + (freqLabels[result.details.frequency] || result.details.frequency) + '</span>';
+                html += '</div>';
+            }
+            
+            // Итого
+            html += '<div style="display:flex;justify-content:space-between;margin-top:8px;">';
+            html += '<strong style="font-size:16px;">{% trans 'Total' %}</strong>';
+            html += '<strong style="font-size:16px;color:#B89E40;">' + result.total_price.toFixed(2) + ' z\u0142</strong>';
+            html += '</div>';
             
             mobileContent.innerHTML = html;
         }
@@ -878,6 +981,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const bottomSheet = document.getElementById('calc-bottom-sheet');
     const backdrop = document.getElementById('calc-backdrop');
     
+    const stickyFooter = document.getElementById('calc-sticky-footer');
     if (expandBtn && bottomSheet && backdrop) {
         expandBtn.addEventListener('click', function() {
             const isOpen = bottomSheet.classList.contains('open');
@@ -886,10 +990,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 bottomSheet.classList.remove('open');
                 backdrop.classList.remove('show');
                 expandBtn.classList.remove('expanded');
+                if (stickyFooter) stickyFooter.style.display = '';
             } else {
                 bottomSheet.classList.add('open');
                 backdrop.classList.add('show');
                 expandBtn.classList.add('expanded');
+                if (stickyFooter) stickyFooter.style.display = 'none';
+                if (lastCalcResult) updateMobileSummary(lastCalcResult);
             }
         });
         
@@ -897,7 +1004,18 @@ document.addEventListener('DOMContentLoaded', function() {
             bottomSheet.classList.remove('open');
             backdrop.classList.remove('show');
             expandBtn.classList.remove('expanded');
+            if (stickyFooter) stickyFooter.style.display = '';
         });
+        
+        const closeSheetBtn = document.getElementById('close-sheet-btn');
+        if (closeSheetBtn) {
+            closeSheetBtn.addEventListener('click', function() {
+                bottomSheet.classList.remove('open');
+                backdrop.classList.remove('show');
+                expandBtn.classList.remove('expanded');
+                if (stickyFooter) stickyFooter.style.display = '';
+            });
+        }
     }
     
     // =====================================================

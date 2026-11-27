@@ -26,6 +26,14 @@ class Profile(models.Model):
         default=0.00
     )
     
+    # Контактные данные
+    phone = models.CharField(
+        _('Phone'),
+        max_length=20,
+        blank=True,
+        help_text=_('Contact phone number')
+    )
+    
     # === НОВЫЕ ПОЛЯ ДЛЯ СКИДКИ НОВОГО КЛИЕНТА ===
     
     is_new_client = models.BooleanField(
@@ -86,14 +94,7 @@ class Profile(models.Model):
 # === СИГНАЛЫ ДЛЯ АВТОМАТИЧЕСКОГО СОЗДАНИЯ ПРОФИЛЯ ===
 
 @receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    """Автоматически создаёт профиль при регистрации пользователя."""
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+    """Автоматически создаёт или обновляет профиль пользователя."""
     if created:
-        Profile.objects.create(user=instance)
-
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    """Сохраняет профиль при сохранении пользователя."""
-    if hasattr(instance, 'profile'):
-        instance.profile.save()
+        Profile.objects.get_or_create(user=instance)

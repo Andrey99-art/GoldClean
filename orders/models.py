@@ -16,6 +16,36 @@ class City(models.Model):
         return f"{self.name} (+{self.delivery_charge} zł)"
 
 
+class Cleaner(models.Model):
+    """Модель сотрудника (клинера)"""
+    STATUS_CHOICES = [
+        ('active', _('Active')),
+        ('on_leave', _('On Leave')),
+        ('inactive', _('Inactive')),
+    ]
+    
+    name = models.CharField(_('Full Name'), max_length=100)
+    phone = models.CharField(_('Phone'), max_length=20)
+    email = models.EmailField(_('Email'), blank=True)
+    photo = models.ImageField(_('Photo'), upload_to='cleaners/', blank=True, null=True)
+    
+    status = models.CharField(
+        _('Status'), max_length=20,
+        choices=STATUS_CHOICES, default='active'
+    )
+    
+    notes = models.TextField(_('Notes'), blank=True)
+    created_at = models.DateTimeField(_('Created at'), auto_now_add=True)
+    
+    class Meta:
+        verbose_name = _('Cleaner')
+        verbose_name_plural = _('Cleaners')
+        ordering = ['name']
+    
+    def __str__(self):
+        return self.name
+
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("User"))
     
@@ -36,6 +66,12 @@ class Order(models.Model):
     delivery_charge = models.DecimalField(_("Delivery charge"), max_digits=10, decimal_places=2, default=0.00)
     frequency = models.CharField(_("Frequency"), max_length=20, default='one_time', blank=True)
     bring_vacuum_cleaner = models.BooleanField(_("Bring vacuum cleaner"), default=False)
+    cleaner = models.ForeignKey(
+        'Cleaner', on_delete=models.SET_NULL,
+        null=True, blank=True,
+        related_name='orders',
+        verbose_name=_('Assigned Cleaner')
+    )
     is_private_house = models.BooleanField(_("Private house"), default=False)
     estimated_duration_minutes = models.PositiveIntegerField(_("Estimated duration (minutes)"), null=True, blank=True)
     customer_name = models.CharField(max_length=100, verbose_name=_("Full name"))
@@ -76,8 +112,13 @@ class Order(models.Model):
 
     get_additional_services_display.short_description = _("Additional Services")
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._original_status = self.status if self.pk else None
+
     def __str__(self):
         return f"Order #{self.pk} for {self.customer_name}"
+
 
     class Meta:
         verbose_name = _("Order")

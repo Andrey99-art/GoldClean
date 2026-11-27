@@ -31,6 +31,7 @@ from .utils import format_duration
 logger = logging.getLogger(__name__)
 
 # Constants
+# Дефолтные значения (переопределяются из SiteConfiguration)
 DISCOUNT_WEEKLY = Decimal('0.20')
 DISCOUNT_BI_WEEKLY = Decimal('0.15')
 DISCOUNT_MONTHLY = Decimal('0.10')
@@ -76,7 +77,6 @@ def submit_lead_form(request):
 
 ---
 Эта заявка отправлена через pop-up форму на сайте.
-Клиент имеет право на скидку 25% как новый клиент!
         """
         
         # HTML версия
@@ -122,11 +122,7 @@ def submit_lead_form(request):
                     </p>
                 </div>
                 
-                <div style="margin-top: 20px; padding: 15px; background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%); border-radius: 8px; text-align: center;">
-                    <span style="color: #fff; font-weight: bold; font-size: 14px;">
-                        🎁 Клиент имеет право на скидку 25% как новый клиент!
-                    </span>
-                </div>
+
             </div>
             
             <div style="background: #1a1a1a; padding: 15px; border-radius: 0 0 10px 10px; text-align: center;">
@@ -156,7 +152,6 @@ def submit_lead_form(request):
 
 {_('We have received your inquiry and will contact you shortly.')}
 
-{_('As a new client, you are entitled to a 25% discount on your first order!')}
 
 {_('Your contact details:')}
 📞 {phone}
@@ -175,6 +170,23 @@ Gold Clean Team
             fail_silently=True,  # Не критично если не отправится
         )
         
+        # Создаём лид в базе
+        try:
+            from core.models import Lead
+            lead = Lead.objects.create(
+                name=name,
+                phone=phone,
+                email=email,
+                message=message,
+                source='website',
+                status='new',
+            )
+            # Отправляем уведомление в Telegram
+            from core.telegram import notify_website_lead
+            notify_website_lead(name, phone, email, message)
+        except Exception:
+            pass  # Не ломаем ответ клиенту
+
         return JsonResponse({'success': True})
         
     except json.JSONDecodeError:
@@ -322,14 +334,40 @@ def calculate_price(request):
             house_multiplier = PRIVATE_HOUSE_MULTIPLIER if is_private_house else Decimal('1.0')
             total_price *= house_multiplier
             details['house_multiplier'] = float(house_multiplier)
+            details['frequency'] = frequency
 
+            # Скидка за подписку
             discount_map = {'weekly': DISCOUNT_WEEKLY, 'bi_weekly': DISCOUNT_BI_WEEKLY, 'monthly': DISCOUNT_MONTHLY}
-            discount_percentage = discount_map.get(frequency, Decimal('0.00'))
+            subscription_discount = discount_map.get(frequency, Decimal('0.00'))
+            
+            # Скидка для новых клиентов (25%)
+            DISCOUNT_NEW_CLIENT = Decimal('0.25')
+            MAX_COMBINED_DISCOUNT = Decimal('0.30')
+            
+            new_client_discount = Decimal('0.00')
+            is_new_client = False
+            
+            # Проверяем включена ли скидка в настройках
+            from core.models import SiteConfiguration
+            site_config = SiteConfiguration.objects.first()
+            discount_enabled = site_config.new_client_discount_enabled if site_config else True
+
+            if discount_enabled and request.user.is_authenticated:
+                try:
+                    profile = request.user.profile
+                    if profile.is_new_client:
+                        is_new_client = True
+                        new_client_discount = DISCOUNT_NEW_CLIENT
+                except:
+                    pass
+            
+            # Комбинируем скидки (максимум 30%)
+            combined_discount = min(subscription_discount + new_client_discount, MAX_COMBINED_DISCOUNT)
             
             price_before_discount = total_price
-            discount_amount = total_price * discount_percentage
+            discount_amount = total_price * combined_discount
             final_price = total_price - discount_amount
-
+            
             _create_or_update_order_summary(
                 request, service_id=base_service.id, service_name=str(base_service.name),
                 is_sqm_based=base_service.is_sqm_based, is_window_service=base_service.is_window_service,
@@ -339,7 +377,13 @@ def calculate_price(request):
                 is_private_house=is_private_house, frequency=frequency, total_price=final_price
             )
 
-            return JsonResponse({'total_price': float(final_price), 'base_total': float(price_before_discount), 'discount_amount': float(discount_amount), 'details': details})
+            return JsonResponse({
+                'total_price': float(final_price), 
+                'base_total': float(price_before_discount), 
+                'discount_amount': float(discount_amount), 
+                'is_new_client': is_new_client,
+                'details': details
+            })
         
         except Service.DoesNotExist:
             return JsonResponse({'error': 'Основная услуга не найдена'}, status=404)

@@ -22,4 +22,6 @@ urlpatterns = [
     # URL'ы для страниц успеха и отмены после оплаты
     path('payment-success/', views.PaymentSuccessView.as_view(), name='payment_success'),
     path('payment-cancel/', views.PaymentCancelView.as_view(), name='payment_cancel'),
+    # Stripe Webhook
+    path('webhook/', views.stripe_webhook, name='stripe_webhook'),
 ]

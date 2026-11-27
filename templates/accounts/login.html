@@ -1,63 +1,100 @@
 {% extends 'base.html' %}
 {% load i18n %}
-
 {% block title %}{% trans "Login" %}{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-6">
-            <h2 class="text-center mb-4">{% trans "Login" %}</h2>
-            <form method="post">
-                {% csrf_token %}
-                
-                <div class="mb-3">
-                    <label for="{{ form.username.id_for_label }}" class="form-label">{{ form.username.label }}</label>
-                    {{ form.username }}
-                </div>
-
-                <div class="mb-3">
-                    <label for="{{ form.password.id_for_label }}" class="form-label">{{ form.password.label }}</label>
-                    <div class="password-toggle-container">
-                        {{ form.password }}
-                        <span class="password-toggle-icon" data-target="{{ form.password.id_for_label }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
-                        </span>
+<div class="auth-page">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-5">
+                <div class="auth-card">
+                    <!-- Логотип/иконка -->
+                    <div class="auth-header">
+                        <div class="auth-icon">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                        <h2>{% trans "Login" %}</h2>
+                        <p class="text-muted">{% trans "Welcome back! Please enter your details." %}</p>
+                    </div>
+                    
+                    <!-- Форма -->
+                    <form method="post" class="auth-form">
+                        {% csrf_token %}
+                        
+                        {% if form.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            {% trans "Invalid username or password. Please try again." %}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="{{ form.username.id_for_label }}" 
+                                   name="{{ form.username.name }}" placeholder="{% trans 'Username' %}" required>
+                            <label for="{{ form.username.id_for_label }}">
+                                <i class="bi bi-person me-2"></i>{{ form.username.label }}
+                            </label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="{{ form.password.id_for_label }}" 
+                                   name="{{ form.password.name }}" placeholder="{% trans 'Password' %}" required>
+                            <label for="{{ form.password.id_for_label }}">
+                                <i class="bi bi-lock me-2"></i>{{ form.password.label }}
+                            </label>
+                            <span class="password-toggle" data-target="{{ form.password.id_for_label }}">
+                                <i class="bi bi-eye"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                                <label class="form-check-label" for="remember">
+                                    {% trans "Remember me" %}
+                                </label>
+                            </div>
+                            <a href="{% url 'password_reset' %}" class="auth-link">{% trans "Forgot password?" %}</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-auth w-100">
+                            <i class="bi bi-box-arrow-in-right me-2"></i>{% trans "Login" %}
+                        </button>
+                    </form>
+                    
+                    <!-- Разделитель -->
+                    <div class="auth-divider">
+                        <span>{% trans "or" %}</span>
+                    </div>
+                    
+                    <!-- Регистрация -->
+                    <div class="auth-footer">
+                        <p>{% trans "Don't have an account?" %} 
+                            <a href="{% url 'register' %}" class="auth-link-primary">{% trans "Sign up" %}</a>
+                        </p>
                     </div>
                 </div>
-
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-lg">{% trans "Login" %}</button>
-                </div>
-
-                <!-- ДОБАВЛЯЕМ ССЫЛКУ НА СБРОС ПАРОЛЯ -->
-                <p class="text-center mt-3">
-                    <a href="{% url 'password_reset' %}">{% trans "Forgot password?" %}</a>
-                </p>
-            </form>
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
-<!-- Скрипт для переключения видимости пароля -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const toggleIcons = document.querySelectorAll('.password-toggle-icon');
-
-        const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>`;
-        const eyeSlashIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16"><path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/><path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z"/></svg>`;
-
-        toggleIcons.forEach(icon => {
-            icon.addEventListener('click', function() {
-                const targetInput = document.getElementById(this.dataset.target);
-                if (targetInput.type === 'password') {
-                    targetInput.type = 'text';
-                    this.innerHTML = eyeSlashIcon;
+        const toggles = document.querySelectorAll('.password-toggle');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const input = document.getElementById(this.dataset.target);
+                const icon = this.querySelector('i');
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.replace('bi-eye', 'bi-eye-slash');
                 } else {
-                    targetInput.type = 'password';
-                    this.innerHTML = eyeIcon;
+                    input.type = 'password';
+                    icon.classList.replace('bi-eye-slash', 'bi-eye');
                 }
             });
         });

@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 
     # Сторонние приложения
     'solo',
-    'django_apscheduler',
+    'config.apps.DjangoApschedulerConfig',
 
     # Наши приложения
     'core.apps.CoreConfig',
@@ -85,6 +85,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
                # 'core.context_processors.site_configuration',
                 'core.context_processors.site_settings',
                 'core.context_processors.promo_banner',
@@ -168,3 +169,6 @@ MODELTRANSLATION_PRIMARY_LANGUAGE = 'pl'
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET')
+# === TELEGRAM BOT ===
+TELEGRAM_BOT_TOKEN = '8709946739:AAH9KeVxctvIJQk2cWNB_N7696uwuuFkHUQ'
+TELEGRAM_CHAT_IDS = [8132370799]  # Заполним после получения chat_id от Анны

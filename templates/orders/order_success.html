@@ -4,6 +4,17 @@
 {% block title %}{% trans "Order accepted" %}{% endblock %} 
 
 {% block content %}
+<script>
+window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+    'event': 'purchase',
+    'event_category': 'conversion',
+    'event_label': 'Order Completed',
+    'transaction_id': '{{ order.pk|default:"" }}',
+    'value': {{ order.total_price|default:"0" }},
+    'currency': 'PLN'
+});
+</script>
 <div class="container text-center py-5">
     {# ШАГ 2: Оборачиваем каждую строку в тег trans #}
     <h1 class="display-4 text-success">{% trans "Thank you!" %}</h1>

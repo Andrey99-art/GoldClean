@@ -26,3 +26,7 @@ staticfiles/
 .DS_Store
 Thumbs.db
 *.log
+# secrets and backup copies
+credentials.json
+*.bak
+*.backup

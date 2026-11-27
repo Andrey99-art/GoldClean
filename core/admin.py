@@ -2,6 +2,8 @@
 
 from django.contrib import admin
 from django.utils.html import format_html
+from django.urls import path
+from django.shortcuts import redirect
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from solo.admin import SingletonModelAdmin
@@ -10,7 +12,7 @@ from modeltranslation.translator import translator
 from django.conf import settings
 from deep_translator import GoogleTranslator
 
-from .models import CleaningArea, FeaturePoint, SiteConfiguration, PromoBanner
+from .models import CleaningArea, FeaturePoint, SiteConfiguration, PromoBanner, Lead
 
 # Используем TranslationTabularInline для правильного отображения вкладок
 class FeaturePointInline(TranslationTabularInline):
@@ -119,7 +121,27 @@ class CleaningAreaAdmin(TabbedTranslationAdmin):
 
 @admin.register(SiteConfiguration)
 class SiteConfigurationAdmin(SingletonModelAdmin):
-    pass
+    fieldsets = (
+        ('🏢 Основные настройки', {
+            'fields': ('cancellation_fee', 'services_page_enabled', 'is_new_year_theme')
+        }),
+        ('💰 Скидки', {
+            'fields': (
+                'new_client_discount_enabled',
+                'new_client_discount_percent',
+                'subscription_discount_enabled',
+                'discount_weekly',
+                'discount_bi_weekly',
+                'discount_monthly',
+                'max_combined_discount',
+            ),
+            'description': 'Управление системой скидок. Все значения в процентах.',
+        }),
+        ('🔗 Социальные сети', {
+            'fields': ('telegram_link', 'whatsapp_link', 'instagram_link'),
+            'classes': ('collapse',)
+        }),
+    )
 
 @admin.register(PromoBanner)
 class PromoBannerAdmin(TabbedTranslationAdmin):
@@ -183,3 +205,145 @@ class PromoBannerAdmin(TabbedTranslationAdmin):
         elif obj.content_type == 'text_only':
             return format_html('<span style="color: #666;">📝 Text</span>')
         return '-'
+
+
+
+@admin.register(Lead)
+class LeadAdmin(admin.ModelAdmin):
+    list_display = [
+        'name',
+        'phone',
+        'email',
+        'service_name',
+        'status_colored',
+        'processing_status',
+        'order_status',
+        'source',
+        'platform',
+        'lead_received_at',
+        'convert_btn',
+    ]
+    list_filter = ['status', 'processing_status', 'order_status', 'source', 'platform', 'created_at']
+    search_fields = ['name', 'phone', 'email', 'message', 'service_name', 'campaign']
+    readonly_fields = ['created_at', 'updated_at', 'ip_address', 'user_agent', 'sheets_row_id']
+    ordering = ['-created_at']
+    date_hierarchy = 'created_at'
+    list_per_page = 25
+    
+    fieldsets = (
+        ('👤 Контактная информация', {
+            'fields': ('name', 'phone', 'email', 'message')
+        }),
+        ('🧹 Услуга', {
+            'fields': ('service_name', 'order_amount')
+        }),
+        ('📊 Статус', {
+            'fields': ('status', 'processing_status', 'order_status', 'processing_time', 'admin_notes', 'converted_user')
+        }),
+        ('📢 Рекламная информация', {
+            'fields': ('source', 'platform', 'audience', 'campaign', 'ad_group', 'lead_received_at'),
+        }),
+        ('🔍 Мета-данные', {
+            'fields': ('created_at', 'updated_at', 'ip_address', 'user_agent', 'sheets_row_id'),
+            'classes': ('collapse',)
+        }),
+    )
+    
+    actions = ['export_to_excel', 'mark_contacted', 'mark_converted', 'mark_cancelled']
+    
+    @admin.display(description='Статус')
+    def status_colored(self, obj):
+        colors = {
+            'new': ('#28a745', '🆕'),
+            'contacted': ('#ffc107', '📞'), 
+            'converted': ('#17a2b8', '✅'),
+            'cancelled': ('#dc3545', '✗'),
+        }
+        color, icon = colors.get(obj.status, ('#6c757d', '?'))
+        return format_html(
+            '<span style="background: {}; color: white; padding: 3px 10px; border-radius: 3px;">{} {}</span>',
+            color, icon, obj.get_status_display()
+        )
+    
+    @admin.display(description='Источник')
+    def source_display(self, obj):
+        return format_html(
+            '<span style="color: #666; font-size: 11px;">Pop-up форма</span>'
+        )
+    
+    # === ЭКСПОРТ В EXCEL ===
+    @admin.action(description='📥 Экспорт в Excel')
+    def export_to_excel(self, request, queryset):
+        import openpyxl
+        from django.http import HttpResponse
+        from openpyxl.styles import Font, Fill, PatternFill, Alignment
+        
+        wb = openpyxl.Workbook()
+        ws = wb.active
+        ws.title = 'Лиды'
+        
+        # Заголовки
+        headers = ['ID', 'Имя', 'Телефон', 'Email', 'Сообщение', 'Статус', 'Дата создания']
+        for col, header in enumerate(headers, 1):
+            cell = ws.cell(row=1, column=col, value=header)
+            cell.font = Font(bold=True, color='FFFFFF')
+            cell.fill = PatternFill(start_color='B89E40', end_color='B89E40', fill_type='solid')
+            cell.alignment = Alignment(horizontal='center')
+        
+        # Данные
+        for row, lead in enumerate(queryset, 2):
+            ws.cell(row=row, column=1, value=lead.id)
+            ws.cell(row=row, column=2, value=lead.name)
+            ws.cell(row=row, column=3, value=lead.phone)
+            ws.cell(row=row, column=4, value=lead.email)
+            ws.cell(row=row, column=5, value=lead.message or '')
+            ws.cell(row=row, column=6, value=lead.get_status_display())
+            ws.cell(row=row, column=7, value=lead.created_at.strftime('%d.%m.%Y %H:%M'))
+        
+        # Автоширина колонок
+        for col in ws.columns:
+            max_length = 0
+            column = col[0].column_letter
+            for cell in col:
+                try:
+                    if len(str(cell.value)) > max_length:
+                        max_length = len(str(cell.value))
+                except:
+                    pass
+            ws.column_dimensions[column].width = min(max_length + 2, 50)
+        
+        # Ответ
+        response = HttpResponse(
+            content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        )
+        response['Content-Disposition'] = 'attachment; filename="leads_export.xlsx"'
+        wb.save(response)
+        
+        return response
+    
+    # === БЫСТРЫЕ ДЕЙСТВИЯ ===
+    @admin.action(description='📞 Отметить как "Связались"')
+    def mark_contacted(self, request, queryset):
+        updated = queryset.update(status='contacted')
+        self.message_user(request, f'Обновлено лидов: {updated}')
+    
+    @admin.action(description='✅ Отметить как "Конвертирован"')
+    def mark_converted(self, request, queryset):
+        updated = queryset.update(status='converted')
+        self.message_user(request, f'Конвертировано лидов: {updated}')
+    
+    @admin.action(description='✗ Отметить как "Отменён"')
+    def mark_cancelled(self, request, queryset):
+        updated = queryset.update(status='cancelled')
+        self.message_user(request, f'Отменено лидов: {updated}')
+
+    @admin.display(description='Действие')
+    def convert_btn(self, obj):
+        if obj.status == 'converted':
+            return format_html('<span style="color:#28a745;">\u2713 Конвертирован</span>')
+        return format_html(
+            '<a href="/admin/orders/order/add/?customer_name={}&customer_phone={}&customer_email={}" '
+            'style="background:#B89E40;color:white;padding:4px 12px;border-radius:4px;'
+            'text-decoration:none;font-size:12px;white-space:nowrap;">+ Заказ</a>',
+            obj.name or '', obj.phone or '', obj.email or ''
+        )

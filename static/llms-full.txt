@@ -1,0 +1,171 @@
+# Gold Clean — Full Information for AI Systems
+
+> Gold Clean is a professional cleaning company operating in Warsaw (Warszawa), Poland. This document provides comprehensive information about the company, its services, pricing, and service area.
+
+## Company Overview
+
+Gold Clean is a cleaning company founded in Warsaw, Poland. The company provides residential and commercial cleaning services across the Warsaw metropolitan area. Gold Clean is committed to quality, reliability, and eco-friendly cleaning practices. The website is available in four languages: Polish (primary), English, Russian, and Ukrainian, reflecting the diverse community in Warsaw.
+
+**Official website**: https://goldclean2026.pl
+**Phone**: +48 781 628 269
+**Instagram**: @goldclean_warszawa
+
+## Detailed Service Descriptions
+
+### 1. Standard Cleaning (Sprzątanie standardowe) — from 219.99 zł
+Regular maintenance cleaning ideal for keeping homes tidy between deep cleans.
+
+**What's included in each room:**
+- Floor washing and vacuuming
+- Dusting all surfaces
+- Careful arrangement of shoes and belongings
+- Bed making and linen changing
+
+**What's included in the hallway:**
+- Floor washing
+- Shoe arrangement
+- Careful folding and hanging of clothes
+- Trash removal
+
+**What's included in the kitchen:**
+- Floor washing
+- Countertop and table cleaning
+- Stovetop cleaning
+- Sink cleaning and disinfection
+- Appliance exterior wiping
+- Trash removal
+
+**What's included in the bathroom:**
+- Floor washing
+- Toilet cleaning and disinfection
+- Shower/bathtub cleaning
+- Mirror cleaning
+- Sink cleaning
+- Tile wiping
+
+### 2. Deep Cleaning (Sprzątanie generalne) — from 280 zł
+Comprehensive deep cleaning for a thorough refresh of your home.
+
+Includes everything in standard cleaning plus:
+- Inside window sill cleaning
+- Baseboard cleaning
+- Light switch and door handle disinfection
+- Inside cabinet cleaning (exterior)
+- Detailed appliance cleaning
+- Behind and under furniture cleaning where accessible
+
+### 3. Kitchen Cleaning (Sprzątanie kuchni) — from 289 zł
+Professional deep cleaning focused entirely on the kitchen area.
+
+### 4. Post-Renovation Cleaning (Sprzątanie po remoncie) — priced per m²
+Specialized cleaning after construction or renovation work. Removes construction dust, paint spots, adhesive residue, and other post-renovation debris.
+
+### 5. Window Cleaning (Mycie okien) — from 45 zł per window
+Professional window washing including frames and sills.
+
+### 6. Space Organization (Organizacja przestrzeni) — from 120 zł
+Professional decluttering and space organization service.
+
+## Additional Services (can be added to any cleaning)
+
+| Service | Price |
+|---------|-------|
+| Closet cleaning | 30 zł per unit |
+| Oven cleaning | 40 zł |
+| Refrigerator cleaning | 40 zł |
+| Dishwasher cleaning | 40 zł |
+| Microwave cleaning | 20 zł |
+| Kitchen cabinet cleaning | 55 zł |
+| Hood/extractor cleaning | 40 zł |
+| Balcony cleaning | 35 zł |
+| Glass railing cleaning | 20 zł per unit |
+| Ironing | 50 zł per hour |
+| Dish washing | 35 zł |
+| Litter box cleaning | 10 zł |
+| Shopping trip | 60 zł per hour |
+| Window cleaning (under 5) | 40 zł per unit |
+
+## Pricing Structure
+
+- Base price depends on the selected service
+- Additional rooms: extra charge per room beyond the first
+- Additional bathrooms: extra charge per bathroom beyond the first
+- Private house: 1.2x multiplier applied
+- Vacuum cleaner rental: +28 zł (if client doesn't have one)
+- Delivery charge: varies by city/district
+
+### Subscription Discounts
+- Weekly cleaning: discount available
+- Bi-weekly cleaning: discount available
+- Monthly cleaning: discount available
+
+## Service Area
+
+Gold Clean serves Warsaw (Warszawa) and surrounding cities including but not limited to:
+- Grodzisk Mazowiecki
+- Mysiadło
+- Pruszków
+- Piaseczno
+- Józefosław
+- Konstancin-Jeziorna
+- Raszyn
+- Janki
+- Nadarzyn
+- Brwinów
+- Milanówek
+- Podkowa Leśna
+- Ożarów Mazowiecki
+- Łomianki
+- Marki
+- Ząbki
+- Wołomin
+- Legionowo
+- Nowy Dwór Mazowiecki
+
+Delivery charges may apply for locations outside central Warsaw.
+
+## Booking Process
+
+1. Visit https://goldclean2026.pl
+2. Use the online calculator to select services
+3. Choose the number of rooms, bathrooms, and any additional services
+4. Select preferred date and time
+5. Enter address details
+6. Choose payment method (cash or card/BLIK)
+7. Submit the order
+
+The calculator provides instant price estimates and estimated cleaning duration.
+
+## Payment Methods
+
+- **Cash**: Pay the cleaner directly after service completion
+- **Card (BLIK)**: Online payment via Stripe with BLIK support
+
+## Why Choose Gold Clean
+
+- Experienced and verified cleaning professionals
+- Eco-friendly and safe cleaning products
+- Transparent pricing with online calculator
+- Flexible scheduling options
+- Service in 4 languages (Polish, English, Russian, Ukrainian)
+- Coverage across Warsaw metropolitan area
+- Professional equipment provided
+- Satisfaction guaranteed
+
+## Contact Information
+
+- **Phone**: +48 781 628 269 (calls, SMS)
+- **Website**: https://goldclean2026.pl
+- **Instagram**: https://www.instagram.com/goldclean_warszawa/
+- **Telegram**: Available via website link
+- **WhatsApp**: Available via website link
+- **Email**: Available through website contact form
+
+## Technical Information
+
+- Website built with Django framework
+- SSL-secured (HTTPS)
+- Mobile-responsive design
+- Multi-language support (i18n)
+- Online booking and payment system
+- Sitemap: https://goldclean2026.pl/sitemap.xml

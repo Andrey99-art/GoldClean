@@ -9,7 +9,7 @@
     --light-text: #f8f9fa;
     --dark-text: #212529;
     --subtle-border: #3a3c42;
-    --header-bg-light: #f8f9fa;
+    --header-bg-light: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
     --header-border: #e0e0e0;
 }
 
@@ -1079,6 +1079,7 @@ html {
 
 /* Основная панель */
 .header-main-bar {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%) !important;
     background: var(--header-bg-light);
 }
 
@@ -1539,7 +1540,472 @@ html {
 .promo-banner-wrapper.text-only-banner .promo-content {
     padding: 1.5rem;
 }
+/* Светлая навигационная панель с узором */
+.header-main-bar {
+    background: linear-gradient(135deg, #fefefe 0%, #f8f8f8 50%, #fefefe 100%) !important;
+    background-image: 
+        linear-gradient(135deg, #fefefe 0%, #f8f8f8 50%, #fefefe 100%),
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(184, 158, 64, 0.03) 10px,
+            rgba(184, 158, 64, 0.03) 20px
+        ) !important;
+    border-bottom: 2px solid #B89E40;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 
-.promo-banner-wrapper.text-only-banner .promo-title {
-    font-size: 1.25rem;
+.header-nav-desktop .nav-link {
+    color: #333333 !important;
+}
+
+.header-nav-desktop .nav-link:hover {
+    color: #B89E40 !important;
+}
+/* Footer - светлый фон без узора */
+footer.header-footer-bg {
+    background: #f8f9fa !important;
+    background-image: none !important;
+}
+
+footer.header-footer-bg a,
+footer.header-footer-bg .nav-link {
+    color: #333333 !important;
+}
+
+footer.header-footer-bg a:hover,
+footer.header-footer-bg .nav-link:hover {
+    color: #B89E40 !important;
+}
+/* ===== AUTH PAGES STYLES ===== */
+.auth-page {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff9e6 50%, #f8f9fa 100%);
+}
+
+.auth-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    border: 1px solid rgba(184, 158, 64, 0.2);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #B89E40 0%, #D4AF37 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 15px rgba(184, 158, 64, 0.3);
+}
+
+.auth-icon i {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.auth-header h2 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+    font-size: 0.95rem;
+}
+
+.auth-form .form-floating {
+    position: relative;
+}
+
+.auth-form .form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1rem 1rem 1rem 1rem;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.auth-form .form-control:focus {
+    border-color: #B89E40;
+    box-shadow: 0 0 0 3px rgba(184, 158, 64, 0.15);
+}
+
+.auth-form .form-floating label {
+    padding: 1rem;
+    color: #666;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #B89E40;
+}
+
+.btn-auth {
+    background: linear-gradient(135deg, #B89E40 0%, #D4AF37 100%);
+    border: none;
+    color: #ffffff;
+    padding: 0.9rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(184, 158, 64, 0.3);
+}
+
+.btn-auth:hover {
+    background: linear-gradient(135deg, #9A8235 0%, #B89E40 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(184, 158, 64, 0.4);
+    color: #ffffff;
+}
+
+.auth-link {
+    color: #B89E40;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+    color: #9A8235;
+    text-decoration: underline;
+}
+
+.auth-divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.auth-divider span {
+    background: #ffffff;
+    padding: 0 1rem;
+    color: #999;
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.auth-footer {
+    text-align: center;
+}
+
+.auth-footer p {
+    margin: 0;
+    color: #666;
+}
+
+.auth-link-primary {
+    color: #B89E40;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.auth-link-primary:hover {
+    color: #9A8235;
+    text-decoration: underline;
+}
+
+/* Mobile responsive */
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+        border-radius: 15px;
+    }
+    
+    .auth-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .auth-icon i {
+        font-size: 1.8rem;
+    }
+    
+    .auth-header h2 {
+        font-size: 1.5rem;
+    }
+}
+/* Mobile header fix - светлый фон */
+@media (max-width: 1199px) {
+    .navbar,
+    .navbar.d-xl-none,
+    header.header-footer-bg,
+    .header-top-bar,
+    .offcanvas {
+        background: #ffffff !important;
+        background-image: none !important;
+    }
+    
+    .navbar .navbar-brand,
+    .navbar a,
+    .offcanvas a,
+    .offcanvas .nav-link {
+        color: #333333 !important;
+    }
+    
+    .offcanvas .nav-link:hover {
+        color: #B89E40 !important;
+    }
+    
+    .offcanvas-header {
+        background: #ffffff !important;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .offcanvas-body {
+        background: #ffffff !important;
+    }
+}
+/* ===== PROMO RIBBON FOR NEW CLIENTS ===== */
+.promo-ribbon {
+    background: linear-gradient(135deg, #B89E40 0%, #D4AF37 50%, #B89E40 100%);
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1050;
+    box-shadow: 0 2px 10px rgba(184, 158, 64, 0.3);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.promo-ribbon-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.promo-ribbon-icon {
+    font-size: 1.5rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.promo-ribbon-text {
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.promo-ribbon-btn {
+    background: #ffffff;
+    color: #B89E40;
+    padding: 6px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid #ffffff;
+}
+
+.promo-ribbon-btn:hover {
+    background: transparent;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.promo-ribbon-close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.promo-ribbon-close:hover {
+    opacity: 1;
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .promo-ribbon {
+        padding: 8px 40px 8px 15px;
+    }
+    
+    .promo-ribbon-content {
+        gap: 8px;
+    }
+    
+    .promo-ribbon-icon {
+        font-size: 1.2rem;
+    }
+    
+    .promo-ribbon-text {
+        font-size: 0.85rem;
+    }
+    
+    .promo-ribbon-btn {
+        padding: 4px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .promo-ribbon-close {
+        right: 10px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Скрытая лента */
+.promo-ribbon.hidden {
+    display: none;
+}
+/* ============================================
+   WIDER CONTENT SECTIONS
+   ============================================ */
+.calculator-section,
+/* ============================================
+   WIDER CONTENT SECTIONS - RESPONSIVE
+   Расширенные секции с адаптивностью
+   ============================================ */
+
+/* Основные контейнеры - 90% ширины, макс 1600px */
+.calculator-section,
+.services-grid,
+.slogan-container,
+.container-xxl {
+    max-width: 1600px !important;
+    width: 90% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Calculator section - убираем отрицательные margin */
+.calculator-section {
+    margin: 0 auto 2rem auto !important;
+    padding: 2.5rem;
+}
+
+/* Планшеты (768px - 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .calculator-section,
+    .services-grid,
+    .slogan-container,
+    .container-xxl {
+        width: 95% !important;
+    }
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 767px) {
+    .calculator-section,
+    .services-grid,
+    .slogan-container,
+    .container-xxl {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 0;
+    }
+    
+    .calculator-section {
+        padding: 1.5rem 1rem;
+        margin: 0 0 1.5rem 0 !important;
+    }
+}
+
+/* Большие экраны (1400px+) */
+@media (min-width: 1400px) {
+    .calculator-section,
+    .services-grid,
+    .slogan-container,
+    .container-xxl {
+        width: 85% !important;
+        max-width: 1600px !important;
+    }
+}
+
+/* Очень большие экраны (1800px+) */
+@media (min-width: 1800px) {
+    .calculator-section,
+    .services-grid,
+    .slogan-container,
+    .container-xxl {
+        width: 80% !important;
+        max-width: 1700px !important;
+    }
+}
+
+/* ============================================
+   CONTAINER-WIDE - Расширенный главный контейнер
+   ============================================ */
+.container-wide {
+    width: 95%;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Планшеты */
+@media (max-width: 1199px) {
+    .container-wide {
+        width: 98%;
+    }
+}
+
+/* Мобильные */
+@media (max-width: 767px) {
+    .container-wide {
+        width: 100%;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
 }

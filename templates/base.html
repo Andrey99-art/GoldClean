@@ -39,6 +39,8 @@
     {% for lang_code, lang_name in LANGUAGES %}
     <link rel="alternate" hreflang="{{ lang_code }}" href="https://goldclean2026.pl/{{ lang_code }}{{ request.path|slice:'3:' }}" />
     {% endfor %}
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://goldclean2026.pl{{ request.path }}" />
 
    <!-- ======================================================= -->
     <!--                    FAVICON (FIXED)                      -->
@@ -62,13 +64,58 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    {% if site_config.is_new_year_theme %}<link rel="stylesheet" href="{% static 'css/new-year-theme.css' %}">{% endif %}
 </head>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <body>
+{% if site_config.is_new_year_theme %}
+<!-- Snowflakes Animation -->
+<div class="snowflakes" aria-hidden="true">
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+</div>
+{% endif %}
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K7BKQ53X"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->    
+ <!-- ======================================================= -->
+    <!--          ПРОМО-ЛЕНТА ДЛЯ НОВЫХ КЛИЕНТОВ                 -->
+    <!-- ======================================================= -->
+{% if site_config.new_client_discount_enabled %}{% if not user.is_authenticated or user.profile.is_new_client %}
+    <div class="promo-ribbon" id="promo-ribbon">
+        <div class="promo-ribbon-content">
+            <span class="promo-ribbon-icon">🎁</span>
+            {% if LANGUAGE_CODE == "pl" %}
+            <span class="promo-ribbon-text">Nowy klient? Odbierz -25% na pierwsze zamówienie!</span>
+            <a href="#calculator-section" class="promo-ribbon-btn">Zamów teraz</a>
+            {% elif LANGUAGE_CODE == "ru" %}
+            <span class="promo-ribbon-text">Новый клиент? Получите -25% на первый заказ!</span>
+            <a href="#calculator-section" class="promo-ribbon-btn">Заказать сейчас</a>
+            {% elif LANGUAGE_CODE == "uk" %}
+            <span class="promo-ribbon-text">Новий клієнт? Отримайте -25% на перше замовлення!</span>
+            <a href="#calculator-section" class="promo-ribbon-btn">Замовити зараз</a>
+            {% else %}
+            <span class="promo-ribbon-text">New client? Get -25% on your first order!</span>
+            <a href="#calculator-section" class="promo-ribbon-btn">Order now</a>
+            {% endif %}
+            <button class="promo-ribbon-close" onclick="closePromoRibbon()" aria-label="Close">&times;</button>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
 
     <!-- ======================================================= -->
     <!--          НАЧАЛО: Анимация пузырьков (Фон)               -->
@@ -125,6 +172,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <i class="bi bi-whatsapp"></i>
                         </a>
                         {% endif %}
+                        {% if site_config and site_config.instagram_link %}
+                        <a href="{{ site_config.instagram_link }}" target="_blank" rel="noopener noreferrer" class="social-icon-header" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        {% endif %}
                         
                         <!-- Язык -->
                         <form action="{% url 'set_language' %}" method="post" class="mb-0">
@@ -157,9 +209,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center py-2">
                     <!-- Лого -->
+ <!-- Лого -->
+                  {% if site_config.is_new_year_theme %}
+                    <a href="{% url 'index' %}" class="header-logo-link">
+                        <img src="{% static 'images/logo-new-year.png' %}" alt="Gold Clean Logo" class="header-logo-desktop">
+                    </a>
+                    {% else %}
                     <a href="{% url 'index' %}" class="header-logo-link">
                         <img src="{% static 'images/logo.png' %}" alt="Gold Clean Logo" class="header-logo-desktop">
                     </a>
+                    {% endif %}
                     
                     <!-- Меню -->
                     <nav class="header-nav-desktop">
@@ -170,7 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             {% endif %}
                             <li class="nav-item"><a href="{% url 'window_cleaning' %}" class="nav-link">{% trans "Window Cleaning" %}</a></li>
                             <li class="nav-item"><a href="{% url 'kitchen_cleaning' %}" class="nav-link">{% trans "Kitchen Cleaning" %}</a></li>
-                            <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">{% trans "Pricing" %}</a></li>
+                            <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link">{% trans "Our Services & Pricing" %}</a></li>
                             <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">{% trans "About us" %}</a></li>
                         </ul>
                     </nav>
@@ -208,9 +267,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container">
             <!-- Лого и слоган -->
             <div class="d-flex flex-column">
+              {% if site_config.is_new_year_theme %}
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img src="{% static 'images/logo-new-year.png' %}" alt="Gold Clean Logo" class="header-logo-mobile">
+                </a>
+              {% else %}
                 <a class="navbar-brand" href="{% url 'index' %}">
                     <img src="{% static 'images/logo.png' %}" alt="Gold Clean Logo" class="header-logo-mobile">
                 </a>
+              {% endif %}
                 <!-- Слоган под лого на мобильном -->
                 <div class="header-slogan-mobile">
                     <p class="mb-0">{% trans "An individual approach to the cleanliness of your space." %}</p>
@@ -249,7 +314,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {% endif %}
                 <li class="nav-item"><a href="{% url 'window_cleaning' %}" class="nav-link py-2"><i class="bi bi-window me-2"></i>{% trans "Window Cleaning" %}</a></li>
                 <li class="nav-item"><a href="{% url 'kitchen_cleaning' %}" class="nav-link py-2"><i class="bi bi-cup-hot me-2"></i>{% trans "Kitchen Cleaning" %}</a></li>
-                <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link py-2"><i class="bi bi-calculator me-2"></i>{% trans "Pricing" %}</a></li>
+                <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link py-2"><i class="bi bi-calculator me-2"></i>{% trans "Our Services & Pricing" %}</a></li>
                 <li class="nav-item"><a href="{% url 'about' %}" class="nav-link py-2"><i class="bi bi-info-circle me-2"></i>{% trans "About us" %}</a></li>
             </ul>
 
@@ -268,6 +333,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {% if site_config and site_config.whatsapp_link %}
                     <a href="{{ site_config.whatsapp_link }}" target="_blank" class="btn btn-outline-secondary">
                         <i class="bi bi-whatsapp"></i>
+                    </a>
+                    {% endif %}
+                    {% if site_config and site_config.instagram_link %}
+                    <a href="{{ site_config.instagram_link }}" target="_blank" class="btn btn-outline-secondary">
+                        <i class="bi bi-instagram"></i>
                     </a>
                     {% endif %}
                 </div>
@@ -316,7 +386,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
-    <main class="container">
+    <main class="container-wide">
         <!-- Сообщения (Messages) -->
         {% if messages %}
             <div class="messages-container my-3">
@@ -345,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {% endif %}
                 <li class="nav-item"><a href="{% url 'window_cleaning' %}" class="nav-link px-2 text-body-secondary">{% trans "Window Cleaning" %}</a></li>
                 <li class="nav-item"><a href="{% url 'kitchen_cleaning' %}" class="nav-link px-2 text-body-secondary">{% trans "Kitchen Cleaning" %}</a></li>
-                <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link px-2 text-body-secondary">{% trans "Pricing" %}</a></li>
+                <li class="nav-item"><a href="{% url 'pricing' %}" class="nav-link px-2 text-body-secondary">{% trans "Our Services & Pricing" %}</a></li>
                 <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-body-secondary">{% trans "About us" %}</a></li>
                 <li class="nav-item"><a href="{% url 'privacy_policy' %}" class="nav-link px-2 text-body-secondary">{% trans "Privacy Policy" %}</a></li>
                 <li class="nav-item"><a href="{% url 'terms' %}" class="nav-link px-2 text-body-secondary">{% trans "Terms" %}</a></li>
@@ -359,6 +429,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {% if site_config and site_config.whatsapp_link %}
                 <a href="{{ site_config.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="social-icon-footer" title="WhatsApp">
                     <i class="bi bi-whatsapp"></i>
+                </a>
+                {% endif %}
+                {% if site_config and site_config.instagram_link %}
+                <a href="{{ site_config.instagram_link }}" target="_blank" rel="noopener noreferrer" class="social-icon-footer" title="Instagram">
+                    <i class="bi bi-instagram"></i>
                 </a>
                 {% endif %}
             </div>
@@ -460,11 +535,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {% trans "WYŚLIJ ZGŁOSZENIE" %}
                 </button>
                 
+                {% if site_config.new_client_discount_enabled %}
                 <div class="text-center">
                     <span class="popup-discount-badge">
                         <i class="bi bi-gift me-1"></i>{% trans "-25% dla nowych klientów!" %}
                     </span>
                 </div>
+                {% endif %}
             </form>
             
             <!-- Success Message -->
@@ -693,6 +770,146 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })();
     </script>
 
+ <!-- Promo Ribbon Script -->
+    <script>
+    function closePromoRibbon() {
+        var ribbon = document.getElementById("promo-ribbon");
+        if (ribbon) {
+            ribbon.classList.add("hidden");
+            sessionStorage.setItem("promoRibbonClosed", "true");
+        }
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        if (sessionStorage.getItem("promoRibbonClosed") === "true") {
+            var ribbon = document.getElementById("promo-ribbon");
+            if (ribbon) ribbon.classList.add("hidden");
+        }
+    });
+    </script>
     {% block extra_js %}{% endblock %}
+
+<!-- ======================================================= -->
+<!--          GOOGLE ANALYTICS 4 - EVENT TRACKING            -->
+<!-- ======================================================= -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Проверяем что gtag доступен
+    if (typeof gtag !== 'function') {
+        window.gtag = function() { window.dataLayer = window.dataLayer || []; window.dataLayer.push(arguments); };
+    }
+    
+    // 1. Клик по номеру телефона
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            gtag('event', 'phone_click', {
+                'event_category': 'contact',
+                'event_label': this.href.replace('tel:', '')
+            });
+        });
+    });
+    
+    // 2. Клик по WhatsApp
+    document.querySelectorAll('a[href*="wa.me"], a[title="WhatsApp"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            gtag('event', 'whatsapp_click', {
+                'event_category': 'contact',
+                'event_label': 'WhatsApp'
+            });
+        });
+    });
+    
+    // 3. Клик по Telegram
+    document.querySelectorAll('a[href*="t.me"], a[title="Telegram"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            gtag('event', 'telegram_click', {
+                'event_category': 'contact',
+                'event_label': 'Telegram'
+            });
+        });
+    });
+    
+    // 4. Клик по Instagram
+    document.querySelectorAll('a[href*="instagram.com"], a[title="Instagram"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            gtag('event', 'instagram_click', {
+                'event_category': 'social',
+                'event_label': 'Instagram'
+            });
+        });
+    });
+    
+    // 5. Клик "Оформить заказ" (десктоп)
+    var submitOrderBtn = document.getElementById('submit-order-btn');
+    if (submitOrderBtn) {
+        submitOrderBtn.addEventListener('click', function() {
+            var totalPrice = document.getElementById('total-price');
+            gtag('event', 'begin_checkout', {
+                'event_category': 'conversion',
+                'event_label': 'Place Order Click',
+                'value': totalPrice ? parseFloat(totalPrice.textContent) || 0 : 0,
+                'currency': 'PLN'
+            });
+        });
+    }
+    
+    // 6. Клик "Оформить заказ" (мобильный)
+    var mobileOrderBtn = document.getElementById('mobile-order-btn');
+    if (mobileOrderBtn) {
+        mobileOrderBtn.addEventListener('click', function() {
+            var stickyPrice = document.getElementById('sticky-total-price');
+            gtag('event', 'begin_checkout', {
+                'event_category': 'conversion',
+                'event_label': 'Place Order Click Mobile',
+                'value': stickyPrice ? parseFloat(stickyPrice.textContent) || 0 : 0,
+                'currency': 'PLN'
+            });
+        });
+    }
+    
+    // 7. Отправка pop-up формы (заявка)
+    var leadForm = document.getElementById('lead-popup-form');
+    if (leadForm) {
+        leadForm.addEventListener('submit', function() {
+            gtag('event', 'generate_lead', {
+                'event_category': 'conversion',
+                'event_label': 'Pop-up Lead Form'
+            });
+        });
+    }
+    
+    // 8. Клик по кнопке CTA в hero-секции
+    document.querySelectorAll('a[href*="#calculator"], a[href*="calculator-section"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            gtag('event', 'cta_click', {
+                'event_category': 'engagement',
+                'event_label': 'Hero CTA - Place Order'
+            });
+        });
+    });
+    
+    // 9. Выбор услуги в калькуляторе
+    var serviceSelect = document.getElementById('service');
+    if (serviceSelect) {
+        serviceSelect.addEventListener('change', function() {
+            if (this.value) {
+                gtag('event', 'select_service', {
+                    'event_category': 'calculator',
+                    'event_label': this.options[this.selectedIndex].text
+                });
+            }
+        });
+    }
+    
+    // 10. Смена языка
+    document.querySelectorAll('.language-selector a, .lang-btn').forEach(function(el) {
+        el.addEventListener('click', function() {
+            gtag('event', 'language_change', {
+                'event_category': 'engagement',
+                'event_label': this.textContent.trim()
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>

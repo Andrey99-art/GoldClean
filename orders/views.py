@@ -10,6 +10,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import TemplateView
+from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from accounts.models import Profile
 from core.utils import format_duration, send_gmail_message
@@ -25,11 +26,29 @@ logger = logging.getLogger(__name__)
 def _send_order_confirmation_email(order):
     """Отправляет подтверждение клиенту и уведомление администратору."""
     try:
+        # Словари для человекочитаемых значений
+        frequency_labels = {
+            'one_time': 'Разовая уборка',
+            'weekly': 'Раз в неделю',
+            'bi_weekly': 'Раз в 2 недели',
+            'monthly': 'Раз в месяц',
+        }
+        payment_labels = {
+            'cash': 'Наличные',
+            'card': 'Картой онлайн',
+        }
+        
+        # Формируем полный адрес
+        full_address = f"{order.street} {order.building_number}"
+        if order.apartment_number:
+            full_address += f", кв. {order.apartment_number}"
+        full_address += f", {order.postal_code}"
+        if order.city:
+            full_address += f", {order.city.name}"
+        
+        # === ПИСЬМО КЛИЕНТУ ===
         if order.customer_email:
             subject_client = f"Ваш заказ №{order.id} на сайте Gold Clean принят"
-            full_address = f"{order.street} {order.building_number}"
-            if order.apartment_number: full_address += f", кв. {order.apartment_number}"
-            full_address += f", {order.postal_code}, {order.city.name}"
             message_body_client = (
                 f"Здравствуйте, {order.customer_name}!\n\n"
                 f"Спасибо за ваш заказ! Мы получили вашу заявку №{order.id} и скоро свяжемся с вами для подтверждения всех деталей.\n"
@@ -46,39 +65,102 @@ def _send_order_confirmation_email(order):
             send_gmail_message(subject_client, message_body_client, [order.customer_email])
         else:
             logger.warning(f"Не удалось отправить письмо клиенту для заказа {order.id}: email не указан.")
-
+        
+        # === ПИСЬМО АДМИНИСТРАТОРУ ===
         admin_email = getattr(settings, 'ADMIN_EMAIL', 'goldclean2026@gmail.com')
-        subject_admin = f"Новый заказ №{order.id} на сайте Gold Clean!"
+        subject_admin = f"🧹 Новый заказ №{order.id} на сайте Gold Clean!"
+        
+        # Полный адрес для админа с дополнительными деталями
         full_address_admin = f"{order.street} {order.building_number}"
-        if order.apartment_number: full_address_admin += f", кв. {order.apartment_number}"
-        full_address_admin += f", {order.postal_code}, {order.city.name}"
-        if order.entrance: full_address_admin += f", подъезд {order.entrance}"
-        if order.floor: full_address_admin += f", этаж {order.floor}"
-        if order.intercom_code: full_address_admin += f", домофон {order.intercom_code}"
+        if order.apartment_number:
+            full_address_admin += f", кв. {order.apartment_number}"
+        full_address_admin += f", {order.postal_code}"
+        if order.city:
+            full_address_admin += f", {order.city.name}"
+        if order.entrance:
+            full_address_admin += f", подъезд {order.entrance}"
+        if order.floor:
+            full_address_admin += f", этаж {order.floor}"
+        if order.intercom_code:
+            full_address_admin += f", домофон {order.intercom_code}"
+        
         message_body_admin = (
-            f"Поступил новый заказ №{order.id}.\n\n"
-            f"**Данные клиента:**\n"
-            f"  Имя: {order.customer_name}\n"
-            f"  Email: {order.customer_email}\n"
-            f"  Телефон: {order.customer_phone}\n"
-            f"\n**Детали заказа:**\n"
-            f"  Услуга: {order.service.name}\n"
-            f"  Итоговая стоимость: {order.total_price} zł\n"
-            f"  Желаемая дата и время: {order.cleaning_date.strftime('%d.%m.%Y')} в {order.cleaning_time.strftime('%H:%M')}\n"
-            f"  Адрес: {full_address_admin}\n"
-            f"  Комментарии: {order.comments or 'Нет'}\n"
+            f"═══════════════════════════════════════\n"
+            f"   НОВЫЙ ЗАКАЗ №{order.id}\n"
+            f"═══════════════════════════════════════\n\n"
+            f"👤 ДАННЫЕ КЛИЕНТА:\n"
+            f"   Имя: {order.customer_name}\n"
+            f"   Телефон: {order.customer_phone}\n"
+            f"   Email: {order.customer_email or 'Не указан'}\n"
+            f"\n"
+            f"🧹 ДЕТАЛИ ЗАКАЗА:\n"
+            f"   Услуга: {order.service.name}\n"
+            f"   Частота: {frequency_labels.get(order.frequency, order.frequency)}\n"
         )
-        if order.estimated_duration_minutes:
-            message_body_admin += f"  Примерная длительность: {format_duration(order.estimated_duration_minutes)}\n"
+        
+        # Параметры помещения
+        if order.rooms_count:
+            message_body_admin += f"   Комнат: {order.rooms_count}\n"
+        if order.bathrooms_count:
+            message_body_admin += f"   Ванных комнат: {order.bathrooms_count}\n"
+        if order.sqm:
+            message_body_admin += f"   Площадь: {order.sqm} м²\n"
+        if order.window_count:
+            message_body_admin += f"   Окон: {order.window_count}\n"
+        
+        # Дополнительные опции
+        if order.is_private_house:
+            message_body_admin += f"   🏠 Частный дом: Да\n"
+        if order.bring_vacuum_cleaner:
+            message_body_admin += f"   🔌 Привезти пылесос: Да\n"
+        
+        # Дополнительные услуги
         if order.additional_services_details:
             service_names = [service['name'] for service in order.additional_services_details]
-            message_body_admin += f"  Дополнительные услуги: {', '.join(service_names)}\n"
-        message_body_admin += f"\nПожалуйста, свяжитесь с клиентом для подтверждения заказа.\n"
+            message_body_admin += f"   Доп. услуги: {', '.join(service_names)}\n"
+        
+        message_body_admin += (
+            f"\n"
+            f"💰 СТОИМОСТЬ И ОПЛАТА:\n"
+            f"   Итого: {order.total_price} zł\n"
+        )
+        if order.delivery_charge and order.delivery_charge > 0:
+            message_body_admin += f"   Доставка: {order.delivery_charge} zł\n"
+        message_body_admin += f"   Способ оплаты: {payment_labels.get(order.payment_method, order.payment_method)}\n"
+        
+        message_body_admin += (
+            f"\n"
+            f"📅 ДАТА И ВРЕМЯ:\n"
+            f"   Дата: {order.cleaning_date.strftime('%d.%m.%Y')}\n"
+            f"   Время: {order.cleaning_time.strftime('%H:%M')}\n"
+        )
+        if order.estimated_duration_minutes:
+            message_body_admin += f"   Длительность: {format_duration(order.estimated_duration_minutes)}\n"
+        
+        message_body_admin += (
+            f"\n"
+            f"📍 АДРЕС:\n"
+            f"   {full_address_admin}\n"
+        )
+        
+        if order.comments:
+            message_body_admin += (
+                f"\n"
+                f"💬 КОММЕНТАРИИ:\n"
+                f"   {order.comments}\n"
+            )
+        
+        message_body_admin += (
+            f"\n"
+            f"═══════════════════════════════════════\n"
+            f"Пожалуйста, свяжитесь с клиентом для подтверждения заказа.\n"
+        )
+        
         send_gmail_message(subject_admin, message_body_admin, [admin_email])
+        logger.info(f"Email уведомления для заказа {order.id} успешно отправлены.")
+        
     except Exception as e:
         logger.error(f"Произошла ошибка при отправке email для заказа {order.id}: {e}", exc_info=True)
-
-
 def _process_order_details_from_summary(order, summary):
     if summary.get('is_window_service'):
         order.window_count = summary.get('window_count', 0)
@@ -131,6 +213,14 @@ def order_create(request):
             order.delivery_charge = delivery_charge
             _process_order_details_from_summary(order, summary)
             order.save()
+            # Отключаем скидку нового клиента после первого заказа
+            if request.user.is_authenticated:
+                try:
+                    profile = request.user.profile
+                    if profile.is_new_client:
+                        profile.use_new_client_discount()
+                except:
+                    pass
             
             # --- ЛОГИКА SNAPSHOT ---
             details = summary.get('additional_services_details')
@@ -141,6 +231,13 @@ def order_create(request):
 
             if 'order_summary' in request.session:
                 del request.session['order_summary']
+            
+            # Telegram уведомление (после полного сохранения)
+            try:
+                from core.telegram import notify_new_order
+                notify_new_order(order)
+            except Exception:
+                pass
             
             if order.payment_method == 'cash':
                 _send_order_confirmation_email(order)
@@ -173,7 +270,13 @@ def order_create(request):
     return render(request, 'orders/create_order.html', context)
 
 def order_success(request):
-    return render(request, 'orders/order_success.html')
+    # Передаём последний заказ пользователя для трекинга конверсии
+    order = None
+    if request.user.is_authenticated:
+        order = Order.objects.filter(user=request.user).order_by('-created_at').first()
+    else:
+        order = Order.objects.order_by('-created_at').first()
+    return render(request, 'orders/order_success.html', {'order': order})
 
 def start_kitchen_order(request):
     if request.method == 'POST':
@@ -224,7 +327,7 @@ def create_checkout_session(request, order_id):
     cancel_url = request.build_absolute_uri(reverse('orders:payment_cancel'))
     try:
         session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
+            payment_method_types=['card', 'blik'],
             line_items=[{
                 'price_data': {
                     'currency': 'pln',
@@ -330,3 +433,43 @@ def initialize_order_from_list(request):
             return redirect('index')
 
     return redirect('index')
+@csrf_exempt
+def stripe_webhook(request):
+    """Обработчик webhook от Stripe для подтверждения оплаты."""
+    payload = request.body
+    sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
+    webhook_secret = settings.STRIPE_WEBHOOK_SECRET
+    
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, webhook_secret
+        )
+    except ValueError as e:
+        logger.error(f"Stripe webhook: Invalid payload - {e}")
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        logger.error(f"Stripe webhook: Invalid signature - {e}")
+        return HttpResponse(status=400)
+    
+    # Обработка успешной оплаты
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+        stripe_session_id = session.get('id')
+        
+        try:
+            order = Order.objects.get(stripe_session_id=stripe_session_id)
+            order.payment_status = 'paid'
+            order.save()
+            
+            # Отправляем email уведомления
+            _send_order_confirmation_email(order)
+            
+            logger.info(f"Stripe webhook: Заказ {order.id} успешно оплачен, email отправлен.")
+        except Order.DoesNotExist:
+            logger.error(f"Stripe webhook: Заказ с session_id {stripe_session_id} не найден.")
+            return HttpResponse(status=404)
+        except Exception as e:
+            logger.error(f"Stripe webhook: Ошибка обработки заказа - {e}", exc_info=True)
+            return HttpResponse(status=500)
+    
+    return HttpResponse(status=200)
